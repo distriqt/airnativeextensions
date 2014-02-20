@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/4.0">
+
+<!-- Adobe AIR Application Descriptor File Template.
+
+	Specifies parameters for identifying, installing, and launching AIR applications.
+
+	xmlns - The Adobe AIR namespace: http://ns.adobe.com/air/application/3.2
+			The last segment of the namespace specifies the version 
+			of the AIR runtime required for this application to run.
+			
+	minimumPatchLevel - The minimum patch level of the AIR runtime required to run 
+			the application. Optional.
+-->
+
+	<!-- A universally unique application identifier. Must be unique across all AIR applications.
+	Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
+	<id>com.distriqt.test</id>
+
+	<!-- Used as the filename for the application. Required. -->
+	<filename>TestBumpService</filename>
+
+	<!-- The name that is displayed in the AIR application installer. 
+	May have multiple values for each language. See samples or xsd schema file. Optional. -->
+	<name>TestBumpService</name>
+	
+	<!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade. 
+	Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
+	An updated version of application must have a versionNumber value higher than the previous version. Required for namespace >= 2.5 . -->
+	<versionNumber>0.0.0</versionNumber>
+		         
+	<!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
+	<!-- <versionLabel></versionLabel> -->
+
+	<!-- Description, displayed in the AIR application installer.
+	May have multiple values for each language. See samples or xsd schema file. Optional. -->
+	<!-- <description></description> -->
+
+	<!-- Copyright information. Optional -->
+	<!-- <copyright></copyright> -->
+
+	<!-- Publisher ID. Used if you're updating an application created prior to 1.5.3 -->
+	<!-- <publisherID></publisherID> -->
+
+	<!-- Settings for the application's initial window. Required. -->
+	<initialWindow>
+		<!-- The main SWF or HTML file of the application. Required. -->
+		<!-- Note: In Flash Builder, the SWF reference is set automatically. -->
+		<content>[This value will be overwritten by Flash Builder in the output app.xml]</content>
+		
+
+	<autoOrients>false</autoOrients>
+        <fullScreen>false</fullScreen>
+        <visible>true</visible>
+    </initialWindow>
+
+	<icon>
+		<image16x16>icons/icon16x16.png</image16x16>
+		<image29x29>icons/icon29x29.png</image29x29>
+		<image32x32>icons/icon32x32.png</image32x32>
+		<image36x36>icons/icon36x36.png</image36x36>
+		<image48x48>icons/icon48x48.png</image48x48>
+		<image57x57>icons/icon57x57.png</image57x57>
+		<image72x72>icons/icon72x72.png</image72x72>
+		<image114x114>icons/icon114x114.png</image114x114>
+		<image128x128>icons/icon128x128.png</image128x128>
+		<image512x512>icons/icon512x512.png</image512x512>
+	</icon>
+
+
+<android>
+	<manifestAdditions><![CDATA[
+    	<manifest android:installLocation="auto">
+    	
+			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+   			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+   			<uses-permission android:name="android.permission.INTERNET" />
+   			<uses-permission android:name="android.permission.VIBRATE" />
+   			<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+   					
+		<application>
+	   		<activity android:name="com.distriqt.extension.bumpservice.activities.BumpServiceActivity" android:theme="@android:style/Theme.NoDisplay"></activity>   
+	   		
+	   		<service android:name="com.bump.api.BumpAPI">
+	        	<intent-filter>
+	        		<action android:name="com.bump.api.IBumpAPI" />
+	        	</intent-filter>
+	       	</service>   
+   		</application>
+	</manifest>]]>
+	</manifestAdditions>
+</android>
+    <iPhone>
+        <InfoAdditions><![CDATA[
+			<key>UIDeviceFamily</key>
+			<array>
+				<string>1</string>
+				<string>2</string>
+			</array>
+		]]></InfoAdditions>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+    </iPhone>
+    
+<extensions>
+    <extensionID>com.distriqt.BumpService</extensionID>
+    <extensionID>com.distriqt.Dialog</extensionID>
+</extensions>
+
+</application>

@@ -1,0 +1,531 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="Bluetooth,com.distriqt.extension.bluetooth.Bluetooth,AUDIO_VIDEO,AUDIO_VIDEO_CAMCORDER,AUDIO_VIDEO_CAR_AUDIO,AUDIO_VIDEO_HANDSFREE,AUDIO_VIDEO_HEADPHONES,AUDIO_VIDEO_HIFI_AUDIO,AUDIO_VIDEO_LOUDSPEAKER,AUDIO_VIDEO_MICROPHONE,AUDIO_VIDEO_PORTABLE_AUDIO,AUDIO_VIDEO_SET_TOP_BOX,AUDIO_VIDEO_UNCATEGORIZED,AUDIO_VIDEO_VCR,AUDIO_VIDEO_VIDEO_CAMERA,AUDIO_VIDEO_VIDEO_CONFERENCING,AUDIO_VIDEO_VIDEO_DISPLAY_AND_LOUDSPEAKER,AUDIO_VIDEO_VIDEO_GAMING_TOY,AUDIO_VIDEO_VIDEO_MONITOR,AUDIO_VIDEO_WEARABLE_HEADSET,COMPUTER,COMPUTER_DESKTOP,COMPUTER_HANDHELD_PC_PDA,COMPUTER_LAPTOP,COMPUTER_PALM_SIZE_PC_PDA,COMPUTER_SERVER,COMPUTER_UNCATEGORIZED,COMPUTER_WEARABLE,EXT_CONTEXT_ID,HEALTH,HEALTH_BLOOD_PRESSURE,HEALTH_DATA_DISPLAY,HEALTH_GLUCOSE,HEALTH_PULSE_OXIMETER,HEALTH_PULSE_RATE,HEALTH_THERMOMETER,HEALTH_UNCATEGORIZED,HEALTH_WEIGHING,IMAGING,IMPLEMENTATION_DEFAULT,MISC,NETWORKING,PERIPHERAL,PHONE,PHONE_CELLULAR,PHONE_CORDLESS,PHONE_ISDN,PHONE_MODEM_OR_GATEWAY,PHONE_SMART,PHONE_UNCATEGORIZED,SCAN_MODE_CONNECTABLE,SCAN_MODE_CONNECTABLE_DISCOVERABLE,SCAN_MODE_NONE,STATE_NOT_AVAILABLE,STATE_OFF,STATE_ON,STATE_TURNING_OFF,STATE_TURNING_ON,STATE_UNKNOWN,TOY,TOY_CONTROLLER,TOY_DOLL_ACTION_FIGURE,TOY_GAME,TOY_ROBOT,TOY_UNCATEGORIZED,TOY_VEHICLE,UNCATEGORIZED,VERSION,VERSION_DEFAULT,WEARABLE,WEARABLE_GLASSES,WEARABLE_HELMET,WEARABLE_JACKET,WEARABLE_PAGER,WEARABLE_UNCATEGORIZED,WEARABLE_WRIST_WATCH,address,bluetoothClass,deviceClass,deviceName,isSupported,majorDeviceClass,service,state,version,cancelScan,close,closeAll,connect,disable,disconnect,enable,enableWithUI,getPairedDevices,getScanMode,getState,init,isDiscoverable,isEnabled,listen,readBytes,setDeviceDiscoverable,showSettings,startScan,writeBytes"><title>com.distriqt.extension.bluetooth.Bluetooth</title><script src="../../../../AC_OETags.js" type="text/javascript"></script></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'Bluetooth - distriqt // Bluetooth';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // Bluetooth Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/bluetooth/Bluetooth.html&amp;com/distriqt/extension/bluetooth/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">Bluetooth</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Bluetooth"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,true,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.bluetooth</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  Bluetooth</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Bluetooth  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.bluetooth.base.ExtensionBase</td></tr></table><p></p><p></p><p></p>	
+	              <p>
+	 This class represents the bluetooth extension providing access to the 
+	 bluetooth functionality on 
+	 </p>
+	 
+	              <p>
+	 Using the Bluetooth APIs, an Android application can perform the following:
+	 </p>
+	              <ul>
+	 	               <li>Scan for other Bluetooth devices</li>
+	 	               <li>Query the local Bluetooth adapter for paired Bluetooth devices</li>
+	 	               <li>Establish RFCOMM channels</li>
+	 	               <li>Connect to other devices through service discovery</li>
+	 	               <li>Transfer data to and from other devices</li>
+	 	               <li>Manage multiple connections</li>
+	              </ul>
+	 
+	 
+	              <b>Creating a connection between devices</b>
+	 
+	              <p>
+	 For a bluetooth connection there must be a 'server' or a listener and
+	 a 'client' or connector. One device must create a listening connection
+	 to accept incoming connections and another device must connect to this 
+	 device.
+	 </p>
+	 
+	              <p>
+	 Each connection has a unique uuid that you should share between your
+	 application. A listener and a client must have the same uuid in order
+	 to initiate a connection.
+	 </p>
+	 
+	              <p>
+	 The simplest way to handle this is to create a listener on both 
+	 devices and only connect from the device initiating the connection. 
+	 </p>
+	 
+	 
+	              <b>Android</b>
+	 
+	              <p>
+	 Documentation for the Android bluetooth implementation can be found here: 
+	 <a href="http://developer.android.com/guide/topics/connectivity/bluetooth.html" target="external">http://developer.android.com/guide/topics/connectivity/bluetooth.html</a>
+	              </p>
+	 
+	 
+	              <p>
+	 Application descriptor additions are required to give your application permission to 
+	 use the bluetooth functionality on the device. If you require the ability to access
+	 the enable function directly, you'll need to add the BLUETOOTH_ADMIN permission
+	 as well as the normal BLUETOOTH permission.
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     &lt;uses-permission android:name="android.permission.BLUETOOTH"/&gt;
+     &lt;uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/&gt;
+     </pre></div>
+	 	  
+	 
+	              <b>iOS</b>
+	 
+	              <p>
+	 Unsupported
+	 </p>
+	 
+	 
+	 
+	 
+	 
+	           <p></p><p><a href="#includeExamplesSummary">View the examples</a></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the current device supports the extensions functionality
+		 </div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/bluetooth/Bluetooth.html">Bluetooth</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the Bluetooth class.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 
+		 The version string of the native extension.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#Bluetooth()" class="signatureLink">Bluetooth</a>()</div><div class="summaryTableDescription">
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#cancelScan()" class="signatureLink">cancelScan</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Cancels the scan for discoverable devices
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#close()" class="signatureLink">close</a>(uuid:String, secure:Boolean = true):Boolean</div><div class="summaryTableDescription">
+		 
+		 Close a listening connection with the specified uuid.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#closeAll()" class="signatureLink">closeAll</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Close all listening connections and all device connections.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#connect()" class="signatureLink">connect</a>(device:<a href="../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a>, uuid:String, secure:Boolean = true):Boolean</div><div class="summaryTableDescription">
+		 
+		 Connect to a device.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#disable()" class="signatureLink">disable</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Disable the bluetooth adapter
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#disconnect()" class="signatureLink">disconnect</a>(device:<a href="../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a>, uuid:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Disconnect from a connection
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#enable()" class="signatureLink">enable</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Enable the bluetooth adapter.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#enableWithUI()" class="signatureLink">enableWithUI</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Displays a dialog to ask the user to enable bluetooth on 
+		 the device.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getPairedDevices()" class="signatureLink">getPairedDevices</a>():Vector.&lt;<a href="../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a>&gt;</div><div class="summaryTableDescription">
+		 
+		 Retrieves the devices that have been paired with this device.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getScanMode()" class="signatureLink">getScanMode</a>():String</div><div class="summaryTableDescription">
+		 
+		 Retrieve the current scan mode of the bluetooth adapter 
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getState()" class="signatureLink">getState</a>():String</div><div class="summaryTableDescription">
+		 
+		 Retrieve the current state of the bluetooth adapter.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isDiscoverable()" class="signatureLink">isDiscoverable</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Check if the device is discoverable.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isEnabled()" class="signatureLink">isEnabled</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Whether the bluetooth device is enabled i.e.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#listen()" class="signatureLink">listen</a>(uuid:String, secure:Boolean = true):Boolean</div><div class="summaryTableDescription">
+		 
+		 Start a listening connection to receive a connection from
+		 a client device.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#readBytes()" class="signatureLink">readBytes</a>(uuid:String):ByteArray</div><div class="summaryTableDescription">
+		 
+		 When data has been received you'll receive a CONNECTION_RECEIVED_BYTES
+		 event from the extension.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setDeviceDiscoverable()" class="signatureLink">setDeviceDiscoverable</a>(discoverable:Boolean = true, seconds:int = 60):Boolean</div><div class="summaryTableDescription">
+		 
+		 Sets the device to be discoverable to other devices for a specified
+		 amount of time.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showSettings()" class="signatureLink">showSettings</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Displays the bluetooth settings panel to the user.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#startScan()" class="signatureLink">startScan</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 This function will start the scan (discovery) process to
+		 find available devices.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#writeBytes()" class="signatureLink">writeBytes</a>(uuid:String, data:ByteArray):Boolean</div><div class="summaryTableDescription">
+		 
+		 Write data to the open connection.</div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.Bluetooth<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 1<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Bluetooth</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the current device supports the extensions functionality
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/bluetooth/Bluetooth.html">Bluetooth</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the Bluetooth class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/bluetooth/Bluetooth.html">Bluetooth</a></code><br/><br/><span class="label"> Throws </span><br/><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 <p>
+		 The version string of the native extension. This will be of the format:
+		 </p>
+		 <pre>
+		 [main version].[base version].[implementation].[native version]
+		 </pre>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="Bluetooth()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">Bluetooth</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function Bluetooth()</code><p></p><p>
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="cancelScan()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">cancelScan</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function cancelScan():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Cancels the scan for discoverable devices
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the scan process was cancelled successfully 
+		 			and false if the adapater is not available/supported
+		 
+		 </td></tr></table></div><a name="close()"></a><a name="close(String,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">close</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function close(uuid:String, secure:Boolean = true):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Close a listening connection with the specified uuid.
+		 </p>
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">uuid</span>:String</code> &mdash; 	The unique id for the connection to close
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">secure</span>:Boolean</code> (default = <code>true</code>)<code></code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; 
+		 
+		 </td></tr></table></div><a name="closeAll()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">closeAll</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function closeAll():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Close all listening connections and all device connections. This
+		 effectively stops all bluetooth communications.
+		 </p>
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true on success
+		 
+		 </td></tr></table></div><a name="connect()"></a><a name="connect(com.distriqt.extension.bluetooth.BluetoothDevice,String,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">connect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function connect(device:<a href="../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a>, uuid:String, secure:Boolean = true):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Connect to a device. You should listen for connection events to 
+		 determine the outcome of the connect call. This forms the 'client'
+		 part of the bluetooth connection.
+		 </p>
+		 		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">device</span>:<a href="../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a></code> &mdash; The device to connect to. It's important this object contains a valid address
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">uuid</span>:String</code> &mdash; 	A unique id string to associate with this connection. 
+		 					This must be the same uuid as used on the other 
+		 					device in the listen call.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">secure</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Whether a secure socket connection should be used.
+		 					You should leave this as true unless you have some
+		 					particular need for an unencrypted connection.
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the connection attempt was started successfully
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Bluetooth.html#listen()" target="">listen()</a><br/><a href="../../../../com/distriqt/extension/bluetooth/events/BluetoothConnectionEvent.html" target="">com.distriqt.extension.bluetooth.events.BluetoothConnectionEvent</a></div></div><a name="disable()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">disable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function disable():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Disable the bluetooth adapter
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true to indicate adapter shutdown has begun, or false on immediate error 
+		 </td></tr></table></div><a name="disconnect()"></a><a name="disconnect(com.distriqt.extension.bluetooth.BluetoothDevice,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">disconnect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function disconnect(device:<a href="../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a>, uuid:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Disconnect from a connection
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">device</span>:<a href="../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a></code> &mdash; The device to disconnect from
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">uuid</span>:String</code> &mdash; 	The unique id for the connection to disconnect
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the disconnect was successful
+		 
+		 </td></tr></table></div><a name="enable()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">enable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function enable():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Enable the bluetooth adapter. 
+		 </p>
+		 
+		 <p>
+		 <b>Note</b>: You must display some user interface to allow them the choice to
+		 enable bluetooth. It is against application guidelines not to give
+		 the user a choice. You can use the enableWithUI function to provide you
+		 a default UI for this.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true to indicate adapter startup has begun, or false on immediate error 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Bluetooth.html#enableWithUI()" target="">enableWithUI()</a></div></div><a name="enableWithUI()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">enableWithUI</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function enableWithUI():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Displays a dialog to ask the user to enable bluetooth on 
+		 the device. You should check the supported and enabled states
+		 of the bluetooth before calling this function to decide if the 
+		 call is neccessary.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the UI to enable bluetooth was shown and false if bluetooth is
+		 			not supported or if it is already enabled.
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Bluetooth.html#enable()" target="">enable()</a></div></div><a name="getPairedDevices()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getPairedDevices</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getPairedDevices():Vector.&lt;<a href="../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a>&gt;</code><p></p><p></p><p>
+		 <p>
+		 Retrieves the devices that have been paired with this device.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Vector.&lt;<a href="../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a>&gt;</code> &mdash; A Vector of the paired bluetooth devices
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="BluetoothDevice.html" target="">BluetoothDevice</a></div></div><a name="getScanMode()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getScanMode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getScanMode():String</code><p></p><p></p><p>
+		 <p>
+		 Retrieve the current scan mode of the bluetooth adapter 
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; The current scan mode
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="BluetoothDevice.html" target="">BluetoothDevice</a></div></div><a name="getState()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getState</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getState():String</code><p></p><p></p><p>
+		 <p>
+		 Retrieve the current state of the bluetooth adapter. See the STATE_strings
+		 in the BleutoothDevice class for the available states.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; The current state of the adapter
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="BluetoothDevice.html" target="">BluetoothDevice</a></div></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p><br/><span class="label">Throws</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="isDiscoverable()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isDiscoverable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isDiscoverable():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Check if the device is discoverable. This is very similar to 
+		 checking if the scan mode is SCAN_MODE_CONNECTABLE_DISCOVERABLE.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the device is currently discoverable
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Bluetooth.html#getScanMode()" target="">getScanMode()</a></div></div><a name="isEnabled()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isEnabled</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isEnabled():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Whether the bluetooth device is enabled i.e. turned on
+		 and ready for use.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the device is enabled and false otherwise.
+		 
+		 </td></tr></table></div><a name="listen()"></a><a name="listen(String,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">listen</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function listen(uuid:String, secure:Boolean = true):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Start a listening connection to receive a connection from
+		 a client device. This forms the 'server' component to the connect
+		 command. A 'server' uses listen while a 'client' uses connect.
+		 </p>
+		 
+		 <p>
+		 Both the client and server must use the same uuid and secure properties
+		 in setting up the connection.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">uuid</span>:String</code> &mdash; 	The unique id for this connection
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">secure</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Whether the connection should only accept to secure connections
+		 		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the listen call was successful.
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/bluetooth/events/BluetoothConnectionEvent.html" target="">com.distriqt.extension.bluetooth.events.BluetoothConnectionEvent</a></div></div><a name="readBytes()"></a><a name="readBytes(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">readBytes</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function readBytes(uuid:String):ByteArray</code><p></p><p></p><p>
+		 <p>
+		 When data has been received you'll receive a CONNECTION_RECEIVED_BYTES
+		 event from the extension. You will then be able to read bytes from 
+		 that connection using this function. The event will contain the uuid
+		 of the connection that received the data.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">uuid</span>:String</code> &mdash; The connection uuid to read from
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>ByteArray</code> &mdash; The byte array data received via the connection 
+		 			or null if there was an error such as no data being available
+		 			or an invalid uuid
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/bluetooth/events/BluetoothConnectionEvent.html#CONNECTION_RECEIVED_BYTES" target="">com.distriqt.extension.bluetooth.events.BluetoothConnectionEvent.CONNECTION_RECEIVED_BYTES</a></div></div><a name="setDeviceDiscoverable()"></a><a name="setDeviceDiscoverable(Boolean,int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setDeviceDiscoverable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setDeviceDiscoverable(discoverable:Boolean = true, seconds:int = 60):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Sets the device to be discoverable to other devices for a specified
+		 amount of time.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">discoverable</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Currently ignored (should always be true)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">seconds</span>:int</code> (default = <code>60</code>)<code></code> &mdash; 	The number of seconds to make the device discoverable
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the device discoverable request was made successfully 
+		 
+		 </td></tr></table></div><a name="showSettings()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showSettings</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showSettings():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Displays the bluetooth settings panel to the user.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if successfully initiated and false if 
+		 			bluetooth isn't supported
+		 </td></tr></table></div><a name="startScan()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">startScan</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function startScan():Boolean</code><p></p><p></p><p>
+		 <p>
+		 This function will start the scan (discovery) process to
+		 find available devices.  The process usually involves an inquiry 
+		 scan of about 12 seconds, followed by a page scan of each found 
+		 device to retrieve its Bluetooth name.
+		 </p>
+		 
+		 <b>Notes</b>
+		 <p>
+		 Performing device discovery is a heavy 
+		 procedure for the Bluetooth adapter and will consume a lot of 
+		 its resources. Once you have found a device to connect, be 
+		 certain that you always stop discovery with #cancelScan() 
+		 before attempting a connection. 
+		 </p>
+		 <p>
+		 Also, if you already hold a connection with a device, then 
+		 performing discovery can significantly reduce the bandwidth 
+		 available for the connection, so you should not perform 
+		 discovery while connected.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the scan process was started successfully 
+		 			and false if the adapater is not available/supported
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Bluetooth.html#cancelScan()" target="">cancelScan()</a></div></div><a name="writeBytes()"></a><a name="writeBytes(String,flash.utils.ByteArray)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">writeBytes</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function writeBytes(uuid:String, data:ByteArray):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Write data to the open connection.
+		 </p>
+		 
+		 <p>
+		 The data can be any valid byte array data.
+		 </p>
+		 
+		 <p>
+		 The connection must have previously been successfully connected
+		 using the listen/connect functionality.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">uuid</span>:String</code> &mdash; 	The connection uuid to write the data to
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">data</span>:ByteArray</code> &mdash; 	The byte array to send
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the data write was successful
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/bluetooth/events/BluetoothConnectionEvent.html#CONNECTION_WRITE_ERROR" target="">com.distriqt.extension.bluetooth.events.BluetoothConnectionEvent.CONNECTION_WRITE_ERROR</a></div></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.Bluetooth</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 1</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><a name="includeExamplesSummary"></a><div class="detailSectionHeader">Examples</div><div class="detailBody"><p>
+	 This simple example shows how to initialise the extension and enable the bluetooth adapater.
+	 </p>
+	 
+	 <div class="listing" version="3.0"><pre>
+     ...
+     
+     Bluetooth.init( DEV_KEY );
+     Bluetooth.service.addEventListener( BluetoothEvent.STATE_CHANGED, bluetooth_stateChangedHandler, false, 0, true );
+     
+     if (!Bluetooth.service.isEnabled())
+         Bluetooth.service.enableWithUI();
+     
+     ...
+     
+     
+     private function bluetooth_stateChangedHandler( event:BluetoothEvent ):void
+     {
+         trace( "state changed:: "+event.data );
+     }
+     </pre></div>
+	 
+	 
+	 </div><div class="detailBody"><p>
+	 Retrieve the list of paired devices
+	 </p>
+	 
+	 <div class="listing" version="3.0"><pre>
+     Bluetooth.init( DEV_KEY );
+     var pairedDevices:Vector.&lt;BluetoothDevice&gt; = Bluetooth.service.getPairedDevices();
+     if (pairedDevices.length == 0) 
+     {
+         trace( "No paired devices" );
+     }
+     else
+     {
+         for each (var device:BluetoothDevice in pairedDevices)
+         {
+             trace( "Device: " + device.deviceName + "::"+device.address );
+             if (device.bluetoothClass != null)
+                 trace( "  Class: " + device.bluetoothClass.deviceClass +"::"+device.bluetoothClass.majorDeviceClass );
+         }
+     }
+     </pre></div>
+	 
+	 
+	 </div><div class="detailBody"><p>
+	 Make the bluetooth device discoverable for 30 seconds
+	 </p>
+	 
+	 <div class="listing" version="3.0"><pre>
+     Bluetooth.init( DEV_KEY );
+     Bluetooth.service.setDeviceDiscoverable( true, 30 );
+     </pre></div>
+	 
+	 
+	 </div><div class="detailBody">
+	 <p>
+	 Scan for available bluetooth devices
+	 </p>
+	 
+	 <div class="listing" version="3.0"><pre>
+     Bluetooth.init( DEV_KEY );
+     Bluetooth.service.addEventListener( BluetoothDeviceEvent.DEVICE_FOUND, bluetooth_deviceFoundHandler, false, 0, true );
+     
+     if (Bluetooth.service.isEnabled())
+     {
+         Bluetooth.service.startScan();
+     }
+     ...
+     
+     private function bluetooth_deviceFoundHandler( event:BluetoothDeviceEvent ):void
+     {
+         trace( "device found:: '"+ event.device.deviceName + "' :: "+event.device.address );
+         if (event.device.bluetoothClass != null)
+             trace( "  Class: " + event.device.bluetoothClass.deviceClass + "::" + event.device.bluetoothClass.majorDeviceClass );
+     }
+     </pre></div>
+	 
+	 
+	 </div><div class="detailBody">
+	 <p>
+	 This example shows how to create a connection between two devices. The server or listener 
+	 makes itself discoverable and then waits for a connection. Once a connection is received
+	 the server then sends a small string to the client. The client scans for available devices 
+	 and when found, attempts to connect to the device.
+	 </p>
+	 <p>
+	 Note: This example does not show any error handling which you should use in a real 
+	 application.
+	 </p>
+	 
+	 <div class="listing" version="3.0"><pre>
+     // Server/Listener Device
+     
+     private static var UUID    : String = "00000000-DDDD-1111-0000-000000000000";
+     
+     public function setupBluetooth():void
+     {
+         Bluetooth.init( DEV_KEY );
+         Bluetooth.service.addEventListener( BluetoothConnectionEvent.CONNECTION_REMOTE, bluetooth_remoteConnectionHandler, false, 0, true );
+     
+         Bluetooth.service.setDeviceDiscoverable();
+         var listenResult:Boolean = Bluetooth.service.listen( UUID );
+     }
+     
+     private function bluetooth_remoteConnectionHandler( event:BluetoothConnectionEvent ):void
+     {
+         var data:ByteArray = new ByteArray();
+         data.writeUTF( "thanks for connecting to me" );
+         var success:Boolean = Bluetooth.service.writeBytes( event.uuid, data );
+         trace( "send to client: success="+success );
+     }
+     
+     </pre></div>
+	 
+	 <div class="listing" version="3.0"><pre>
+     // Client
+     
+     private static var UUID    : String = "00000000-DDDD-1111-0000-000000000000";
+     
+     public function connectToServer():void
+     {
+         Bluetooth.init( DEV_KEY );
+         Bluetooth.service.addEventListener( BluetoothDeviceEvent.DEVICE_FOUND, bluetooth_deviceFoundHandler, false, 0, true );
+         Bluetooth.service.addEventListener( BluetoothConnectionEvent.CONNECTION_RECEIVED_BYTES, bluetooth_receivedBytesHandler, false, 0, true );
+     
+         Bluetooth.service.startScan();
+     }
+     
+     
+     private function bluetooth_deviceFoundHandler( event:BluetoothDeviceEvent ):void
+     {
+         Bluetooth.service.connect( event.device, UUID );
+     }
+     
+     
+     private function bluetooth_receivedBytesHandler( event:BluetoothConnectionEvent ):void
+     {
+         var read:ByteArray = Bluetooth.service.readBytes( event.uuid );
+         if (read == null)
+         {
+             trace( "error reading data?" );
+         }
+         else
+         {
+             trace( "READ: " + read.readUTF() );
+         }
+     }
+     </pre></div>
+	 
+	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:45 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:45 PM +10:00  -->

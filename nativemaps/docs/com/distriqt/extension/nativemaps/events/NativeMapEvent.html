@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../../override.css" type="text/css"><meta name="keywords" content="NativeMapEvent,com.distriqt.extension.nativemaps.events.NativeMapEvent,ERROR,FAILED,MAP_CREATED,MAP_MOVE_COMPLETE,MAP_TOUCHED,MAP_TOUCHED_LONG,MAP_ZOOM_CHANGED,MARKER_DRAG_END,MARKER_DRAG_START,MARKER_INFO_WINDOW_TOUCHED,MARKER_TOUCHED,READY,USER_LOCATION_ERROR,USER_LOCATION_UPDATE,bitmapData,data,markerId,message,position,clone"><title>com.distriqt.extension.nativemaps.events.NativeMapEvent</title></head><body><script language="javascript" type="text/javascript" src="../../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'NativeMapEvent - distriqt // NativeMaps';
+				var baseRef = '../../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // NativeMaps Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../../package-summary.html" onclick="loadClassListFrame('../../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../../class-summary.html" onclick="loadClassListFrame('../../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../../all-index-A.html" onclick="loadClassListFrame('../../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../../index.html?com/distriqt/extension/nativemaps/events/NativeMapEvent.html&amp;com/distriqt/extension/nativemaps/events/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">NativeMapEvent</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("NativeMapEvent"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.nativemaps.events</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  NativeMapEvent</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">NativeMapEvent  <img src="../../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> flash.events.Event</td></tr></table><p></p><p></p><p></p>	
+	 The event dispatched by the NativeMaps Extension 
+	 
+	 <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#data" class="signatureLink">data</a> : String<div class="summaryTableDescription">
+		 
+		 This field contains any extra data attached to the map event.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#markerId" class="signatureLink">markerId</a> : int<div class="summaryTableDescription">
+		 
+		 The ID of a map marker relating to the event, if any.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#position" class="signatureLink">position</a> : <a href="../../../../../com/distriqt/extension/nativemaps/objects/LatLng.html">LatLng</a><div class="summaryTableDescription">
+		 
+		 A LatLng object relating to the position of an event, if available.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#NativeMapEvent()" class="signatureLink">NativeMapEvent</a>(type:String, data:String, position:<a href="../../../../../com/distriqt/extension/nativemaps/objects/LatLng.html">LatLng</a> = null, markerId:int = -1, bubbles:Boolean = false, cancelable:Boolean = false)</div><div class="summaryTableDescription">
+		 Constructor
+		  
+		 </div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#clone()" class="signatureLink">clone</a>():Event</div><div class="summaryTableDescription">[override] </div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_CREATED" class="signatureLink">MAP_CREATED</a> : String = nativemaps:map:created<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the map is created.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_MOVE_COMPLETE" class="signatureLink">MAP_MOVE_COMPLETE</a> : String = nativemaps:map:move:complete<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the map has completed moving or panning.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_TOUCHED" class="signatureLink">MAP_TOUCHED</a> : String = nativemaps:map:touched<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the map is pressed, but not on a marker.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_TOUCHED_LONG" class="signatureLink">MAP_TOUCHED_LONG</a> : String = nativemaps:map:touched:long<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the map is long-pressed, but not on a marker.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_ZOOM_CHANGED" class="signatureLink">MAP_ZOOM_CHANGED</a> : String = nativemaps:map:zoom:changed<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the zoom level is changed.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MARKER_DRAG_END" class="signatureLink">MARKER_DRAG_END</a> : String = nativemaps:marker:drag:end<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when a user stops dragging a map marker.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MARKER_DRAG_START" class="signatureLink">MARKER_DRAG_START</a> : String = nativemaps:marker:drag:start<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when a user begins dragging a map marker.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MARKER_INFO_WINDOW_TOUCHED" class="signatureLink">MARKER_INFO_WINDOW_TOUCHED</a> : String = nativemaps:marker:infowindow:touched<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the info window for a marker is tapped by the user.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MARKER_TOUCHED" class="signatureLink">MARKER_TOUCHED</a> : String = nativemaps:marker:touched<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when a map marker is tapped by the user.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#USER_LOCATION_ERROR" class="signatureLink">USER_LOCATION_ERROR</a> : String = nativemaps:userlocation:error<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when there was an error obtaining the user location on iOS.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#USER_LOCATION_UPDATE" class="signatureLink">USER_LOCATION_UPDATE</a> : String = nativemaps:userlocation:update<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the user's location updates when the user location is enabled on iOS.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="data"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">data</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>data:String</code><p></p><p></p><p>
+		 <p>
+		 This field contains any extra data attached to the map event. Not commonly used at present.
+		 </p>
+		 
+		 <p>
+		 In all cases currently this will be an empty string (""), except in the case of the
+		 MAP_CREATED event, where this value will be "success" or "failure".
+		 </p>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get data():String</code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function set data(value:String):void</code><br/></div><a name="propertyDetail"></a><a name="markerId"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">markerId</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>markerId:int</code><p></p><p></p><p>
+		 <p>
+		 The ID of a map marker relating to the event, if any.
+		 </p>
+		 
+		 <p>
+		 For events relating to map markers, the integer ID of the marker will be supplied in this event.
+		 </p>
+		 
+		 <p>
+		 Provided for the following event types: MARKER_TOUCHED, MARKER_DRAG_START, MARKER_DRAG_END, MARKER_INFO_WINDOW_TOUCHED
+		 </p>
+		 
+		 Will be -1 for any other event types.
+		 
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get markerId():int</code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function set markerId(value:int):void</code><br/></div><a name="propertyDetail"></a><a name="position"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">position</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>position:<a href="../../../../../com/distriqt/extension/nativemaps/objects/LatLng.html">LatLng</a></code><p></p><p></p><p>
+		 <p>
+		 A LatLng object relating to the position of an event, if available.
+		 </p> 
+		 
+		 <p>
+		 This will be supplied for any event types that refer to a specific map position.
+		 </p>
+		 
+		 <p>
+		 Provided for the following event types: MAP_MOVE_COMPLETE, MARKER_DRAG_END, MAP_TOUCHED, MAP_TOUCHED_LONG
+		 </p>
+		 
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get position():<a href="../../../../../com/distriqt/extension/nativemaps/objects/LatLng.html">LatLng</a></code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function set position(value:<a href="../../../../../com/distriqt/extension/nativemaps/objects/LatLng.html">LatLng</a>):void</code><br/><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../../com/distriqt/extension/nativemaps/objects/LatLng.html" target="">com.distriqt.extension.nativemaps.objects.LatLng</a></div></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="NativeMapEvent()"></a><a name="NativeMapEvent(String,String,com.distriqt.extension.nativemaps.objects.LatLng,int,Boolean,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">NativeMapEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function NativeMapEvent(type:String, data:String, position:<a href="../../../../../com/distriqt/extension/nativemaps/objects/LatLng.html">LatLng</a> = null, markerId:int = -1, bubbles:Boolean = false, cancelable:Boolean = false)</code><p></p><p>
+		 Constructor
+		  
+		 </p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">type</span>:String</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">data</span>:String</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">position</span>:<a href="../../../../../com/distriqt/extension/nativemaps/objects/LatLng.html">LatLng</a></code> (default = <code>null</code>)<code></code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">markerId</span>:int</code> (default = <code>-1</code>)<code></code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">bubbles</span>:Boolean</code> (default = <code>false</code>)<code></code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">cancelable</span>:Boolean</code> (default = <code>false</code>)<code></code></td></tr></table></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="clone()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">clone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code>override public function clone():Event</code><p></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Event</code></td></tr></table></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="MAP_CREATED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MAP_CREATED</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const MAP_CREATED:String = nativemaps:map:created</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the map is created.
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="MAP_MOVE_COMPLETE"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MAP_MOVE_COMPLETE</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MAP_MOVE_COMPLETE:String = nativemaps:map:move:complete</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the map has completed moving or panning.
+		 </p>
+		 
+		 <p>
+		 The #position parameter will contain the new centre LatLng location of the map.
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="MAP_TOUCHED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MAP_TOUCHED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MAP_TOUCHED:String = nativemaps:map:touched</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the map is pressed, but not on a marker. This occurs on touch UP, not DOWN.
+		 </p>
+		 
+		 <p>
+		 The #position parameter will contain the LatLng position of the location touched on the map.
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="MAP_TOUCHED_LONG"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MAP_TOUCHED_LONG</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MAP_TOUCHED_LONG:String = nativemaps:map:touched:long</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the map is long-pressed, but not on a marker. This occurs on touch UP, not DOWN.
+		 </p>
+		 
+		 <p>
+		 The #position parameter will contain the LatLng position of the location touched on the map.
+		 </p>
+		 
+		 <p><b>Available on Android only, not supported on iOS</b></p>
+		 </p></div><a name="constantDetail"></a><a name="MAP_ZOOM_CHANGED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MAP_ZOOM_CHANGED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MAP_ZOOM_CHANGED:String = nativemaps:map:zoom:changed</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the zoom level is changed.
+		 </p>
+		 
+		 <p>
+		 The zoom level value is not supplied with this event. Query NativeMaps.service.getZoom() 
+		 to obtain the current zoom level.
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="MARKER_DRAG_END"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MARKER_DRAG_END</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MARKER_DRAG_END:String = nativemaps:marker:drag:end</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when a user stops dragging a map marker.
+		 </p>
+		 
+		 <p>
+		 The #markerID parameter will be the ID of the marker being dragged.
+		 The #position parameter will contain the LatLng position the marker was dropped at.
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="MARKER_DRAG_START"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MARKER_DRAG_START</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MARKER_DRAG_START:String = nativemaps:marker:drag:start</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when a user begins dragging a map marker.
+		 </p>
+		 
+		 <p>
+		 The #markerID parameter will be the ID of the marker being dragged.
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="MARKER_INFO_WINDOW_TOUCHED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MARKER_INFO_WINDOW_TOUCHED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MARKER_INFO_WINDOW_TOUCHED:String = nativemaps:marker:infowindow:touched</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the info window for a marker is tapped by the user.
+		 </p>
+		 
+		 <p>
+		 The #markerId parameter will contain the ID of the marker associated with the info window tapped.
+		 </p>
+		 
+		 <p><b>Note: </b>In order to receive this event on iOS, ensure the 'showInfoWindowButton'
+		 property of the MapMarker is set to true.</p>
+		 </p></div><a name="constantDetail"></a><a name="MARKER_TOUCHED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MARKER_TOUCHED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MARKER_TOUCHED:String = nativemaps:marker:touched</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when a map marker is tapped by the user.
+		 </p>
+		 
+		 <p>
+		 The #markerID parameter will be the ID of the marker that was tapped.
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="USER_LOCATION_ERROR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">USER_LOCATION_ERROR</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const USER_LOCATION_ERROR:String = nativemaps:userlocation:error</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when there was an error obtaining the user location on iOS.
+		 </p>
+		 
+		 <p>
+		 The #data parameter will contain a text description of the error. 
+		 </p>
+		 
+		 <p><b>Available on iOS only, not supported on Android</b></p>
+		 </p></div><a name="constantDetail"></a><a name="USER_LOCATION_UPDATE"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">USER_LOCATION_UPDATE</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const USER_LOCATION_UPDATE:String = nativemaps:userlocation:update</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the user's location updates when the user location is enabled on iOS.
+		 </p>
+		 
+		 <p>
+		 The #location parameter will contain a LatLng object representing the user's location. 
+		 </p>
+		 
+		 <p><b>Available on iOS only, not supported on Android</b></p>
+		 </p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:52 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:52 PM +10:00  -->

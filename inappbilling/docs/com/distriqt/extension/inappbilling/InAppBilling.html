@@ -1,0 +1,643 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="InAppBilling,com.distriqt.extension.inappbilling.InAppBilling,APPLE_INAPP_PURCHASE,EXT_CONTEXT_ID,GOOGLE_PLAY_INAPP_BILLING,IMPLEMENTATION_DEFAULT,STATE_CANCELLED,STATE_FAILED,STATE_NOTALLOWED,STATE_PURCHASED,STATE_PURCHASING,STATE_REFUNDED,STATE_RESTORED,STATE_UNKNOWN,UNIMPLEMENTED,VERSION,VERSION_DEFAULT,currencySymbol,description,developerPayload,error,errorCode,id,isSupported,locale,originalMessage,originalPurchase,price,priceString,productId,quantity,service,signature,source,title,transactionDate,transactionId,transactionReceipt,transactionState,type,version,consumePurchase,dispose,getProducts,init,makePurchase,restorePurchases,setServiceType,setup"><title>com.distriqt.extension.inappbilling.InAppBilling</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'InAppBilling - distriqt // InAppBilling';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // InAppBilling Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/inappbilling/InAppBilling.html&amp;com/distriqt/extension/inappbilling/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">InAppBilling</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("InAppBilling"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.inappbilling</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  InAppBilling</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">InAppBilling  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.inappbilling.base.ExtensionBase</td></tr></table><p></p><p></p><p></p>	
+	              <p>
+	 This extension implements an in-application billing service allowing you to connect to 
+	 application store connected payment services.
+	 </p>
+	 
+	              <p>
+	 Currently supported services are:
+	 <ul>
+	                    <li>Apple iOS In App Purchase</li>
+	                    <li>Google Play In-App Billing V3</li>
+	                 </ul>
+	              </p>
+	 
+	              <p>
+                  <b>
+	 Setting the service type
+	 </b>
+               </p>
+	 
+	              <p>
+	 This functionality allows you to specify the payment service type to use. 
+	 Currently this is only Apple's In App Purchase or Google Play InApp Billing
+	 but will in the future be expanded to include other services.
+	 </p>
+	 
+	              <p>
+	 The service type defaults to an appropriate one for your current platform, as 
+	 shown below:
+	 </p>
+	              <ul>
+	                 <li>Android: Google Play InApp Billing</li>
+	                 <li>iOS: Apple InApp Purchases</li>
+	              </ul>
+	 
+	              <pre>
+	 InAppBilling.init( DEV_KEY );
+	 InAppBilling.service.setServiceType( InAppBillingServiceTypes.APPLE_INAPP_PURCHASE );
+	 </pre>
+	 
+	 
+	              <p>
+                  <b>
+	 Setup the service
+	 </b>
+               </p>
+	 
+	              <p>
+	 Once you've initialised the extension and set your service type, you must call <code>setup</code> 
+	 to setup the service. This process does different things for the various services but generally
+	 this process communicates with the billing service and confirms a secure connection. You'll need
+	 to provide the encryption key used for the service here. Some services don't need this.
+	 </p>
+	 
+	              <p>
+	 You must wait for the <code>InAppBillingEvent.SETUP_SUCCESS</code> event before proceeding.
+	 </p>
+	 
+	              <pre>
+	 InAppBilling.service.addEventListener( InAppBillingEvent.SETUP_SUCCESS, setup_successHandler, false, 0, true );
+	 InAppBilling.service.addEventListener( InAppBillingEvent.SETUP_FAILURE, setup_failureHandler, false, 0, true );
+	 InAppBilling.service.setup( YOUR_SERVICE_ENCRYPTION_KEY );
+	 </pre>
+	 
+	 
+	 
+	              <p>
+                  <b>
+	 Getting a list of products
+	 </b>
+               </p>
+	 
+	              <p>
+	 Before making any purchases or restoring any transactions you must retrieve a list 
+	 of the products you support in your application from the payment service. This will
+	 initialise the list of products available, retrieving information about the product
+	 such as: price, title, description etc.
+	 </p>
+	 
+	              <pre>
+	 InAppBilling.init( DEV_KEY );
+	 InAppBilling.service.addEventListener( InAppBillingEvent.INVALID_PRODUCT, product_invalidHandler, false, 0, true );
+	 InAppBilling.service.addEventListener( InAppBillingEvent.PRODUCTS_LOADED, products_loadedHandler, false, 0, true );
+	 InAppBilling.service.addEventListener( InAppBillingEvent.PRODUCTS_FAILED, products_failedHandler, false, 0, true );
+	 
+	 InAppBilling.service.getProducts( [ "com.distriqt.test.exampleProduct" ] );
+	 </pre>
+	 
+	              <p>
+	 If there are any invalid product codes in the specified array the <code>InAppBillingEvent.INVALID_PRODUCT</code>
+	 event will be dispatched. This error occurs when there was an invalid product ID requested. 
+	 If this error occurs you should check that you have correctly specified a product ID and 
+	 that it matches an ID that was setup in the store. In this case the errorCode variable of 
+	 event will contain the invalid product ID.
+	 </p>
+	 
+	              <pre>
+	 private function product_invalidHandler( event:InAppBillingEvent ):void
+	 {
+	     trace( "invalid product:"+event.errorCode+":"+event.message );
+	 }
+	 </pre>
+	 
+	 
+	              <p>
+	 When this operation completes successfully the <code>InAppBillingEvent.PRODUCTS_LOADED</code> event be dispatched. 
+	 The data in the event contains an array of the successfully loaded products.
+	 This is the best time to start the restore purchases process to receive any products 
+	 that this user may have purchased previously and update the application appropriately.
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     private function products_loadedHandler( event:InAppBillingEvent ):void
+     {
+         for each (var product:Product in event.data)
+         {
+             trace( "received:"+product.title+" price="+product.priceString );
+         }
+         //
+         //    Retrieve any previously purchased products
+         InAppBilling.service.restorePurchases();
+     }
+     </pre></div>
+	 
+	              <p>
+	 When this operation fails the <code>InAppBillingEvent.PRODUCTS_FAILED</code> event be dispatched. 
+	 When this happens you are advised to wait a small interval and 
+	 retry the call. You may also wish to check if the user has a valid
+	 network connection using the NetworkInfo ANE or other such method
+	 and inform the user of the problem.
+	 </p>
+	 
+	 
+	              <p>
+                  <b>
+	 Restoring purchases
+	 </b>
+               </p>
+	 
+	              <p>
+	 Restoring purchases retrieves any purchases that this user may have previously made
+	 and dispatches the appropriate purchase events for the products.
+	 In this way you can use the same handlers as for a completed transaction so you can
+	 transparently restore items / purchases to a user.
+	 </p>
+	 
+	              <p>
+                  <b>Note</b>:
+	 You must take care here not to violate the "Review Guidelines" of Apple's AppStore 
+	 which means that you shouldn't silently attempt to retore a user's purchases at 
+	 startup. Instead you must provide a "restore" button somewhere in your application
+	 that restores any previously purchased products.
+	 
+	 Also take note of the flow order for purchases, outlined in the platform specific 
+	 sections below. Basically you must not attempt to purchase or restore without the
+	 user having requested it via some user interface. 
+	 </p>
+	 
+	              <p>
+	 This process uses a dispatches a series of events based on the state of purchases 
+	 recorded previously by the user so you'll need to use the following event listeners:
+	 </p>
+	 
+	              <pre>
+	 InAppBilling.service.addEventListener( InAppBillingEvent.PURCHASE_CANCELLED,        purchase_cancelledHandler, false, 0, true );
+	 InAppBilling.service.addEventListener( InAppBillingEvent.PURCHASE_FAILED,           purchase_failedHandler, false, 0, true );
+	 InAppBilling.service.addEventListener( InAppBillingEvent.PURCHASE_SUCCESS,          purchase_successHandler, false, 0, true );
+	 
+	 InAppBilling.service.addEventListener( InAppBillingEvent.RESTORE_PURCHASES_SUCCESS, restorePurchases_successHandler, false, 0, true );
+	 InAppBilling.service.addEventListener( InAppBillingEvent.RESTORE_PURCHASES_FAILED,  restorePurchases_failedHandler, false, 0, true );		
+	 </pre>
+	 
+	              <p>
+	 Then as above, call the restorePurchases function, and process the events in your application. 
+	 The final event will be the RESTORE_PURCHASES_SUCCESS, unless an error occurred, in which case
+	 the RESTORE_PURCHASES_FAILED will be dispatched.
+	 </p>
+	 
+	              <pre>
+	 InAppBilling.service.restorePurchases();
+	 </pre>
+	 
+	              <p>
+	 See the individual event codes for more information
+	 </p>
+	 
+	              <p>
+                  <b>
+	 Making a purchase
+	 </b>
+               </p>
+	 
+	              <p>
+	 Once the products have been retrieved, a purchase can be made. You must wait until
+	 the call to get products has successully returned the product before attempting to 
+	 make a purchase of a new product.
+	 </p>
+	              <p>
+	 A purchase is made by creating a new Purchase object and passing it to the extension. 
+	 The only required information is the Product ID, which must be one of the ID's successfully
+	 retrieved through a call to <code>getProducts</code>.
+	 </p>
+	 
+	              <pre>
+	 InAppBilling.service.addEventListener( InAppBillingEvent.PURCHASE_CANCELLED,     purchase_cancelledHandler, false, 0, true );
+	 InAppBilling.service.addEventListener( InAppBillingEvent.PURCHASE_FAILED,        purchase_failedHandler, false, 0, true );
+	 InAppBilling.service.addEventListener( InAppBillingEvent.PURCHASE_SUCCESS,       purchase_successHandler, false, 0, true );
+	 		
+	 InAppBilling.service.makePurchase( new Purchase("com.distriqt.test.exampleProduct") );
+	 </pre>
+	 
+	              <p>
+	 The events fired are all described in the InAppBillingEvent, but will generally contain a
+	 Purchase object as part of the data array containing all the information about the purchase
+	 whether it be successfully completed, failed or cancelled by the user.
+	 </p>
+	 
+	              <pre>
+	 private function purchase_cancelledHandler( event:InAppBillingEvent ):void
+	 {
+	     trace( "purchase cancelled" + event.errorCode );
+	 }
+	 
+	 private function purchase_failedHandler( event:InAppBillingEvent ):void
+	 {
+	     trace( "purchase failed" + event.errorCode );
+	 }
+	 
+	 private function purchase_successHandler( event:InAppBillingEvent ):void
+	 {
+	     trace( "purchase success" );
+	     var purchase:Purchase = Purchase(event.data[0]);
+	 }
+	 </pre>
+	 
+	 
+	              <p>
+                  <b>
+	 Consuming a Purchase
+	 </b>
+               </p>
+	 
+	              <p>
+	 Once an item is purchased, it is considered to be "owned". Some application
+	 stores require you to "consume" a purchase before you can purchase the 
+	 item again. This is useful when you are providing items that may be
+	 purchased multiple times within your application, for example, 
+	 health points or coins in a game.
+	 </p>
+	 
+	              <pre>
+	 InAppBilling.service.addEventListener( InAppBillingEvent.CONSUME_SUCCESS, 	consumePurchase_successHandler, false, 0, true );
+	 InAppBilling.service.addEventListener( InAppBillingEvent.CONSUME_FAILED, 	consumePurchase_failedHandler, false, 0, true );
+	 
+	 InAppBilling.service.consumePurchase( new Purchase("com.distriqt.test.exampleProduct") );
+	 </pre>
+	 
+	              <p>
+	 After calling this you should wait for the InAppBillingEvent.CONSUME_SUCCESS
+	 event before provisioning the purchase. The InAppBillingEvent.CONSUME_SUCCESS
+	 will contain the productId so you can process the product accordingly.
+	 </p>
+	 
+	              <p>
+	 If the consume purchase fails you should not provision the purchase, but 
+	 should retry the consume at a later time. Generally this is caused by a 
+	 network connectivity problem.
+	 </p>
+	 
+	 
+	 
+	 
+	              <b>Apple InApp Purchases</b>
+	 
+	              <p>
+	 Apple provides a guide for setting up InApp Purchases. It's quite a complex process so make sure you follow the guide exactly and complete each step.
+	 Adding In-App Purchase to your iOS and Mac Applications: <a href="http://developer.apple.com/library/ios/#technotes/tn2259/_index.html" target="">http://developer.apple.com/library/ios/#technotes/tn2259/_index.html</a>
+	              </p>
+	 
+	              <p>
+	 See the FAQ's here: http://developer.apple.com/library/ios/#technotes/tn2259/_index.html#//apple_ref/doc/uid/DTS40009578-CH1-FREQUENTLY_ASKED_QUESTIONS
+	 </p>
+	 
+	              <p>Common Problems:</p>
+	              <ul>
+	                 <li>You did not complete all the financial requirements (see the "Contracts, Tax, and Banking Information" section of this document).</li>
+	                 <li>You did not use the Provisioning Profile associated with your explicit App ID.</li>
+	                 <li>You did not use the correct product identifier in your code. See Technical Q&A, QA1329, 'In App Purchase Product Identifiers' for more information about product identifiers.</li>
+	                 <li>You did not clear your In App Purchase products for sale in iTunes Connect.</li>
+	                 <li>You might have modified your products, but these changes are not yet available to all the App Store servers.</li>
+	                 <li>If you or App Review rejected your most recent binary in iTunes Connect. Change the status to "Waiting for Upload" by clicking "Ready to Upload Binary" in iTunes Connect and the problem should be resolved after about 10 minutes.</li>
+	              </ul>
+	 
+	              <p>
+	 The correct order for purchasing a product is as follows:
+	 </p>
+	              <ol>
+	                 <li>Select item to purchase</li>
+	                 <li>Purchase confirmation</li>
+	                 <li>User taps "buy"</li>
+	                 <li>iTunes Account Login Alert is displayed</li>
+	              </ol>
+	 
+	              <p>
+	                 <b>Note</b>: You should be aware that any process that 
+	 causes the iTunes login without user interaction will most 
+	 likely result in your application failing to pass the 
+	 review guidelines.
+	 </p>
+	 
+	 
+	 
+	              <b>Google Play InApp Billing</b>
+	 
+	              <p>
+	 Add Your Application to the Developer Console
+	 </p>
+	              <p>
+	 The Google Play Developer Console is where you publish your In-app 
+	 Billing application and manage the various digital goods that are 
+	 available for purchase from your application. When you create a new 
+	 application entry in the Developer Console, it automatically generates 
+	 a public license key for your application. You will need this key to 
+	 establish a trusted connection from your application to the Google Play 
+	 servers. You only need to generate this key once per application, and 
+	 don’t need to repeat these steps when you update the APK file for your
+	 application.
+	 </p>
+	              <p>
+	 To add your application to the Developer Console:
+	 </p>
+	              <ul>
+	                 <li>
+	 		Go to the Google Play Developer Console site and log in 
+	 		(http://play.google.com/apps/publish). You will need to register 
+	 		for a new developer account, if you have not registered previously. 
+	 		To sell in-app items, you also need to have a Google Checkout 
+	 		Merchant account (http://www.google.com/wallet/merchants.html).</li>
+	                 <li>
+	 		Click on Try the new design to access the preview version of the 
+	 		Developer Console, if you are not already logged on to that version.
+	 </li>
+	                 <li>
+	 		In the All Applications tab, add a new application entry.
+	 		<ul>
+	 			                   <li>Click Add new application.</li>
+	 			                   <li>Enter a name for your new In-app Billing application.</li>
+	 			                   <li>Click Prepare Store Listing.</li>
+	 		                 </ul>
+	                 </li>
+	                 <li>
+	 		In the Services & APIs tab, find and make a note of the public 
+	 		license key that Google Play generated for your application. 
+	 		This is a Base64 string that you will need to include in your 
+	 		application code later.
+	 </li>
+	              </ul>
+	              <p>
+	 Your application should now appear in the list of applications in Developer Console.
+	 </p>
+	 
+	 
+	              <p>
+	 Creating your products:
+	 </p>
+	 
+	              <ul>
+	                 <li>
+	 		Go to the <b>In-app Products</b> section of your application 
+	 		and if you haven't done so already, upload a valid version of your
+	 		application (APK) file. This can just be an early version of your 
+	 		application but must have the above permission included. 
+	 </li>
+	                 <li>
+	 		Click "+ Add new product"
+	 </li>
+	                 <li>
+	 		Enter in the product ID and select the type of product: Managed / Unmanaged / Subscription. 
+	 		Be careful here as this information cannot be changed once you move to the next stage.
+	 </li>
+	                 <li>
+	 		Enter in the requested information about the product, including title, description and price.
+	 </li>
+	                 <li>
+	 		Make sure you save and <b>Activate</b> the product
+	 </li> 
+	              </ul>
+	 
+	              <p>
+	 Testing
+	 </p>
+	 
+	              <ul> 
+	                 <li>
+	 		For more information on testing accounts see: 
+	 		<a href="http://developer.android.com/training/in-app-billing/test-iab-app.html" target="">http://developer.android.com/training/in-app-billing/test-iab-app.html</a>
+	                 </li>
+	                 <li>
+	 		For more information on testing purchases see: 
+	 		<a href="http://developer.android.com/google/play/billing/billing_testing.html" target="">http://developer.android.com/google/play/billing/billing_testing.html</a>
+	                 </li>
+	              </ul>
+	 
+	 
+	 
+	 
+	              <b>Application Descriptor</b>
+	 
+	              <p>
+	 On Android you need to add the "com.android.vending.BILLING" permission and an 
+	 activity we've create to your manifest additions:
+	 </p>
+	 
+	              <pre>
+	 &lt;uses-permission android:name="com.android.vending.BILLING" />
+	 &lt;application>
+	 	&lt;activity android:name="com.distriqt.extension.inappbilling.activities.PurchaseActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">&lt;/activity>
+	 &lt;/application>
+	 </pre>
+	 
+	 
+	 
+	              <b>Security Recommendation:</b>
+	              <p>
+	 When you send a purchase request, create a String token that uniquely 
+	 identifies this purchase request and include this token in the 
+	 <code>developerPayload</code>.You can use a randomly generated string 
+	 as the token. When you receive the purchase response from Google Play, 
+	 make sure to check the returned data signature, the orderId, and the 
+	 developerPayload String. For added security, you should perform the 
+	 checking on your own secure server. Make sure to verify that the 
+	 orderId is a unique value that you have not previously processed, and
+	 the developerPayload String matches the token that you sent previously 
+	 with the purchase request.
+	 </p>
+	 
+	 
+	 
+	              <b>Further Information</b>
+	 
+	              <p>
+	 For more information:
+	 </p>
+	 
+	              <ul>
+	                 <li>Refer to the documentation: <a href="http://extensions.distriqt.com/docs/inappbilling/docs/" target="">http://extensions.distriqt.com/docs/inappbilling/docs/</a>
+                  </li>
+	                 <li>Refer to tutorials and tips on: <a href="http://labs.distriqt.com/tag/native-extension" target="">http://labs.distriqt.com/tag/native-extension</a>
+                  </li>
+	                 <li>And lastly if you still need further help, you can contact us at support[at]distriqt.com</li>
+	              </ul>
+	 
+	 
+	           <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the current device supports the extensions functionality
+		 </div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/inappbilling/InAppBilling.html">InAppBilling</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the Extension class.</div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 The version string of the native extension
+		 </div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#InAppBilling()" class="signatureLink">InAppBilling</a>()</div><div class="summaryTableDescription">
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access 
+		 i.e.</div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#consumePurchase()" class="signatureLink">consumePurchase</a>(purchase:<a href="../../../../com/distriqt/extension/inappbilling/Purchase.html">Purchase</a>):Boolean</div><div class="summaryTableDescription">
+		 
+		 Call this function to consume a purchase, making it available for 
+		 purchase in the store again.</div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dispose()" class="signatureLink">dispose</a>():void</div><div class="summaryTableDescription">
+		 
+		 Dispose of object, releasing resources.</div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getProducts()" class="signatureLink">getProducts</a>(products:Array):Boolean</div><div class="summaryTableDescription">
+		 
+		 Retrieves a list of products from the store.</div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#makePurchase()" class="signatureLink">makePurchase</a>(purchase:<a href="../../../../com/distriqt/extension/inappbilling/Purchase.html">Purchase</a>):Boolean</div><div class="summaryTableDescription">
+		 
+		 Make a purchase of a specified product.</div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#restorePurchases()" class="signatureLink">restorePurchases</a>():void</div><div class="summaryTableDescription">
+		 
+		 This function will restore any previously made purchases by this user.</div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setServiceType()" class="signatureLink">setServiceType</a>(serviceType:String):String</div><div class="summaryTableDescription">
+		 
+		 Set the type of billing service to use.</div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setup()" class="signatureLink">setup</a>(key:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 This function sets up the connection to the application store, setting up
+		 any required security connections.</div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.InAppBilling<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 2<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">InAppBilling</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the current device supports the extensions functionality
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/inappbilling/InAppBilling.html">InAppBilling</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the Extension class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/inappbilling/InAppBilling.html">InAppBilling</a></code><br/></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 The version string of the native extension
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="InAppBilling()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">InAppBilling</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function InAppBilling()</code><p></p><p>
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access 
+		 i.e. InAppBilling.service.FUNCTION();
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="consumePurchase()"></a><a name="consumePurchase(com.distriqt.extension.inappbilling.Purchase)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">consumePurchase</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function consumePurchase(purchase:<a href="../../../../com/distriqt/extension/inappbilling/Purchase.html">Purchase</a>):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Call this function to consume a purchase, making it available for 
+		 purchase in the store again.
+		 </p>
+		 
+		 <p>
+		 This is not required for Apple's InApp Purchases however calling 
+		 this function will not affect your application, so you are suggested
+		 to use this mechanism to provide cross-platform compatibility. 
+		 Under iOS this call will immediately fire the consume success event.
+		 </p>
+		 
+		 <p>
+		 <b>Security Recommendation</b>: You must send a consumption request before
+		 provisioning the benefit of the consumable purchase to the user. 
+		 Make sure that you have received a successful consumption response 
+		 before you provision the item.
+		 </p>
+		 
+		 <b>Example</b>:
+		 <pre>
+		 	InAppBilling.service.consumePurchase( new Purchase( "com.distriqt.test.TestProduct" ) );
+		 </pre>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">purchase</span>:<a href="../../../../com/distriqt/extension/inappbilling/Purchase.html">Purchase</a></code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; 
+		 
+		 </td></tr></table></div><a name="dispose()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dispose</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function dispose():void</code><p></p><p></p><p>
+		 <p>
+		 Dispose of object, releasing resources. It's very important to call this
+		 method when you are done with this object. It will release any resources
+		 used by it such as service connections. Naturally, once the object is
+		 disposed of, it can't be used again. In order to use the object again 
+		 you must call #setup.
+		 </p>
+		 </p></div><a name="getProducts()"></a><a name="getProducts(Array)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getProducts</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getProducts(products:Array):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Retrieves a list of products from the store.
+		 </p>
+		 <p>
+		 These must be setup in the store previously through and you must have at least one product defined:
+		 <ul>
+		 <li><b>iOS</b>: http://itunesconnect.apple.com</li>
+		 <li><b>Android</b>: https://play.google.com/apps/publish/v2/</li>
+		 </ul>
+		 </p>   
+		 <p>
+		 You must call and wait for a response from this function before attempting to make a 
+		 purchase, even if you aren't going to use the product information returned.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">products</span>:Array</code> &mdash; An array of product ids (also called SKUs) to retrieve from the server
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the request was made correctly and false if there was a problem with the products array
+		 </td></tr></table></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p></div><a name="makePurchase()"></a><a name="makePurchase(com.distriqt.extension.inappbilling.Purchase)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">makePurchase</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function makePurchase(purchase:<a href="../../../../com/distriqt/extension/inappbilling/Purchase.html">Purchase</a>):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Make a purchase of a specified product. The purchase must contain a valid product id 
+		 that has been previously retrieved by use of the #getProducts function, and a valid 
+		 quantity (greater than zero).
+		 </p>
+		 
+		 <p>
+		 If this function returns false during development, it's likely due to the fact 
+		 that your application hasn't been setup correctly. 
+		 It will either be that the application descriptor hasn't been correctly setup, 
+		 or the application hasn't been correctly setup in the appropriate application 
+		 store. Double check all of the application setup and try again.
+		 </p>
+		 
+		 <p>
+		 If it returns false once deployed, it's likely that the connection to the application
+		 store has failed. You could test the devices network connection, inform the user of 
+		 the failure or just wait and try again at a later point.
+		 </p>
+		 
+		 <b>Example</b>:
+		 <pre>
+		 	InAppBilling.service.makePurchase( new Purchase( "com.distriqt.test.TestProduct", 1 ));
+		 </pre>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">purchase</span>:<a href="../../../../com/distriqt/extension/inappbilling/Purchase.html">Purchase</a></code> &mdash; The Purchase instance to make. It must have a valid product id and quantity specified.
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the purchase was started successfully and false otherwise
+		 </td></tr></table></div><a name="restorePurchases()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">restorePurchases</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function restorePurchases():void</code><p></p><p></p><p>
+		 <p>
+		 This function will restore any previously made purchases by this user. This is done
+		 by contacting the server and for each purchase made the appropriate event will 
+		 fire again, ie. for a successful purchase InAppBillingEvent.PURCHASE_SUCCESS will fire.
+		 </p>
+		 
+		 <p>
+		 Once all the purchase events have fired you will receive an 
+		 InAppBillingEvent.RESTORE_PURCHASES_SUCCESS to indicate the process
+		 has completed
+		 </p>
+		 
+		 </p></div><a name="setServiceType()"></a><a name="setServiceType(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setServiceType</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setServiceType(serviceType:String):String</code><p></p><p></p><p>
+		 <p>
+		 Set the type of billing service to use. This should be done before any other 
+		 calls to the service, calling this after you have performed any product requests
+		 or purchases will cause unexpected errors.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">serviceType</span>:String</code> &mdash; A value from the supported service types defined in InAppBillingServiceTypes
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; The updated service type
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="InAppBillingServiceTypes.html" target="">com.distriqt.extension.inappbilling.InAppBillingServiceTypes</a></div></div><a name="setup()"></a><a name="setup(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setup</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setup(key:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 This function sets up the connection to the application store, setting up
+		 any required security connections.
+		 </p>
+		 
+		 <p>
+		 You should listen and wait for the SETUP_SUCCESS and SETUP_FAILURE events 
+		 before proceeding to any further extension calls.
+		 </p>
+		 
+		 <b>iOS InApp Purchases</b>: 
+		 <p>
+		 This is not required but you are suggested to call the function to 
+		 keep code consistent across platforms.
+		 </p>
+		 
+		 <b>Google Play InApp Billing</b>:
+		 <p>
+		 The key parameter should be your Google Play License Key for the 
+		 application. See the main documentation for more information on
+		 acquiring this key from the Google Play Developer Console. Please
+		 note it's highly recommended that you attempt to obfuscate this 
+		 key in your code. See the security recommendations in the main 
+		 documentation.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">key</span>:String</code> &mdash; A key or security code required by the application store.
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the service setup has been started correctly
+		 </td></tr></table></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.InAppBilling</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 2</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:51 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:51 PM +10:00  -->

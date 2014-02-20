@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/4.0">
+	<id>com.distriqt.test.debug</id>
+	<filename>Map ANE Demo</filename>
+	<name>Map ANE Demo</name>
+	<versionNumber>0.0.1</versionNumber>
+
+	<initialWindow>
+		<content>TestNativeMaps.swf</content>
+		<autoOrients>false</autoOrients>
+        <fullScreen>false</fullScreen>
+        <visible>true</visible>
+    </initialWindow>
+
+	<icon>
+		<image16x16>icons/icon16x16.png</image16x16>
+		<image29x29>icons/icon29x29.png</image29x29>
+		<image32x32>icons/icon32x32.png</image32x32>
+		<image36x36>icons/icon36x36.png</image36x36>
+		<image48x48>icons/icon48x48.png</image48x48>
+		<image57x57>icons/icon57x57.png</image57x57>
+		<image72x72>icons/icon72x72.png</image72x72>
+		<image114x114>icons/icon114x114.png</image114x114>
+		<image128x128>icons/icon128x128.png</image128x128>
+		<image512x512>icons/icon512x512.png</image512x512>
+	</icon>
+
+	<iPhone>
+        <InfoAdditions><![CDATA[
+			<key>UIDeviceFamily</key>
+			<array>
+				<string>1</string>
+				<string>2</string>
+			</array>
+		]]></InfoAdditions>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+        <Entitlements>
+            <![CDATA[
+            ]]>
+        </Entitlements>
+    </iPhone>
+    
+	<android>
+        <manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+			
+				<uses-sdk android:minSdkVersion="12" android:targetSdkVersion="19" />
+				
+			    <uses-permission android:name="android.permission.INTERNET"/>
+			    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+   				<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+   				<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+   				<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+   				<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+   				
+   				<!-- Replace the 'com.distriqt.test' string here with your app package ID -->
+   				<!-- Make sure to include 'air.' at the beginning of the package name -->
+   				<permission android:name="air.com.distriqt.test.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+   				<uses-permission android:name="air.com.distriqt.test.permission.MAPS_RECEIVE"/>
+			    
+			    <!-- This is required -->
+			    <uses-feature
+					android:glEsVersion="0x00020000"
+					android:required="true"/>
+							
+			    <application>
+			    	<intent-filter>
+                		<action android:name="android.intent.action.MAIN" />
+                		<category android:name="android.intent.category.LAUNCHER" />
+            		</intent-filter>
+            		
+            		<!-- Do not change this -->
+			    	<activity android:name="com.distriqt.extension.nativemaps.NativeMapActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+			    	
+			    	<!-- Replace "YOUR_API_KEY" with your Android Google Maps v2 api key -->
+			    	<meta-data
+            			android:name="com.google.android.maps.v2.API_KEY"
+            			android:value="AIzaSyDFUD1sbZdps0ySGtHPzgzxLH2CCqCnl10" />
+            		<meta-data android:name="com.google.android.gms.version" android:value="4030500" />
+            			
+            		<!--<uses-library android:name="com.google.android.maps"/>-->
+			    </application>
+			    
+			</manifest>
+		]]></manifestAdditions>
+    </android>
+    
+    
+    
+
+
+
+<extensions>
+        <extensionID>com.distriqt.NativeMaps</extensionID>
+    </extensions>
+</application>

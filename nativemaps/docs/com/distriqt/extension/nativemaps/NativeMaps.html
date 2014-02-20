@@ -1,0 +1,921 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="NativeMaps,com.distriqt.extension.nativemaps.NativeMaps,EXT_CONTEXT_ID,IMPLEMENTATION_DEFAULT,VERSION,VERSION_DEFAULT,circles,customMarkerIcons,isSupported,mapOptions,markers,polygons,polylines,service,showingUserLocation,version,addCircleOverlay,addCustomMarkerIcon,addMarker,addPolygon,addPolyline,clearMap,createMap,destroyMap,dispatchCapturedBitmap,drawMapToBitmapData,getAllMarkerIDs,getBearing,getBounds,getCentre,getCircleOverlay,getCircleOverlayByName,getCircleOverlayIdByName,getCustomIconById,getGooglePlayLegalNotice,getMapOpenPlaceString,getMarker,getMarkerByName,getMarkerIdByName,getMarkerScreenPosition,getPolygon,getPolygonByName,getPolygonIdByName,getPolyline,getPolylineByName,getPolylineIdByName,getTilt,getUrlForMapOpen,getZoom,hideInfoWindow,hideMap,init,isRetinaDisplay,mapExists,openMapsApplicationWithOptions,removeCircleOverlay,removeCustomMarkerIcon,removeMarker,removePolygon,removePolyline,requestMapBitmapData,setBearing,setBounds,setCentre,setLayout,setMapOptions,setMapType,setTilt,setUserFollowMode,setZoom,showInfoWindow,showMap,showMarker,showUserLocation,stopAnimation,updateCircleOverlay,updateMarker,updatePolygon,updatePolyline,zoomIn,zoomOut"><title>com.distriqt.extension.nativemaps.NativeMaps</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'NativeMaps - distriqt // NativeMaps';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // NativeMaps Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/nativemaps/NativeMaps.html&amp;com/distriqt/extension/nativemaps/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">NativeMaps</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("NativeMaps"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.nativemaps</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  NativeMaps</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">NativeMaps  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.nativemaps.base.ExtensionBase</td></tr></table><p></p><p></p><p></p>	
+	              <p>
+	 This extension implements native map UI and functionality for iOS and Android.
+	 </p>
+	 
+	              <p>
+	 Currently supported services are:
+	 <ul>
+	                    <li>Apple iOS Maps</li>
+	                    <li>Android Maps (utilising Google Maps Android v2)</li>
+	                 </ul>
+	              </p>
+	 
+	              <p>
+                  <b>
+	 Important Information
+	 </b>
+               </p>
+	 
+	              <p>
+                  <b>Important: </b> For use on the Android platform, your application must be set up in a specific way
+	 to authenticate with the Google Maps service. This includes some custom manifest settings and application signing
+	 procedures.  
+	 
+	 Please refer to our instructions in the PDF tutorial supplied with the ANE package files for this extension, or
+	 visit the native extensions blog section of our blog here: <a href="http://labs.distriqt.com/category/blog/native-extensions" target="">http://labs.distriqt.com/category/blog/native-extensions</a> 
+	 for tips and help with ANEs.
+	 </p>
+	 
+	              <p>
+	 The minimum Android SDK version supported for Android maps is API Version 12 (Android 3.2)
+	 </p>
+	 
+	              <p>
+                  <b>Important: </b> The Android native maps implementation utilises the Google Maps API v2, which is part of
+	 Google Play Services. Using this API requires you to include a legal notice in your application, for example, under a Legal Notices
+	 section or an About section in your app.  
+	 
+	 See: <a href="#/developers.google.com/maps/documentation/android/intro#attribution_requirements" target="">Google's documentation on this</a> for reference.
+	 </p>
+	 
+	              <p>
+                  <b>
+	 Getting started</b>
+               </p>
+	 
+	              <p>
+	 Creating the map is as simple as the following code example.
+	 You specify the desired size and position of the map in the create call.
+	 </p>
+	 
+	              <pre>
+	 NativeMaps.init( DEV_KEY );
+	 NativeMaps.service.createMap( 500, 500, 0, 0 );
+	 </pre>
+	 	 
+	           <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#circles" class="signatureLink">circles</a> : Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html">CircleOverlay</a>&gt;<div class="summaryTableDescription">[read-only] 
+		 
+		 Retrieves a list of all current circle overlays.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#customMarkerIcons" class="signatureLink">customMarkerIcons</a> : Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/CustomMarkerIcon.html">CustomMarkerIcon</a>&gt;<div class="summaryTableDescription">[read-only] 
+		 
+		 Retrieves a list of all current custom marker icons.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the current device supports the extensions functionality
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#mapOptions" class="signatureLink">mapOptions</a> : <a href="../../../../com/distriqt/extension/nativemaps/objects/MapOptions.html">MapOptions</a><div class="summaryTableDescription">[read-only] </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#markers" class="signatureLink">markers</a> : Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html">MapMarker</a>&gt;<div class="summaryTableDescription">[read-only] 
+		 
+		 Retrieves a list of all current map markers.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#polygons" class="signatureLink">polygons</a> : Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/Polygon.html">Polygon</a>&gt;<div class="summaryTableDescription">[read-only] 
+		 
+		 Retrieves a list of all current polygon overlays.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#polylines" class="signatureLink">polylines</a> : Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html">Polyline</a>&gt;<div class="summaryTableDescription">[read-only] 
+		 
+		 Retrieves a list of all current polyline overlays.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/nativemaps/NativeMaps.html">NativeMaps</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the Extension class.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#showingUserLocation" class="signatureLink">showingUserLocation</a> : Boolean<div class="summaryTableDescription">[read-only] </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 The version string of the native extension
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#NativeMaps()" class="signatureLink">NativeMaps</a>()</div><div class="summaryTableDescription">
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 i.e.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#addCircleOverlay()" class="signatureLink">addCircleOverlay</a>(circle:<a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html">CircleOverlay</a>):int</div><div class="summaryTableDescription">
+		 
+		 Adds a circular overlay to the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#addCustomMarkerIcon()" class="signatureLink">addCustomMarkerIcon</a>(icon:<a href="../../../../com/distriqt/extension/nativemaps/objects/CustomMarkerIcon.html">CustomMarkerIcon</a>):void</div><div class="summaryTableDescription">
+		 
+		 Adds a reference to a custom marker icon which can be used by MapMarker objects.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#addMarker()" class="signatureLink">addMarker</a>(marker:<a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html">MapMarker</a>):int</div><div class="summaryTableDescription">
+		 
+		 Adds a marker to the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#addPolygon()" class="signatureLink">addPolygon</a>(polygon:<a href="../../../../com/distriqt/extension/nativemaps/objects/Polygon.html">Polygon</a>):int</div><div class="summaryTableDescription">
+		 
+		 Adds a polygon overlay to the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#addPolyline()" class="signatureLink">addPolyline</a>(polyline:<a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html">Polyline</a>):int</div><div class="summaryTableDescription">
+		 
+		 Adds a polyline overlay to the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#clearMap()" class="signatureLink">clearMap</a>():void</div><div class="summaryTableDescription">
+		 
+		 Removes all markers and overlays from the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#createMap()" class="signatureLink">createMap</a>(width:uint, height:uint, x:uint = 0, y:uint = 0, mapType:uint = 1):Boolean</div><div class="summaryTableDescription">
+		 
+		 Creates a native map object using the supplied parameters.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#destroyMap()" class="signatureLink">destroyMap</a>():void</div><div class="summaryTableDescription">
+		 
+		 Destroys and removes the native map object from the view 
+		    
+		 
+		 You should call this method when you change views or are finished
+		 displaying the map object.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#drawMapToBitmapData()" class="signatureLink">drawMapToBitmapData</a>():BitmapData</div><div class="summaryTableDescription">
+		 This method is deprecated.
+		 You should use the requestMapBitmapData() method and wait for the NativeMapBitmapEvent.READY event to retrieve the bitmap data.
+		  
+		 Returns a new BitmapData object of the current map view frame
+		 
+		 NOTE:  This is only available on iOS.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getAllMarkerIDs()" class="signatureLink">getAllMarkerIDs</a>():Array</div><div class="summaryTableDescription">
+		 Retrieves an array of all current marker IDs
+		  
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getBearing()" class="signatureLink">getBearing</a>():Number</div><div class="summaryTableDescription">
+		 
+		 Returns the current bearing orientation of the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getBounds()" class="signatureLink">getBounds</a>():<a href="../../../../com/distriqt/extension/nativemaps/objects/LatLngBounds.html">LatLngBounds</a></div><div class="summaryTableDescription">
+		 
+		 Returns the current visible area of the map as a LatLngBounds object
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getCentre()" class="signatureLink">getCentre</a>():<a href="../../../../com/distriqt/extension/nativemaps/objects/LatLng.html">LatLng</a></div><div class="summaryTableDescription">
+		 
+		 Returns the current centre position of the map as a LatLng object.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getCircleOverlay()" class="signatureLink">getCircleOverlay</a>(circleId:uint):<a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html">CircleOverlay</a></div><div class="summaryTableDescription">
+		 Retrieves a CircleOverlay object with the specified ID, or null if none exists.
+		 
+		 Also useful for checking if an overlay exists before performing operations.
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getCircleOverlayByName()" class="signatureLink">getCircleOverlayByName</a>(name:String):<a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html">CircleOverlay</a></div><div class="summaryTableDescription">
+		 Retrieves a CircleOverlay object with the given name, or null if no overlay exists with that name.
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getCircleOverlayIdByName()" class="signatureLink">getCircleOverlayIdByName</a>(name:String):int</div><div class="summaryTableDescription">
+		 Retrieves a circle overlay's ID number with the given name or -1 if no overlay was found
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getCustomIconById()" class="signatureLink">getCustomIconById</a>(id:String):<a href="../../../../com/distriqt/extension/nativemaps/objects/CustomMarkerIcon.html">CustomMarkerIcon</a></div><div class="summaryTableDescription">
+		 
+		 Returns a custom marker icon for the specified ID
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getGooglePlayLegalNotice()" class="signatureLink">getGooglePlayLegalNotice</a>():String</div><div class="summaryTableDescription">
+		 
+		 Returns the Google Play Services attribution text which is required to be shown on Android
+		 applications utilising the Google Maps service.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getMarker()" class="signatureLink">getMarker</a>(markerId:uint):<a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html">MapMarker</a></div><div class="summaryTableDescription">
+		 Retrieves a MapMarker object with the specified ID, or null if none exists.
+		 
+		 Also useful for checking if a marker exists before performing operations.
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getMarkerByName()" class="signatureLink">getMarkerByName</a>(name:String):<a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html">MapMarker</a></div><div class="summaryTableDescription">
+		 Retrieves a MapMarker object with the given name, or null if no marker exists with that name.
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getMarkerIdByName()" class="signatureLink">getMarkerIdByName</a>(name:String):int</div><div class="summaryTableDescription">
+		 Retrieves a marker's ID number with the given name or -1 if no marker was found
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getMarkerScreenPosition()" class="signatureLink">getMarkerScreenPosition</a>(markerId:uint):Point</div><div class="summaryTableDescription">
+		 
+		 Gets the 2D screen coordinate positions of a map marker relative to the top-left corner of the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getPolygon()" class="signatureLink">getPolygon</a>(polygonId:uint):<a href="../../../../com/distriqt/extension/nativemaps/objects/Polygon.html">Polygon</a></div><div class="summaryTableDescription">
+		 Retrieves a Polygon object with the specified ID, or null if none exists.
+		 
+		 Also useful for checking if an overlay exists before performing operations.
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getPolygonByName()" class="signatureLink">getPolygonByName</a>(name:String):<a href="../../../../com/distriqt/extension/nativemaps/objects/Polygon.html">Polygon</a></div><div class="summaryTableDescription">
+		 Retrieves a Polygon object with the given name, or null if no overlay exists with that name.
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getPolygonIdByName()" class="signatureLink">getPolygonIdByName</a>(name:String):int</div><div class="summaryTableDescription">
+		 Retrieves a polygon overlay's ID number with the given name or -1 if no overlay was found
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getPolyline()" class="signatureLink">getPolyline</a>(polylineId:uint):<a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html">Polyline</a></div><div class="summaryTableDescription">
+		 Retrieves a Polyline object with the specified ID, or null if none exists.
+		 
+		 Also useful for checking if an overlay exists before performing operations.
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getPolylineByName()" class="signatureLink">getPolylineByName</a>(name:String):<a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html">Polyline</a></div><div class="summaryTableDescription">
+		 Retrieves a Polyline object with the given name, or null if no overlay exists with that name.
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getPolylineIdByName()" class="signatureLink">getPolylineIdByName</a>(name:String):int</div><div class="summaryTableDescription">
+		 Retrieves a polyline overlay's ID number with the given name or -1 if no overlay was found
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getTilt()" class="signatureLink">getTilt</a>():Number</div><div class="summaryTableDescription">
+		 
+		 Returns the current tilt level of the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getZoom()" class="signatureLink">getZoom</a>():Number</div><div class="summaryTableDescription">
+		 
+		 Returns the current zoom level of the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#hideInfoWindow()" class="signatureLink">hideInfoWindow</a>(markerId:uint):void</div><div class="summaryTableDescription">
+		 
+		 Manually closes the info window for the specified marker
+		 
+		 
+		 
+		 NOTE: This method overrides the "infoWindowEnabled" property of a marker.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#hideMap()" class="signatureLink">hideMap</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Hides the map view, if it exists.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isRetinaDisplay()" class="signatureLink">isRetinaDisplay</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Returns true or false depending on whether the current device has a retina display
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#mapExists()" class="signatureLink">mapExists</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Returns true or false if the map has been created
+		    
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#openMapsApplicationWithOptions()" class="signatureLink">openMapsApplicationWithOptions</a>(options:<a href="../../../../com/distriqt/extension/nativemaps/objects/MapApplicationOpenOptions.html">MapApplicationOpenOptions</a>):void</div><div class="summaryTableDescription">
+		 
+		 Opens the native OS maps application, showing details about a location or directions.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#removeCircleOverlay()" class="signatureLink">removeCircleOverlay</a>(circleId:uint):void</div><div class="summaryTableDescription">
+		 
+		 Removes a circle overlay from the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#removeCustomMarkerIcon()" class="signatureLink">removeCustomMarkerIcon</a>(id:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Removes and destroys an existing custom marker icon
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#removeMarker()" class="signatureLink">removeMarker</a>(markerId:uint):void</div><div class="summaryTableDescription">
+		 
+		 Removes a marker from the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#removePolygon()" class="signatureLink">removePolygon</a>(polygonId:uint):void</div><div class="summaryTableDescription">
+		 
+		 Removes a polygon overlay from the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#removePolyline()" class="signatureLink">removePolyline</a>(polylineId:uint):void</div><div class="summaryTableDescription">
+		 
+		 Removes a polyline overlay from the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#requestMapBitmapData()" class="signatureLink">requestMapBitmapData</a>():void</div><div class="summaryTableDescription">
+		 Requests a new BitmapData object of the current map view frame
+		 
+		 After this is called, a NativeMapBitmapEvent.READY event will be fired when the bitmap data is available.
+		 
+		 If the bitmap data was not retrievable, a NativeMapBitmapEvent.FAILED event will be dispatched.
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setBearing()" class="signatureLink">setBearing</a>(bearing:Number, animated:Boolean = true, duration:uint = 1000):void</div><div class="summaryTableDescription">
+		 
+		 Sets the bearing orientation of the map with optional animation and duration.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setBounds()" class="signatureLink">setBounds</a>(bounds:<a href="../../../../com/distriqt/extension/nativemaps/objects/LatLngBounds.html">LatLngBounds</a>, padding:int = 0, animated:Boolean = true):void</div><div class="summaryTableDescription">
+		 
+		 Repositions and zooms the map to fit a specific bounding area with optional padding and animation.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setCentre()" class="signatureLink">setCentre</a>(position:<a href="../../../../com/distriqt/extension/nativemaps/objects/LatLng.html">LatLng</a>, zoom:Number = -1, animated:Boolean = true, duration:int = 2000):void</div><div class="summaryTableDescription">
+		 
+		 Moves the map to the given centre coordinate with optional zoom, animation and duration values.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setLayout()" class="signatureLink">setLayout</a>(width:uint, height:uint, x:uint = 0, y:uint = 0):void</div><div class="summaryTableDescription">
+		 
+		 Resizes and repositions the native map object in the view
+		    
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setMapOptions()" class="signatureLink">setMapOptions</a>(options:<a href="../../../../com/distriqt/extension/nativemaps/objects/MapOptions.html">MapOptions</a>):void</div><div class="summaryTableDescription">
+		 
+		 Applies all map option settings to the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setMapType()" class="signatureLink">setMapType</a>(mapType:uint):void</div><div class="summaryTableDescription">
+		 
+		 Sets the type of map to be drawn.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setTilt()" class="signatureLink">setTilt</a>(tilt:Number, animated:Boolean = true, duration:uint = 1000):void</div><div class="summaryTableDescription">
+		 
+		 Sets the tilt level of the map with optional animation and duration.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setUserFollowMode()" class="signatureLink">setUserFollowMode</a>(userTrackingMode:uint):void</div><div class="summaryTableDescription">
+		 
+		 Sets the current user tracking mode for iOS maps.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setZoom()" class="signatureLink">setZoom</a>(zoom:Number, animated:Boolean = true, duration:uint = 1000):void</div><div class="summaryTableDescription">
+		 
+		 Sets the zoom level of the map with optional animation.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showInfoWindow()" class="signatureLink">showInfoWindow</a>(markerId:uint):void</div><div class="summaryTableDescription">
+		 
+		 Manually opens the info window for the specified marker
+		 
+		 
+		 
+		 NOTE: This method overrides the "infoWindowEnabled" property of a marker.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showMap()" class="signatureLink">showMap</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Shows the map view if it is hidden.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showMarker()" class="signatureLink">showMarker</a>(markerId:uint, shown:Boolean = true):void</div><div class="summaryTableDescription">
+		 
+		 Hides or shows a marker on the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showUserLocation()" class="signatureLink">showUserLocation</a>(show:Boolean = true):void</div><div class="summaryTableDescription">
+		 
+		 Enables and shows the user's location marker and any associated UI controls on the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#stopAnimation()" class="signatureLink">stopAnimation</a>():void</div><div class="summaryTableDescription">
+		 
+		 Stops any movement or panning animation of the map.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#updateCircleOverlay()" class="signatureLink">updateCircleOverlay</a>(circleId:uint):void</div><div class="summaryTableDescription">
+		 
+		 Updates and redraws a Circle overlay with any new data.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#updateMarker()" class="signatureLink">updateMarker</a>(idNameOrMarker:*):void</div><div class="summaryTableDescription">
+		 
+		 Updates the properties of an existing map marker.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#updatePolygon()" class="signatureLink">updatePolygon</a>(polygonId:uint):void</div><div class="summaryTableDescription">
+		 
+		 Updates and redraws a Polygon with any new data.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#updatePolyline()" class="signatureLink">updatePolyline</a>(polylineId:uint):void</div><div class="summaryTableDescription">
+		 
+		 Updates and redraws a Polyline with any new data.</div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#zoomIn()" class="signatureLink">zoomIn</a>():void</div><div class="summaryTableDescription">
+		 
+		 Zooms the map in by one level
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#zoomOut()" class="signatureLink">zoomOut</a>():void</div><div class="summaryTableDescription">
+		 
+		 Zooms the map out by one level
+		 
+		 </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr></table></div><a name="protectedMethodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Protected Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProtectedMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dispatchCapturedBitmap()" class="signatureLink">dispatchCapturedBitmap</a>():void</div><div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getMapOpenPlaceString()" class="signatureLink">getMapOpenPlaceString</a>(place:*):String</div><div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getUrlForMapOpen()" class="signatureLink">getUrlForMapOpen</a>(options:<a href="../../../../com/distriqt/extension/nativemaps/objects/MapApplicationOpenOptions.html">MapApplicationOpenOptions</a>):String</div><div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.NativeMaps<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 2.0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">NativeMaps</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="circles"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">circles</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>circles:Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html">CircleOverlay</a>&gt;</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 <p>
+		 Retrieves a list of all current circle overlays.
+		 </p>
+		 
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get circles():Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html">CircleOverlay</a>&gt;</code><br/><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html" target="">com.distriqt.extension.nativemaps.objects.CircleOverlay</a></div></div><a name="propertyDetail"></a><a name="customMarkerIcons"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">customMarkerIcons</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>customMarkerIcons:Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/CustomMarkerIcon.html">CustomMarkerIcon</a>&gt;</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 <p>
+		 Retrieves a list of all current custom marker icons.
+		 </p>
+		 
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get customMarkerIcons():Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/CustomMarkerIcon.html">CustomMarkerIcon</a>&gt;</code><br/><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/CustomMarkerIcon.html" target="">com.distriqt.extension.nativemaps.objects.CustomMarkerIcon</a></div></div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the current device supports the extensions functionality
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="mapOptions"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">mapOptions</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>mapOptions:<a href="../../../../com/distriqt/extension/nativemaps/objects/MapOptions.html">MapOptions</a></code>&nbsp;&nbsp;[read-only] <p></p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get mapOptions():<a href="../../../../com/distriqt/extension/nativemaps/objects/MapOptions.html">MapOptions</a></code><br/></div><a name="propertyDetail"></a><a name="markers"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">markers</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>markers:Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html">MapMarker</a>&gt;</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 <p>
+		 Retrieves a list of all current map markers.
+		 </p>
+		 
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get markers():Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html">MapMarker</a>&gt;</code><br/><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html" target="">com.distriqt.extension.nativemaps.objects.MapMarker</a></div></div><a name="propertyDetail"></a><a name="polygons"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">polygons</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>polygons:Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/Polygon.html">Polygon</a>&gt;</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 <p>
+		 Retrieves a list of all current polygon overlays.
+		 </p>
+		 
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get polygons():Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/Polygon.html">Polygon</a>&gt;</code><br/><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/Polygon.html" target="">com.distriqt.extension.nativemaps.objects.Polygon</a></div></div><a name="propertyDetail"></a><a name="polylines"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">polylines</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>polylines:Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html">Polyline</a>&gt;</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 <p>
+		 Retrieves a list of all current polyline overlays.
+		 </p>
+		 
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get polylines():Vector.&lt;<a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html">Polyline</a>&gt;</code><br/><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html" target="">com.distriqt.extension.nativemaps.objects.Polyline</a></div></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/nativemaps/NativeMaps.html">NativeMaps</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the Extension class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/nativemaps/NativeMaps.html">NativeMaps</a></code><br/></div><a name="propertyDetail"></a><a name="showingUserLocation"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showingUserLocation</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>showingUserLocation:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get showingUserLocation():Boolean</code><br/></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 The version string of the native extension
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="NativeMaps()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">NativeMaps</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function NativeMaps()</code><p></p><p>
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 i.e. NativeMaps.service.FUNCTION()
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="addCircleOverlay()"></a><a name="addCircleOverlay(com.distriqt.extension.nativemaps.objects.CircleOverlay)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">addCircleOverlay</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function addCircleOverlay(circle:<a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html">CircleOverlay</a>):int</code><p></p><p></p><p>
+		 <p>
+		 Adds a circular overlay to the map.
+		 </p>
+		 
+		 <p>
+		 Create an instance of the CircleOverlay class and pass it to this method.
+		 </p>
+		 
+		 <p>
+		 This method returns the ID (an int) of the newly created overlay. Overlay IDs are
+		 managed internally, so you may keep a record of this ID number to refer back to
+		 the polyline later.
+		 </p>
+		 
+		 <p>
+		 The CircleOverlay class also contains a "name" string property, which is not used internally
+		 but may be useful if you wish to add a descriptive name to overlay objects. CircleOverlays can 
+		 be accessed later using this name property if desired. Names should be unique if used.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">circle</span>:<a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html">CircleOverlay</a></code> &mdash; CircleOverlay The circle overlay to be added
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>int</code> &mdash; int The ID of the newly created circle overlay
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html" target="">com.distriqt.extension.nativemaps.objects.CircleOverlay</a></div></div><a name="addCustomMarkerIcon()"></a><a name="addCustomMarkerIcon(com.distriqt.extension.nativemaps.objects.CustomMarkerIcon)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">addCustomMarkerIcon</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function addCustomMarkerIcon(icon:<a href="../../../../com/distriqt/extension/nativemaps/objects/CustomMarkerIcon.html">CustomMarkerIcon</a>):void</code><p></p><p></p><p>
+		 <p>
+		 Adds a reference to a custom marker icon which can be used by MapMarker objects.
+		 </p>
+		 
+		 <p>
+		 Create an instance of the CustomMarkerIcon class before passing it to this method.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">icon</span>:<a href="../../../../com/distriqt/extension/nativemaps/objects/CustomMarkerIcon.html">CustomMarkerIcon</a></code> &mdash; CustomMarkerIcon The custom icon to be added
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/CustomMarkerIcon.html" target="">com.distriqt.extension.nativemaps.objects.CustomMarkerIcon</a></div></div><a name="addMarker()"></a><a name="addMarker(com.distriqt.extension.nativemaps.objects.MapMarker)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">addMarker</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function addMarker(marker:<a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html">MapMarker</a>):int</code><p></p><p></p><p>
+		 <p>
+		 Adds a marker to the map.
+		 </p>
+		 
+		 <p>
+		 Create an instance of the MapMarker class and set its options before passing it
+		 to this method.
+		 </p>
+		 
+		 <p>
+		 This method returns the ID (an int) of the newly created marker. Marker IDs are
+		 managed internally, so you may keep a record of this ID number to refer back to
+		 the marker later.
+		 </p>
+		 
+		 <p>
+		 The MapMarker class also contains a "name" string property, which is not used internally
+		 but may be useful if you wish to add a descriptive name to marker objects. Markers can 
+		 be accessed later using this name property if desired. Names should be unique if used.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">marker</span>:<a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html">MapMarker</a></code> &mdash; MapMarker The marker to be added
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>int</code> &mdash; int The ID of the newly created marker
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html" target="">com.distriqt.extension.nativemaps.objects.MapMarker</a></div></div><a name="addPolygon()"></a><a name="addPolygon(com.distriqt.extension.nativemaps.objects.Polygon)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">addPolygon</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function addPolygon(polygon:<a href="../../../../com/distriqt/extension/nativemaps/objects/Polygon.html">Polygon</a>):int</code><p></p><p></p><p>
+		 <p>
+		 Adds a polygon overlay to the map.
+		 </p>
+		 
+		 <p>
+		 Create an instance of the Polygon class and pass it to this method.
+		 </p>
+		 
+		 <p>
+		 This method returns the ID (an int) of the newly created overlay. Overlay IDs are
+		 managed internally, so you may keep a record of this ID number to refer back to
+		 the polyline later.
+		 </p>
+		 
+		 <p>
+		 The Polygon class also contains a "name" string property, which is not used internally
+		 but may be useful if you wish to add a descriptive name to overlay objects. Polygons can 
+		 be accessed later using this name property if desired. Names should be unique if used.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">polygon</span>:<a href="../../../../com/distriqt/extension/nativemaps/objects/Polygon.html">Polygon</a></code> &mdash; Polygon The polygon overlay to be added
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>int</code> &mdash; int The ID of the newly created polygon overlay
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html" target="">com.distriqt.extension.nativemaps.objects.Polyline</a></div></div><a name="addPolyline()"></a><a name="addPolyline(com.distriqt.extension.nativemaps.objects.Polyline)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">addPolyline</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function addPolyline(polyline:<a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html">Polyline</a>):int</code><p></p><p></p><p>
+		 <p>
+		 Adds a polyline overlay to the map.
+		 </p>
+		 
+		 <p>
+		 Create an instance of the Polyline class and pass it to this method.
+		 </p>
+		 
+		 <p>
+		 This method returns the ID (an int) of the newly created overlay. Overlay IDs are
+		 managed internally, so you may keep a record of this ID number to refer back to
+		 the polyline later.
+		 </p>
+		 
+		 <p>
+		 The Polyline class also contains a "name" string property, which is not used internally
+		 but may be useful if you wish to add a descriptive name to overlay objects. Polylines can 
+		 be accessed later using this name property if desired. Names should be unique if used.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">polyline</span>:<a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html">Polyline</a></code> &mdash; Polyline The polyline overlay to be added
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>int</code> &mdash; int The ID of the newly created polyline overlay
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html" target="">com.distriqt.extension.nativemaps.objects.Polyline</a></div></div><a name="clearMap()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">clearMap</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function clearMap():void</code><p></p><p></p><p>
+		 <p>
+		 Removes all markers and overlays from the map.
+		 </p>
+		 
+		 </p></div><a name="createMap()"></a><a name="createMap(uint,uint,uint,uint,uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">createMap</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function createMap(width:uint, height:uint, x:uint = 0, y:uint = 0, mapType:uint = 1):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Creates a native map object using the supplied parameters.
+		 </p>   
+		 <p>
+		 If not set, the mapType parameter will default to the regular NORMAL map type.
+		 See the MapType helper class for available map types. 
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">width</span>:uint</code> &mdash; The width in pixels of the map frame
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">height</span>:uint</code> &mdash; The height in pixels of the map frame
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">x</span>:uint</code> (default = <code>0</code>)<code></code> &mdash; The X position of the map on the stage
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">y</span>:uint</code> (default = <code>0</code>)<code></code> &mdash; The Y position of the map on the stage
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">mapType</span>:uint</code> (default = <code>1</code>)<code></code> &mdash; The map type to show initially (see MapType class)
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the map was created.
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/MapType.html" target="">com.distriqt.extension.nativemaps.objects.MapType</a></div></div><a name="destroyMap()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">destroyMap</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function destroyMap():void</code><p></p><p></p><p>
+		 <p>
+		 Destroys and removes the native map object from the view 
+		 </p>   
+		 <p>
+		 You should call this method when you change views or are finished
+		 displaying the map object.
+		 </p>
+		 </p></div><a name="dispatchCapturedBitmap()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dispatchCapturedBitmap</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> protected function dispatchCapturedBitmap():void</code><p></p></div><a name="drawMapToBitmapData()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">drawMapToBitmapData</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function drawMapToBitmapData():BitmapData</code><p></p><p></p><p>
+		 <b>This method is deprecated.</b>
+		 <p>You should use the requestMapBitmapData() method and wait for the NativeMapBitmapEvent.READY event to retrieve the bitmap data.</p>
+		  
+		 <p>Returns a new BitmapData object of the current map view frame</p>
+		 
+		 <p><b>NOTE: </b> This is only available on iOS. Not supported on Android.</p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>BitmapData</code> &mdash; BitmapData A new bitmap data object containing data from the map view
+		 </td></tr></table></div><a name="getAllMarkerIDs()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getAllMarkerIDs</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getAllMarkerIDs():Array</code><p></p><p></p><p>
+		 <p>Retrieves an array of all current marker IDs</p>
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Array</code> &mdash; Array An array of integers representing all current valid marker IDs
+		 </td></tr></table></div><a name="getBearing()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getBearing</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getBearing():Number</code><p></p><p></p><p>
+		 <p>
+		 Returns the current bearing orientation of the map.
+		 </p>
+		 
+		 <p><b>Supported platforms: </b>Android</p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Number</code> &mdash; Number The current bearing orientation
+		 </td></tr></table></div><a name="getBounds()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getBounds</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getBounds():<a href="../../../../com/distriqt/extension/nativemaps/objects/LatLngBounds.html">LatLngBounds</a></code><p></p><p></p><p>
+		 <p>
+		 Returns the current visible area of the map as a LatLngBounds object
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../../com/distriqt/extension/nativemaps/objects/LatLngBounds.html">LatLngBounds</a></code> &mdash; LatLngBounds The current bounds object of the map view or null if not available
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/LatLngBounds.html" target="">com.distriqt.extension.nativemaps.objects.LatLngBounds</a></div></div><a name="getCentre()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getCentre</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getCentre():<a href="../../../../com/distriqt/extension/nativemaps/objects/LatLng.html">LatLng</a></code><p></p><p></p><p>
+		 <p>
+		 Returns the current centre position of the map as a LatLng object.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../../com/distriqt/extension/nativemaps/objects/LatLng.html">LatLng</a></code> &mdash; LatLng The current centre position of the map
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/LatLng.html" target="">com.distriqt.extension.nativemaps.objects.LatLng</a></div></div><a name="getCircleOverlay()"></a><a name="getCircleOverlay(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getCircleOverlay</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getCircleOverlay(circleId:uint):<a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html">CircleOverlay</a></code><p></p><p></p><p>
+		 <p>Retrieves a CircleOverlay object with the specified ID, or null if none exists.</p>
+		 
+		 <p>Also useful for checking if an overlay exists before performing operations.</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">circleId</span>:uint</code> &mdash; 	 int - The circle ID to get
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html">CircleOverlay</a></code> &mdash; CircleOverlay The circle overlay if found, or null
+		 </td></tr></table></div><a name="getCircleOverlayByName()"></a><a name="getCircleOverlayByName(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getCircleOverlayByName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getCircleOverlayByName(name:String):<a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html">CircleOverlay</a></code><p></p><p></p><p>
+		 <p>Retrieves a CircleOverlay object with the given name, or null if no overlay exists with that name.</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash; 	 String - The name of the circle to retrieve
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../../com/distriqt/extension/nativemaps/objects/CircleOverlay.html">CircleOverlay</a></code> &mdash; CircleOverlay The circle overlay, if found, or null
+		 </td></tr></table></div><a name="getCircleOverlayIdByName()"></a><a name="getCircleOverlayIdByName(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getCircleOverlayIdByName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getCircleOverlayIdByName(name:String):int</code><p></p><p></p><p>
+		 <p>Retrieves a circle overlay's ID number with the given name or -1 if no overlay was found</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash; 	 String - The name of the circle overlay to retrieve
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>int</code> &mdash; int The circle's ID or -1 if none was found
+		 </td></tr></table></div><a name="getCustomIconById()"></a><a name="getCustomIconById(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getCustomIconById</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getCustomIconById(id:String):<a href="../../../../com/distriqt/extension/nativemaps/objects/CustomMarkerIcon.html">CustomMarkerIcon</a></code><p></p><p></p><p>
+		 <p>
+		 Returns a custom marker icon for the specified ID
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; String The ID of the custom icon to retrieve
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../../com/distriqt/extension/nativemaps/objects/CustomMarkerIcon.html">CustomMarkerIcon</a></code> &mdash; CustomMarkerIcon The custom icon object if found, otherwise null 
+		 </td></tr></table></div><a name="getGooglePlayLegalNotice()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getGooglePlayLegalNotice</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getGooglePlayLegalNotice():String</code><p></p><p></p><p>
+		 <p>
+		 Returns the Google Play Services attribution text which is required to be shown on Android
+		 applications utilising the Google Maps service.
+		 </p>
+		 
+		 <p>Availble and required only on Android</p>
+		  
+		 <p>See: https://developers.google.com/maps/documentation/android/intro#attribution_requirements</p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; The Google Play legal notice which must be displayed in Android apps
+		 </td></tr></table></div><a name="getMapOpenPlaceString()"></a><a name="getMapOpenPlaceString(any)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getMapOpenPlaceString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> protected function getMapOpenPlaceString(place:*):String</code><p></p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">place</span>:*</code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code></td></tr></table></div><a name="getMarker()"></a><a name="getMarker(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getMarker</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getMarker(markerId:uint):<a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html">MapMarker</a></code><p></p><p></p><p>
+		 <p>Retrieves a MapMarker object with the specified ID, or null if none exists.</p>
+		 
+		 <p>Also useful for checking if a marker exists before performing operations.</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">markerId</span>:uint</code> &mdash; 	 int - The marker ID to get
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html">MapMarker</a></code> &mdash; MapMarker The map marker if found, or null
+		 </td></tr></table></div><a name="getMarkerByName()"></a><a name="getMarkerByName(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getMarkerByName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getMarkerByName(name:String):<a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html">MapMarker</a></code><p></p><p></p><p>
+		 <p>Retrieves a MapMarker object with the given name, or null if no marker exists with that name.</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash; 	 String - The name of the marker to retrieve
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html">MapMarker</a></code> &mdash; MapMarker The map marker if found, or null
+		 </td></tr></table></div><a name="getMarkerIdByName()"></a><a name="getMarkerIdByName(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getMarkerIdByName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getMarkerIdByName(name:String):int</code><p></p><p></p><p>
+		 <p>Retrieves a marker's ID number with the given name or -1 if no marker was found</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash; 	 String - The name of the marker to retrieve
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>int</code> &mdash; int The marker's ID or -1 if no marker was found
+		 </td></tr></table></div><a name="getMarkerScreenPosition()"></a><a name="getMarkerScreenPosition(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getMarkerScreenPosition</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getMarkerScreenPosition(markerId:uint):Point</code><p></p><p></p><p>
+		 <p>
+		 Gets the 2D screen coordinate positions of a map marker relative to the top-left corner of the map.
+		 </p>
+		  
+		 <p>
+		 Note that the position is relative to the top left corner of the actual internal map view. If you are 
+		 positioning the map view at a position other than 0, 0 (top-left of the stage), you must account for
+		 this offset yourself.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">markerId</span>:uint</code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Point</code> &mdash; Point A point object specifying the X and Y position, or 0, 0 if not available
+		 </td></tr></table></div><a name="getPolygon()"></a><a name="getPolygon(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getPolygon</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getPolygon(polygonId:uint):<a href="../../../../com/distriqt/extension/nativemaps/objects/Polygon.html">Polygon</a></code><p></p><p></p><p>
+		 <p>Retrieves a Polygon object with the specified ID, or null if none exists.</p>
+		 
+		 <p>Also useful for checking if an overlay exists before performing operations.</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">polygonId</span>:uint</code> &mdash; 	 int - The polygon ID to get
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../../com/distriqt/extension/nativemaps/objects/Polygon.html">Polygon</a></code> &mdash; Polygon The polygon overlay if found, or null
+		 </td></tr></table></div><a name="getPolygonByName()"></a><a name="getPolygonByName(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getPolygonByName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getPolygonByName(name:String):<a href="../../../../com/distriqt/extension/nativemaps/objects/Polygon.html">Polygon</a></code><p></p><p></p><p>
+		 <p>Retrieves a Polygon object with the given name, or null if no overlay exists with that name.</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash; 	 String - The name of the polygon to retrieve
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../../com/distriqt/extension/nativemaps/objects/Polygon.html">Polygon</a></code> &mdash; Polygon The polygon overlay, if found, or null
+		 </td></tr></table></div><a name="getPolygonIdByName()"></a><a name="getPolygonIdByName(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getPolygonIdByName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getPolygonIdByName(name:String):int</code><p></p><p></p><p>
+		 <p>Retrieves a polygon overlay's ID number with the given name or -1 if no overlay was found</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash; 	 String - The name of the polygon to retrieve
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>int</code> &mdash; int The polygon's ID or -1 if none was found
+		 </td></tr></table></div><a name="getPolyline()"></a><a name="getPolyline(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getPolyline</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getPolyline(polylineId:uint):<a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html">Polyline</a></code><p></p><p></p><p>
+		 <p>Retrieves a Polyline object with the specified ID, or null if none exists.</p>
+		 
+		 <p>Also useful for checking if an overlay exists before performing operations.</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">polylineId</span>:uint</code> &mdash; 	 int - The polyline ID to get
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html">Polyline</a></code> &mdash; Polyline The polyline overlay if found, or null
+		 </td></tr></table></div><a name="getPolylineByName()"></a><a name="getPolylineByName(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getPolylineByName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getPolylineByName(name:String):<a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html">Polyline</a></code><p></p><p></p><p>
+		 <p>Retrieves a Polyline object with the given name, or null if no overlay exists with that name.</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash; 	 String - The name of the polyline to retrieve
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../../com/distriqt/extension/nativemaps/objects/Polyline.html">Polyline</a></code> &mdash; Polyline The polyline overlay, if found, or null
+		 </td></tr></table></div><a name="getPolylineIdByName()"></a><a name="getPolylineIdByName(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getPolylineIdByName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getPolylineIdByName(name:String):int</code><p></p><p></p><p>
+		 <p>Retrieves a polyline overlay's ID number with the given name or -1 if no overlay was found</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash; 	 String - The name of the polyline to retrieve
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>int</code> &mdash; int The polylines's ID or -1 if none was found
+		 </td></tr></table></div><a name="getTilt()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getTilt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getTilt():Number</code><p></p><p></p><p>
+		 <p>
+		 Returns the current tilt level of the map.
+		 </p>
+		 
+		 <p><b>Supported platforms: </b>Android</p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Number</code> &mdash; Number The current tilt level
+		 </td></tr></table></div><a name="getUrlForMapOpen()"></a><a name="getUrlForMapOpen(com.distriqt.extension.nativemaps.objects.MapApplicationOpenOptions)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getUrlForMapOpen</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> protected function getUrlForMapOpen(options:<a href="../../../../com/distriqt/extension/nativemaps/objects/MapApplicationOpenOptions.html">MapApplicationOpenOptions</a>):String</code><p></p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">options</span>:<a href="../../../../com/distriqt/extension/nativemaps/objects/MapApplicationOpenOptions.html">MapApplicationOpenOptions</a></code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code></td></tr></table></div><a name="getZoom()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getZoom</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getZoom():Number</code><p></p><p></p><p>
+		 <p>
+		 Returns the current zoom level of the map.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Number</code> &mdash; Number The current zoom level
+		 </td></tr></table></div><a name="hideInfoWindow()"></a><a name="hideInfoWindow(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">hideInfoWindow</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function hideInfoWindow(markerId:uint):void</code><p></p><p></p><p>
+		 <p>
+		 Manually closes the info window for the specified marker
+		 </p>
+		 
+		 <p>
+		 <b>NOTE:</b> This method overrides the "infoWindowEnabled" property of a marker.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">markerId</span>:uint</code> &mdash; ID number of the marker to close the info window for 
+		 
+		 </td></tr></table></p></div><a name="hideMap()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">hideMap</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function hideMap():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Hides the map view, if it exists.
+		 </p>
+		 
+		 <p>This does not destroy or remove the map from memory, it simply hides the view.
+		 To remove the map completely, call destroyMap().
+		 </p>
+		 
+		 <p><b>Supported only on iOS</b></p>
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p></div><a name="isRetinaDisplay()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isRetinaDisplay</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isRetinaDisplay():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Returns true or false depending on whether the current device has a retina display
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; Boolean
+		 </td></tr></table></div><a name="mapExists()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">mapExists</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function mapExists():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Returns true or false if the map has been created
+		 </p>   
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; Boolean True or false depending on whether the map exists and has been created
+		 </td></tr></table></div><a name="openMapsApplicationWithOptions()"></a><a name="openMapsApplicationWithOptions(com.distriqt.extension.nativemaps.objects.MapApplicationOpenOptions)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">openMapsApplicationWithOptions</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function openMapsApplicationWithOptions(options:<a href="../../../../com/distriqt/extension/nativemaps/objects/MapApplicationOpenOptions.html">MapApplicationOpenOptions</a>):void</code><p></p><p></p><p>
+		 <p>
+		 Opens the native OS maps application, showing details about a location or directions.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">options</span>:<a href="../../../../com/distriqt/extension/nativemaps/objects/MapApplicationOpenOptions.html">MapApplicationOpenOptions</a></code> &mdash; The specified options to pass to the Map application 
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/MapApplicationOpenOptions.html" target="">com.distriqt.extension.nativemaps.objects.MapApplicationOpenOptions</a></div></div><a name="removeCircleOverlay()"></a><a name="removeCircleOverlay(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">removeCircleOverlay</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function removeCircleOverlay(circleId:uint):void</code><p></p><p></p><p>
+		 <p>
+		 Removes a circle overlay from the map.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">circleId</span>:uint</code> &mdash; ID number of the circle overlay to be removed.
+		 
+		 </td></tr></table></p></div><a name="removeCustomMarkerIcon()"></a><a name="removeCustomMarkerIcon(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">removeCustomMarkerIcon</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function removeCustomMarkerIcon(id:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Removes and destroys an existing custom marker icon
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; String The ID of the custom icon to remove
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; Boolean True if the custom icon was found and removed, otherwise false 
+		 </td></tr></table></div><a name="removeMarker()"></a><a name="removeMarker(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">removeMarker</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function removeMarker(markerId:uint):void</code><p></p><p></p><p>
+		 <p>
+		 Removes a marker from the map.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">markerId</span>:uint</code> &mdash; ID number of the map marker to be removed.
+		 
+		 </td></tr></table></p></div><a name="removePolygon()"></a><a name="removePolygon(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">removePolygon</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function removePolygon(polygonId:uint):void</code><p></p><p></p><p>
+		 <p>
+		 Removes a polygon overlay from the map.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">polygonId</span>:uint</code> &mdash; ID number of the polygon overlay to be removed.
+		 
+		 </td></tr></table></p></div><a name="removePolyline()"></a><a name="removePolyline(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">removePolyline</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function removePolyline(polylineId:uint):void</code><p></p><p></p><p>
+		 <p>
+		 Removes a polyline overlay from the map.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">polylineId</span>:uint</code> &mdash; ID number of the polyline to be removed.
+		 
+		 </td></tr></table></p></div><a name="requestMapBitmapData()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">requestMapBitmapData</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function requestMapBitmapData():void</code><p></p><p></p><p>
+		 <p>Requests a new BitmapData object of the current map view frame</p>
+		 
+		 <p>After this is called, a NativeMapBitmapEvent.READY event will be fired when the bitmap data is available.</p>
+		 
+		 <p>If the bitmap data was not retrievable, a NativeMapBitmapEvent.FAILED event will be dispatched.</p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/events/NativeMapBitmapEvent.html" target="">com.distriqt.extension.nativemaps.events.NativeMapBitmapEvent</a></div></div><a name="setBearing()"></a><a name="setBearing(Number,Boolean,uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setBearing</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setBearing(bearing:Number, animated:Boolean = true, duration:uint = 1000):void</code><p></p><p></p><p>
+		 <p>
+		 Sets the bearing orientation of the map with optional animation and duration.
+		 </p>
+		 
+		 <p>
+		 The bearing value should be between 0 and 360
+		 </p>
+		 
+		 <p><b>Supported platforms: </b>Android</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">bearing</span>:Number</code> &mdash; The new bearing orientation value to change to, should be between 0 and 360
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">animated</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Optional, whether to animate the bearing change. Defaults to true. 
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">duration</span>:uint</code> (default = <code>1000</code>)<code></code> &mdash; Length of animation in milliseconds, defaults to 1000 (1 second)
+		 
+		 </td></tr></table></p></div><a name="setBounds()"></a><a name="setBounds(com.distriqt.extension.nativemaps.objects.LatLngBounds,int,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setBounds</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setBounds(bounds:<a href="../../../../com/distriqt/extension/nativemaps/objects/LatLngBounds.html">LatLngBounds</a>, padding:int = 0, animated:Boolean = true):void</code><p></p><p></p><p>
+		 <p>
+		 Repositions and zooms the map to fit a specific bounding area with optional padding and animation.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">bounds</span>:<a href="../../../../com/distriqt/extension/nativemaps/objects/LatLngBounds.html">LatLngBounds</a></code> &mdash; LatLngBounds object representing the desired bounding area
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">padding</span>:int</code> (default = <code>0</code>)<code></code> &mdash; int Optional padding distance in pixels to apply around the edges of the new span area
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">animated</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Optional, whether to animate the movement. Defaults to true.
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/LatLngBounds.html" target="">com.distriqt.extension.nativemaps.objects.LatLngBounds</a></div></div><a name="setCentre()"></a><a name="setCentre(com.distriqt.extension.nativemaps.objects.LatLng,Number,Boolean,int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setCentre</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setCentre(position:<a href="../../../../com/distriqt/extension/nativemaps/objects/LatLng.html">LatLng</a>, zoom:Number = -1, animated:Boolean = true, duration:int = 2000):void</code><p></p><p></p><p>
+		 <p>
+		 Moves the map to the given centre coordinate with optional zoom, animation and duration values.
+		 </p>
+		 
+		 <p>
+		 Setting the zoom property will also zoom the map to the given zoom level.
+		 </p>
+		 
+		 <p>
+		 Setting the animation property to true or false defines whether the map smoothly animates
+		 to the new position, or moves instantly.
+		 </p>   
+		 
+		 <p>
+		 Setting the duration property allows you to specify the time in milliseconds the animation
+		 should take.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">position</span>:<a href="../../../../com/distriqt/extension/nativemaps/objects/LatLng.html">LatLng</a></code> &mdash; The new centre position for the map to centre on.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">zoom</span>:Number</code> (default = <code>-1</code>)<code></code> &mdash; Optional new zoom level to change to, or -1 to keep the current zoom level
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">animated</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Optional value to animate the movement. Defaults to true.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">duration</span>:int</code> (default = <code>2000</code>)<code></code> &mdash; Time in milliseconds for move animation to take. Defaults to 2000 (2 seconds). Not supported on iOS, only on Android.
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/LatLng.html" target="">com.distriqt.extension.nativemaps.objects.LatLng</a></div></div><a name="setLayout()"></a><a name="setLayout(uint,uint,uint,uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setLayout</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setLayout(width:uint, height:uint, x:uint = 0, y:uint = 0):void</code><p></p><p></p><p>
+		 <p>
+		 Resizes and repositions the native map object in the view
+		 </p>   
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">width</span>:uint</code> &mdash; The width in pixels of the map frame
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">height</span>:uint</code> &mdash; The height in pixels of the map frame
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">x</span>:uint</code> (default = <code>0</code>)<code></code> &mdash; The X position of the map on the stage
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">y</span>:uint</code> (default = <code>0</code>)<code></code> &mdash; The Y position of the map on the stage
+		 
+		 </td></tr></table></p></div><a name="setMapOptions()"></a><a name="setMapOptions(com.distriqt.extension.nativemaps.objects.MapOptions)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setMapOptions</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setMapOptions(options:<a href="../../../../com/distriqt/extension/nativemaps/objects/MapOptions.html">MapOptions</a>):void</code><p></p><p></p><p>
+		 <p>
+		 Applies all map option settings to the map.
+		 </p>
+		 
+		 <p>
+		 The MapOptions class contains many settings for different available options.
+		 Some options are available only on specific platforms (iOS or Android) so please
+		 refer to the MapOptions class reference for this information.
+		 </p>   
+		 
+		 <p>
+		 The same options may be used for cross-platform maps, however unsupported options
+		 will have no effect on the map for some settings.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">options</span>:<a href="../../../../com/distriqt/extension/nativemaps/objects/MapOptions.html">MapOptions</a></code> &mdash; MapOptions class instance to be applied.
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/MapOptions.html" target="">com.distriqt.extension.nativemaps.objects.MapOptions</a></div></div><a name="setMapType()"></a><a name="setMapType(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setMapType</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setMapType(mapType:uint):void</code><p></p><p></p><p>
+		 <p>
+		 Sets the type of map to be drawn.
+		 </p>   
+		 <p>
+		 Available map types are:
+		 <ul> 
+		 <li>MapType.MAP_TYPE_NONE (will display nothing)</li>
+		 <li>MapType.MAP_TYPE_NORMAL</li>
+		 <li>MapType.MAP_TYPE_SATELLITE</li>
+		 <li>MapType.MAP_TYPE_TERRAIN</li>
+		 <li>MapType.MAP_TYPE_HYBRID</li>
+		 </ul>
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">mapType</span>:uint</code> &mdash; The map type to be used.
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/MapType.html" target="">com.distriqt.extension.nativemaps.objects.MapType</a></div></div><a name="setTilt()"></a><a name="setTilt(Number,Boolean,uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setTilt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setTilt(tilt:Number, animated:Boolean = true, duration:uint = 1000):void</code><p></p><p></p><p>
+		 <p>
+		 Sets the tilt level of the map with optional animation and duration.
+		 </p>
+		 
+		 <p>
+		 The tilt value should be between 0 and 30
+		 </p>
+		 
+		 <p><b>Supported platforms: </b>Android</p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">tilt</span>:Number</code> &mdash; The new tilt level to change to, should be between 0 and 30
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">animated</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Optional, whether to animate the tilt change. Defaults to true. 
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">duration</span>:uint</code> (default = <code>1000</code>)<code></code> &mdash; Length of animation in milliseconds, defaults to 1000 (1 second)
+		 
+		 </td></tr></table></p></div><a name="setUserFollowMode()"></a><a name="setUserFollowMode(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setUserFollowMode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setUserFollowMode(userTrackingMode:uint):void</code><p></p><p></p><p>
+		 <p>
+		 Sets the current user tracking mode for iOS maps.
+		 </p>
+		 
+		 <p>Availble only on iOS, not supported on Android.</p>
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">userTrackingMode</span>:uint</code></td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/UserTrackingMode.html" target="">com.distriqt.extension.nativemaps.objects.UserTrackingMode</a></div></div><a name="setZoom()"></a><a name="setZoom(Number,Boolean,uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setZoom</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setZoom(zoom:Number, animated:Boolean = true, duration:uint = 1000):void</code><p></p><p></p><p>
+		 <p>
+		 Sets the zoom level of the map with optional animation.
+		 </p>
+		 
+		 <p>
+		 Zoom level should be between 1 and 18, where 1 is the most zoomed out.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">zoom</span>:Number</code> &mdash; The new zoom level to change to
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">animated</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Optional, whether to animate the zoom change. Defaults to true.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">duration</span>:uint</code> (default = <code>1000</code>)<code></code> &mdash; Length of animation in milliseconds, defaults to 1000 (1 second) 
+		 
+		 </td></tr></table></p></div><a name="showInfoWindow()"></a><a name="showInfoWindow(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showInfoWindow</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showInfoWindow(markerId:uint):void</code><p></p><p></p><p>
+		 <p>
+		 Manually opens the info window for the specified marker
+		 </p>
+		 
+		 <p>
+		 <b>NOTE:</b> This method overrides the "infoWindowEnabled" property of a marker.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">markerId</span>:uint</code> &mdash; ID number of the marker to open the info window for 
+		 
+		 </td></tr></table></p></div><a name="showMap()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showMap</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showMap():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Shows the map view if it is hidden.
+		 </p>
+		 
+		 <p><b>Supported only on iOS</b></p>
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table></div><a name="showMarker()"></a><a name="showMarker(uint,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showMarker</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showMarker(markerId:uint, shown:Boolean = true):void</code><p></p><p></p><p>
+		 <p>
+		 Hides or shows a marker on the map.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">markerId</span>:uint</code> &mdash; ID number of the target map marker
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">shown</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Boolean True or false to show or hide the marker, respectively
+		 
+		 </td></tr></table></p></div><a name="showUserLocation()"></a><a name="showUserLocation(Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showUserLocation</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showUserLocation(show:Boolean = true):void</code><p></p><p></p><p>
+		 <p>
+		 Enables and shows the user's location marker and any associated UI controls on the map.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">show</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Whether to turn on or off the user location UI and marker. 
+		 
+		 </td></tr></table></p></div><a name="stopAnimation()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">stopAnimation</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function stopAnimation():void</code><p></p><p></p><p>
+		 <p>
+		 Stops any movement or panning animation of the map.
+		 </p>
+		 
+		 </p></div><a name="updateCircleOverlay()"></a><a name="updateCircleOverlay(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">updateCircleOverlay</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function updateCircleOverlay(circleId:uint):void</code><p></p><p></p><p>
+		 <p>
+		 Updates and redraws a Circle overlay with any new data. 
+		 </p>
+		 
+		 <p>
+		 You should call this is if you modify any properties of the circle after it has been created.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">circleId</span>:uint</code> &mdash; ID number of the polyline to be update.
+		 
+		 </td></tr></table></p></div><a name="updateMarker()"></a><a name="updateMarker(any)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">updateMarker</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function updateMarker(idNameOrMarker:*):void</code><p></p><p></p><p>
+		 <p>
+		 Updates the properties of an existing map marker.
+		 </p>
+		 
+		 <p>
+		 You can pass any of the following values to specify the marker to be updated:
+		 <ul>
+		 <li>ID - the integer ID of the map marker</li>
+		 <li>Name - the "name" string property of the map marker if set</li>
+		 <li>MapMarker - instance of the map marker</li>
+		 </ul>
+		 </p>
+		 
+		 <p>
+		 Markers can be accessed directly through other available methods. If you update
+		 a marker's properties, be sure to call this method with the marker object to apply 
+		 the new values.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">idNameOrMarker</span>:*</code> &mdash; ID number or name reference of marker, or MapMarker object to be updated
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/nativemaps/objects/MapMarker.html" target="">com.distriqt.extension.nativemaps.objects.MapMarker</a></div></div><a name="updatePolygon()"></a><a name="updatePolygon(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">updatePolygon</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function updatePolygon(polygonId:uint):void</code><p></p><p></p><p>
+		 <p>
+		 Updates and redraws a Polygon with any new data. 
+		 </p>
+		 
+		 <p>
+		 You should call this is if you modify any properties of the polygon after it has been created.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">polygonId</span>:uint</code> &mdash; ID number of the polygon to be update.
+		 
+		 </td></tr></table></p></div><a name="updatePolyline()"></a><a name="updatePolyline(uint)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">updatePolyline</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function updatePolyline(polylineId:uint):void</code><p></p><p></p><p>
+		 <p>
+		 Updates and redraws a Polyline with any new data. 
+		 </p>
+		 
+		 <p>
+		 You should call this is if you modify any properties of the polyline after it has been created.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">polylineId</span>:uint</code> &mdash; ID number of the polyline to be update.
+		 
+		 </td></tr></table></p></div><a name="zoomIn()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">zoomIn</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function zoomIn():void</code><p></p><p></p><p>
+		 <p>
+		 Zooms the map in by one level
+		 </p>
+		 </p></div><a name="zoomOut()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">zoomOut</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function zoomOut():void</code><p></p><p></p><p>
+		 <p>
+		 Zooms the map out by one level
+		 </p>
+		 </p></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.NativeMaps</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 2.0</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:52 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:52 PM +10:00  -->

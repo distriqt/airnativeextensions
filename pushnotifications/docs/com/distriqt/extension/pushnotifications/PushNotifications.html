@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="PushNotifications,com.distriqt.extension.pushnotifications.PushNotifications,EXT_CONTEXT_ID,IMPLEMENTATION_DEFAULT,STATUS_ERROR,STATUS_READY,STATUS_REGISTERING,VERSION,VERSION_DEFAULT,isEnabled,isSupported,service,version,clearNotification,getCurrentNotification,getDeviceToken,getStatus,init,register,setBadgeNumber,unregister"><title>com.distriqt.extension.pushnotifications.PushNotifications</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'PushNotifications - distriqt // PushNotifications';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // PushNotifications Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/pushnotifications/PushNotifications.html&amp;com/distriqt/extension/pushnotifications/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">PushNotifications</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("PushNotifications"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.pushnotifications</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  PushNotifications</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">PushNotifications  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.pushnotifications.base.ExtensionBase</td></tr></table><p></p><p></p><p></p>	
+	              <p>This class is the Push Notifications Native Extension interface. It 
+	 implements the different push notifications services on the supported 
+	 platforms giving the developer one consistent interface to push 
+	 notifications across these platforms.
+	 </p>
+	 
+	              <p>The currently implemented platforms are:</p>
+	 
+	              <ul>
+	                 <li>Apple Push Notification Service (APNS) on iOS</li>
+	                 <li>Google Cloud Messaging (GCM) on Android</li>
+	              </ul>
+	 
+	 
+	              <p>
+	 We have implemented a similar approach on both iOS and Android and it follows 
+	 the following methodology. There are three main states of running an application: 
+	 foreground execution when the application is running in the foreground, 
+	 background execution when the application is running but not in the foreground, and 
+	 when the application is not running at all. In each state the following occurs:
+	 </p>
+	 
+	              <ol>
+	                 <li>
+                     <b>Foreground</b>:
+	 		No notification is displayed in the notification area, you'll 
+	 		immediately receive the notification event. If you wish to display
+	 		a notification in this circumstance you can use the Notifications
+	 		extension to do so.		
+	 </li>
+	                 <li>
+                     <b>Not running</b>: 
+	 		A notification is displayed in the notification area. When clicked 
+	 		the application is started. When you call <code>register()</code> 
+	 		you'll immediately receive the notification event.
+	 </li>
+	                 <li>
+                     <b>Background</b>:
+	 		A notification is displayed in the notification area.
+	 		When the user clicks on the notification the application
+	 		will be brought into focus and you'll receive the notification
+	 		event.
+	 </li>
+	              </ol>
+	 
+	 
+	 
+	              <b>Apple Push Notifications</b>
+	 
+	              <p>
+	 Please see our tutorial on setting up the APNS here: <a href="http://distriqt.uservoice.com/knowledgebase/articles/252914-push-notifications-tutorial-part-1" target="">http://distriqt.uservoice.com/knowledgebase/articles/252914-push-notifications-tutorial-part-1</a>
+	              </p>
+	 
+	 
+	              <b>Google Cloud Messaging</b>
+	 
+	              <p>
+	 There are several steps in order to get an application running using GCM. The 
+	 "Getting Started" documentation here is the best place to start: 
+	 <a href="http://developer.android.com/guide/google/gcm/gs.html" target="_top">http://developer.android.com/guide/google/gcm/gs.html</a>
+	              </p>
+	 
+	              <p>Briefly the steps are as follows:</p>
+	 
+	              <ul>
+	                 <li>Open the <a href="http://code.google.com/apis/console" target="_top">Google APIs Console</a> page.</li>
+	                 <li>Create an API Project and take note of the project number, this 
+	 		will become your "GCM Sender ID" that you must pass to the 
+	 		register function</li>
+	                 <li>Enable the GCM Service in your projects Services section on the 
+	 		Google API's Console page</li>
+	              </ul>
+	 
+	              <p>These are the minimum steps required, the rest pertain to getting your 
+	 server setup to send messages to your clients. There are some tutorials on 
+	 our site on how to get different technologies to send messages with GCM.</p>
+	 
+	              <ul>
+	 	               <li>PHP: <a href="http://distriqt.com/post/1273" target="">http://labs.distriqt.com/post/1273</a>
+                  </li>
+	 	               <li>C#: <a href="http://distriqt.com/post/1223" target="">http://labs.distriqt.com/post/1223</a>
+                  </li>
+	              </ul>
+	 
+	 
+	              <b>Automatic Notifications</b>
+	 
+	              <p>
+	 Under Android there is no "default" way of displaying the notifications. 
+	 We have implemented a simple message that will get displayed in the notification 
+	 area when you supply certain variables in the message content. 
+	 </p>
+	              <p>
+	 In order to display a notification automatically when your notification arrives
+	 you must specify the some specific variables in the GCM data packet. These are
+	 as follows:
+	 </p>
+	 
+	              <ul>
+	 	               <li>
+                     <b>tickerText</b>: The text displayed in the ticker bar along the top of the device</li>
+	 	               <li>
+                     <b>contentTitle</b>: The title of the notification in the notification centre</li>
+	 	               <li>
+                     <b>contentText</b>: The text displayed in the notification centre below the title</li>
+	 	               <li>
+                     <b>sound</b>: If set to <code>default</code> plays the default sound on notification arrival</li>
+	 	               <li>
+                     <b>vibrate</b>: If set to <code>true</code> vibrtes the device on notification arrival</li>
+	 	               <li>
+                     <b>id</b>: Optional. If set then you can specify the id of the notification. 
+	 			Sending the same notification id will update an existing notification rather than producing another one.</li>
+	              </ul>
+	 
+	              <p>
+	 For example:
+	 </p>
+	 
+	              <pre>
+	 "data" : { 
+	     "tickerText" : "some ticker text", 
+	     "contentTitle" : "some content title",
+	     "contentText" : "some content description text",
+	     "sound" : "default",
+	     "vibrate" : "false",
+	     "otherCustomData" : "some value" 
+	 },
+	 "registration_ids" : { ... }
+	 </pre>
+	 
+	              <p>Note: to have the vibration work you need to add the vibration permission to your application manifest additions:</p>
+	              <pre>
+	 &lt;uses-permission android:name="android.permission.VIBRATE"/>
+	 </pre>
+	 
+	              <b>Notes and Limitations</b>
+	 
+	              <p>
+	                 <b>Update</b>: 
+	 
+	 As of version 2 the push notifications will be dispatched once 
+	 when you call <code>register</code>. It's suggested you make sure 
+	 you've added your notification listeners before calling register 
+	 so you correctly receive this event.
+	 </p>
+	 
+	              <p> 
+	 This is for both iOS and Android! That is there is no longer a 
+	 limitation on the GCM service.
+	 </p>
+	 
+	              <p>
+	 An important note here is that the GCM Service doesn't receive notifications 
+	 if the application is "forced stopped". This means that when the application is either:
+	 </p>
+	              <ul>
+	                 <li>first installed, before the user manually invokes the application</li>
+	                 <li>after a user <i>force stops</i> the application until the user manually invokes the application agaion</li>
+	              </ul>
+	              <p>
+	 This is by design of the notifications on the Android platform and not a 
+	 limitation or restriction of this ANE.
+	 
+	 So if a user force stops your application, it will stop receiving push 
+	 notifications. This is different from normal application exits and your 
+	 application will receive notifications if not running after a normal
+	 application exit.
+	 </p>
+	 
+	 
+	              <b>Android</b>
+	 
+	              <p>
+	 The application descriptor additions under Android are located in a node called “android”. It should look something like the following. 
+	 <b>Please note the last receiver is a recent addition and you'll need to make sure you update appropriately</b>.
+	 </p>
+	 
+	              <pre>
+	 &lt;android>
+	 	&lt;manifestAdditions>&lt;![CDATA[
+	 		&lt;manifest android:installLocation="auto">
+	 	
+	 			&lt;uses-sdk android:minSdkVersion="8" android:targetSdkVersion="16"/>
+	 
+	 			&lt;uses-permission android:name="android.permission.INTERNET"/>
+	 			&lt;uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	 			&lt;uses-permission android:name="android.permission.VIBRATE"/>
+	 			&lt;uses-permission android:name="android.permission.WAKE_LOCK" />
+	 			&lt;uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+	 
+	 			&lt;!-- Only this application can receive the messages and registration result --> 
+	 			&lt;permission android:name="air.com.distriqt.test.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+	 			&lt;uses-permission android:name="air.com.distriqt.test.permission.C2D_MESSAGE" />
+	 
+	 			&lt;application>
+	 				&lt;receiver android:enabled="true" android:exported="true" android:name="com.distriqt.extension.pushnotifications.PushNotificationsBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND" >
+	 					&lt;intent-filter>
+	 						&lt;action android:name="com.google.android.c2dm.intent.RECEIVE" />
+	 						&lt;action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+	 						&lt;category android:name="air.com.distriqt.test" />
+	 					&lt;/intent-filter>
+	 				&lt;/receiver>
+	 				&lt;service android:enabled="true" android:exported="true" android:name="com.distriqt.extension.pushnotifications.gcm.GCMIntentService" />
+	 				&lt;receiver android:name="com.distriqt.extension.pushnotifications.PushNotificationsReceiver">
+	 					&lt;intent-filter>
+	 						&lt;action android:name="air.com.distriqt.test.PUSHNOTIFICATION_SELECTED" />
+	 					&lt;/intent-filter>
+	 				&lt;/receiver>
+	 			&lt;/application>
+	 
+	 		&lt;/manifest>
+	 
+	 	]]>&lt;/manifestAdditions>
+	 &lt;/android>
+	 </pre> 
+	 
+	              <p>
+	 There are two important things here. If you are adding this to an existing application, 
+	 you must make sure you have only one application node inside your manifest additions.
+	 You’ll need to copy the receivers and service from that node and place that inside your
+	 current application node. If you have two application nodes the push notifications may not work.
+	 </p>
+	              <p>
+	 Secondly you need to replace all the application ID’s (<code>air.com.distriqt.test</code>) 
+	 with your application ID. It is important here that you use the full application ID with the 
+	 <code>air.</code> prefix as this will be your actual ID in the Android system.
+	 </p>
+	 
+	 
+	 
+	 
+	           <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isEnabled" class="signatureLink">isEnabled</a> : Boolean<div class="summaryTableDescription">[read-only] 
+		 Whether the push notifications are enabled on the phone.</div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the platform supports push notifications
+		 </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/pushnotifications/PushNotifications.html">PushNotifications</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the PushNotifications class.</div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 The version string of the native extension
+		 </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#PushNotifications()" class="signatureLink">PushNotifications</a>()</div><div class="summaryTableDescription">
+		 Class Constructor 
+		 </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#clearNotification()" class="signatureLink">clearNotification</a>():void</div><div class="summaryTableDescription">
+		 
+		 Clears the current notification in the native extension context
+		 
+		 
+		 
+		 Support: iOS
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getCurrentNotification()" class="signatureLink">getCurrentNotification</a>():String</div><div class="summaryTableDescription">
+		 
+		 Retrieves the last / current notification received 
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getDeviceToken()" class="signatureLink">getDeviceToken</a>():String</div><div class="summaryTableDescription">
+		 
+		 Returns the deviceToken or registration ID value of a 
+		 currently registered device from the notification service
+		 
+		 </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getStatus()" class="signatureLink">getStatus</a>():String</div><div class="summaryTableDescription">
+		 
+		 Returns the current status of the notification service
+		 
+		 </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#register()" class="signatureLink">register</a>(senderID:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Calls the register method of the native extension context
+		 
+		 
+		 
+		 You should make sure you've added all the event listeners for
+		 notifications you require before calling this function since any
+		 startup events will fire immediately after a call to this function.</div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setBadgeNumber()" class="signatureLink">setBadgeNumber</a>(number:int):void</div><div class="summaryTableDescription">
+		 
+		 Sets the badge number for the application icon
+		 
+		 
+		 
+		 Support: iOS
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#unregister()" class="signatureLink">unregister</a>():void</div><div class="summaryTableDescription">
+		 
+		 Calls the unregister method of the native extension context
+		 
+		 </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.PushNotifications<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#STATUS_ERROR" class="signatureLink">STATUS_ERROR</a> : String = status:error<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#STATUS_READY" class="signatureLink">STATUS_READY</a> : String = status:ready<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#STATUS_REGISTERING" class="signatureLink">STATUS_REGISTERING</a> : String = status:registering<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 2<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">PushNotifications</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="isEnabled"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isEnabled</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>isEnabled:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the push notifications are enabled on the phone. 
+		 This may be false due to the user disabling notifications for the application in the system settings.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isEnabled():Boolean</code><br/></div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the platform supports push notifications
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/pushnotifications/PushNotifications.html">PushNotifications</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the PushNotifications class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/pushnotifications/PushNotifications.html">PushNotifications</a></code><br/></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 The version string of the native extension
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="PushNotifications()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">PushNotifications</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function PushNotifications()</code><p></p><p>
+		 Class Constructor 
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="clearNotification()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">clearNotification</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function clearNotification():void</code><p></p><p></p><p>
+		 <p>
+		 Clears the current notification in the native extension context
+		 </p>
+		 
+		 <p>
+		 Support: <b>iOS</b>
+		 </p>
+		 
+		 </p></div><a name="getCurrentNotification()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getCurrentNotification</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getCurrentNotification():String</code><p></p><p></p><p>
+		 <p>
+		 Retrieves the last / current notification received 
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; The string representation of the last notification received
+		 
+		 </td></tr></table></div><a name="getDeviceToken()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getDeviceToken</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getDeviceToken():String</code><p></p><p></p><p>
+		 <p>
+		 Returns the deviceToken or registration ID value of a 
+		 currently registered device from the notification service
+		 </p>
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code></td></tr></table></div><a name="getStatus()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getStatus</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getStatus():String</code><p></p><p></p><p>
+		 <p>
+		 Returns the current status of the notification service
+		 </p>
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code></td></tr></table></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p></div><a name="register()"></a><a name="register(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">register</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function register(senderID:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Calls the register method of the native extension context
+		 </p>
+		 
+		 <p>
+		 You should make sure you've added all the event listeners for
+		 notifications you require before calling this function since any
+		 startup events will fire immediately after a call to this function.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">senderID</span>:String</code> &mdash; [Android only] The sender ID associated with the applications API Project.
+		 						
+		 						A project number you acquire from the API console, 
+		 						as described in the GCM API Project 
+		 						"Getting Started" section. 
+		 						
+		 						The sender ID is used in the registration process 
+		 						to identify a 3rd-party application server that 
+		 						is permitted to send messages to the device. 
+		 
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the registration was attempted and false if the service is still initialising
+		 </td></tr></table></div><a name="setBadgeNumber()"></a><a name="setBadgeNumber(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setBadgeNumber</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setBadgeNumber(number:int):void</code><p></p><p></p><p>
+		 <p>
+		 Sets the badge number for the application icon
+		 </p>
+		 
+		 <p>
+		 Support: <b>iOS</b>
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">number</span>:int</code> &mdash; Badge number to set
+		 </td></tr></table></p></div><a name="unregister()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">unregister</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function unregister():void</code><p></p><p></p><p>
+		 <p>
+		 Calls the unregister method of the native extension context
+		 </p>
+		 </p></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.PushNotifications</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="STATUS_ERROR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">STATUS_ERROR</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const STATUS_ERROR:String = status:error</code><p></p></div><a name="constantDetail"></a><a name="STATUS_READY"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">STATUS_READY</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const STATUS_READY:String = status:ready</code><p></p></div><a name="constantDetail"></a><a name="STATUS_REGISTERING"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">STATUS_REGISTERING</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const STATUS_REGISTERING:String = status:registering</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 2</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:54 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:54 PM +10:00  -->

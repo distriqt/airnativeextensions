@@ -1,0 +1,18 @@
+#!/bin/bash
+PACKAGE_NAME=air.com.distriqt.test
+APPNAME=../bin-debug/TestNativeMaps
+APKNAME=../bin-debug/TestNativeMaps.apk
+CERTIFICATE=/path/to/your/certificate.p12
+PASSWORD=password
+ADT_PATH=adt
+
+## Uncomment one of these to choose which package type to use (with or without captive runtime).
+TARGET=apk
+#TARGET=apk-captive-runtime
+
+EXTDIR=/path/to/ANE/folder
+
+echo "Building release version..."
+# Compile debug APK using ADT with our p12 certificate
+$ADT_PATH -package -target $TARGET -storetype pkcs12 -keystore $CERTIFICATE -storepass $PASSWORD $APKNAME $APPNAME-app.xml $APPNAME.swf ../bin-debug/icons/ ../bin-debug/res/ -extdir $EXTDIR
+echo "Finished."

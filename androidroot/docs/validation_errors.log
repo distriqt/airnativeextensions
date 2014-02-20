@@ -1,0 +1,3 @@
+Text for description in com.distriqt.extension.androidroot:AndroidRoot is not valid.
+org.xml.sax.SAXParseException: The reference to entity "feature" must end with the ';' delimiter.
+

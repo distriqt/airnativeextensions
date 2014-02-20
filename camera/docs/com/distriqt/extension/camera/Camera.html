@@ -1,0 +1,703 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="Camera,com.distriqt.extension.camera.Camera,CUSTOM,EXPOSURE_MODE_AUTO,EXPOSURE_MODE_CONTINUOUS,EXPOSURE_MODE_LOCKED,EXT_CONTEXT_ID,FLASH_MODE_AUTO,FLASH_MODE_OFF,FLASH_MODE_ON,FLASH_MODE_RED_EYE,FLASH_MODE_TORCH,FOCUS_MODE_AUTO,FOCUS_MODE_CONTINUOUS,FOCUS_MODE_LOCKED,IMPLEMENTATION_DEFAULT,POSITION_BACK,POSITION_FRONT,POSITION_UNSPECIFIED,PRESET_1280x720,PRESET_1280x720,PRESET_640x480,PRESET_640x480,PRESET_HIGH,PRESET_HIGH,PRESET_LOW,PRESET_LOW,PRESET_MEDIUM,PRESET_MEDIUM,PRESET_PHOTO,PRESET_PHOTO,TYPE_PICTURE,TYPE_VIDEO,VERSION,VERSION_DEFAULT,WHITE_BALANCE_MODE_AUTO,WHITE_BALANCE_MODE_CONTINUOUS,WHITE_BALANCE_MODE_LOCKED,cameraMode,capturingImage,correctOrientation,deviceId,enableFrameBuffer,frameBufferHeight,frameBufferWidth,hasFlash,hasTorch,height,height,id,instance,isFlashSupported,isSupported,mode,name,orientation,position,presetMode,receivedFrames,type,version,width,width,captureImage,getAvailableDevices,getAvailableImageFormats,getFrameBuffer,getModes,init,initialise,isExposureSupported,isFlashSupported,isFocusSupported,isModeSupported,isPresetSupported,isTorchSupported,isWhiteBalanceSupported,release,setDevice,setExposureMode,setExposurePointOfInterest,setFlashMode,setFocusMode,setFocusPointOfInterest,setMode,setPresetMode,setPreset,setWhiteBalanceMode,startRecordingVideo,stopRecordingVideo"><title>com.distriqt.extension.camera.Camera</title><script src="../../../../AC_OETags.js" type="text/javascript"></script></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'Camera - distriqt // Camera';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // Camera Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/camera/Camera.html&amp;com/distriqt/extension/camera/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">Camera</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Camera"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,true,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.camera</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  Camera</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Camera  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.camera.base.ExtensionBase</td></tr></table><p></p><p></p><p></p>	
+	              <p>
+	 Camera Native Extension Library
+	 </p>
+	 
+	              <p>
+	 This extension creates access to native features of the Camera hardware giving you
+	 finer control over the camera and allowing you to create more complex imaging 
+	 applications.
+	 </p>
+	 
+	 
+	              <b>Key Features</b>
+	 
+	              <ul>
+	                 <li>Preview frames (ByteArray of pixel data for easy display to Bitmap)</li>
+	                 <li>Take a photo and simulataneously save to "camera roll" and retrieve as BitmapData</li>
+	                 <li>Control focus mode, exposure, white balance</li>
+	                 <li>Control focus point and exposure point</li>
+	                 <li>List available cameras and switch between cameras</li>
+	              </ul>
+	 
+	 
+	              <p>
+	 Supported on the following platforms:
+	 </p>
+	              <ul>
+	 	               <li>
+                     <b>Android</b>: All unless stated otherwise in documentation</li>
+	 	               <li>
+                     <b>iOS</b>: All unless stated otherwise in documentation</li>
+	              </ul>
+	 
+	              <b>Operation Suggestion</b>
+	 
+	              <p>
+	 Alot of these functions require access to the camera so for example to check whether 
+	 a mode is support on a camera we have to open the camera, request access and then 
+	 query the camera. This can be a slow operation and if you put together a sequence of
+	 these calls you may find your application stuttering.
+	 </p>
+	 
+	              <p>
+	 To get around this we suggest that you make sure your first operation is to select 
+	 and initialise a device. Once the device is initialised you can query the features 
+	 and modes of this device and the extension will use the initialised camera instance
+	 instead of having to open up a new one. 
+	 </p>
+	 
+	              <p>
+	 For example the two code samples below the second will run faster.
+	 </p>
+	 
+	              <div class="listing"><pre>
+     var devices:Array = Camera.instance.getAvailableDevices();
+     var device:CaptureDevice = devices[0];
+     
+     var options:CameraParameters = new CameraParameters();
+     options.deviceId = device.id;
+     
+     Camera.instance.isFlashSupported( device.id );
+     Camera.instance.isFocusSupported( CameraParameters.FOCUS_MODE_AUTO, device.id );
+     
+     Camera.instance.initialise( options );
+     </pre></div>
+	 
+	 
+	              <div class="listing"><pre>
+     var devices:Array = Camera.instance.getAvailableDevices();
+     var device:CaptureDevice = devices[0];
+     
+     var options:CameraParameters = new CameraParameters();
+     options.deviceId = device.id;
+     
+     Camera.instance.initialise( options );
+     
+     Camera.instance.isFlashSupported();
+     Camera.instance.isFocusSupported( CameraParameters.FOCUS_MODE_AUTO );
+     </pre></div>
+	 
+	 
+	              <b>iOS</b>
+	 
+	              <p>
+	 Under iOS the user will be requested access to the camera when you attempt to access 
+	 it. 
+	 </p>
+	 
+	 
+	              <b>Android</b>
+	 
+	              <p>
+	 Under Android you'll need to add the camera permission to your manifest 
+	 additions, and you should also add the "uses-feature" if your application
+	 relies on the camera for core functionality (This will limit your application
+	 to being installed only on devices with a camera). You can safely leave the 
+	 uses-feature option off if you plan to conditionally support the camera.
+	 </p>
+	 
+	              <pre>
+	 &lt;uses-permission android:name="android.permission.CAMERA"/>
+	 &lt;uses-feature android:name="android.hardware.camera" />
+	 </pre>
+	 
+	              <p>
+	 If you wish to save images/videos to the device then you'll need to make
+	 sure you've requested permission to write to the storage by adding the 
+	 following to the manifest additions:
+	 </p>
+	 
+	              <pre>
+	 &lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
+	 </pre>
+	 
+	 
+	 
+	           <p></p><p><a href="#includeExamplesSummary">View the examples</a></p><p><span class="classHeaderTableLabel">See also</span></p><div class="seeAlso"><a href="http://distriqt.com/native-extensions" target="mm_external">http://distriqt.com/native-extensions</a><br/><a href="http://distriqt.com/category/blog/native-extensions" target="mm_external">http://distriqt.com/category/blog/native-extensions</a></div><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#capturingImage" class="signatureLink">capturingImage</a> : Boolean<div class="summaryTableDescription">[read-only] 
+		 
+		 Whether a capture image process is currently taking 
+		 place.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#height" class="signatureLink">height</a> : Number<div class="summaryTableDescription">[read-only] 
+		 The current capture height, in pixels.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#instance" class="signatureLink">instance</a> : <a href="../../../../com/distriqt/extension/camera/Camera.html">Camera</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the Camera class.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isFlashSupported" class="signatureLink">isFlashSupported</a> : Boolean<div class="summaryTableDescription"><div xmlns:fn="http://www.w3.org/2005/xpath-functions" style="white-space:nowrap" valign="top"><b>Deprecated: </b>Please Use <A href="#isTorchSupported()">isTorchSupported()</A></div>[static] [read-only] 
+		 
+		 Depreciated as we need to distinguish between devices and flash versus torch.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the camera is supported on the current device
+		 </div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#receivedFrames" class="signatureLink">receivedFrames</a> : Number<div class="summaryTableDescription">[read-only] 
+		 
+		 The current frame count received.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 
+		 The version string of the native extension.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#width" class="signatureLink">width</a> : Number<div class="summaryTableDescription">[read-only] 
+		 The current capture width, in pixels.</div></td><td class="summaryTableOwnerCol">Camera</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#Camera()" class="signatureLink">Camera</a>()</div><div class="summaryTableDescription">
+		  Constructor
+		 </div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#captureImage()" class="signatureLink">captureImage</a>(saveToCameraRoll:Boolean, format:String = jpeg):Boolean</div><div class="summaryTableDescription">
+		 
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getAvailableDevices()" class="signatureLink">getAvailableDevices</a>():Array</div><div class="summaryTableDescription">
+		 
+		 Returns the available capture devices.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getAvailableImageFormats()" class="signatureLink">getAvailableImageFormats</a>():Array</div><div class="summaryTableDescription">
+		 
+		 Retrieves a list of the available image formats for image stills
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getFrameBuffer()" class="signatureLink">getFrameBuffer</a>(destination:ByteArray):int</div><div class="summaryTableDescription">
+		 
+		 Copies the latest frame captured by the camera to the 
+		 supplied byte array.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getModes()" class="signatureLink">getModes</a>(deviceId:String):Array</div><div class="summaryTableDescription">
+		 
+		 Get the available modes of operation for the camera, i.e.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#initialise()" class="signatureLink">initialise</a>(options:<a href="../../../../com/distriqt/extension/camera/CameraParameters.html">CameraParameters</a> = null):Boolean</div><div class="summaryTableDescription">
+		 
+		 Initialises and captures the camera.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isExposureSupported()" class="signatureLink">isExposureSupported</a>(mode:String, deviceId:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Whether the exposure mode is supported on the specified camera device
+		 
+		 
+		 If the device Id is empty then the current device is checked.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isFlashSupported()" class="signatureLink">isFlashSupported</a>(deviceId:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Whether the flash mode is supported on the specified camera device
+		 
+		 
+		 If the device Id is empty then the current device is checked.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isFocusSupported()" class="signatureLink">isFocusSupported</a>(mode:String, deviceId:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Whether the focus mode is supported on the specified camera device
+		 
+		 
+		 If the device Id is empty then the current device is checked.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isModeSupported()" class="signatureLink">isModeSupported</a>(mode:<a href="../../../../com/distriqt/extension/camera/CameraMode.html">CameraMode</a>, deviceId:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Whether the specified mode is supported on the current
+		 device.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isPresetSupported()" class="signatureLink">isPresetSupported</a>(presetMode:String, deviceId:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Whether the specified mode is supported on the current
+		 device.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isTorchSupported()" class="signatureLink">isTorchSupported</a>(deviceId:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Whether the torch mode is supported on the specified camera device
+		 
+		 
+		 If the device Id is empty then the current device is checked.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isWhiteBalanceSupported()" class="signatureLink">isWhiteBalanceSupported</a>(mode:String, deviceId:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Whether the White balance mode is supported on the specified camera device
+		 
+		 
+		 If the device Id is empty then the current device is checked.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#release()" class="signatureLink">release</a>():void</div><div class="summaryTableDescription">
+		 
+		 Releases any access to the camera the application may hold.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setDevice()" class="signatureLink">setDevice</a>(deviceId:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 This function allows you to change the device currently being used
+		 by the session.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setExposureMode()" class="signatureLink">setExposureMode</a>(mode:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Sets the exposure mode from one of the available modes.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setExposurePointOfInterest()" class="signatureLink">setExposurePointOfInterest</a>(point:Point):Boolean</div><div class="summaryTableDescription">
+		 
+		 This function sets the point of interest for the camera use for exposure settings.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setFlashMode()" class="signatureLink">setFlashMode</a>(mode:String):Boolean</div><div class="summaryTableDescription">
+		 Sets the mode for the flash on the camera
+		 
+		 </div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setFocusMode()" class="signatureLink">setFocusMode</a>(mode:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Sets the focus mode from one of the available focus modes.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setFocusPointOfInterest()" class="signatureLink">setFocusPointOfInterest</a>(point:Point):Boolean</div><div class="summaryTableDescription">
+		 
+		 This function sets the point of interest for the camera to focus on.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setMode()" class="signatureLink">setMode</a>(cameraMode:<a href="../../../../com/distriqt/extension/camera/CameraMode.html">CameraMode</a>):Boolean</div><div class="summaryTableDescription">
+		 
+		 
+		 Allows you to control the mode of operation of the camera.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setPresetMode()" class="signatureLink">setPresetMode</a>(presetMode:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Attempts to set the preset mode on the current running camera
+		 session.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setWhiteBalanceMode()" class="signatureLink">setWhiteBalanceMode</a>(mode:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Sets the white balance mode from one of the available modes.</div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#startRecordingVideo()" class="signatureLink">startRecordingVideo</a>(path:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Not yet supported
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#stopRecordingVideo()" class="signatureLink">stopRecordingVideo</a>():void</div><div class="summaryTableDescription">
+		 
+		 Not yet supported
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">Camera</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.Camera<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 2<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Camera</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Camera</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="capturingImage"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">capturingImage</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>capturingImage:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 <p>
+		 Whether a capture image process is currently taking 
+		 place. If this is true then any calls to captureImage will
+		 fail.
+		 </p>
+		 
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get capturingImage():Boolean</code><br/><p><span class="label">See also</span></p><div class="seeAlso"><a href="Camera.html#captureImage" target="">captureImage</a></div></div><a name="propertyDetail"></a><a name="height"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">height</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>height:Number</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The current capture height, in pixels.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get height():Number</code><br/></div><a name="propertyDetail"></a><a name="instance"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">instance</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>instance:<a href="../../../../com/distriqt/extension/camera/Camera.html">Camera</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the Camera class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get instance():<a href="../../../../com/distriqt/extension/camera/Camera.html">Camera</a></code><br/><br/><span class="label"> Throws </span><br/><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="propertyDetail"></a><a name="isFlashSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isFlashSupported</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>isFlashSupported:Boolean</code>&nbsp;&nbsp;[read-only] <div xmlns:fn="http://www.w3.org/2005/xpath-functions" style="white-space:nowrap" valign="top"><b>Deprecated: </b>Please Use <A href="#isTorchSupported()">isTorchSupported()</A></div><p></p><p></p><p>
+		 <p>
+		 Depreciated as we need to distinguish between devices and flash versus torch.
+		 </p>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isFlashSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the camera is supported on the current device
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="receivedFrames"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">receivedFrames</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>receivedFrames:Number</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 <p>
+		 The current frame count received. This starts from 0 
+		 when the initialise function is called for the first 
+		 time and then increments with each frame received by 
+		 the camera.
+		 </p>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get receivedFrames():Number</code><br/></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 <p>
+		 The version string of the native extension. This will be of the format:
+		 </p>
+		 <pre>
+		 [main version].[base version].[implementation].[native version]
+		 </pre>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="propertyDetail"></a><a name="width"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">width</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>width:Number</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The current capture width, in pixels.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get width():Number</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="Camera()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">Camera</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function Camera()</code><p></p><p>
+		  Constructor
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="captureImage()"></a><a name="captureImage(Boolean,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">captureImage</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function captureImage(saveToCameraRoll:Boolean, format:String = jpeg):Boolean</code><p></p><p></p><p>
+		 <p>
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">saveToCameraRoll</span>:Boolean</code> &mdash; If true the image will be saved to the user's camera roll / gallery
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">format</span>:String</code> (default = <code>jpeg</code>)<code></code> &mdash; 		Unsupported: planned future functionality not yet implemented
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the capture process was started successfully. This may fail if there is 
+		 			already a capture in progress or if the camera is not initialised or if the 
+		 			device doesn't support this functionality.
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/camera/events/CameraDataEvent.html#CAPTURED_IMAGE" target="">com.distriqt.extension.camera.events.CameraDataEvent.CAPTURED_IMAGE</a><br/><a href="../../../../com/distriqt/extension/camera/events/CameraEvent.html#CAPTURE_ERROR" target="">com.distriqt.extension.camera.events.CameraEvent.CAPTURE_ERROR</a></div></div><a name="getAvailableDevices()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getAvailableDevices</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getAvailableDevices():Array</code><p></p><p></p><p>
+		 <p>
+		 Returns the available capture devices. This will include any 
+		 camera's on the device (front and back) and potentially any 
+		 microphone devices.
+		 </p>
+		 
+		 <p>
+		 Please note this function may be costly as it has to query 
+		 each camera device individually for properties. You should 
+		 use this function sparingly.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Array</code> &mdash; An Array of CaptureDevice objects available 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso">CaptureDevice</div></div><a name="getAvailableImageFormats()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getAvailableImageFormats</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getAvailableImageFormats():Array</code><p></p><p></p><p>
+		 <p>
+		 Retrieves a list of the available image formats for image stills
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Array</code> &mdash; An Array of String's each representing a supported format on the device
+		 
+		 </td></tr></table></div><a name="getFrameBuffer()"></a><a name="getFrameBuffer(flash.utils.ByteArray)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getFrameBuffer</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getFrameBuffer(destination:ByteArray):int</code><p></p><p></p><p>
+		 <p>
+		 Copies the latest frame captured by the camera to the 
+		 supplied byte array.
+		 </p>
+		 
+		 <p>
+		 The returned data will be in little endian format which we set on the 
+		 ByteArray instance. Additionally we reset the position to the start
+		 of the ByteArray so it will be ready for use immediately after a call
+		 to this function.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">destination</span>:ByteArray</code> &mdash; A valid ByteArray instance to write the frame data into
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>int</code> &mdash; The index of the received frame data
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Camera.html#width" target="">width</a><br/><a href="Camera.html#height" target="">height</a></div><br/><span class="label"> Example </span><br/><div class="detailBody">Retrieving the data for a video frame
+		 
+		 <div class="listing" version="3.0"><pre>
+         var videoDataByteArray:ByteArray = new ByteArray();
+         
+         Camera.instance.getFrameBuffer( videoDataByteArray );
+         
+         bitmapData.setPixels( 
+             new Rectangle( 0, 0, Camera.instance.width, Camera.instance.height ), 
+             videoDataByteArray 
+         );
+         </pre></div>
+		 
+		 </div></div><a name="getModes()"></a><a name="getModes(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getModes</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getModes(deviceId:String):Array</code><p></p><p></p><p>
+		 <p>
+		 Get the available modes of operation for the camera, i.e. the list of
+		 resolutions that the camera can support when capturing images.
+		 </p>
+		 
+		 <p>
+		 If the device Id is empty then the current device is checked.
+		 </p>
+		 <p>
+		 If the camera has not been initialised, and the deviceId is empty, 
+		 then the default camera is checked.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">deviceId</span>:String</code> &mdash; 	The Id of the device to check
+		 
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Array</code></td></tr></table></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p><br/><span class="label">Throws</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="initialise()"></a><a name="initialise(com.distriqt.extension.camera.CameraParameters)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">initialise</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function initialise(options:<a href="../../../../com/distriqt/extension/camera/CameraParameters.html">CameraParameters</a> = null):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Initialises and captures the camera.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">options</span>:<a href="../../../../com/distriqt/extension/camera/CameraParameters.html">CameraParameters</a></code> (default = <code>null</code>)<code></code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if successfully initialised and 
+		 			false if the session was already running or 
+		 			if the camera is not supported
+		 </td></tr></table></div><a name="isExposureSupported()"></a><a name="isExposureSupported(String,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isExposureSupported</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isExposureSupported(mode:String, deviceId:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Whether the exposure mode is supported on the specified camera device
+		 </p>
+		 <p>
+		 If the device Id is empty then the current device is checked.
+		 </p>
+		 <p>
+		 If the camera has not been initialised, and the deviceId is empty, 
+		 then the default camera is checked.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">mode</span>:String</code> &mdash; 		The exposure mode to check support for
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">deviceId</span>:String</code> &mdash; 	The Id of the device to check
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the mode is supported on the device
+		 </td></tr></table></div><a name="isFlashSupported()"></a><a name="isFlashSupported(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isFlashSupported</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isFlashSupported(deviceId:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Whether the flash mode is supported on the specified camera device
+		 </p>
+		 <p>
+		 If the device Id is empty then the current device is checked.
+		 </p>
+		 <p>
+		 If the camera has not been initialised, and the deviceId is empty, 
+		 then the default camera is checked.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">deviceId</span>:String</code> &mdash; The Id of the device to check. If empty the current device is checked.
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if it is supported
+		 </td></tr></table></div><a name="isFocusSupported()"></a><a name="isFocusSupported(String,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isFocusSupported</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isFocusSupported(mode:String, deviceId:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Whether the focus mode is supported on the specified camera device
+		 </p>
+		 <p>
+		 If the device Id is empty then the current device is checked.
+		 </p>
+		 <p>
+		 If the camera has not been initialised, and the deviceId is empty, 
+		 then the default camera is checked.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">mode</span>:String</code> &mdash; 		The focus mode to check support for
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">deviceId</span>:String</code> &mdash; 	The Id of the device to check
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the mode is supported on the device
+		 </td></tr></table></div><a name="isModeSupported()"></a><a name="isModeSupported(com.distriqt.extension.camera.CameraMode,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isModeSupported</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isModeSupported(mode:<a href="../../../../com/distriqt/extension/camera/CameraMode.html">CameraMode</a>, deviceId:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Whether the specified mode is supported on the current
+		 device. See the list of preset modes in the CameraModes 
+		 class.
+		 </p>
+		 <p>
+		 If the device Id is empty then the current device is checked.
+		 </p>
+		 <p>
+		 If the camera has not been initialised, and the deviceId is empty, 
+		 then the default camera is checked.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">mode</span>:<a href="../../../../com/distriqt/extension/camera/CameraMode.html">CameraMode</a></code> &mdash; 		The camera mode to check support for
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">deviceId</span>:String</code> &mdash; 	The Id of the device to check
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the mode is supported on the device
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="CameraMode.html" target="">CameraMode</a></div></div><a name="isPresetSupported()"></a><a name="isPresetSupported(String,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isPresetSupported</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isPresetSupported(presetMode:String, deviceId:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Whether the specified mode is supported on the current
+		 device. See the list of preset modes in the CameraModes 
+		 class.
+		 </p>
+		 <p>
+		 If the device Id is empty then the current device is checked.
+		 </p>
+		 <p>
+		 If the camera has not been initialised, and the deviceId is empty, 
+		 then the default camera is checked.
+		 </p>
+		 
+		 <p>
+		 This is the equivalent of <code>isModeSupported( new CameraMode( presetMode ), deviceId )</code>
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">presetMode</span>:String</code> &mdash; The preset mode to check support for
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">deviceId</span>:String</code> &mdash; 	The Id of the device to check
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the mode is supported on the device
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="CameraMode.html" target="">CameraMode</a></div></div><a name="isTorchSupported()"></a><a name="isTorchSupported(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isTorchSupported</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isTorchSupported(deviceId:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Whether the torch mode is supported on the specified camera device
+		 </p>
+		 <p>
+		 If the device Id is empty then the current device is checked.
+		 </p>
+		 <p>
+		 If the camera has not been initialised, and the deviceId is empty, 
+		 then the default camera is checked.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">deviceId</span>:String</code> &mdash; The Id of the device to check. If empty the current device is checked. 
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if it is supported
+		 </td></tr></table></div><a name="isWhiteBalanceSupported()"></a><a name="isWhiteBalanceSupported(String,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isWhiteBalanceSupported</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isWhiteBalanceSupported(mode:String, deviceId:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Whether the White balance mode is supported on the specified camera device
+		 </p>
+		 <p>
+		 If the device Id is empty then the current device is checked.
+		 </p>
+		 <p>
+		 If the camera has not been initialised, and the deviceId is empty, 
+		 then the default camera is checked.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">mode</span>:String</code> &mdash; 		The white balance mode to check support for
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">deviceId</span>:String</code> &mdash; 	The Id of the device to check
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the mode is supported on the device
+		 </td></tr></table></div><a name="release()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">release</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function release():void</code><p></p><p></p><p>
+		 <p>
+		 Releases any access to the camera the application may hold.
+		 </p>
+		 
+		 <p>
+		 This will force and recording or other activities to stop so you should 
+		 finalise any active operations before calling this function.
+		 </p>
+		 </p></div><a name="setDevice()"></a><a name="setDevice(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setDevice</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setDevice(deviceId:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 This function allows you to change the device currently being used
+		 by the session. After calling this you may have to reset any modes
+		 that you have set on the device, focus, white balance etc.
+		 </p>
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">deviceId</span>:String</code> &mdash; The ID of the device to use.
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the device was successfully changed and false if not
+		 
+		 </td></tr></table></div><a name="setExposureMode()"></a><a name="setExposureMode(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setExposureMode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setExposureMode(mode:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Sets the exposure mode from one of the available modes.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">mode</span>:String</code> &mdash; The exposure mode to set
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the mode was set correctly
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="CameraParameters.html#EXPOSURE_MODE_LOCKED" target="">CameraParameters.EXPOSURE_MODE_LOCKED</a><br/><a href="CameraParameters.html#EXPOSURE_MODE_AUTO" target="">CameraParameters.EXPOSURE_MODE_AUTO</a><br/><a href="CameraParameters.html#EXPOSURE_MODE_CONTINUOUS" target="">CameraParameters.EXPOSURE_MODE_CONTINUOUS</a></div></div><a name="setExposurePointOfInterest()"></a><a name="setExposurePointOfInterest(flash.geom.Point)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setExposurePointOfInterest</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setExposurePointOfInterest(point:Point):Boolean</code><p></p><p></p><p>
+		 <p>
+		 This function sets the point of interest for the camera use for exposure settings.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">point</span>:Point</code> &mdash; The coordinates of the point of interest to set
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table></div><a name="setFlashMode()"></a><a name="setFlashMode(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setFlashMode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setFlashMode(mode:String):Boolean</code><p></p><p></p><p>
+		 Sets the mode for the flash on the camera
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">mode</span>:String</code> &mdash; The flash mode to set from the available modes in CameraParameters.
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table><br/><span class="label">Throws</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="CameraParameters.html#FLASH_MODE_OFF" target="">CameraParameters.FLASH_MODE_OFF</a><br/><a href="CameraParameters.html#FLASH_MODE_AUTO" target="">CameraParameters.FLASH_MODE_AUTO</a><br/><a href="CameraParameters.html#FLASH_MODE_ON" target="">CameraParameters.FLASH_MODE_ON</a><br/><a href="CameraParameters.html#FLASH_MODE_RED_EYE" target="">CameraParameters.FLASH_MODE_RED_EYE</a><br/><a href="CameraParameters.html#FLASH_MODE_TORCH" target="">CameraParameters.FLASH_MODE_TORCH</a><br/><a href="Camera.html#isFlashSupported()" target="">isFlashSupported()</a></div></div><a name="setFocusMode()"></a><a name="setFocusMode(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setFocusMode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setFocusMode(mode:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Sets the focus mode from one of the available focus modes.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">mode</span>:String</code> &mdash; The focus mode to set
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the mode was set correctly
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="CameraParameters.html#FOCUS_MODE_LOCKED" target="">CameraParameters.FOCUS_MODE_LOCKED</a><br/><a href="CameraParameters.html#FOCUS_MODE_AUTO" target="">CameraParameters.FOCUS_MODE_AUTO</a><br/><a href="CameraParameters.html#FOCUS_MODE_CONTINUOUS" target="">CameraParameters.FOCUS_MODE_CONTINUOUS</a></div></div><a name="setFocusPointOfInterest()"></a><a name="setFocusPointOfInterest(flash.geom.Point)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setFocusPointOfInterest</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setFocusPointOfInterest(point:Point):Boolean</code><p></p><p></p><p>
+		 <p>
+		 This function sets the point of interest for the camera to focus on.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">point</span>:Point</code> &mdash; The coordinates of the point of interest to set
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table></div><a name="setMode()"></a><a name="setMode(com.distriqt.extension.camera.CameraMode)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setMode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setMode(cameraMode:<a href="../../../../com/distriqt/extension/camera/CameraMode.html">CameraMode</a>):Boolean</code><p></p><p></p><p>
+		 
+		 <p>
+		 Allows you to control the mode of operation of the camera.
+		 </p>
+		 
+		 <p>
+		 You must have called <code>initialise</code> before using 
+		 this function. You can set the initial mode by passing the options into
+		 the initialise function.
+		 </p> 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">cameraMode</span>:<a href="../../../../com/distriqt/extension/camera/CameraMode.html">CameraMode</a></code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; 
+		 
+		 </td></tr></table></div><a name="setPresetMode()"></a><a name="setPresetMode(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setPresetMode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setPresetMode(presetMode:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Attempts to set the preset mode on the current running camera
+		 session. 
+		 </p>
+		 
+		 <p>
+		 This is the same as calling <code>setMode( new CameraMode( presetMode ) )</code>
+		 </p>
+		 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">presetMode</span>:String</code> &mdash; The preset mode to use (from CameraMode definitions)
+		 		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the mode was successfully set on the current session.
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="CameraMode.html" target="">CameraMode</a></div></div><a name="setWhiteBalanceMode()"></a><a name="setWhiteBalanceMode(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setWhiteBalanceMode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setWhiteBalanceMode(mode:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Sets the white balance mode from one of the available modes.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">mode</span>:String</code> &mdash; The white balance mode to set
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the mode was set correctly
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="CameraParameters.html" target="">CameraParameters</a></div></div><a name="startRecordingVideo()"></a><a name="startRecordingVideo(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">startRecordingVideo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function startRecordingVideo(path:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Not yet supported
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">path</span>:String</code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if video recording was started successfully
+		 
+		 </td></tr></table></div><a name="stopRecordingVideo()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">stopRecordingVideo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function stopRecordingVideo():void</code><p></p><p></p><p>
+		 <p>
+		 Not yet supported
+		 </p>
+		 
+		 </p></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.Camera</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 2</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><a name="includeExamplesSummary"></a><div class="detailSectionHeader">Examples</div><div class="detailBody">The following code initialises and turns on the flash
+	 
+	 <div class="listing" version="3.0"><pre>
+         try
+         {
+             Camera.init( "your_dev_key" );
+             Camera.instance.initialise();
+             Camera.instance.setFlashMode( CameraParameters.FLASH_MODE_TORCH );
+         }
+         catch
+         {
+             trace( "ERROR: "+e.message );
+         }
+     </pre></div>
+	 
+	 </div><div class="detailBody">The following code captures bitmap data from the camera
+	 
+	 <div class="listing" version="3.0"><pre>
+     
+     private var _lastFrameProcessed    : Number = -1;
+     private var _videoData            : ByteArray = null;
+     private var _bitmapData            : BitmapData;
+     private var _bitmap                : Bitmap;
+     
+     ...
+     
+         try
+         {
+             Camera.init( "your_dev_key" );
+     
+             _videoData = new ByteArray();
+             _bitmapData = new BitmapData( 320, 240, true );
+             _bitmap = new Bitmap( _bitmapData );
+     
+             Camera.instance.initialise();
+             Camera.instance.addEventListener( CameraEvent.VIDEO_FRAME, camera_videoFrameHandler, false, 0, true );
+         }
+         catch
+         {
+             trace( "ERROR: "+e.message );
+         }
+     
+     ...
+     
+     private function camera_videoFrameHandler( event:CameraEvent ):void
+     {
+         var frame:Number = Camera.instance.receivedFrames;
+         if (frame != _lastFrameProcessed)
+         {
+             Camera.instance.getFrameBuffer( _videoData );
+             var rect:Rectangle = new Rectangle( 0, 0, Camera.instance.width, Camera.instance.height );
+             if (_bitmapData.width != Camera.instance.width || _bitmapData.height != Camera.instance.height)
+             {
+                 _bitmapData = new BitmapData( Camera.instance.width, Camera.instance.height, true );
+                 _bitmap.bitmapData.dispose();
+                 _bitmap.bitmapData = _bitmapData;
+             }
+             
+             try
+             {
+                 _bitmapData.setPixels( rect, _videoData );
+             }
+             catch (e:Error)
+             {
+                 trace( e.message );
+             }
+             
+             _videoData.clear();
+             _lastFrameProcessed = frame;
+         }
+     }
+     
+     </pre></div>
+	 
+	 </div><div class="detailBody">
+	 
+	 The following example shows how to capture an image using the built in 
+	 camera and retrieve the image as BitmapData while simultaneously saving
+	 the image to the user's camera roll / gallery.
+	 
+	 
+	 <div class="listing" version="3.0"><pre>
+     
+     private var _bitmapData            : BitmapData;
+     private var _bitmap                : Bitmap;     
+     
+     ...
+      
+         if (Camera.isSupported)
+         {
+             Camera.init( "your_dev_key" );
+             var options:CameraParameters = new CameraParameters();
+             options.enableFrameBuffer = false;
+             options.presetMode = CameraParameters.PRESET_PHOTO;
+     
+             try
+             {
+                 Camera.instance.initialise( options );
+                 Camera.instance.addEventListener( CameraDataEvent.CAPTURED_IMAGE, camera_capturedImageHandler, false, 0, true );
+                 Camera.instance.addEventListener( CameraEvent.IMAGE_SAVE_COMPLETE, camera_imageSaveCompleteHandler, false, 0, true );
+                 
+                 Camera.instance.captureImage( true );
+             }
+              catch
+             {
+             }
+         }
+     
+     ...
+     
+     private function camera_capturedImageHandler( event:CameraDataEvent ):void
+     {
+         trace( "capture complete" );
+         // event data contains the bitmap data
+         _bitmapData.draw( event.data );
+     }
+     
+     private function camera_imageSaveCompleteHandler( event:CameraEvent ):void
+     {
+         // event.data contains the asset url
+         trace( "image save complete: " +event.data );
+     }
+     </pre></div>
+	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:47 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:47 PM +10:00  -->

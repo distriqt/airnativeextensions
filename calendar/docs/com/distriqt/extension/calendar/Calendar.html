@@ -1,0 +1,440 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="Calendar,com.distriqt.extension.calendar.Calendar,DAY_FRIDAY,DAY_MONDAY,DAY_SATURDAY,DAY_SUNDAY,DAY_THURSDAY,DAY_TUESDAY,DAY_WEDNESDAY,EXT_CONTEXT_ID,FREQUENCY_DAILY,FREQUENCY_MONTHLY,FREQUENCY_WEEKLY,FREQUENCY_YEARLY,IMPLEMENTATION_DEFAULT,VERSION,VERSION_DEFAULT,endCount,endDate,endDateString,frequency,interval,isSupported,notes,service,version,addEvent,addEventWithUI,editEventWithUI,getCalendars,getEvents,init,removeEvent,requestAccess,updateEvent"><title>com.distriqt.extension.calendar.Calendar</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'Calendar - distriqt // Calendar';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // Calendar Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/calendar/Calendar.html&amp;com/distriqt/extension/calendar/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">Calendar</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Calendar"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.calendar</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  Calendar</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Calendar  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.calendar.base.ExtensionBase</td></tr></table><p></p><p></p><p></p>	
+	              <p>
+	 This class represents the calendar extension providing access to the
+	 user's calendar on the device.
+	 </p>
+	 
+	              <p>
+                  <b>Note</b>: 
+	 This extension contains references to "Events" that refer to calendar 
+	 events or calendar entries and not normal actionscript event objects. 
+	 The normal actionscript event objects are all contained in the 
+	 <code>com.distriqt.extension.calendar.events</code> package.
+	 </p>
+	 
+	 
+	              <b>Requesting access</b>
+	 
+	              <p>
+	 Before an attempt is made to retrieve or add events it's suggested
+	 that you request access to the user's calendars. Depending on the 
+	 platform this may do different things. Under Android you'll simply
+	 get a granted response immediately as the user should have agreed
+	 to access when they installed the application with the READ_CALENDAR
+	 permission. On iOS the user may get a permissions dialog asking 
+	 for the application to use the calendar which the user can then 
+	 deny or grant.
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     Calendar.service.addEventListener( CalendarStatusEvent.ACCESS_GRANTED, calendar_accessGrantedHandler, false, 0, true );
+     Calendar.service.addEventListener( CalendarStatusEvent.ACCESS_DENIED,  calendar_accessDeniedHandler, false, 0, true );
+     
+     Calendar.service.requestAccess();
+     
+     private function calendar_accessGrantedHandler( event:CalendarStatusEvent ):void
+     {
+             // Access was granted, you can use the calendar functions
+     }
+     
+     private function calendar_accessDeniedHandler( event:CalendarStatusEvent ):void
+     {
+             // Access was denied, you should inform the user appropriately
+     }
+     </pre></div>
+	 
+	              <b>Retrieve calendars</b>
+	 
+	              <p>
+	 You can retrieve a list of the available calendars that the user has on 
+	 their device by calling the <code>getCalendars</code> function.
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     var calendars:Array = Calendar.service.getCalendars();
+     for each (var calendar:CalendarObject in calendars)
+     {
+             trace( "CALENDAR: ["+calendar.id+"] "+calendar.name );
+     }
+     </pre></div>
+	 
+	              <p>
+	 This functionality is mainly used to retrieve a list of calender IDs which 
+	 can be used in the event creation calls to place an event in a specific
+	 calendar. If you don't specify a calendar, the user's default calendar
+	 will always be used for event addition.
+	 </p>
+	 
+	 
+	 
+	              <b>Retrieve events</b>
+	 
+	              <p>
+	 Retrieving events is as simple as calling the <code>getEvents</code> 
+	 function, with your required start and end date. You can simply pass
+	 <code>new Date()</code> if you wish to retrieve all events.
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     var events:Array = Calendar.service.getEvents( new Date(), new Date() );
+     for each (var evt:EventObject in events)
+     {
+         trace( evt.title );
+         for each (var alarm:CalendarEventAlarm in evt.alarms)
+         {
+             trace( "\tALARM: "+alarm.offset );
+         }
+     }
+     </pre></div>
+	 
+	 
+	              <b>Adding an event</b>
+	 
+	              <p>
+	 There are two main methods to add an event:
+	 </p>
+	              <ul>
+	                 <li>adding an event directly with <code>addEvent</code>
+                  </li>
+	                 <li>displaying a dialog to allow a user to change properties of the 
+	 event with <code>addEventWithUI</code>
+                  </li>
+	              </ul>
+	 
+	              <p> 
+	 The first step to either method is to create an event object
+	 populated with all the information about the calendar event you
+	 require.
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     var e:EventObject = new EventObject();
+     e.title = "Test title now";
+     e.startDate = new Date();
+     e.endDate = new Date();
+     e.endDate.hours = e.endDate.hours+1;
+     </pre></div>
+	 
+	 
+	 
+	              <p>
+	 You can add an alarm to an event by adding a <code>CalendarEventAlarm</code>
+	 to the <code>alarms</code> array of the event. Please note that alarms may
+	 not be automatically added to an event if you use the <code>addEventWithUI</code>
+	 function to add an event. The user has the control to add their own 
+	 events in this case.
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     var a:CalendarEventAlarm = new CalendarEventAlarm();
+     a.offset = 5;
+     
+     e.alarms.push( a );
+     </pre></div>
+	 
+	              <p>
+	 You can add recurrence to an event by adding a recurrence rule to the 
+	 <code>recurrenceRules</code> array of the event. See the 
+	 <code>Recurrence</code> class documentation for more details on the 
+	 recurrence properties.
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     var r:Recurrence = new Recurrence();
+     r.endCount = 5;
+     r.interval = 1;
+     r.frequency = Recurrence.FREQUENCY_DAILY;
+     
+     e.recurrenceRules.push( r );
+     </pre></div>
+	 
+	 
+	              <p>
+	 The <code>addEvent</code> function allows you to add an event directly
+	 to the calendar without any user interaction.
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     Calendar.service.addEvent( e );
+     </pre></div>
+	 
+	              <p>
+	 The <code>addEventWithUI</code> function is a user friendly way of adding 
+	 an entry to a calendar. It presents the user with a dialog allowing
+	 them to modify the contents of the event before the event is saved 
+	 to the selected users calendar. The user may also cancel the event
+	 allowing them the ability to override the event addition.
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     Calendar.service.addEventListener( CalendarStatusEvent.UI_SAVE,   calendar_uiHandler, false, 0, true );
+     Calendar.service.addEventListener( CalendarStatusEvent.UI_CANCEL, calendar_uiHandler, false, 0, true );
+     
+     Calendar.service.addEventWithUI( e );
+     
+     private function calendar_uiHandler( event:CalendarStatusEvent ):void
+     {
+         switch (event.type)
+         {
+             case CalendarStatusEvent.UI_SAVE:
+                 // Handle a save event
+                 break;
+                  
+             case CalendarStatusEvent.UI_CANCEL:
+                  // Handle a cancel event
+                 break;
+         }
+     }
+     </pre></div>
+	 
+	              <p>
+	 We suggest you use the <code>addEventWithUI</code> version of the 
+	 function to allow the user any personalisation of the event, and 
+	 you'll receive UI events informing whether the event was saved or
+	 cancelled.
+	 </p>
+	 
+	 
+	 
+	              <b>iOS</b>
+	 
+	              <p>
+	 Once the user has denied your application access to the calendar you 
+	 can direct them to the following location to get them to allow access
+	 for your application.
+	 </p>
+	 
+	              <pre>
+	 Settings / Privacy / Calendars / YOUR APPLICATION Toggle
+	 </pre>
+	 
+	              <p>
+	 During testing it is useful to clear the current user's calendar 
+	 permissions and make the security request dialog appear again you 
+	 can clear the settings by going to:
+	 </p>
+	              <pre>
+	 Settings / General / Reset / Reset Location & Privacy
+	 </pre>
+	 
+	 
+	              <b>Android</b>
+	 
+	              <p>
+	 On Android, the extension uses the new Android 4.0 Calendar API, which 
+	 means that it will only work on on devices that support the Android SDK 
+	 v14 or higher. The isSupported flag represents this requirement.
+	 </p>
+	 
+	              <p>
+	 You need to ensure you have the following permissions in your manifest 
+	 node of your manifest additions in your application descriptor. 
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre> 
+     &lt;manifestAdditions&gt;&lt;![CDATA[
+         &lt;manifest android:installLocation="auto"&gt;
+             &lt;uses-permission android:name="android.permission.READ_CALENDAR"/&gt;
+             &lt;uses-permission android:name="android.permission.WRITE_CALENDAR"/&gt;
+         &lt;/manifest&gt;
+     ]]&gt;&lt;/manifestAdditions&gt;
+     </pre></div>
+	 
+	              <p>
+	 If you need to receive UI events (save and cancel) from the UI 
+	 facilities then you additionally need to add the following application 
+	 node and activity to the manifest.
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre> 
+     &lt;manifestAdditions&gt;&lt;![CDATA[
+         &lt;manifest android:installLocation="auto"&gt;
+             &lt;uses-permission android:name="android.permission.READ_CALENDAR"/&gt;
+             &lt;uses-permission android:name="android.permission.WRITE_CALENDAR"/&gt;
+             &lt;application&gt;
+                 &lt;activity android:name="com.distriqt.extension.calendar.activities.CalendarAddEventWithUIActivity" android:theme="&android:style/Theme.Translucent.NoTitleBar"&gt;&lt;/activity&gt;
+                 &lt;activity android:name="com.distriqt.extension.calendar.activities.CalendarEditEventWithUIActivity" android:theme="&android:style/Theme.Translucent.NoTitleBar"&gt;&lt;/activity&gt;
+             &lt;/application&gt;
+         &lt;/manifest&gt;
+     ]]&gt;&lt;/manifestAdditions&gt;
+     </pre></div>
+	 
+	 
+	 
+	 
+	           <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the current device supports the extensions functionality
+		 </div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/calendar/Calendar.html">Calendar</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the Extension class.</div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 The version string of the native extension
+		 </div></td><td class="summaryTableOwnerCol">Calendar</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#Calendar()" class="signatureLink">Calendar</a>()</div><div class="summaryTableDescription">
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#addEvent()" class="signatureLink">addEvent</a>(event:<a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html">EventObject</a>):void</div><div class="summaryTableDescription">
+		 
+		 Adds an event to the default calendar without presenting any form of UI.</div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#addEventWithUI()" class="signatureLink">addEventWithUI</a>(event:<a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html">EventObject</a>):void</div><div class="summaryTableDescription">
+		 
+		 This function will create an event in the user's calendar and 
+		 show a UI element to allow them to edit it before saving 
+		 
+		 
+		 Any of the elements you set on the EventObject will be 
+		 prepopulated in the UI presented to the user.</div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#editEventWithUI()" class="signatureLink">editEventWithUI</a>(eventId:String, editable:Boolean = true):Boolean</div><div class="summaryTableDescription">
+		 
+		 Displays a dialog to allow the user to edit the specified event.</div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getCalendars()" class="signatureLink">getCalendars</a>():Array</div><div class="summaryTableDescription">
+		 
+		 Retrieves an array of the available user calendars on the
+		 device in the form of an Array of CalendarObject.</div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getEvents()" class="signatureLink">getEvents</a>(from:Date = null, to:Date = null, calendarId:String):Array</div><div class="summaryTableDescription">
+		 
+		 Returns an array of calendar events within the date range.</div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#removeEvent()" class="signatureLink">removeEvent</a>(event:<a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html">EventObject</a>):Boolean</div><div class="summaryTableDescription">
+		 
+		 Removes the specified event.</div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#requestAccess()" class="signatureLink">requestAccess</a>():void</div><div class="summaryTableDescription">
+		 
+		 Initialises and requests access to the calendar.</div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#updateEvent()" class="signatureLink">updateEvent</a>(event:<a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html">EventObject</a>):Boolean</div><div class="summaryTableDescription">
+		 
+		 Allows you to update the details of an event.</div></td><td class="summaryTableOwnerCol">Calendar</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.Calendar<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 3<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Calendar</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Calendar</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the current device supports the extensions functionality
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/calendar/Calendar.html">Calendar</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the Extension class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/calendar/Calendar.html">Calendar</a></code><br/></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 The version string of the native extension
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="Calendar()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">Calendar</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function Calendar()</code><p></p><p>
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="addEvent()"></a><a name="addEvent(com.distriqt.extension.calendar.objects.EventObject)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">addEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function addEvent(event:<a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html">EventObject</a>):void</code><p></p><p></p><p>
+		 <p>
+		 Adds an event to the default calendar without presenting any form of UI.
+		 </p>
+		 <p>
+		 All of the elements of the event must already be set before passing to this function.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">event</span>:<a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html">EventObject</a></code> &mdash; The EventObject to add to the calendar
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html" target="">com.distriqt.extension.calendar.objects.EventObject</a></div></div><a name="addEventWithUI()"></a><a name="addEventWithUI(com.distriqt.extension.calendar.objects.EventObject)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">addEventWithUI</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function addEventWithUI(event:<a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html">EventObject</a>):void</code><p></p><p></p><p>
+		 <p>
+		 This function will create an event in the user's calendar and 
+		 show a UI element to allow them to edit it before saving 
+		 </p>
+		 <p>
+		 Any of the elements you set on the EventObject will be 
+		 prepopulated in the UI presented to the user.
+		 </p>
+		 
+		 <b>Android</b>
+		 <p>
+		 Please note that under Android alarms cannot be automatically
+		 set when using the UI to create an event. They can only be 
+		 set when using the #addEvent function directly.
+		 </p>
+		 <p>
+		 If you wish to receive UI events from this process you need
+		 to have added the manifest additions specified in the 
+		 main documentation.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">event</span>:<a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html">EventObject</a></code> &mdash; The initial values to populate the UI with
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html" target="">com.distriqt.extension.calendar.objects.EventObject</a></div></div><a name="editEventWithUI()"></a><a name="editEventWithUI(String,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">editEventWithUI</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function editEventWithUI(eventId:String, editable:Boolean = true):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Displays a dialog to allow the user to edit the specified event.
+		 </p>
+		 
+		 <p>
+		 You'll receive the same events as with an add event UI, i.e. 
+		 CalendarStatusEvent.UI_SAVE etc. Note though that you may receive
+		 the UI cancel event even when a user presses save/done if they 
+		 didn't make any changes to the event.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">eventId</span>:String</code> &mdash; The ID of the event to edit 
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">editable</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; 	[Unused]
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if successful and false otherwise
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Calendar.html#getEvents" target="">getEvents</a></div></div><a name="getCalendars()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getCalendars</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getCalendars():Array</code><p></p><p></p><p>
+		 <p>
+		 Retrieves an array of the available user calendars on the
+		 device in the form of an Array of CalendarObject.
+		 </p> 
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Array</code> &mdash; An array of CalendarObject
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/calendar/objects/CalendarObject.html" target="">com.distriqt.extension.calendar.objects.CalendarObject</a></div></div><a name="getEvents()"></a><a name="getEvents(Date,Date,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getEvents</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getEvents(from:Date = null, to:Date = null, calendarId:String):Array</code><p></p><p></p><p>
+		 <p>
+		 Returns an array of calendar events within the date range. 
+		 </p>
+		 
+		 <p>
+		 <b>Note</b>: The calendar ID function is 
+		 currently not implemented on iOS
+		 </p>
+		 
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">from</span>:Date</code> (default = <code>null</code>)<code></code> &mdash; 		The date to start the event search from	
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">to</span>:Date</code> (default = <code>null</code>)<code></code> &mdash; 		The date to perform the event search to
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">calendarId</span>:String</code> &mdash; The calendar ID to query, if empty all calendars available are queried
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Array</code> &mdash; An array of EventObject instances
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html" target="">com.distriqt.extension.calendar.objects.EventObject</a></div></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p></div><a name="removeEvent()"></a><a name="removeEvent(com.distriqt.extension.calendar.objects.EventObject)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">removeEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function removeEvent(event:<a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html">EventObject</a>):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Removes the specified event. You'll need to ensure the event is 
+		 valid for this function to work correctly. These can be retrieved
+		 by a call to getEvents.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">event</span>:<a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html">EventObject</a></code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the event was successfully removed and false otherwise
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Calendar.html#getEvents" target="">getEvents</a><br/><a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html" target="">com.distriqt.extension.calendar.objects.EventObject</a></div></div><a name="requestAccess()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">requestAccess</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function requestAccess():void</code><p></p><p></p><p>
+		 <p>
+		 Initialises and requests access to the calendar. This may display
+		 a security box under iOS.
+		 </p>
+		 
+		 <p>
+		 On first call (or if the privacy has been reset) this will cause
+		 the display of a dialog requesting the user authorise your 
+		 application to have access to the user's calendar.
+		 </p>
+		 
+		 <p>
+		 This will always dispatch one of the access status events, 
+		 indicating if your application has access to the calendar. You
+		 should implement listeners for the access events and respond
+		 accordingly.
+		 </p>
+		 		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/calendar/events/CalendarStatusEvent.html#ACCESS_GRANTED" target="">com.distriqt.extension.calendar.events.CalendarStatusEvent.ACCESS_GRANTED</a><br/><a href="../../../../com/distriqt/extension/calendar/events/CalendarStatusEvent.html#ACCESS_DENIED" target="">com.distriqt.extension.calendar.events.CalendarStatusEvent.ACCESS_DENIED</a></div></div><a name="updateEvent()"></a><a name="updateEvent(com.distriqt.extension.calendar.objects.EventObject)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">updateEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function updateEvent(event:<a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html">EventObject</a>):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Allows you to update the details of an event. You should have previously
+		 retrieved the event using getEvents and have a valid system event ID for
+		 the event before this call will work.
+		 </p>
+		 
+		 <p>
+		 <b>Important</b>: If your app modifies a user's Calendar database, 
+		 it must get confirmation from the user before doing so. An app should never 
+		 modify the Calendar database without specific instruction from the user.
+		 </p>
+		 
+ 		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">event</span>:<a href="../../../../com/distriqt/extension/calendar/objects/EventObject.html">EventObject</a></code> &mdash; The updated event to save
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if successful and false otherwise
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Calendar.html#getEvents" target="">getEvents</a></div></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.Calendar</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 3</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:46 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:46 PM +10:00  -->

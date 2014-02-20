@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/4.0">
+	<id>com.distriqt.test</id>
+	<filename>TestPushNotifications</filename>
+	<name>TestPushNotifications</name>
+	<versionNumber>0.0.1</versionNumber>
+
+	<initialWindow>
+		<content>[This value will be overwritten by Flash Builder in the output app.xml]</content>
+		<autoOrients>false</autoOrients>
+        <fullScreen>false</fullScreen>
+        <visible>true</visible>
+    </initialWindow>
+
+	<icon>
+		<image16x16>icons/icon16x16.png</image16x16>
+		<image29x29>icons/icon29x29.png</image29x29>
+		<image32x32>icons/icon32x32.png</image32x32>
+		<image36x36>icons/icon36x36.png</image36x36>
+		<image48x48>icons/icon48x48.png</image48x48>
+		<image57x57>icons/icon57x57.png</image57x57>
+		<image72x72>icons/icon72x72.png</image72x72>
+		<image114x114>icons/icon114x114.png</image114x114>
+		<image128x128>icons/icon128x128.png</image128x128>
+		<image512x512>icons/icon512x512.png</image512x512>
+	</icon>
+
+	<iPhone>
+        <InfoAdditions><![CDATA[
+			<key>UIDeviceFamily</key>
+			<array>
+				<string>1</string>
+			</array>
+		]]></InfoAdditions>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+        <Entitlements>
+            <![CDATA[
+                <key>get-task-allow</key>
+			    <true/>
+			    <key>aps-environment</key>
+			    <string>development</string>
+			    <key>application-identifier</key>
+			    <string>X5LW23Q6CJ.com.distriqt.test</string>
+			    <key>keychain-access-groups</key>
+			    <array>
+			        <string>X5LW23Q6CJ.*</string>
+			    </array>
+            ]]>
+        </Entitlements>
+    </iPhone>
+    
+	<android>
+		<manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+				
+				<uses-sdk android:minSdkVersion="8" android:targetSdkVersion="16"/>
+				
+				<uses-permission android:name="android.permission.INTERNET"/>
+				<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+				<uses-permission android:name="android.permission.VIBRATE"/>
+				<uses-permission android:name="android.permission.WAKE_LOCK" />
+				<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+				
+				<!-- Only this application can receive the messages and registration result --> 
+				<permission android:name="air.com.distriqt.test.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+				<uses-permission android:name="air.com.distriqt.test.permission.C2D_MESSAGE" />
+				
+				<application>
+					<receiver android:enabled="true" android:exported="true" android:name="com.distriqt.extension.pushnotifications.PushNotificationsBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND" >
+						<intent-filter>
+							<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+							<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+							<category android:name="air.com.distriqt.test" />
+						</intent-filter>
+					</receiver>
+					<service android:enabled="true" android:exported="true" android:name="com.distriqt.extension.pushnotifications.gcm.GCMIntentService" />
+					<receiver android:name="com.distriqt.extension.pushnotifications.PushNotificationsReceiver">
+						<intent-filter>
+							<action android:name="air.com.distriqt.test.PUSHNOTIFICATION_SELECTED" />
+						</intent-filter>
+					</receiver>
+				</application>
+			
+			</manifest>
+		
+		]]></manifestAdditions>
+	</android>
+    
+    <extensions>
+        <extensionID>com.distriqt.PushNotifications</extensionID>
+    </extensions>
+    
+</application>

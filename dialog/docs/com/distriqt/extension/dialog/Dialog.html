@@ -1,0 +1,527 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="Dialog,com.distriqt.extension.dialog.Dialog,DIALOG_PROGRESS_STYLE_ANNULAR,DIALOG_PROGRESS_STYLE_DETERMINATE,DIALOG_PROGRESS_STYLE_HORIZONTAL,DIALOG_PROGRESS_STYLE_SPINNER,EXT_CONTEXT_ID,IMPLEMENTATION_DEFAULT,LENGTH_LONG,LENGTH_SHORT,THEME_DARK,THEME_DEVICE_DEFAULT_DARK,THEME_DEVICE_DEFAULT_LIGHT,THEME_LIGHT,THEME_TRADITIONAL,VERSION,VERSION_DEFAULT,isSupported,service,version,dismissDatePicker,dismissDateTimePicker,dismissDialog,dismissPopover,dismissProgressDialog,dismissTimePicker,getDatePickerValue,getDateTimePickerValue,getTimePickerValue,init,setDateTimePickerValue,setTimePickerValue,showAlertDialog,showDatePicker,showDateTimePicker,showLoginAlertDialog,showMultipleChoiceDialog,showProgressDialog,showSelectPopover,showTextInputAlertDialog,showTimePicker,toast,updateProgressDialog"><title>com.distriqt.extension.dialog.Dialog</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'Dialog - distriqt // Dialog';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // Dialog Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/dialog/Dialog.html&amp;com/distriqt/extension/dialog/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">Dialog</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Dialog"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.dialog</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  Dialog</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Dialog  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.dialog.base.ExtensionBase</td></tr></table><p></p><p></p><p></p>	
+	              <p>This class represents the dialog extension.</p>
+	 
+	              <p>Dialogs allow you to present a simple question or choice to the user in a modal manner.
+	 These alerts and other dialogs can be stacked and must all be dismissed by the user.</p>
+	 
+	           <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the current device supports the extensions functionality
+		 </div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/dialog/Dialog.html">Dialog</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the Extension class.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 
+		 The version string of the native extension.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#Dialog()" class="signatureLink">Dialog</a>()</div><div class="summaryTableDescription">
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dismissDatePicker()" class="signatureLink">dismissDatePicker</a>(id:int):Boolean</div><div class="summaryTableDescription">
+		 
+		 Dismisses the date dialog specified by the id.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dismissDateTimePicker()" class="signatureLink">dismissDateTimePicker</a>(id:int):Boolean</div><div class="summaryTableDescription">
+		 
+		 Dismisses the date/time dialog specified by the id.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dismissDialog()" class="signatureLink">dismissDialog</a>(id:int):Boolean</div><div class="summaryTableDescription">
+		 Dismiss a dialog that you have previously displayed.
+		 
+		 The id of the dialog must be provided so that if you have 
+		 stacked dialogs the correct dialog will be dismissed.
+		 
+		 This does not dismiss progress dialogs only dialogs created
+		 with the #showAlertDialog or #showMultipleChoiceDialog functions.
+		 
+		 If called at the appropriate time, you will receive a 
+		 DialogEvent.DIALOG_CANCELLED event after this dialog is 
+		 dismissed.
+		 
+		 iOS: Under iOS the dialogs take a little time 
+		 to initialise so make sure you leave at least 1-2 seconds between 
+		 creating the dialog and dismissing it.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dismissPopover()" class="signatureLink">dismissPopover</a>(id:int):Boolean</div><div class="summaryTableDescription">
+		 
+		 Hides (dismisses) the popover specified by the id.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dismissProgressDialog()" class="signatureLink">dismissProgressDialog</a>(id:int):Boolean</div><div class="summaryTableDescription">
+		 
+		 Dismisses the currently shown progress dialog.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dismissTimePicker()" class="signatureLink">dismissTimePicker</a>(id:int):Boolean</div><div class="summaryTableDescription">
+		 
+		 Dismisses the time dialog specified by the id.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getDatePickerValue()" class="signatureLink">getDatePickerValue</a>(id:int):Date</div><div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getDateTimePickerValue()" class="signatureLink">getDateTimePickerValue</a>(id:int):Date</div><div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getTimePickerValue()" class="signatureLink">getTimePickerValue</a>(id:int):Object</div><div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setDateTimePickerValue()" class="signatureLink">setDateTimePickerValue</a>(id:int, year:int, month:int, day:int, animated:Boolean = true):Boolean</div><div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setTimePickerValue()" class="signatureLink">setTimePickerValue</a>(id:int, hour:int, minute:int, animated:Boolean = true):Boolean</div><div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showAlertDialog()" class="signatureLink">showAlertDialog</a>(id:int, title:String, message:String, cancelLabel:String = Close, otherLabels:Array = null):void</div><div class="summaryTableDescription">
+		 Displays an Alert Dialog.
+		 
+		 In it's most basic form this dialog shows a message and a cancel/close button.
+		  
+		 </div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showDatePicker()" class="signatureLink">showDatePicker</a>(id:int, options:<a href="../../../../com/distriqt/extension/dialog/objects/DateTimePickerOptions.html">DateTimePickerOptions</a> = null):Boolean</div><div class="summaryTableDescription">
+		 
+		 Shows a date picker dialog to the user allowing them to select a date i.e.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showDateTimePicker()" class="signatureLink">showDateTimePicker</a>(id:int, options:<a href="../../../../com/distriqt/extension/dialog/objects/DateTimePickerOptions.html">DateTimePickerOptions</a> = null, mode:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 This is the main function for displaying a date and/or time picker dialog.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showLoginAlertDialog()" class="signatureLink">showLoginAlertDialog</a>(id:int, title:String, message:String, cancelLabel:String = Cancel, otherLabels:Array = null):void</div><div class="summaryTableDescription">
+		 
+		 Shows a simple login alert dialog to get a username and password from the user.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showMultipleChoiceDialog()" class="signatureLink">showMultipleChoiceDialog</a>(id:int, title:String, message:String, labels:Array):void</div><div class="summaryTableDescription">
+		 Displays a multiple choice Dialog.
+		 
+		 In it's most basic form this dialog shows a message and a series of buttons.
+		 
+		 iOS: The first label in the array will be treated as the 
+		 special "cancel" button and will be displayed slightly differently.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showProgressDialog()" class="signatureLink">showProgressDialog</a>(id:int, title:String, message:String, style:String, cancelable:Boolean = true, theme:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Creates a progress dialog, to show progress of a process.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showSelectPopover()" class="signatureLink">showSelectPopover</a>(id:int, title:String, values:Array, options:<a href="../../../../com/distriqt/extension/dialog/objects/PopoverOptions.html">PopoverOptions</a> = null, selection:Array = null):void</div><div class="summaryTableDescription">
+		 
+		 Displays a popover with a select list.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showTextInputAlertDialog()" class="signatureLink">showTextInputAlertDialog</a>(id:int, title:String, message:String, isSecure:Boolean = false, cancelLabel:String = Cancel, otherLabels:Array = null):void</div><div class="summaryTableDescription">
+		 
+		 Shows a simple text input alert dialog to get input from the user.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showTimePicker()" class="signatureLink">showTimePicker</a>(id:int, options:<a href="../../../../com/distriqt/extension/dialog/objects/DateTimePickerOptions.html">DateTimePickerOptions</a> = null):Boolean</div><div class="summaryTableDescription">
+		 
+		 Shows a time picker allowing the user to select a time, i.e.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#toast()" class="signatureLink">toast</a>(message:String, length:int):void</div><div class="summaryTableDescription">
+		 
+		 Displays a small popup message on the screen commonly called 
+		 a "toast" message for an interval of time.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#updateProgressDialog()" class="signatureLink">updateProgressDialog</a>(id:int, progress:Number):Boolean</div><div class="summaryTableDescription">
+		 
+		 If you are using a #DIALOG_PROGRESS_STYLE_HORIZONTAL style progress bar,
+		 you can update the current progress shown using this function.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DIALOG_PROGRESS_STYLE_ANNULAR" class="signatureLink">DIALOG_PROGRESS_STYLE_ANNULAR</a> : String = annular<div class="summaryTableDescription">[static] 
+		 
+		 A circular style progress dialog with a progress bar that can be updated 
+		 to show a processes progress.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DIALOG_PROGRESS_STYLE_DETERMINATE" class="signatureLink">DIALOG_PROGRESS_STYLE_DETERMINATE</a> : String = determinate<div class="summaryTableDescription">[static] 
+		 A determinate style progress dialog with a progress indicator that can be updated 
+		 to show the progress of a process.
+		 
+		 To be used with the show progress dialog function.
+		 
+		 Under Android this will display a horizontal progress bar.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DIALOG_PROGRESS_STYLE_HORIZONTAL" class="signatureLink">DIALOG_PROGRESS_STYLE_HORIZONTAL</a> : String = horizontal<div class="summaryTableDescription">[static] 
+		 
+		 Depreciated.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DIALOG_PROGRESS_STYLE_SPINNER" class="signatureLink">DIALOG_PROGRESS_STYLE_SPINNER</a> : String = spinner<div class="summaryTableDescription">[static] 
+		 A spinner style progress dialog to show a process with an indeterminate duration.
+		 
+		 To be used with the show progress dialog function.
+		 
+		 </div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.Dialog<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#LENGTH_LONG" class="signatureLink">LENGTH_LONG</a> : int = 5<div class="summaryTableDescription">[static] 
+		 
+		 Used to display a toast message for a long interval
+		  
+		 
+		 </div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#LENGTH_SHORT" class="signatureLink">LENGTH_SHORT</a> : int = 0<div class="summaryTableDescription">[static] 
+		 
+		 Used to display a toast message for a short interval
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 2<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Dialog</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the current device supports the extensions functionality
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/dialog/Dialog.html">Dialog</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the Extension class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/dialog/Dialog.html">Dialog</a></code><br/><br/><span class="label"> Throws </span><br/><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 <p>
+		 The version string of the native extension. This will be of the format:
+		 </p>
+		 <pre>
+		 [main version].[base version].[implementation].[native version]
+		 </pre>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="Dialog()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">Dialog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function Dialog()</code><p></p><p>
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="dismissDatePicker()"></a><a name="dismissDatePicker(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dismissDatePicker</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function dismissDatePicker(id:int):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Dismisses the date dialog specified by the id.
+		 </p>
+		 
+		 <p>
+		 This is the equivalent of calling <code>dismissDateTimePicker( id )</code>
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; The id of the picker to dismiss
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the dialog was found and dismissed
+		 </td></tr></table></div><a name="dismissDateTimePicker()"></a><a name="dismissDateTimePicker(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dismissDateTimePicker</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function dismissDateTimePicker(id:int):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Dismisses the date/time dialog specified by the id.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; The id of the picker to dismiss
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the dialog was found and dismissed
+		 
+		 </td></tr></table></div><a name="dismissDialog()"></a><a name="dismissDialog(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dismissDialog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function dismissDialog(id:int):Boolean</code><p></p><p></p><p>
+		 <p>Dismiss a dialog that you have previously displayed.</p>
+		 
+		 <p>The id of the dialog must be provided so that if you have 
+		 stacked dialogs the correct dialog will be dismissed.</p>
+		 
+		 <p>This does not dismiss progress dialogs only dialogs created
+		 with the #showAlertDialog or #showMultipleChoiceDialog functions.</p>
+		 
+		 <p>If called at the appropriate time, you will receive a 
+		 DialogEvent.DIALOG_CANCELLED event after this dialog is 
+		 dismissed.</p>
+		 
+		 <p><b>iOS</b>: Under iOS the dialogs take a little time 
+		 to initialise so make sure you leave at least 1-2 seconds between 
+		 creating the dialog and dismissing it. If you don't you may not 
+		 correctly get the any other dialogs reappearing and you won't 
+		 receive the cancelled event. The dialog however will still be
+		 dismissed if you don't wait.</p>
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; The unique id of the dialog to dismiss (same as the id passed to the showialog functions)
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the dialog with the specified id was found and dismiss called and false otherwise.
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/dialog/events/DialogEvent.html#DIALOG_CANCELLED" target="">com.distriqt.extension.dialog.events.DialogEvent.DIALOG_CANCELLED</a></div></div><a name="dismissPopover()"></a><a name="dismissPopover(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dismissPopover</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function dismissPopover(id:int):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Hides (dismisses) the popover specified by the id.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; The id of the popover to dismiss
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table></div><a name="dismissProgressDialog()"></a><a name="dismissProgressDialog(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dismissProgressDialog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function dismissProgressDialog(id:int):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Dismisses the currently shown progress dialog.
+		 </p> 
+		 
+		 <p>
+		 You will receive a DIALOG_CLOSED event after a successful call to this function.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; The id of the dialog (this is unused, just here for consistency). You should supply the same id that you used when creating the progress dialog.
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the progress dialog was successfully dismissed, and false if there was an error or there is no progress dialog displayed.
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/dialog/events/DialogEvent.html#DIALOG_CLOSED" target="">com.distriqt.extension.dialog.events.DialogEvent.DIALOG_CLOSED</a></div></div><a name="dismissTimePicker()"></a><a name="dismissTimePicker(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dismissTimePicker</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function dismissTimePicker(id:int):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Dismisses the time dialog specified by the id.
+		 </p>
+		 
+		 <p>
+		 This is the equivalent of calling <code>dismissDateTimePicker( id )</code>
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; The id of the picker to dismiss
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the dialog was found and dismissed
+		 
+		 </td></tr></table></div><a name="getDatePickerValue()"></a><a name="getDatePickerValue(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getDatePickerValue</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getDatePickerValue(id:int):Date</code><p></p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Date</code></td></tr></table></div><a name="getDateTimePickerValue()"></a><a name="getDateTimePickerValue(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getDateTimePickerValue</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getDateTimePickerValue(id:int):Date</code><p></p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Date</code></td></tr></table></div><a name="getTimePickerValue()"></a><a name="getTimePickerValue(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getTimePickerValue</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getTimePickerValue(id:int):Object</code><p></p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Object</code></td></tr></table></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p><br/><span class="label">Throws</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="setDateTimePickerValue()"></a><a name="setDateTimePickerValue(int,int,int,int,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setDateTimePickerValue</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setDateTimePickerValue(id:int, year:int, month:int, day:int, animated:Boolean = true):Boolean</code><p></p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">year</span>:int</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">month</span>:int</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">day</span>:int</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">animated</span>:Boolean</code> (default = <code>true</code>)<code></code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table></div><a name="setTimePickerValue()"></a><a name="setTimePickerValue(int,int,int,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setTimePickerValue</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setTimePickerValue(id:int, hour:int, minute:int, animated:Boolean = true):Boolean</code><p></p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">hour</span>:int</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">minute</span>:int</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">animated</span>:Boolean</code> (default = <code>true</code>)<code></code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table></div><a name="showAlertDialog()"></a><a name="showAlertDialog(int,String,String,String,Array)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showAlertDialog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showAlertDialog(id:int, title:String, message:String, cancelLabel:String = Close, otherLabels:Array = null):void</code><p></p><p></p><p>
+		 <p>Displays an Alert Dialog.</p>
+		 
+		 <p>In it's most basic form this dialog shows a message and a cancel/close button.</p>
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; 		Unique id that gets returned with an event when the dialog is closed
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">title</span>:String</code> &mdash; 		The title of the dialog (This is optional on Android - supply an empty string to hide it)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; 	The message to display in the dialog
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">cancelLabel</span>:String</code> (default = <code>Close</code>)<code></code> &mdash; The label for the cancel or close button, this button has index 0
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">otherLabels</span>:Array</code> (default = <code>null</code>)<code></code> &mdash; An array of strings for the labels of the other buttons (the first will have index 1, the second 2 etc)
+		 
+		 </td></tr></table></p></div><a name="showDatePicker()"></a><a name="showDatePicker(int,com.distriqt.extension.dialog.objects.DateTimePickerOptions)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showDatePicker</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showDatePicker(id:int, options:<a href="../../../../com/distriqt/extension/dialog/objects/DateTimePickerOptions.html">DateTimePickerOptions</a> = null):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Shows a date picker dialog to the user allowing them to select a date i.e. a year, month and day.
+		 </p>
+		 
+		 <p>
+		 This is the equivalent of calling <code>showDateTimePicker( id, options, DateTimePickerOptions.MODE_DATE )</code>
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; 	The id to assign to this dialog. It should be unique.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">options</span>:<a href="../../../../com/distriqt/extension/dialog/objects/DateTimePickerOptions.html">DateTimePickerOptions</a></code> (default = <code>null</code>)<code></code> &mdash; The display options for this date / time dialog 
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the date picker was successfully created and displayed and false if there was an error
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Dialog.html#showDateTimePicker()" target="">showDateTimePicker()</a></div></div><a name="showDateTimePicker()"></a><a name="showDateTimePicker(int,com.distriqt.extension.dialog.objects.DateTimePickerOptions,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showDateTimePicker</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showDateTimePicker(id:int, options:<a href="../../../../com/distriqt/extension/dialog/objects/DateTimePickerOptions.html">DateTimePickerOptions</a> = null, mode:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 This is the main function for displaying a date and/or time picker dialog. There are three modes of operation
+		 as defined by the DateTimePickerOptions.MODE_constants.
+		 </p>
+		 
+		 <p>
+		 These dialogs are presented modally with your application being dimmed in the background.
+		 You specify the options of the dialog by creating an instance of the <code>DateTimePickerOptions</code>
+		 class and setting the options there. See that class for more information on the available options.
+		 </p>
+		 
+		 <p>
+		 Events are dispatched from the dialog, including change, selection and cancel events. The normal 
+		 <code>DialogEvent.DIALOG_CANCELLED</code> event is fired when the dialog is cancelled by the user.
+		 The changed and selection events are in the <code>DialogDateTimeEvent</code> class.
+		 </p>
+		 
+		 <ul>
+		 <li><code>MODE_TIME</code>: Displays only the time selection in the picker dialog (hour, minute) </li>
+		 <li><code>MODE_DATE</code>: Displays only the date selection in the picker dialog (year, month, day)</li>
+		 <li><code>MODE_DATE_AND_TIME</code>: Displays both the date and time selection in the picker dialog simultaneously. <b>iOS only</b></li>
+		 </ul>
+		 
+		 <b>Android</b>
+		 
+		 <p>
+		 Please note that on Android you can only display either the date or the time, so you'll have to accommodate this
+		 in your code. A simple option is to create both a date and time picker simultaneously and the user will have to 
+		 interact with both before returning to your application.
+		 </p>
+		 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; 	The id to assign to this dialog. It should be unique.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">options</span>:<a href="../../../../com/distriqt/extension/dialog/objects/DateTimePickerOptions.html">DateTimePickerOptions</a></code> (default = <code>null</code>)<code></code> &mdash; The display options for this date / time dialog 
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">mode</span>:String</code> (default = <code>NaN</code>)<code></code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the picker was successfully created and displayed and false if there was an error
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/dialog/objects/DateTimePickerOptions.html" target="">com.distriqt.extension.dialog.objects.DateTimePickerOptions</a></div><br/><span class="label"> Example </span><br/><div class="detailBody">
+		 The following example shows the simple usage to request a date input from the user.
+		 
+		 <div class="listing"><pre>
+         Dialog.init( DEV_KEY );
+         Dialog.service.addEventListener( DialogEvent.DIALOG_CANCELLED,      dialog_dialogCancelledHandler, false, 0, true );
+         Dialog.service.addEventListener( DialogDateTimeEvent.DATE_CHANGED,  dialog_dateChangedHandler, false, 0, true );
+         Dialog.service.addEventListener( DialogDateTimeEvent.DATE_SELECTED, dialog_dateSelectedHandler, false, 0, true );
+         
+         var options:DateTimePickerOptions = new DateTimePickerOptions();
+         options.year = 2014;
+         options.month = 10;
+         options.day = 5;
+         options.title = "Select a date";
+         
+         Dialog.service.showDateTimePicker( 1, options, DateTimePickerOptions.MODE_DATE );
+         
+         ...
+         
+         private function dialog_dialogCancelledHandler( event:DialogEvent ):void
+         {
+             trace( "The dialog was cancelled by the user" );
+         }
+         
+         private function dialog_dateChangedHandler( event:DialogDateTimeEvent ):void
+         {
+             trace( "The date was changed" );
+         }
+         
+         private function dialog_dateSelectedHandler( event:DialogDateTimeEvent ):void
+         {
+             trace( "Dialog date selected: " + event.date.toDateString() );
+         }
+         </pre></div>
+		 
+		 </div></div><a name="showLoginAlertDialog()"></a><a name="showLoginAlertDialog(int,String,String,String,Array)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showLoginAlertDialog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showLoginAlertDialog(id:int, title:String, message:String, cancelLabel:String = Cancel, otherLabels:Array = null):void</code><p></p><p></p><p>
+		 <p>
+		 Shows a simple login alert dialog to get a username and password from the user. The 
+		 username is returned in inputA of the DialogEvent and the password in inputB. The password
+		 is a secure input field, meaning the text will be hidden after a displaying for a short
+		 period of time.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; 		Unique id that gets returned with an event when the dialog is closed
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">title</span>:String</code> &mdash; 		The title of the dialog (This is optional on Android - supply an empty string to hide it)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; 	The message to display in the dialog
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">cancelLabel</span>:String</code> (default = <code>Cancel</code>)<code></code> &mdash; The label for the cancel or close button, this button has index 0
+		 
+		 
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">otherLabels</span>:Array</code> (default = <code>null</code>)<code></code></td></tr></table></p><br/><span class="label"> Example </span><br/><div class="detailBody">
+		 Simple example showing a login dialog
+		 
+		 <div class="listing"><pre>
+         Dialog.service.showLoginAlertDialog( 1, "Please enter your login details" );
+         </pre></div>
+		 </div></div><a name="showMultipleChoiceDialog()"></a><a name="showMultipleChoiceDialog(int,String,String,Array)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showMultipleChoiceDialog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showMultipleChoiceDialog(id:int, title:String, message:String, labels:Array):void</code><p></p><p></p><p>
+		 <p>Displays a multiple choice Dialog.</p>
+		 
+		 <p>In it's most basic form this dialog shows a message and a series of buttons.</p>
+		 
+		 <p><b>iOS</b>: The first label in the array will be treated as the 
+		 special "cancel" button and will be displayed slightly differently. It does not
+		 operate any differently however.</p>
+		 
+		 <p><b>iOS</b>: Does not support any more than 5 labels, any more will still work
+		 but will display incorrectly. This code does not limit your input with regards
+		 to this label count so you'll have to confirm that you provide no more than
+		 5 labels on iOS.</p>
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; 		Unique id that gets returned with an event when the dialog is closed
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">title</span>:String</code> &mdash; 		The title of the dialog (This is optional on Android - supply an empty string to hide it)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; 	The message to display in the dialog
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">labels</span>:Array</code> &mdash; 	An array of strings for the labels of the buttons (the first will have index 0, the second 1 etc)
+		 
+		 </td></tr></table></p></div><a name="showProgressDialog()"></a><a name="showProgressDialog(int,String,String,String,Boolean,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showProgressDialog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showProgressDialog(id:int, title:String, message:String, style:String, cancelable:Boolean = true, theme:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Creates a progress dialog, to show progress of a process. Only 
+		 one progress dialog can be shown at a time. If you attempt to create 
+		 two, this function will return false. In this case you must call 
+		 dismissProgressDialog before attempting to create another.
+		 </p>
+		 
+		 <p>
+		 There are two styles of progress dialogs, a spinner, for
+		 undetermined length processes and a horizontal progress bar.
+		 </p>
+		 
+		 <p>
+		 If the progress dialog is cancelable, you will receive a 
+		 DIALOG_CANCELLED event if the user cancels the progress dialog, 
+		 generally by pressing the back button. Under <b>iOS</b>
+		 progress dialogs are not cancelable.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; 		An id to associate with this dialog, will be returned with closed/cancelled events
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">title</span>:String</code> &mdash; 		A title for the dialog. If an empty string is provided the dialog will have no title.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; 	A message for the dialog. If an empty string is provided the dialog will have no message area.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">style</span>:String</code> (default = <code>NaN</code>)<code></code> &mdash; 		The style of the dialog (either DIALOG_PROGRESS_STYLE_SPINNER or DIALOG_PROGRESS_STYLE_HORIZONTAL) (default: DIALOG_PROGRESS_STYLE_SPINNER)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">cancelable</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; If true, the dialog can be cancelled by the user. Android only. (default: true)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">theme</span>:String</code> &mdash; 		A value from the DialogTheme class. Android only. (default: THEME_TRADITIONAL)
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if progress dialog creation was successful and false otherwise. iOS will always return false.
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Dialog.html#DIALOG_PROGRESS_STYLE_SPINNER" target="">DIALOG_PROGRESS_STYLE_SPINNER</a><br/><a href="Dialog.html#DIALOG_PROGRESS_STYLE_DETERMINATE" target="">DIALOG_PROGRESS_STYLE_DETERMINATE</a><br/><a href="Dialog.html#DIALOG_PROGRESS_STYLE_HORIZONTAL" target="">DIALOG_PROGRESS_STYLE_HORIZONTAL</a><br/><a href="Dialog.html#DIALOG_PROGRESS_STYLE_ANNULAR" target="">DIALOG_PROGRESS_STYLE_ANNULAR</a></div></div><a name="showSelectPopover()"></a><a name="showSelectPopover(int,String,Array,com.distriqt.extension.dialog.objects.PopoverOptions,Array)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showSelectPopover</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showSelectPopover(id:int, title:String, values:Array, options:<a href="../../../../com/distriqt/extension/dialog/objects/PopoverOptions.html">PopoverOptions</a> = null, selection:Array = null):void</code><p></p><p></p><p>
+		 <p>
+		 Displays a popover with a select list. The popover is positioned and sized based on the options 
+		 specified in the PopoverOptions parameter. The values contained in the select list should be 
+		 a series of strings that the user can select.
+		 </p>
+		 
+		 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; 	An id to assign to this popover
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">title</span>:String</code> &mdash; 	The title to display. (Note: you'll need to set the showNavigationBar in the options for this to be visible).
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">values</span>:Array</code> &mdash; An Array of Strings, each being an option in the select list.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">options</span>:<a href="../../../../com/distriqt/extension/dialog/objects/PopoverOptions.html">PopoverOptions</a></code> (default = <code>null</code>)<code></code> &mdash; The options for position, size and display of the popover
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">selection</span>:Array</code> (default = <code>null</code>)<code></code> &mdash; An array on integers that represent indexes into the values array of the selected items. 
+		 					This is only useful when you have a multi-select list and want to preselect some options.
+		 					Generally it can be left as null or an empty array.
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/dialog/objects/PopoverOptions.html" target="">com.distriqt.extension.dialog.objects.PopoverOptions</a></div><br/><span class="label"> Example </span><br/><div class="detailBody">
+		 <p>
+		 The following example shows how to display a select list popover.
+		 </p>
+		 
+		 <div class="listing"><pre>
+         Dialog.init( DEV_KEY );
+         Dialog.service.addEventListener( PopoverEvent.POPOVER_CLOSED, popover_closedHandler, false, 0, true );
+         Dialog.service.addEventListener( PopoverEvent.POPOVER_CHANGE, popover_changeHandler, false, 0, true );
+         
+         var options:PopoverOptions = new PopoverOptions();
+         options.position = new Rectangle( 50, 250, 150, 50 );
+         options.size = new Rectangle( 0, 0, 300, 350 );
+         options.arrowDirection = PopoverOptions.ARROW_DIRECTION_ANY;
+         
+         Dialog.service.showSelectPopover( 1, "Genres", ["All", "Punk", "Rock", "ATTACK OF THE CLONES"], options, [ 1 ] );
+         
+         ...
+                  private function popover_changeHandler( event:PopoverEvent ):void
+         {
+             trace( "The user changed the selection in the popover" );
+         }
+         
+         private function popover_closedHandler( event:PopoverEvent ):void
+         {
+             // The selection will be the array of indexes into your values that were selected by the user
+             trace( "Popover Closed: "+event.id +" selection: "+event.selection.join(",") );
+         }
+         </pre></div>
+		 
+		 </div></div><a name="showTextInputAlertDialog()"></a><a name="showTextInputAlertDialog(int,String,String,Boolean,String,Array)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showTextInputAlertDialog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showTextInputAlertDialog(id:int, title:String, message:String, isSecure:Boolean = false, cancelLabel:String = Cancel, otherLabels:Array = null):void</code><p></p><p></p><p>
+		 <p>
+		 Shows a simple text input alert dialog to get input from the user. The input text is
+		 returned in inputA of the DialogEvent.
+		 </p>
+		 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; 		Unique id that gets returned with an event when the dialog is closed
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">title</span>:String</code> &mdash; 		The title of the dialog (This is optional on Android - supply an empty string to hide it)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; 	The message to display in the dialog
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">isSecure</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; 	If this is true then the input is hidden as the user types. Best used for entering secure text such as passwords
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">cancelLabel</span>:String</code> (default = <code>Cancel</code>)<code></code> &mdash; The label for the cancel or close button, this button has index 0
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">otherLabels</span>:Array</code> (default = <code>null</code>)<code></code> &mdash; An array of strings for the labels of the other buttons (the first will have index 1, the second 2 etc)
+		 
+		 </td></tr></table></p><br/><span class="label"> Example </span><br/><div class="detailBody">
+		 The simplest example shows an input dialog with a "Close" button.
+		 
+		 <div class="listing"><pre>
+         Dialog.service.showTextInputAlertDialog( 1, "Enter some text", "Please enter some text" );
+         </pre></div>
+		 
+		 </div><div class="detailBody">
+		 
+		 This example replicates a simple password entry dialog for an account.
+		 
+		 <div class="listing"><pre>
+         Dialog.service.showTextInputAlertDialog( 1, "Sign in to iTunes Store", "Enter the Apple ID password for 'example@apple.com', true, "Cancel", ["OK"] );
+         </pre></div>
+		 
+		 </div></div><a name="showTimePicker()"></a><a name="showTimePicker(int,com.distriqt.extension.dialog.objects.DateTimePickerOptions)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showTimePicker</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showTimePicker(id:int, options:<a href="../../../../com/distriqt/extension/dialog/objects/DateTimePickerOptions.html">DateTimePickerOptions</a> = null):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Shows a time picker allowing the user to select a time, i.e. an hour and minute.
+		 </p>
+		 
+		 <p>
+		 This is the equivalent of calling <code>showDateTimePicker( id, options, DateTimePickerOptions.MODE_TIME )</code>
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; 	The id to assign to this dialog. It should be unique.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">options</span>:<a href="../../../../com/distriqt/extension/dialog/objects/DateTimePickerOptions.html">DateTimePickerOptions</a></code> (default = <code>null</code>)<code></code> &mdash; The display options for this date / time dialog 
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the picker was successfully created and displayed and false if there was an error
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Dialog.html#showDateTimePicker()" target="">showDateTimePicker()</a></div></div><a name="toast()"></a><a name="toast(String,int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">toast</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function toast(message:String, length:int):void</code><p></p><p></p><p>
+		 <p>
+		 Displays a small popup message on the screen commonly called 
+		 a "toast" message for an interval of time. 
+		 </p>
+		 
+		 <p>
+		 Support: <b>Android</b> <b>iOS</b>
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; The string message to display
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">length</span>:int</code> (default = <code>NaN</code>)<code></code> &mdash; Either LENGTH_SHORT or LENGTH_LONG (default: LENGTH_SHORT)
+		 
+		 </td></tr></table></p></div><a name="updateProgressDialog()"></a><a name="updateProgressDialog(int,Number)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">updateProgressDialog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function updateProgressDialog(id:int, progress:Number):Boolean</code><p></p><p></p><p>
+		 <p>
+		 If you are using a #DIALOG_PROGRESS_STYLE_HORIZONTAL style progress bar,
+		 you can update the current progress shown using this function.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; 	The id of the dialog (this is unused, just here for consistency). You should supply the same id that you used when creating the progress dialog.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">progress</span>:Number</code> &mdash; The progress of the process in decimal percentage from 0 - 1.
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the progress dialog was successfully updated, and false if there was an error or there is no progress dialog displayed.
+		 
+		 </td></tr></table></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="DIALOG_PROGRESS_STYLE_ANNULAR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DIALOG_PROGRESS_STYLE_ANNULAR</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const DIALOG_PROGRESS_STYLE_ANNULAR:String = annular</code><p></p><p></p><p>
+		 <p>
+		 A circular style progress dialog with a progress bar that can be updated 
+		 to show a processes progress.
+		 </p>
+		 
+		 <p>
+		 To be used with the show progress dialog function.
+		 </p>
+		 
+		 <p><b>Supported on iOS only</b></p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="Dialog.html#showProgressDialog()" target="">showProgressDialog()</a><br/><a href="Dialog.html#updateProgressDialog()" target="">updateProgressDialog()</a><br/><a href="Dialog.html#dismissProgressDialog()" target="">dismissProgressDialog()</a></div></div><a name="constantDetail"></a><a name="DIALOG_PROGRESS_STYLE_DETERMINATE"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DIALOG_PROGRESS_STYLE_DETERMINATE</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const DIALOG_PROGRESS_STYLE_DETERMINATE:String = determinate</code><p></p><p></p><p>
+		 <p>A determinate style progress dialog with a progress indicator that can be updated 
+		 to show the progress of a process.</p>
+		 
+		 <p>To be used with the show progress dialog function.</p>
+		 
+		 <p>Under Android this will display a horizontal progress bar. 
+		 Under iOS this will display a circular progress bar.</p>
+		 
+ 		 </p><p><span class="label">See also</span></p><div class="seeAlso">showProgressDialog<br/>updateProgressDialog<br/>dismissProgressDialog</div></div><a name="constantDetail"></a><a name="DIALOG_PROGRESS_STYLE_HORIZONTAL"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DIALOG_PROGRESS_STYLE_HORIZONTAL</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const DIALOG_PROGRESS_STYLE_HORIZONTAL:String = horizontal</code><p></p><p></p><p>
+		 <p>
+		 Depreciated.                                                                                                                                          
+		 Backwards support, equivalent of DIALOG_PROGRESS_STYLE_DETERMINATE
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="DIALOG_PROGRESS_STYLE_SPINNER"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DIALOG_PROGRESS_STYLE_SPINNER</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const DIALOG_PROGRESS_STYLE_SPINNER:String = spinner</code><p></p><p></p><p>
+		 <p>A spinner style progress dialog to show a process with an indeterminate duration.</p>
+		 
+		 <p>To be used with the show progress dialog function.</p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso">showProgressDialog<br/>dismissProgressDialog</div></div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.Dialog</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="LENGTH_LONG"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">LENGTH_LONG</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const LENGTH_LONG:int = 5</code><p></p><p></p><p>
+		 <p>
+		 Used to display a toast message for a long interval
+		 </p> 
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="Dialog.html#toast()" target="">toast()</a></div></div><a name="constantDetail"></a><a name="LENGTH_SHORT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">LENGTH_SHORT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const LENGTH_SHORT:int = 0</code><p></p><p></p><p>
+		 <p>
+		 Used to display a toast message for a short interval
+		 </p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="Dialog.html#toast()" target="">toast()</a></div></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 2</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:49 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:49 PM +10:00  -->

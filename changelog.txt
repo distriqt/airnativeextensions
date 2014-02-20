@@ -1,0 +1,334 @@
+
+=======================================================================
+#ANE Package update v1.38
+
+
+#Application
+	- Removed advertisingIdentifier in case Apple rejects due to included Adverts framework (Moved to the Adverts extension)
+
+#Adverts
+	- Added advertisingIdentifier framework (Moved from the Application extension)
+
+ALL
+	- Corrected so the license key is only validated once, were seeing repeated validation and CPU spikes.
+
+
+
+
+
+
+=======================================================================
+#ANE Package update v1.37
+
+
+#PushNotifications
+	- Brought the two extensions inline so that they operate the same under #iOS and #Android
+	- IMPORTANT: The new extension requires an addition to the manifest when you update please make sure you add in the extra receiver. See the example app for the correct format
+	- #Android: Corrected the display of multiple notifications so that they are not overwritten unless specified
+	- #Android: Added manifest permissions checks to the isSupported flag to check you have the correct permissions specified
+
+
+#Dialog
+	- Select list popover: Displays a popover dialog with a multi-select list
+	- Date / Time picker: Allows selection of a date and/or time in a native picker dialog
+
+
+License update
+	- We have updated the license so that it is clearer that you are allowed to actually use the extensions in applications to sell in the stores and clarified other usage scenarios.
+
+
+#NativeMaps
+	- Fix for Android version 4.4 (See release post: http://distriqt.com/post/1882)
+	- Bitmap snapshot of the map is now available on Android as well as iOS (API has changed, see the release post)
+	- The NativeMapEvent.MAP_CREATED should be more reliable on Android
+
+
+#Camera
+	- IMPORTANT: Changed the way modes worked to better support both platforms and available camera resolutions. This will require changes to your code!!
+	- #Android: Implemented the preset modes allowing selection of different photo qualities
+	
+
+#ApplicationRater
+	- Fixed bug with storing application launch counts across application restarts
+
+
+#InAppBilling
+	- #iOS: Fixed error with restoring purchases, failed to return the original purchase and the transaction receipt.
+
+
+
+=======================================================================
+#ANE Package update v1.36
+
+
+Todays release contains the much requested #iOS multiple select Camera Roll allowing you to select multiple images from the user photos. The #Android version is still under development and will be coming soon. We've also so got some small updates to the #Message, #Notifications and #TestFlightSDK extensions.
+
+
+#CameraRollExtended
+	- New extension allowing multiple image selection under #iOS. 
+
+
+#Message
+	- Fixed bug on #iOS that caused the second call to sendSMSWithUI to fail
+
+
+#Notifications
+	- Corrected the selected event not firing in normal operation
+
+
+#TestFlightSDK
+	- Update #Android SDK version to v1.3 which included some small bug fixes from TestFlight
+
+
+
+
+=======================================================================
+#ANE Package update v1.35
+
+Another new extension this week, a PDF Reader for #iOS along with an iOS 7 fix for the ApplicationRater and some minor fixes for the Camera ANE.
+
+#PDFReader
+	- New extension for #iOS. 
+	- Allows you to display a PDF viewer for a pdf file accessible by your application.
+
+
+#Camera
+	- #iOS: Fixed orientation of image returned from captureImage (was automatically rotated)
+	- #Android: Fixed issue with preview not restarting after captureImage 
+
+
+#ApplicationRater
+	- #iOS: iOS7 rate should now redirect through to the correct page
+
+
+ 
+
+=======================================================================
+#ANE Package update v1.34
+
+We've got *TWO* new extensions! Android #Bluetooth and an #Image encoder! Added DoubleClick to the Adverts along with several fixes to some of the other extensions!
+
+
+#Bluetooth
+	- New ANE for #Android implementing core bluetooth support. 
+
+#Image
+	- New ANE for encoding BitmapData to ByteArray data in PNG/JPG formats
+
+
+
+#TestFlightSDK
+	- Corrected missing functions from the default library
+
+
+#Adverts
+	- Added #DoubleClick platform for Android and iOS
+
+
+#InAppBilling
+	- #iOS: Corrected the getProducts error response when the network connection fails (or there is no connection). 
+
+
+#Application
+	- #iOS: Corrected the setStatusBarStyle function to correctly operate
+	- #iOS: Added the setStatusBarHidden function to hide/show the status bar
+	- #Android: Added missing placeholder functions for defaults and new iOS status bar functions
+
+#Compass
+	- Added missing MagneticFieldEvent class to the default library
+
+
+#Calendar
+	- #Android: Fixed alarm notifications not appearing
+
+
+General
+	- Removed some debug trace outputs "cache check"
+
+
+
+=======================================================================
+#ANE Package update v1.33
+
+
+General 
+	- Corrected conflict between several extensions with utility class on iOS
+	- IMPORTANT: Cleaned up registration checks to reduce network load and speed up ANE initialisation calls. This is designed improve the stability and response of our extensions.
+
+
+#InAppBilling
+	- CRITICAL: This is a required update to address an exploitable flaw Google recently discovered in their code. Make sure you update the ANE in your application as soon as possible. This affects Android only.
+
+
+
+
+=======================================================================
+#ANE Package update v1.32
+
+#PushNotifications
+	- Corrected startup notifications on Android
+
+
+#Camera
+	- Added a more complete example application showing usage of the latest features
+
+
+#Calendar
+	- Corrected request access issue on iOS version prior to 6
+
+
+#TestFlight
+	- Updated to latest version of the iOS and Android SDK
+	- Added a method, 'sdkVersion', to show the version of the TestFlight SDK in use
+
+
+#Application
+	- Added methods to the Application ANE
+		- checkUrlSchemeSupport - allows you to check if an iOS device supports a custom URL scheme	
+		- setStatusBarStyle - allows you to set the colour/display style of the status bar. Especially useful for iOS 7 apps, you can now change the colour of the status bar text to dark or light.
+
+
+
+
+=======================================================================
+#ANE Package update v1.31
+
+#Camera
+	- Android version of the advanced camera functions, including frames and simultaneous capture to camera roll & BitmapData
+
+
+#InAppBilling
+	- Added checks on setup completion and key validation
+
+
+#AndroidRoot
+	- New extension allowing some root only features on Android
+		- force shutdown / restart
+		- true fullscreen (remove all system UI)
+
+
+#PushNotifications
+	- Changed startup notifications on iOS to be handled natively and match other notification formats
+
+
+#Message
+	- iOS 7 updates to correctly dismiss UI dialogs
+
+
+#NativeMaps
+	- Fixed a bug where if you press the android back button quickly while the map is initialising, it would cause a crash
+
+
+#Compass
+	- Added a minimum filter amount for receiving heading updates on iOS.
+	- Implemented the sensor delay for magnetic field updates on iOS.
+
+
+#Bluetooth
+	- Beta 
+
+Beta Testers:
+		Fernando Bevilacqua <dovyski@gmail.com>
+		Jassa <jassa@bangersandflash.net>
+		Mark Lochrie <marklochrie50265@gmail.com>
+		Darshan Rane <darshanyrane@gmail.com>
+		Owen Batt <obatt@loc8.com>
+		Andrey Popov <fourpixels@gmail.com>
+		Michael <michael@mvi-design.co.uk>
+
+
+
+=======================================================================
+#ANE Package update v1.30
+
+
+#Camera
+	- Major update on #iOS including:
+		- reading video frames as BitmapData
+		- changing camera devices
+		- changing modes on the fly
+		- simultaneously capture an image to BitmapData and to the camera roll!
+		- set focus, exposure and white balance modes and points of interest
+	- Android still in development.
+
+#ApplicationRater
+	- Corrected default library implementation
+
+#Adverts
+	- Corrected iAd hideAdvert function
+	- Ad is now hidden until an advert is loaded (as required by App Store guidelines)
+
+#Calendar
+	- Added editEventWithUI to allow a user to edit an existing event
+	- Added updateEvent to allow you to change the details of an existing event
+
+#NativeMaps
+	- Added new CircleOverlay functionality to add circular overlays with a given radius to the map
+	- Fixed a bug where markers without custom icons would not show up in some cases
+	- Fixed a bug when removing polygon and polylines
+
+#Notifications
+	- ANDROID CRITICAL FIX: corrected the extension starting the application at apparently random times
+	- Added the startup event so you can determine if the application was started from a local notification, both on Android and iOS!!
+
+#Application
+	- Added access to a uniqueId device property: ANDROID_ID on #Android and the identifierForVendor/advertisingIdentifier on #iOS
+
+#TestFlightSDK
+	- Updated the #iOS version to use the latest version of the SDK (v2.0.0).
+	- Added an alpha version the #Android SDK (v1.0) with functional sessions, logging and checkpoints.
+
+#InAppBilling
+	- Fixed bug when a failed transaction would block user input
+
+
+
+=======================================================================
+#ANE Package update v1.29
+
+Lots of updates coming today. Most importantly there have been some major changes to the local #Notifications ANE. You'll need to update your manifest additions for this one.
+
+
+#Dialog
+	- Corrected crashes on #iOS due to threading lock issue 
+	- Added #Android #toast message dialog
+	- Added #iOS #toast message dialog
+
+#Notifications
+	- Corrected error with delayed notifications not getting updated
+	- Corrected cancel function on #Android so notifications with a delay are cancelled
+	- Added custom notification sounds on #Android
+	- #iOS simulator support
+	- Important: Changed the receiver manifest additions syntax
+
+#NetworkInfo
+	- Cleaned up log outputs and added a start/stop polling functions
+
+#Calendar
+	- #Android recurrence rules
+
+#TestFlightSDK
+	- Updated to the latest SDK (v1.2.6)
+
+#PushNotifications
+	- Added startup notification to #iOS
+
+#InAppBilling
+	- Corrected price on a #GooglePlay product displaying NaN
+	- Added several additional data pieces to the product:
+		- priceString
+		- currencySymbol
+		- type
+		- source (Google Play JSON source of a product)
+	- Added #iOS simulator support
+	- Updated documentation relating to restoring purchases
+	
+#ApplicationRater
+	- Added platform option (#iOS / #Android) to the setApplicationId call
+
+#Adverts
+	- Added #iAd platform for banner adverts on #iOS
+
+#NativeMaps 
+	- Rebuilt with dependance only on #iOS SDK 6.0 (rather than 6.1)
+

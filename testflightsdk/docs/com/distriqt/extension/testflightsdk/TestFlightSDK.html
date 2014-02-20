@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="TestFlightSDK,com.distriqt.extension.testflightsdk.TestFlightSDK,EXT_CONTEXT_ID,IMPLEMENTATION_DEFAULT,VERSION,VERSION_DEFAULT,isSupported,service,version,endSession,init,isActive,log,openFeedbackView,passCheckpoint,sdkVersion,startSession,startTestFlight,submitFeedback,testFlightLog"><title>com.distriqt.extension.testflightsdk.TestFlightSDK</title><script src="../../../../AC_OETags.js" type="text/javascript"></script></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'TestFlightSDK - distriqt // TestFlightSDK';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // TestFlightSDK Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/testflightsdk/TestFlightSDK.html&amp;com/distriqt/extension/testflightsdk/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">TestFlightSDK</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("TestFlightSDK"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,true,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.testflightsdk</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  TestFlightSDK</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">TestFlightSDK  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.testflightsdk.base.ExtensionBase</td></tr></table><p></p><p></p><p></p>	
+	              <p>
+	 This class is the Test Flight SDK Native Extension interface. It 
+	 implements the iOS-based TestFlight SDK for debugging and feedback services
+	 through the TestFlight platform.
+	 </p>
+	 
+	              <p>
+	 This Native Extension requires the additional use of the TestFlight service, available
+	 from <a href="http://testflightapp.com" target="">http://testflightapp.com</a>.
+	 </p>
+	 
+	              <p>
+	 The extension currently implements the following versions of TestFlight SDK:
+	 </p>
+	              <ul>
+	                 <li>
+                     <b>iOS</b>: 2.0.0</li>
+	                 <li>
+                     <b>Android</b>: 1.0</li>
+	              </ul>
+	  
+	              <b>Related Links for the TestFlight Service</b>
+	 
+	              <ul>
+	                 <li>TestFlight SDK Documentation: <a href="#/testflightapp.com/sdk/doc/" target="">https://testflightapp.com/sdk/doc/</a>
+                  </li>
+	              </ul>
+	 
+	              <p>
+	 You must implement the TestFlight service for your application. Guides and tutorials for
+	 general setup and SDK functionality are available from the TestFlight website.
+	 </p>
+	 
+	 
+	              <b>iOS</b>
+	 
+	              <p>
+	 Notes and Limitations
+	 </p>
+	 
+	              <p>
+	 This extension defaults to DEBUG mode. This mode utilises the iOS UDID as a device identifier
+	 and is sent to TestFlight as part of the initialisation.
+	 </p>
+	 
+	              <p>
+	 This UDID is required for some TestFlight SDK functionality to work, however it is a deprecated 
+	 feature in iOS, and as such, you should not use this extension for a production/release version of
+	 your application. The TestFlight SDK is intended for use during testing and development of an application.
+	 </p>
+	 
+	              <p>
+	 If you require a version of the ANE with the UDID removed please contact us!
+	 </p>
+	 
+	              <p>
+	 Please note that for this functionality to work properly with the TestFlight system, you must upload and distribute
+	 application builds through TestFlight. Checkpoints and logging etc will register with TestFlight through a normal debug
+	 or ad-hoc build, however for full reporting statistics and user feedback etc to be displayed effectively, you must 
+	 distribute your build through the TestFlight build system.
+	 </p>
+	 
+	 
+	 
+	              <b>Android</b>
+	 
+	              <p>
+	 You'll need to make sure you have the following lines in the manifest additions
+	 node of your application descriptor file.
+	 </p>
+	 
+	              <pre>
+	 &lt;uses-permission android:name="android.permission.INTERNET"/>
+	 &lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	 </pre>
+	 
+	              <b>Android Debug Certificate & Application Signing</b>
+	 
+	              <p>
+	 Reference: 
+	 <a href="http://developer.android.com/tools/publishing/app-signing.html#debugmode" target="">http://developer.android.com/tools/publishing/app-signing.html</a>
+	              </p>
+	 
+	              <p>
+	 In order for this ANE to work on Android in conjunction with the TestFlight website 
+	 you must sign your application with the Android debug keystore and not the Flash Builder
+	 debug certificate or your Play store release certificate. Without this step there will
+	 be nothing reported to your TestFlight dashboard, however you should still receive 
+	 information through to FlightPath if you have access to this.
+	 </p>
+	 
+	              <p>
+	 When packaging the application you need to use the android debug certificate. Firstly convert the 
+	 debug certificate to a pkcs12 format from the JKS format it's currently in. The file is normally
+	 located at ~/.android/debug.keystore. Run the following in the <code>.android</code> directory to create this p12:
+	 </p>
+	 
+	              <code>
+	 keytool -importkeystore -srckeystore debug.keystore -srcstoretype JKS -deststoretype PKCS12 -destkeystore debug.p12
+	 </code>
+	 
+	              <p>
+	 Once the p12 file has been created, change the certificate in the Android packaging settings
+	 to point to this debug.p12 file.
+	 </p> 
+	 
+	              <p>
+	 Note: If the debug.keystore doesn't exist try creating and building an empty android application
+	 in <b>eclipse</b> using the Android Application project type.
+	 </p>
+	 
+	              <p>
+	 Finally when uploading the application to TestFlight you may receive a message saying that
+	 your app token was not found in your application. This error will occur even if you have
+	 correctly added your app token so you can ignore this error as long as you have provided the
+	 correct app token to the <code>startTestFlight</code> call.
+	 </p>
+	 
+	  
+	           <p></p><p><a href="#includeExamplesSummary">View the examples</a></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the current device supports the extensions functionality
+		 </div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/testflightsdk/TestFlightSDK.html">TestFlightSDK</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the TestFlightSDK class.</div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 
+		 The version string of the native extension.</div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#TestFlightSDK()" class="signatureLink">TestFlightSDK</a>()</div><div class="summaryTableDescription">
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#endSession()" class="signatureLink">endSession</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Android only helper function to end a session and force send all data 
+		 to the TestFlight server.</div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isActive()" class="signatureLink">isActive</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Android only helper function to determine if TestFlight is active.</div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#log()" class="signatureLink">log</a>(message:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Calls the log / TFLog method of the native TestFlight SDK.</div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#openFeedbackView()" class="signatureLink">openFeedbackView</a>():Boolean</div><div class="summaryTableDescription"><div xmlns:fn="http://www.w3.org/2005/xpath-functions" style="white-space:nowrap" valign="top"><b>Deprecated: </b>No longer supported by TestFlight SDK</div>
+		 
+		 Calls the openFeedbackView method of the native TestFlight SDK.</div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#passCheckpoint()" class="signatureLink">passCheckpoint</a>(checkpointName:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Calls the passCheckpoint method of the native TestFlight SDK.</div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#sdkVersion()" class="signatureLink">sdkVersion</a>():String</div><div class="summaryTableDescription">
+		 
+		 Returns the version of the TestFlight SDK compiled into the 
+		 extension.</div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#startSession()" class="signatureLink">startSession</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Android only helper function to start a session.</div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#startTestFlight()" class="signatureLink">startTestFlight</a>(appToken:String, debugMode:Boolean = true):Boolean</div><div class="summaryTableDescription">
+		 
+		 Calls the takeOff method of the native TestFlight SDK and begins the TestFlight session.</div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#submitFeedback()" class="signatureLink">submitFeedback</a>(message:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Calls the submitFeedback method of the native TestFlight SDK.</div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#testFlightLog()" class="signatureLink">testFlightLog</a>(message:String):Boolean</div><div class="summaryTableDescription"><div xmlns:fn="http://www.w3.org/2005/xpath-functions" style="white-space:nowrap" valign="top"><b>Deprecated: </b>Please Use <A href="#log()">log()</A></div>
+		 Depreciated in favour of the simpler method log()
+		 
+		 </div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.TestFlightSDK<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 1<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">TestFlightSDK</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the current device supports the extensions functionality
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/testflightsdk/TestFlightSDK.html">TestFlightSDK</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the TestFlightSDK class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/testflightsdk/TestFlightSDK.html">TestFlightSDK</a></code><br/><br/><span class="label"> Throws </span><br/><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 <p>
+		 The version string of the native extension. This will be of the format:
+		 </p>
+		 <pre>
+		 [main version].[base version].[implementation].[native version]
+		 </pre>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="TestFlightSDK()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">TestFlightSDK</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function TestFlightSDK()</code><p></p><p>
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="endSession()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">endSession</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function endSession():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Android only helper function to end a session and force send all data 
+		 to the TestFlight server.
+		 </p>
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if successful
+		 </td></tr></table></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p><br/><span class="label">Throws</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="isActive()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isActive</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isActive():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Android only helper function to determine if TestFlight is active.
+		 </p>
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if active
+		 </td></tr></table></div><a name="log()"></a><a name="log(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">log</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function log(message:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Calls the <code>log / TFLog</code> method of the native TestFlight SDK. 
+		 This is a generic logging system used by TestFlight.
+		 </p>
+		 
+		 <p>
+		 Logs appear in the session details for beta/debug versions only. They may 
+		 take a while to appear and generally are only updated when a session ends. 
+		 i.e. the user restarts the application or the session timeout occurs.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; The message string to be sent.
+		  
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true If the testFlightLog method completed.
+		 </td></tr></table></div><a name="openFeedbackView()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">openFeedbackView</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function openFeedbackView():Boolean</code><div xmlns:fn="http://www.w3.org/2005/xpath-functions" style="white-space:nowrap" valign="top"><b>Deprecated: </b>No longer supported by TestFlight SDK</div><p></p><p></p><p>
+		 <p>
+		 Calls the openFeedbackView method of the native TestFlight SDK.
+		 This opens a generic feedback dialog for a user to enter any 
+		 feedback they choose.
+		 </p>
+		 
+		 <b>
+		 As of version 2.0.0 of the iOS SDK this has been removed
+		 and will no longer operate!
+		 </b>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true If the openFeedbackView method completed.
+		 </td></tr></table></div><a name="passCheckpoint()"></a><a name="passCheckpoint(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">passCheckpoint</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function passCheckpoint(checkpointName:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Calls the passCheckpoint method of the native TestFlight SDK.
+		 Specifies that an application instance has passed a particular 
+		 checkpoint or area of your application.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">checkpointName</span>:String</code> &mdash; The name of the checkpoint reached. This value can be anything you choose.
+		 							Questions can be associated to a checkpoint via the TestFlight system once
+		 							they have been passed by an application once. (You can run this yourself in
+		 							order for them to show up in the TestFlight system, and then assign questions.)
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true If the passCheckpoint method completed.
+		 </td></tr></table></div><a name="sdkVersion()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">sdkVersion</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function sdkVersion():String</code><p></p><p></p><p>
+		 <p>
+		 Returns the version of the TestFlight SDK compiled into the 
+		 extension.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; The TestFlight SDK version string (eg. 2.0)
+		 
+		 </td></tr></table></div><a name="startSession()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">startSession</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function startSession():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Android only helper function to start a session.
+		 </p>
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if successful
+		 </td></tr></table></div><a name="startTestFlight()"></a><a name="startTestFlight(String,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">startTestFlight</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function startTestFlight(appToken:String, debugMode:Boolean = true):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Calls the takeOff method of the native TestFlight SDK and begins the TestFlight session.
+		 </p>
+		 <p>
+		 You'll need to get your Application Token which you can find at 
+		 <a href="http://testflightapp.com/dashboard/applications/" target="">http://testflightapp.com/dashboard/applications/</a> .
+		 Select the application you are using from the list choose the SDK option 
+		 and the application token for this application will be there. 
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">appToken</span>:String</code> &mdash; Your application token.  					
+		 
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">debugMode</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Whether to utilise the iOS UDID as part of the initialisation. Defaults to true.
+		 					This is required to be true in order for some TestFlight features to function correctly.
+		 					This option should be set to false for a production/release version of the application,
+		 					but generally always set to true when debugging or testing your app during development. 
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true If the initialisation method completed.
+		 </td></tr></table></div><a name="submitFeedback()"></a><a name="submitFeedback(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">submitFeedback</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function submitFeedback(message:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Calls the submitFeedback method of the native TestFlight SDK. 
+		 This sends a specific message string as feedback to the 
+		 TestFlight system.
+		 </p>
+		 
+		 <p>
+		 <b>Note</b>: 
+		 This is currently not supported by the Android version 
+		 of the Test Flight SDK. Instead we just submit the feedback 
+		 as a TestFlight log message for you to see in your console.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; The message string to be sent.
+		  
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true If the submitFeedback method completed.
+		 </td></tr></table></div><a name="testFlightLog()"></a><a name="testFlightLog(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">testFlightLog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function testFlightLog(message:String):Boolean</code><div xmlns:fn="http://www.w3.org/2005/xpath-functions" style="white-space:nowrap" valign="top"><b>Deprecated: </b>Please Use <A href="#log()">log()</A></div><p></p><p></p><p>
+		 Depreciated in favour of the simpler method log()
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">message</span>:String</code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="TestFlightSDK.html#log()" target="">log()</a></div></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.TestFlightSDK</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 1</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><a name="includeExamplesSummary"></a><div class="detailSectionHeader">Examples</div><div class="detailBody">
+	 This simple example shows a very basic take off, log and checkpoint.
+	 
+	 <div class="listing" version="3.0"><pre>
+     
+     try
+     {
+         TestFlightSDK.init( DEV_KEY );
+         
+         // Call startTestFlight with the appToken for the correct platform 
+         if (TestFlightSDK.service.version.indexOf( "Android" ) != -1)
+         {
+             TestFlightSDK.service.startTestFlight( TESTFLIGHT_APPTOKEN_ANDROID );
+         }
+         else
+         {
+             TestFlightSDK.service.startTestFlight( TESTFLIGHT_APPTOKEN_IOS );
+         }
+     
+         TestFlightSDK.service.log( "Testing a log message..." );
+         TestFlightSDK.service.passCheckpoint( "TEST_CHECKPOINT_1" );
+         
+     }
+     </pre></div> 
+	 
+	 
+	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:54 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:54 PM +10:00  -->

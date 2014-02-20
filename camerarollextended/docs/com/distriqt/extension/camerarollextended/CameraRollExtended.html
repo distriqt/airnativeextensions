@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="CameraRollExtended,com.distriqt.extension.camerarollextended.CameraRollExtended,ASPECT_RATIO_THUMBNAIL,EXT_CONTEXT_ID,FULL_RESOLUTION,IMAGE,IMPLEMENTATION_DEFAULT,THUMBNAIL,UNKNOWN,VERSION,VERSION_DEFAULT,VIDEO,autoLoadBitmapData,autoLoadType,bitmapData,filename,height,isSupported,maximumCount,mimetype,orientation,representation,scale,service,size,type,type,url,version,width,addBitmapData,browseForAsset,browseForImage,init,loadAssetByURL,loadAssets,toString"><title>com.distriqt.extension.camerarollextended.CameraRollExtended</title><script src="../../../../AC_OETags.js" type="text/javascript"></script></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'CameraRollExtended - distriqt // CameraRollExtended';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // CameraRollExtended Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/camerarollextended/CameraRollExtended.html&amp;com/distriqt/extension/camerarollextended/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">CameraRollExtended</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("CameraRollExtended"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,true,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.camerarollextended</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public final   class  CameraRollExtended</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">CameraRollExtended  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.camerarollextended.base.ExtensionBase</td></tr></table><p></p><p></p><p></p>	
+	              <p>
+	 This class represents the camerarollextended extension. 
+	 </p>
+	 
+	              <p>
+	 This extension allows you to present a dialog to the user to select multiple
+	 assets from the user's camera roll. Currently the extension supports selecting and
+	 loading images but only selecting videos. However you may use the url from the 
+	 selected video as an asset url in a native video player.
+	 </p>
+	 
+	              <p>
+	 The selection overlays can be customised. See the <code>browseForAsset</code> documentation 
+	 for more on this.
+	 </p>
+	 
+	           <p></p><p><a href="#includeExamplesSummary">View the examples</a></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the current device supports the extensions functionality
+		 </div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/camerarollextended/CameraRollExtended.html">CameraRollExtended</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the CameraRollExtended class.</div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 
+		 The version string of the native extension.</div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#CameraRollExtended()" class="signatureLink">CameraRollExtended</a>()</div><div class="summaryTableDescription">
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#addBitmapData()" class="signatureLink">addBitmapData</a>(bitmapData:BitmapData):void</div><div class="summaryTableDescription">
+		 
+		 Pass through to the normal CameraRoll.addBitmapData functionality
+		 
+		  
+		 </div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#browseForAsset()" class="signatureLink">browseForAsset</a>(options:<a href="../../../../com/distriqt/extension/camerarollextended/CameraRollExtendedBrowseOptions.html">CameraRollExtendedBrowseOptions</a> = null):Boolean</div><div class="summaryTableDescription">
+		 
+		 The main call to display a UI for the user to select 
+		 multiple assets from their library.</div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#browseForImage()" class="signatureLink">browseForImage</a>(options:<a href="../../../../com/distriqt/extension/camerarollextended/CameraRollExtendedBrowseOptions.html">CameraRollExtendedBrowseOptions</a> = null):Boolean</div><div class="summaryTableDescription">
+		 
+		 This call operates similar to the built in CameraRoll browse for image by 
+		 automatically limiting the displayed resources to images.</div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#loadAssetByURL()" class="signatureLink">loadAssetByURL</a>(url:String, representation:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Loads a single asset by the url of the asset.</div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#loadAssets()" class="signatureLink">loadAssets</a>(assets:Array, representation:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Allows you to load all the assets (Asset objects) in an array, most likely 
+		 the return value from a SELECT event.</div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.CameraRollExtended<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 1<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">CameraRollExtended</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the current device supports the extensions functionality
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/camerarollextended/CameraRollExtended.html">CameraRollExtended</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the CameraRollExtended class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/camerarollextended/CameraRollExtended.html">CameraRollExtended</a></code><br/><br/><span class="label"> Throws </span><br/><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 <p>
+		 The version string of the native extension. This will be of the format:
+		 </p>
+		 <pre>
+		 [main version].[base version].[implementation].[native version]
+		 </pre>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="CameraRollExtended()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CameraRollExtended</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function CameraRollExtended()</code><p></p><p>
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="addBitmapData()"></a><a name="addBitmapData(flash.display.BitmapData)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">addBitmapData</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function addBitmapData(bitmapData:BitmapData):void</code><p></p><p></p><p>
+		 <p>
+		 Pass through to the normal CameraRoll.addBitmapData functionality
+		 </p>
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">bitmapData</span>:BitmapData</code> &mdash; A BitmapData object containing the image to send to the camera roll
+		 
+		 </td></tr></table></p></div><a name="browseForAsset()"></a><a name="browseForAsset(com.distriqt.extension.camerarollextended.CameraRollExtendedBrowseOptions)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">browseForAsset</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function browseForAsset(options:<a href="../../../../com/distriqt/extension/camerarollextended/CameraRollExtendedBrowseOptions.html">CameraRollExtendedBrowseOptions</a> = null):Boolean</code><p></p><p></p><p>
+		 <p>
+		 The main call to display a UI for the user to select 
+		 multiple assets from their library.
+		 </p>
+		 
+		 <p>
+		 This call will display a native-stlyed user interface dialog to select
+		 multiple images and assets. A small "tick" overlay is shown over the image 
+		 thumbnail to indicate the image has been selected to the user. The overlay
+		 can be customised by packaging two images with your application with the 
+		 following filenames and pixel dimensions.
+		 </p>
+		 
+		 <ul>
+		 <li>Overlay.png (75x75)</li>
+		 <li>Overlay@2x.png (150x150)</li>
+		 </ul>
+		 
+		 <p>
+		 The sample ones packaged with the example application can be used as a 
+		 template. These should be placed in the root src directory of your AIR 
+		 application and included in the application package contents.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">options</span>:<a href="../../../../com/distriqt/extension/camerarollextended/CameraRollExtendedBrowseOptions.html">CameraRollExtendedBrowseOptions</a></code> (default = <code>null</code>)<code></code> &mdash; Options for the browse operation
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="CameraRollExtendedBrowseOptions.html" target="">com.distriqt.extension.camerarollextended.CameraRollExtendedBrowseOptions</a></div></div><a name="browseForImage()"></a><a name="browseForImage(com.distriqt.extension.camerarollextended.CameraRollExtendedBrowseOptions)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">browseForImage</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function browseForImage(options:<a href="../../../../com/distriqt/extension/camerarollextended/CameraRollExtendedBrowseOptions.html">CameraRollExtendedBrowseOptions</a> = null):Boolean</code><p></p><p></p><p>
+		 <p>
+		 This call operates similar to the built in CameraRoll browse for image by 
+		 automatically limiting the displayed resources to images.
+		 </p>
+		 
+		 <p>
+		 This function is identical to the <code>browseForAsset</code> function 
+		 except the <code>options.type</code> is automatically set to <code>Asset.IMAGE</code>.
+		 </p>
+		 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">options</span>:<a href="../../../../com/distriqt/extension/camerarollextended/CameraRollExtendedBrowseOptions.html">CameraRollExtendedBrowseOptions</a></code> (default = <code>null</code>)<code></code> &mdash; 	Options for the browse operation
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="CameraRollExtended.html#browseForAsset" target="">browseForAsset</a><br/><a href="CameraRollExtendedBrowseOptions.html" target="">com.distriqt.extension.camerarollextended.CameraRollExtendedBrowseOptions</a></div></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p><br/><span class="label">Throws</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="loadAssetByURL()"></a><a name="loadAssetByURL(String,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">loadAssetByURL</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function loadAssetByURL(url:String, representation:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Loads a single asset by the url of the asset. 
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">url</span>:String</code> &mdash; The asset url (Asset.url)
+		 
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">representation</span>:String</code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the load operation was started successfully and false if the 
+		 			asset couldn't be found or the url is invalid.
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Asset.html#url" target="">com.distriqt.extension.camerarollextended.Asset.url</a></div></div><a name="loadAssets()"></a><a name="loadAssets(Array,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">loadAssets</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function loadAssets(assets:Array, representation:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Allows you to load all the assets (Asset objects) in an array, most likely 
+		 the return value from a SELECT event.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">assets</span>:Array</code> &mdash; 		The Array of Asset objects to load
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">representation</span>:String</code> &mdash; The representation to load such as thumbnail or 
+		 							full resolution etc (see AssetRepresentation)
+		 
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if a successful load of all assets was started and false if it failed. 
+		 			If false check that your assets array is valid. A false value may be 
+		 			returned even if several of the assets load operation started successfully.
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="AssetRepresentation.html" target="">com.distriqt.extension.camerarollextended.AssetRepresentation</a></div></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.CameraRollExtended</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 1</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><a name="includeExamplesSummary"></a><div class="detailSectionHeader">Examples</div><div class="detailBody">
+	 
+	 <p>
+	 This simple example initialises the extension then displays the browse dialog for the user 
+	 to select multiple images. It also listens for the selection event to process the selected
+	 images.
+	 </p>
+	 
+	 <div class="listing"><pre>
+     
+     CameraRollExtended.init( DEV_KEY );
+     CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.CANCEL, cameraRoll_cancelHandler, false, 0, true );
+     CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.SELECT, cameraRoll_selectHandler, false, 0, true );
+     
+     CameraRollExtended.service.browseForImage();
+     
+     
+     ...
+     
+     
+     private function cameraRoll_cancelHandler( event:CameraRollExtendedEvent ):void
+     {
+         // The user cancelled the browse operation
+     }
+     
+     private function cameraRoll_selectHandler( event:CameraRollExtendedEvent ):void
+     {
+         for each (var asset:Asset in event.assets)
+         {
+             trace( "selected: "+ asset.filename + " [" + asset.type + "] -&gt; " + asset.url );
+         }
+     }
+     
+     </pre></div>
+	 
+	 
+	 </div><div class="detailBody">
+	 <p>
+	 This example presents a browse dialog to the user then auto loads the thumbnails for the 
+	 selected images and adds the bitmap to the stage when loaded. 
+	 The dialog is limited to a maximum of two selected images.
+	 </p>
+	 
+	 <div class="listing"><pre>
+     CameraRollExtended.init( DEV_KEY );
+     CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.LOADED, cameraRoll_loadedHandler, false, 0, true );
+     
+     var options:CameraRollExtendedBrowseOptions = new CameraRollExtendedBrowseOptions();
+     options.maximumCount = 2;
+     options.type = Asset.IMAGE;
+     options.autoLoadBitmapData = true;
+     options.autoLoadType = AssetRepresentation.THUMBNAIL;
+     
+     CameraRollExtended.service.browseForImage( options );
+     
+     ...
+     
+     
+     private function cameraRoll_loadedHandler( event:CameraRollExtendedEvent ):void
+     {
+         // The selected images have been loaded
+         for each (var asset:Asset in event.assets)
+         {
+             if (asset.bitmapData != null) // Sanity check
+             {
+                 addChild( new Bitmap( asset.bitmapData ));
+             }
+         }
+     }
+     
+     </pre></div>
+	 
+	 
+	 
+	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:48 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:48 PM +10:00  -->

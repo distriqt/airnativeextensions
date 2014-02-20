@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../../override.css" type="text/css"><meta name="keywords" content="MapApplicationOpenOptions,com.distriqt.extension.nativemaps.objects.MapApplicationOpenOptions,AND_AZURE,AND_BLUE,AND_CYAN,AND_GREEN,AND_MAGENTA,AND_ORANGE,AND_RED,AND_ROSE,AND_VIOLET,AND_YELLOW,DIRECTIONS_BIKING,DIRECTIONS_DRIVING,DIRECTIONS_WALKING,FOLLOW,FOLLOW_WITH_HEADING,IOS_GREEN,IOS_PURPLE,IOS_RED,MAP_TYPE_HYBRID,MAP_TYPE_NONE,MAP_TYPE_NORMAL,MAP_TYPE_SATELLITE,MAP_TYPE_TERRAIN,MODE_DIRECTIONS,MODE_PLACE,NONE,_animatesDrop,_colour,_customIconId,_draggable,_hasCustomImage,_id,_image,_info,_infoWindowEnabled,_name,_position,_position,_showInfoWindowButton,_title,_visible,animatesDrop,animatesDropAsInt,colour,colour,compassEnabled,customIconId,directionsType,draggable,draggableAsInt,fillColour,fillColour,geodesic,hasCustomImage,hasCustomImageAsInt,holes,id,image,indoorEnabled,info,infoWindowEnabled,infoWindowEnabledAsInt,lat,latitude,latitude,lon,longitude,longitude,mode,myLocationButtonEnabled,name,name,name,name,northeast,place1,place2,points,position,position,radius,rotateGesturesEnabled,scrollGesturesEnabled,showInfoWindowButton,showInfoWindowButtonAsInt,southwest,strokeColour,strokeWidth,tiltGesturesEnabled,title,trafficEnabled,visible,visible,visible,visibleAsInt,visibleAsInt,width,zIndex,zIndex,zoomControlsEnabled,zoomGesturesEnabled"><title>com.distriqt.extension.nativemaps.objects.MapApplicationOpenOptions</title></head><body><script language="javascript" type="text/javascript" src="../../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'MapApplicationOpenOptions - distriqt // NativeMaps';
+				var baseRef = '../../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // NativeMaps Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../../package-summary.html" onclick="loadClassListFrame('../../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../../class-summary.html" onclick="loadClassListFrame('../../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../../all-index-A.html" onclick="loadClassListFrame('../../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../../index.html?com/distriqt/extension/nativemaps/objects/MapApplicationOpenOptions.html&amp;com/distriqt/extension/nativemaps/objects/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">MapApplicationOpenOptions</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("MapApplicationOpenOptions"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.nativemaps.objects</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  MapApplicationOpenOptions</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">MapApplicationOpenOptions  <img src="../../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> Object</td></tr></table><p></p><p></p><p></p>	
+	 Options class for specifying options to pass to the native map application 
+	 when opening.
+	 
+	 You must set at least one place on this object (place1 and place2 parameters).
+	 
+	 <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#directionsType" class="signatureLink">directionsType</a> : String = d<div class="summaryTableDescription">
+		 The directions type
+		 This should be one of the following:
+		 MapApplicationOpenOptions.DIRECTIONS_DRIVING
+		 MapApplicationOpenOptions.DIRECTIONS_BIKING (only on Android)
+		 MapApplicationOpenOptions.DIRECTIONS_WALKING
+		 
+		 
+		 
+		 Biking/cycling directions mode is not available on iOS and will default to DRIVING mode.</div></td><td class="summaryTableOwnerCol">MapApplicationOpenOptions</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#mode" class="signatureLink">mode</a> : String = mapapplicationopenoptions:place<div class="summaryTableDescription">
+		 The view mode
+		 This should be MapApplicationOpenOptions.MODE_PLACE or MapApplicationOpenOptions.DIRECTIONS
+		 
+		 </div></td><td class="summaryTableOwnerCol">MapApplicationOpenOptions</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#name" class="signatureLink">name</a> : String<div class="summaryTableDescription">
+		 
+		 An optional name to be used on the marker displayed.</div></td><td class="summaryTableOwnerCol">MapApplicationOpenOptions</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#place1" class="signatureLink">place1</a> : *<div class="summaryTableDescription">
+		 The first place to be displayed on the map.</div></td><td class="summaryTableOwnerCol">MapApplicationOpenOptions</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#place2" class="signatureLink">place2</a> : *<div class="summaryTableDescription">
+		 The second place to be displayed on the map.</div></td><td class="summaryTableOwnerCol">MapApplicationOpenOptions</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#MapApplicationOpenOptions()" class="signatureLink">MapApplicationOpenOptions</a>()</div><div class="summaryTableDescription">
+		  Constructor
+		 </div></td><td class="summaryTableOwnerCol">MapApplicationOpenOptions</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DIRECTIONS_BIKING" class="signatureLink">DIRECTIONS_BIKING</a> : String = b<div class="summaryTableDescription">[static] 
+		 Biking/cycling directions mode.</div></td><td class="summaryTableOwnerCol">MapApplicationOpenOptions</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DIRECTIONS_DRIVING" class="signatureLink">DIRECTIONS_DRIVING</a> : String = d<div class="summaryTableDescription">[static] 
+		 Driving directions mode
+		 </div></td><td class="summaryTableOwnerCol">MapApplicationOpenOptions</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DIRECTIONS_WALKING" class="signatureLink">DIRECTIONS_WALKING</a> : String = w<div class="summaryTableDescription">[static] 
+		 Walking directions mode
+		 </div></td><td class="summaryTableOwnerCol">MapApplicationOpenOptions</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MODE_DIRECTIONS" class="signatureLink">MODE_DIRECTIONS</a> : String = mapapplicationopenoptions:directions<div class="summaryTableDescription">[static] 
+		 For showing directions between two places
+		 </div></td><td class="summaryTableOwnerCol">MapApplicationOpenOptions</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MODE_PLACE" class="signatureLink">MODE_PLACE</a> : String = mapapplicationopenoptions:place<div class="summaryTableDescription">[static] 
+		 For showing a single place/location
+		 </div></td><td class="summaryTableOwnerCol">MapApplicationOpenOptions</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="directionsType"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">directionsType</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>public var directionsType:String = d</code><p></p><p></p><p>
+		 <p>The directions type
+		 This should be one of the following:
+		 MapApplicationOpenOptions.DIRECTIONS_DRIVING
+		 MapApplicationOpenOptions.DIRECTIONS_BIKING (only on Android)
+		 MapApplicationOpenOptions.DIRECTIONS_WALKING
+		 </p>
+		 
+		 <p>
+		 Biking/cycling directions mode is not available on iOS and will default to DRIVING mode.
+		 </p>
+		 </p></div><a name="propertyDetail"></a><a name="mode"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">mode</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var mode:String = mapapplicationopenoptions:place</code><p></p><p></p><p>
+		 <p>The view mode
+		 This should be MapApplicationOpenOptions.MODE_PLACE or MapApplicationOpenOptions.DIRECTIONS
+		 </p>
+		 </p></div><a name="propertyDetail"></a><a name="name"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">name</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var name:String</code><p></p><p></p><p>
+		 <p>
+		 An optional name to be used on the marker displayed.
+		 
+		 This is only applicable when using the MODE_PLACE map mode.
+		 </p>
+		 </p></div><a name="propertyDetail"></a><a name="place1"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">place1</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var place1:*</code><p></p><p></p><p>
+		 <p>The first place to be displayed on the map.
+		 
+		 This is the origin point if you are using the DIRECTIONS mode.
+		 
+		 This can be either a String (map address) which will be geocoded,
+		 or a LatLng object instance.
+		 </p>
+		 </p></div><a name="propertyDetail"></a><a name="place2"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">place2</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var place2:*</code><p></p><p></p><p>
+		 <p>The second place to be displayed on the map.
+		 
+		 This is the destination point if using the DIRECTIONS mode.
+		 
+		 This property is ignored if you are using the PLACE mode.
+		 
+		 This can be either a String (map address) which will be geocoded,
+		 or a LatLng object instance.
+		 </p>
+		 </p></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="MapApplicationOpenOptions()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MapApplicationOpenOptions</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function MapApplicationOpenOptions()</code><p></p><p>
+		  Constructor
+		 </p></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="DIRECTIONS_BIKING"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DIRECTIONS_BIKING</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const DIRECTIONS_BIKING:String = b</code><p></p><p></p><p>
+		 Biking/cycling directions mode.
+		 
+		 <b>Only supported on Android</b>
+		 </p></div><a name="constantDetail"></a><a name="DIRECTIONS_DRIVING"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DIRECTIONS_DRIVING</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const DIRECTIONS_DRIVING:String = d</code><p></p><p></p><p>
+		 Driving directions mode
+		 </p></div><a name="constantDetail"></a><a name="DIRECTIONS_WALKING"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DIRECTIONS_WALKING</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const DIRECTIONS_WALKING:String = w</code><p></p><p></p><p>
+		 Walking directions mode
+		 </p></div><a name="constantDetail"></a><a name="MODE_DIRECTIONS"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MODE_DIRECTIONS</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MODE_DIRECTIONS:String = mapapplicationopenoptions:directions</code><p></p><p></p><p>
+		 For showing directions between two places
+		 </p></div><a name="constantDetail"></a><a name="MODE_PLACE"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MODE_PLACE</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MODE_PLACE:String = mapapplicationopenoptions:place</code><p></p><p></p><p>
+		 For showing a single place/location
+		 </p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:52 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:52 PM +10:00  -->

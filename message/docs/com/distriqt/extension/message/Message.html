@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="Message,com.distriqt.extension.message.Message,EXT_CONTEXT_ID,IMPLEMENTATION_DEFAULT,VERSION,VERSION_DEFAULT,filename,isMailSupported,isSMSSupported,isSupported,location,mimeType,nativePath,service,version,init,sendMail,sendMailWithOptions,sendSMS,sendSMSWithUI"><title>com.distriqt.extension.message.Message</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'Message - distriqt // Message';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // Message Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/message/Message.html&amp;com/distriqt/extension/message/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">Message</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Message"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.message</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  Message</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Message  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.message.base.ExtensionBase</td></tr></table><p></p><p></p><p></p>	
+	              <p>
+	 This class represents the message extension.
+	 </p>
+	 
+	              <b>Email Functionality</b>
+	 
+	              <p>
+	 The extension allows you to send an email using the devices native user interface.
+	 </p>
+	 
+	              <p>
+	 Example sending a HTML email:
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     Message.service.addEventListener( MessageEvent.MESSAGE_MAIL_ATTACHMENT_ERROR, message_errorHandler, false, 0, true );
+     Message.service.addEventListener( MessageEvent.MESSAGE_MAIL_COMPOSE, message_composeHandler, false, 0, true );
+     if (Message.isMailSupported)
+     {
+         var address:String = "ma@distriqt.com";
+         var email:String = "samurai";
+         var htmlEmail:String = "&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;&lt;p&gt;A test html email with a &lt;a href='http://distriqt.com'&gt;link&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;";
+     
+         Message.service.sendMailWithOptions( "test", htmlEmail, address, "", "", [], true ); 
+     }
+     
+     private function message_errorHandler( event:MessageEvent ):void 
+     {
+         trace( event.type +"::"+ event.details );
+     }
+     private function message_composeHandler( event:MessageEvent ):void 
+     {
+         trace( event.type +"::"+ event.details );
+     }
+     </pre></div>
+	 
+	 
+	 
+	              <b>SMS Functionality</b>
+	 
+	              <p>
+	 On Android you must add the following permissions to your manifest file
+	 </p>
+	  
+	              <pre>
+	 &lt;uses-permission android:name="android.permission.WRITE_SMS" /> 
+	 &lt;uses-permission android:name="android.permission.SEND_SMS" /> 
+	 &lt;uses-permission android:name="android.permission.READ_SMS" /> 
+	 </pre>
+	 
+	 
+	              <b>Receiving an SMS</b>
+	 
+	              <p>
+	 On Android you can get information about an SMS when the device receives one. 
+	 On iOS it is not possible to receive this information as this information is 
+	 only passed to the default messaging application.
+	 </p>
+	 	            <p>
+	 You'll need to add the following additional permission to receive SMS to your
+	 manifest additions. (Note the application node contents needs to be added to 
+	 your existing application node, if you already have one. Having 2 application
+	 nodes will break the application).
+	 </p>
+	 
+	              <pre>
+	 &lt;uses-permission android:name="android.permission.RECEIVE_SMS" />
+	 
+	 &lt;application>
+	 	&lt;receiver android:name="com.distriqt.extension.message.receivers.MessageSMSReceiver" android:exported="true" > 
+	 		&lt;intent-filter android:priority="1000"> 
+	 			&lt;action android:name="android.provider.Telephony.SMS_RECEIVED" />
+	 		&lt;/intent-filter> 
+	 	&lt;/receiver>
+	 &lt;/application>
+	 </pre> 
+	 
+	 
+	              <div class="listing" version="3.0"><pre>
+     Message.service.addEventListener( MessageSMSEvent.MESSAGE_SMS_RECEIVED, smsReceivedHandler );
+     
+     private function smsReceivedHandler( event:MessageSMSEvent ):void
+     {
+         trace( "SMS has been received" );
+         trace( event.sms.address + ": " + event.sms.message );
+     }
+     </pre></div> 
+	 
+	 
+	 
+	              <b>Sending an SMS</b>
+	 
+	              <p>
+	 Sending an SMS can be done in one of 2 ways, with or without a UI, though only on Android.
+	 On iOS you are limited to using the native UI through the messaging application.
+	 </p>
+	 
+	              <p>
+	 Firstly construct an SMS to send:
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     var sms:SMS = new SMS();
+     sms.address = "0444444444"; // The destination phone number
+     sms.message = "SMS Message from actionscript"; // The message to send
+     </pre></div>
+	 	            <p>
+	 Then send this object using one of the send SMS functions. If you use the UI function
+	 the UI will be populated with the above information
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     Message.service.addEventListener( MessageSMSEvent.MESSAGE_SMS_SENT, smsSentHandler );
+     Message.service.addEventListener( MessageSMSEvent.MESSAGE_SMS_CANCELLED, smsCancelledHandler );
+     Message.service.sendSMSWithUI( sms );
+     
+     private function smsSentHandler( event:MessageSMSEvent ):void
+     {
+         trace( "The SMS has been sent" );
+     }
+     private function smsCancelledHandler( event:MessageSMSEvent ):void
+     {
+      trace( "The user cancelled the SMS" );
+     }
+     </pre></div> 
+	 
+	 
+	 
+	           <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isMailSupported" class="signatureLink">isMailSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 
+		 This function specifically checks if mail messaging is supported.</div></td><td class="summaryTableOwnerCol">Message</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSMSSupported" class="signatureLink">isSMSSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 
+		 Returns true if the current device supports SMS functionality
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">Message</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 
+		 Whether the current device supports the extensions functionality
+		 
+		 
+		 
+		 This mainly checks that the device you are using has the ability to send an email.</div></td><td class="summaryTableOwnerCol">Message</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/message/Message.html">Message</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the Extension class.</div></td><td class="summaryTableOwnerCol">Message</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 The version string of the native extension
+		 </div></td><td class="summaryTableOwnerCol">Message</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#Message()" class="signatureLink">Message</a>()</div><div class="summaryTableDescription">
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </div></td><td class="summaryTableOwnerCol">Message</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">Message</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#sendMail()" class="signatureLink">sendMail</a>(subject:String, body:String, toRecipients:String):void</div><div class="summaryTableDescription">
+		 
+		 Sends an email using the native "compose mail" user interface.</div></td><td class="summaryTableOwnerCol">Message</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#sendMailWithOptions()" class="signatureLink">sendMailWithOptions</a>(subject:String, body:String, toRecipients:String, ccRecipients:String, bccRecipients:String, attachments:Array = null, isHTML:Boolean = true):void</div><div class="summaryTableDescription">
+		 
+		 Sends an email using the native "compose mail" user interface.</div></td><td class="summaryTableOwnerCol">Message</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#sendSMS()" class="signatureLink">sendSMS</a>(sms:<a href="../../../../com/distriqt/extension/message/objects/SMS.html">SMS</a>):void</div><div class="summaryTableDescription">
+		 
+		 Sends an sms directly without any user interface.</div></td><td class="summaryTableOwnerCol">Message</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#sendSMSWithUI()" class="signatureLink">sendSMSWithUI</a>(sms:<a href="../../../../com/distriqt/extension/message/objects/SMS.html">SMS</a>):void</div><div class="summaryTableDescription">
+		 
+		 Send an SMS by opening up the user interface and allowing the user
+		 to edit the message before sending.</div></td><td class="summaryTableOwnerCol">Message</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.Message<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Message</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Message</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 3<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Message</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Message</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="isMailSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isMailSupported</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>isMailSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 <p>
+		 This function specifically checks if mail messaging is supported. Use this to 
+		 check if you should expect sendMail to complete successfully.
+		 </p>
+		 
+		 <p><b>true</b> if email messaging is supported</p>
+		 
+ 		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isMailSupported():Boolean</code><br/><p><span class="label">See also</span></p><div class="seeAlso"><a href="Message.html#sendMail" target="">sendMail</a></div></div><a name="propertyDetail"></a><a name="isSMSSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSMSSupported</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>isSMSSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 <p>
+		 Returns true if the current device supports SMS functionality
+		 </p>
+		 
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSMSSupported():Boolean</code><br/><p><span class="label">See also</span></p><div class="seeAlso">sendSMS<br/>sendSMSWithUI</div></div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 <p>
+		 Whether the current device supports the extensions functionality
+		 </p>
+		 
+		 <p>
+		 This mainly checks that the device you are using has the ability to send an email. 
+		 Generally when this returns false it is because the device doesn't have a mail 
+		 client or an email account setup on the device.
+		 </p>
+		 
+		 <p><b>iOS</b>: Double check in Settings / "Mail, Contacts ..." that there's a valid email account.</p>
+		 
+		 <p>
+		 Please note that you should incorporate this check into your application and 
+		 inform users if they don't have the ability to send email from their device.
+		 </p>
+		 
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/message/Message.html">Message</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the Extension class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/message/Message.html">Message</a></code><br/></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 The version string of the native extension
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="Message()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">Message</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function Message()</code><p></p><p>
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p></div><a name="sendMail()"></a><a name="sendMail(String,String,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">sendMail</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function sendMail(subject:String, body:String, toRecipients:String):void</code><p></p><p></p><p>
+		 <p>
+		 Sends an email using the native "compose mail" user interface. The parameters 
+		 	of the UI are prepopulated with the information passed into this function.
+		 </p>
+		 
+		 <p>
+		 Recipients are specified as a comma separated string of email addresses, and 
+		 	can be an empty string if not required.
+		 </p>
+		 
+		 <p><b>Supported OS:</b> default, iOS, Android</p> 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">subject</span>:String</code> &mdash; 		The subject of the email to prepopulate
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">body</span>:String</code> &mdash; 			The body content of the email
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">toRecipients</span>:String</code> &mdash; 	The list of <b>to</b> addresses
+		 
+		 </td></tr></table></p></div><a name="sendMailWithOptions()"></a><a name="sendMailWithOptions(String,String,String,String,String,Array,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">sendMailWithOptions</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function sendMailWithOptions(subject:String, body:String, toRecipients:String, ccRecipients:String, bccRecipients:String, attachments:Array = null, isHTML:Boolean = true):void</code><p></p><p></p><p>
+		 <p>
+		 Sends an email using the native "compose mail" user interface. The parameters 
+		 	of the UI are prepopulated with the information passed into this function.
+		 </p>
+		 
+		 <p>
+		 Recipients are specified as a comma separated string of email addresses, and 
+		 	can be an empty string if not required.
+		 </p>
+		 
+		 <p>
+		 <b>Note:</b> Attachments are not yet supported in the default implementation.
+		 </p>
+		 
+		 <p><b>Supported OS:</b> default, iOS, Android</p> 
+		 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">subject</span>:String</code> &mdash; 		The subject of the email to prepopulate
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">body</span>:String</code> &mdash; 			The body content of the email
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">toRecipients</span>:String</code> &mdash; 	The list of <b>to</b> addresses
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">ccRecipients</span>:String</code> &mdash; 	The list of <b>cc</b> addresses (carbon copy)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">bccRecipients</span>:String</code> &mdash; 	The list of <b>bcc</b> addresses (blind carbon copy)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">attachments</span>:Array</code> (default = <code>null</code>)<code></code> &mdash; 	The attachments array. This should be an array of MessageAttachment objects. Default: null i.e. no attachments
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">isHTML</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; 		If true the <b>body</b> string is rendered as HTML in the email content, if false it's treated as plain text.
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="MessageAttachment.html" target="">MessageAttachment</a></div></div><a name="sendSMS()"></a><a name="sendSMS(com.distriqt.extension.message.objects.SMS)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">sendSMS</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function sendSMS(sms:<a href="../../../../com/distriqt/extension/message/objects/SMS.html">SMS</a>):void</code><p></p><p></p><p>
+		 <p>
+		 Sends an sms directly without any user interface. This is only available on Android
+		 devices. iOS must use the UI based functionality.
+		 </p>
+		 
+		 <b>Android</b>
+		 <p>
+		 Requires the SEND_SMS permission to be added to your application manifest additions:
+		 </p>
+		 
+		 <pre>
+		 &lt;uses-permission android:name="android.permission.SEND_SMS" />
+		 </pre>
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">sms</span>:<a href="../../../../com/distriqt/extension/message/objects/SMS.html">SMS</a></code> &mdash; The SMS message to send
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso">sendSMSWithUI</div></div><a name="sendSMSWithUI()"></a><a name="sendSMSWithUI(com.distriqt.extension.message.objects.SMS)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">sendSMSWithUI</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function sendSMSWithUI(sms:<a href="../../../../com/distriqt/extension/message/objects/SMS.html">SMS</a>):void</code><p></p><p></p><p>
+		 <p>
+		 Send an SMS by opening up the user interface and allowing the user
+		 to edit the message before sending.
+		 </p>
+		 
+		 <p>
+		 Firstly construct an SMS to send:
+		 </p>
+		 
+		 <div class="listing" version="3.0"><pre>
+         var sms:SMS = new SMS();
+         sms.address = "0444444444"; // The destination phone number
+         sms.message = "SMS Message from actionscript"; // The message to send
+         </pre></div>
+		 		 <p>
+		 Then pass this SMS to the parameter of this function.
+		 The UI will be populated with the above information
+		 </p>
+		 
+		 <div class="listing" version="3.0"><pre>
+         Message.service.addEventListener( MessageSMSEvent.MESSAGE_SMS_SENT, smsSentHandler );
+         Message.service.addEventListener( MessageSMSEvent.MESSAGE_SMS_CANCELLED, smsCancelledHandler );
+         Message.service.sendSMSWithUI( sms );
+         
+         private function smsSentHandler( event:MessageSMSEvent ):void
+         {
+             trace( "The SMS has been sent" );
+         }
+         private function smsCancelledHandler( event:MessageSMSEvent ):void
+         {
+          trace( "The user cancelled the SMS" );
+         }
+         </pre></div> 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">sms</span>:<a href="../../../../com/distriqt/extension/message/objects/SMS.html">SMS</a></code> &mdash; The SMS message to send
+		 </td></tr></table></p></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.Message</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 3</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:51 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:51 PM +10:00  -->

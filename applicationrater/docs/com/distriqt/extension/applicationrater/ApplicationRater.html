@@ -1,0 +1,399 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="ApplicationRater,com.distriqt.extension.applicationrater.ApplicationRater,DEFAULT_DECLINE_LABEL,DEFAULT_LATER_LABEL,DEFAULT_MESSAGE,DEFAULT_RATE_LABEL,DEFAULT_TITLE,EXT_CONTEXT_ID,IMPLEMENTATION_ANDROID,IMPLEMENTATION_DEFAULT,IMPLEMENTATION_IOS,STATE_DECLINED,STATE_LATER,STATE_MONITORING,STATE_PROMPT,STATE_RATED,VERSION,VERSION_DEFAULT,autoPrompt,debugMode,isSupported,lastPromptDate,service,state,version,applicationLaunched,hasMetConditions,init,rate,reset,setApplicationId,setDaysUntilPrompt,setDialogMessage,setDialogTitle,setLabels,setLaunchesUntilPrompt,setSignificantEventsUntilPrompt,setTimeBeforeReminding,showRateDialog,userDidSignificantEvent"><title>com.distriqt.extension.applicationrater.ApplicationRater</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'ApplicationRater - distriqt // ApplicationRater';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // ApplicationRater Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/applicationrater/ApplicationRater.html&amp;com/distriqt/extension/applicationrater/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">ApplicationRater</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("ApplicationRater"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.applicationrater</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  ApplicationRater</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">ApplicationRater  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.applicationrater.base.ExtensionBase</td></tr></table><p></p><p></p><p></p>	
+	              <p>
+	 This class represents the Application Rater extension.
+	 </p>
+	 
+	              <p>
+	 With this extension you can ask users of your application to return to the application stores and rate
+	 your application. 
+	 </p>
+	 
+	              <p>
+	 You must be careful to set the limits in this extension to be appropriate to your users, not to
+	 annoy them with repeated requests for ratings as this will often end up in a poor rating. The default
+	 operation waits 5 days to prompt the user.
+	 </p>
+	 
+	              <p>
+	 There are several different conditions applicable to the prompt display:
+	 <ul>
+	                    <li>days from initial launch</li>
+	                    <li>number of launches</li>
+	                    <li>number of significant user events</li>
+	                 </ul>
+	              </p>
+	 
+	              <p>
+	 If you have set multiple conditions then the first condition to be met will cause the rate dialog 
+	 to be displayed
+	 </p>
+	 
+	              <p>
+	                 <b>Note:</b>
+	 This extension stores the current launch count, events and settings in a file in the application directory.
+	 </p>
+	 
+	              <p>
+                  <b>
+	 Usage
+	 </b>
+               </p>
+	 
+	              <p>
+	 The most basic usage will use the default settings to count the number of days since first launch
+	 and display the rate dialog after the max days is reached (default of 5 days). 
+	 </p>
+	 
+	              <p>
+	 The code to achieve this is quite simple, just add the following lines at some point during your application
+	 launch. We suggest somewhere after your is initialised and displayed. The important bit is to determine your
+	 application ID and correctly set that in the <code>setApplicationId</code> call (see the information in the
+	 documentation on the <code>setApplicationId</code> function).
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     ApplicationRater.init( DEV_KEY );
+     ApplicationRater.service.setApplicationId( "air.com.distriqt.test", ApplicationRater.IMPLEMENTATION_ANDROID );
+     ApplicationRater.service.setApplicationId( "552872162", ApplicationRater.IMPLEMENTATION_IOS );
+     ApplicationRater.service.applicationLaunched();
+     </pre></div>
+	 
+	 
+	           <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#autoPrompt" class="signatureLink">autoPrompt</a> : Boolean<div class="summaryTableDescription">
+		 
+		 If true, every time the extension information is updated the extension will 
+		 perform a check on the current state and display the rate dialog if the
+		 conditions have been met.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#debugMode" class="signatureLink">debugMode</a> : Boolean<div class="summaryTableDescription">
+		 
+		 Sets the extension into a debug mode, so that the hasMetConditions call
+		 always returns true.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the current device supports the extensions functionality
+		 </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#lastPromptDate" class="signatureLink">lastPromptDate</a> : Date<div class="summaryTableDescription">
+		 
+		 The last date that the user was prompted to rate the application.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/applicationrater/ApplicationRater.html">ApplicationRater</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the Extension class.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#state" class="signatureLink">state</a> : String<div class="summaryTableDescription">
+		 
+		 Retrieves the current state of the rating extension.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 The version string of the native extension
+		 </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#ApplicationRater()" class="signatureLink">ApplicationRater</a>()</div><div class="summaryTableDescription">
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#applicationLaunched()" class="signatureLink">applicationLaunched</a>():void</div><div class="summaryTableDescription">
+		 
+		 This function should be called when your application launches, after your application has
+		 initialised.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#hasMetConditions()" class="signatureLink">hasMetConditions</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Checks the conditions set on the current running application and returns whether the 
+		 rate dialog should be displayed to the user.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#rate()" class="signatureLink">rate</a>():void</div><div class="summaryTableDescription">
+		 
+		 Forces a redirect to the application store rating screen.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#reset()" class="signatureLink">reset</a>(resetLaunchDate:Boolean = false):void</div><div class="summaryTableDescription">
+		 
+		 This function will reset the state and all counts in the system.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setApplicationId()" class="signatureLink">setApplicationId</a>(applicationId:String, platform:String):void</div><div class="summaryTableDescription">
+		 
+		 Sets the application id associated with this rate dialog.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setDaysUntilPrompt()" class="signatureLink">setDaysUntilPrompt</a>(days:int):void</div><div class="summaryTableDescription">
+		 
+		 Sets the number of days since first application launch to wait until 
+		 triggering a rate dialog prompt.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setDialogMessage()" class="signatureLink">setDialogMessage</a>(message:String):void</div><div class="summaryTableDescription">
+		 Sets the message to display in the rate dialog
+		  
+		 </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setDialogTitle()" class="signatureLink">setDialogTitle</a>(title:String):void</div><div class="summaryTableDescription">
+		 Sets the title of the rate dialog
+		  
+		 </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setLabels()" class="signatureLink">setLabels</a>(rateLabel:String, declineLabel:String, laterLabel:String):void</div><div class="summaryTableDescription">
+		 Set the labels shown on the rate dialog button choices.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setLaunchesUntilPrompt()" class="signatureLink">setLaunchesUntilPrompt</a>(launches:int):void</div><div class="summaryTableDescription">
+		 
+		 Sets the number of launches since first application launch to wait until 
+		 triggering a rate dialog prompt.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setSignificantEventsUntilPrompt()" class="signatureLink">setSignificantEventsUntilPrompt</a>(events:int):void</div><div class="summaryTableDescription">
+		 
+		 Sets the number of significant user events to wait until triggering a rate dialog prompt.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setTimeBeforeReminding()" class="signatureLink">setTimeBeforeReminding</a>(days:int):void</div><div class="summaryTableDescription">
+		 
+		 Sets the number of days to wait until reminding the user to rate the application again.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showRateDialog()" class="signatureLink">showRateDialog</a>():void</div><div class="summaryTableDescription">
+		 
+		 Shows the Application Rate Dialog
+		 
+		 
+		 This function doesn't perform any checks so you should only call this function if you've set
+		 autoPrompt to false and have checked the hasMetConditions function, or have performed your
+		 own checks.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#userDidSignificantEvent()" class="signatureLink">userDidSignificantEvent</a>():void</div><div class="summaryTableDescription">
+		 
+		 This function should be called when a user performs a "significant event", after your application has
+		 initialised.</div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DEFAULT_DECLINE_LABEL" class="signatureLink">DEFAULT_DECLINE_LABEL</a> : String = No, thanks<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DEFAULT_LATER_LABEL" class="signatureLink">DEFAULT_LATER_LABEL</a> : String = Remind me later<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DEFAULT_MESSAGE" class="signatureLink">DEFAULT_MESSAGE</a> : String = If you enjoy using this application, please take a moment to rate it. Thanks for your support!<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DEFAULT_RATE_LABEL" class="signatureLink">DEFAULT_RATE_LABEL</a> : String = Rate<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DEFAULT_TITLE" class="signatureLink">DEFAULT_TITLE</a> : String = Rate this application<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.ApplicationRater<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_ANDROID" class="signatureLink">IMPLEMENTATION_ANDROID</a> : String = Android<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_IOS" class="signatureLink">IMPLEMENTATION_IOS</a> : String = iOS<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#STATE_DECLINED" class="signatureLink">STATE_DECLINED</a> : String = declined<div class="summaryTableDescription">[static] 
+		 Indicates that the user declined to rate the application by clicking on the "decline" button 
+		 </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#STATE_LATER" class="signatureLink">STATE_LATER</a> : String = later<div class="summaryTableDescription">[static] 
+		 Indicates that the user clicked on the "remind me later" button and the system will wait until the conditions have been met 
+		 </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#STATE_MONITORING" class="signatureLink">STATE_MONITORING</a> : String = monitoring<div class="summaryTableDescription">[static] 
+		 Indicates that the extension is monitoring the system for conditions to display the rate dialog
+		 </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#STATE_PROMPT" class="signatureLink">STATE_PROMPT</a> : String = prompt<div class="summaryTableDescription">[static] 
+		 Indicates that the extension has prompted the user to rate the application, ie that the rate dialog has been displayed 
+		 </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#STATE_RATED" class="signatureLink">STATE_RATED</a> : String = rated<div class="summaryTableDescription">[static] 
+		 Indicates that the user has clicked on the "rate" button  
+		 </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 3<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">ApplicationRater</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="autoPrompt"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">autoPrompt</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>autoPrompt:Boolean</code><p></p><p></p><p>
+		 <p>
+		 If true, every time the extension information is updated the extension will 
+		 perform a check on the current state and display the rate dialog if the
+		 conditions have been met.
+		 </p>
+		 
+		 <p>
+		 If you set this to false, you'll need to manually call hasMetConditions to check
+		 if the conditions have been met and then showRateDialog when you wish to 
+		 display the rate dialog
+		 </p>
+		 
+		 </p><p> The default value is <code>true</code>.</p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get autoPrompt():Boolean</code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function set autoPrompt(value:Boolean):void</code><br/><p><span class="label">See also</span></p><div class="seeAlso"><a href="ApplicationRater.html#hasMetConditions" target="">hasMetConditions</a><br/><a href="ApplicationRater.html#showRateDialog" target="">showRateDialog</a></div></div><a name="propertyDetail"></a><a name="debugMode"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">debugMode</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>debugMode:Boolean</code><p></p><p></p><p>
+		 <p>
+		 Sets the extension into a debug mode, so that the hasMetConditions call
+		 always returns true. This will force the rate dialog to appear everytime an 
+		 event or an application launch is registered. 
+		 </p>
+		 
+		 <p>
+		 Obviously only use this while in development or you'll annoy your users!
+		 </p>
+		 
+		 </p><p> The default value is <code>false</code>.</p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get debugMode():Boolean</code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function set debugMode(value:Boolean):void</code><br/><p><span class="label">See also</span></p><div class="seeAlso"><a href="ApplicationRater.html#hasMetConditions" target="">hasMetConditions</a></div></div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the current device supports the extensions functionality
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="lastPromptDate"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">lastPromptDate</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>lastPromptDate:Date</code><p></p><p></p><p>
+		 <p>
+		 The last date that the user was prompted to rate the application. If
+		 you are managing the rate dialog yourself then you should update this
+		 date whenever you prompt the user.
+		 </p>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get lastPromptDate():Date</code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function set lastPromptDate(value:Date):void</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/applicationrater/ApplicationRater.html">ApplicationRater</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the Extension class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/applicationrater/ApplicationRater.html">ApplicationRater</a></code><br/></div><a name="propertyDetail"></a><a name="state"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">state</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>state:String</code><p></p><p></p><p>
+		 <p>
+		 Retrieves the current state of the rating extension. 
+		 This will return one of the STATE defined variables.
+		 </p> 
+		  		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get state():String</code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function set state(value:String):void</code><br/><p><span class="label">See also</span></p><div class="seeAlso"><a href="ApplicationRater.html#STATE_MONITORING" target="">STATE_MONITORING</a><br/><a href="ApplicationRater.html#STATE_PROMPT" target="">STATE_PROMPT</a><br/><a href="ApplicationRater.html#STATE_RATED" target="">STATE_RATED</a><br/><a href="ApplicationRater.html#STATE_LATER" target="">STATE_LATER</a><br/><a href="ApplicationRater.html#STATE_DECLINED" target="">STATE_DECLINED</a></div></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 The version string of the native extension
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="ApplicationRater()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">ApplicationRater</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function ApplicationRater()</code><p></p><p>
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="applicationLaunched()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">applicationLaunched</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function applicationLaunched():void</code><p></p><p></p><p>
+		 <p>
+		 This function should be called when your application launches, after your application has
+		 initialised. It will increment the launch count and if autoPrompt is set will
+		 cause the rate dialog to be displayed if the conditions are met.
+		 </p> 
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="ApplicationRater.html#autoPrompt" target="">autoPrompt</a></div></div><a name="hasMetConditions()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">hasMetConditions</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function hasMetConditions():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Checks the conditions set on the current running application and returns whether the 
+		 rate dialog should be displayed to the user.
+		 </p>
+		 <p>
+		 This checks the launch count, user events and days since launch to check whether the 
+		 rate dialog should be displayed.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the conditions to prompt the user have been met.
+		 
+		 </td></tr></table></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p></div><a name="rate()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">rate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function rate():void</code><p></p><p></p><p>
+		 <p>
+		 Forces a redirect to the application store rating screen.
+		 </p>
+		 </p></div><a name="reset()"></a><a name="reset(Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">reset</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function reset(resetLaunchDate:Boolean = false):void</code><p></p><p></p><p>
+		 <p>
+		 This function will reset the state and all counts in the system.
+		 </p>
+		 <p>
+		 This is useful if you upgrade or change the application and wish to
+		 prompt the user again at a certain point.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">resetLaunchDate</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; If true the application launch date will be reset to the current time
+		 
+		 </td></tr></table></p></div><a name="setApplicationId()"></a><a name="setApplicationId(String,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setApplicationId</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setApplicationId(applicationId:String, platform:String):void</code><p></p><p></p><p>
+		 <p>
+		 Sets the application id associated with this rate dialog. This determines which application
+		 the user will be taken to in the application store.
+		 </p>
+		 
+		 <p>
+		 This is the most important thing to set in the extension, as an invalid value will take you 
+		 to the wrong application, or fail altogether. This ID is unfortunately different on the 
+		 different operating systems. However you can call this function multiple times with the 
+		 platform string specifying the platform for the applicationId so you won't have to determine 
+		 the OS to set the correct ID. If you don't specify the platform then it is assumed you have
+		 determined to correct ID and it will overwrite any previous value.
+		 </p>
+		 
+		 <p>
+		 <b>Android</b>: Under Android the value is the application identifier defined in 
+		 your application descriptor, preceeded by <code>air.</code>. So, for example the distriqt 
+		 test application <code>com.distriqt.test</code> has a Google Play id of 
+		 <code>air.com.distriqt.test</code>. A simple way to attain this value is to use the 
+		 NativeApplication class as follows: 
+		 </p>
+		 <p>
+		 <code>var applicationId:String = "air." + NativeApplication.nativeApplication.applicationId;</code>
+		 </p>
+		 
+		 <p>
+		 <b>iOS</b>: Under iOS the value is a little more complicated. It's the value of 
+		 the Apple ID in your iTunes Connect application page. For example, the distriqt test application
+		 <code>com.distriqt.test</code> has an Apple ID of <code>552872162</code>. It can also be found 
+		 in the iTunes App Store link URL which will be of the form 
+		 <code>https://itunes.apple.com/us/app/[APP_NAME]/id[APP_ID]</code>
+		 </p>
+		 
+		 <p>
+		 <b>Default</b>:
+		 The default value uses the value from the NativeApplication applicationId variable, preceeded by <code>air.</code>
+		 which should be the valid id for your Android application in the Google Play store.
+		 </p>
+		 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">applicationId</span>:String</code> &mdash; The application ID string
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">platform</span>:String</code> &mdash; 	The platform implementation to set the ID for.
+		 							Should use either: 
+		 							<ul>
+		 							<li>ApplicationRater.IMPLEMENTATION_ANDROID</li>
+		 							<li>ApplicationRater.IMPLEMENTATION_IOS</li>
+		 							<li>ApplicationRater.IMPLEMENTATION_DEFAULT</li>
+		 							</ul>
+		 							Default: overwrites ID on all platforms
+		 
+		 </td></tr></table></p><br/><span class="label"> Example </span><br/><div class="detailBody">
+		 In the following example we specify the application IDs on the two platforms in an application. 
+		 On Android the first line will set the application ID but second line will do nothing 
+		 internally. The reverse will happen on iOS, the first line will do nothing and the second
+		 will set the ID.
+		 
+		 <div class="listing" version="3.0"><pre>
+         ApplicationRater.service.setApplicationId( "air.com.distriqt.test", ApplicationRater.IMPLEMENTATION_ANDROID );
+         ApplicationRater.service.setApplicationId( "552872162", ApplicationRater.IMPLEMENTATION_IOS );
+         </pre></div>
+		 
+		 
+		 </div></div><a name="setDaysUntilPrompt()"></a><a name="setDaysUntilPrompt(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setDaysUntilPrompt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setDaysUntilPrompt(days:int):void</code><p></p><p></p><p>
+		 <p>
+		 Sets the number of days since first application launch to wait until 
+		 triggering a rate dialog prompt.
+		 </p>
+		 <p>
+		 If you don't wish the number of days since first launch to cause the rate 
+		 dialog prompt, set the value of this to be -1
+		 </p> 
+		 
+		 <p>
+		 Default: 5
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">days</span>:int</code> &mdash; The number of days to wait
+		 
+		 </td></tr></table></p></div><a name="setDialogMessage()"></a><a name="setDialogMessage(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setDialogMessage</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setDialogMessage(message:String):void</code><p></p><p></p><p>
+		 Sets the message to display in the rate dialog
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; The message string to use
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="ApplicationRater.html#DEFAULT_MESSAGE" target="">DEFAULT_MESSAGE</a></div></div><a name="setDialogTitle()"></a><a name="setDialogTitle(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setDialogTitle</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setDialogTitle(title:String):void</code><p></p><p></p><p>
+		 Sets the title of the rate dialog
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">title</span>:String</code> &mdash; The title string to use
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="ApplicationRater.html#DEFAULT_TITLE" target="">DEFAULT_TITLE</a></div></div><a name="setLabels()"></a><a name="setLabels(String,String,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setLabels</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setLabels(rateLabel:String, declineLabel:String, laterLabel:String):void</code><p></p><p></p><p>
+		 Set the labels shown on the rate dialog button choices.
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">rateLabel</span>:String</code> &mdash; 	The label for the rate dialog button
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">declineLabel</span>:String</code> &mdash; The label for the decline dialog button
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">laterLabel</span>:String</code> &mdash; The label for the later (postpone) dialog button
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="ApplicationRater.html#DEFAULT_RATE_LABEL" target="">DEFAULT_RATE_LABEL</a><br/><a href="ApplicationRater.html#DEFAULT_DECLINE_LABEL" target="">DEFAULT_DECLINE_LABEL</a><br/><a href="ApplicationRater.html#DEFAULT_LATER_LABEL" target="">DEFAULT_LATER_LABEL</a></div></div><a name="setLaunchesUntilPrompt()"></a><a name="setLaunchesUntilPrompt(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setLaunchesUntilPrompt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setLaunchesUntilPrompt(launches:int):void</code><p></p><p></p><p>
+		 <p>
+		 Sets the number of launches since first application launch to wait until 
+		 triggering a rate dialog prompt.
+		 </p>
+		 <p>
+		 If you don't wish the number of launches to cause the rate 
+		 dialog prompt, set the value of this to be -1
+		 </p> 
+		 
+		 <p>
+		 Default: -1
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">launches</span>:int</code> &mdash; 	The number of launches to display the rate dialog
+		 
+		 </td></tr></table></p></div><a name="setSignificantEventsUntilPrompt()"></a><a name="setSignificantEventsUntilPrompt(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setSignificantEventsUntilPrompt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setSignificantEventsUntilPrompt(events:int):void</code><p></p><p></p><p>
+		 <p>
+		 Sets the number of significant user events to wait until triggering a rate dialog prompt.
+		 </p>
+		 <p>
+		 If you don't wish the user events to cause the rate dialog prompt, set the value of this to be -1
+		 </p> 
+		 
+		 <p>
+		 Default: -1
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">events</span>:int</code> &mdash; 	The number of significant user events to display the rate dialog
+		 
+		 </td></tr></table></p></div><a name="setTimeBeforeReminding()"></a><a name="setTimeBeforeReminding(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setTimeBeforeReminding</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setTimeBeforeReminding(days:int):void</code><p></p><p></p><p>
+		 <p>
+		 Sets the number of days to wait until reminding the user to rate the application again.
+		 </p>
+		 
+		 <p>
+		 This time is monitored when the state is set to the STATE_LATER after the user
+		 has pressed the "remind me later" button.
+		 </p>
+		 
+		 <p>
+		 Default: 3
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">days</span>:int</code> &mdash; The number of days to wait to remind a user about rating
+		 
+		 </td></tr></table></p></div><a name="showRateDialog()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showRateDialog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showRateDialog():void</code><p></p><p></p><p>
+		 <p>
+		 Shows the Application Rate Dialog
+		 </p>
+		 <p>
+		 This function doesn't perform any checks so you should only call this function if you've set
+		 autoPrompt to false and have checked the hasMetConditions function, or have performed your
+		 own checks.
+		 </p>
+		 <p>
+		 The response from the dialog is handled by returning an event to the listening handler.
+		 </p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="ApplicationRater.html#hasMetConditions" target="">hasMetConditions</a><br/>ApplicationRaterEvent</div></div><a name="userDidSignificantEvent()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">userDidSignificantEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function userDidSignificantEvent():void</code><p></p><p></p><p>
+		 <p>
+		 This function should be called when a user performs a "significant event", after your application has
+		 initialised. It will increment the user event count and if autoPrompt is set` will
+		 cause the rate dialog to be displayed if the conditions are met.
+		 </p> 
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="ApplicationRater.html#autoPrompt" target="">autoPrompt</a></div></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="DEFAULT_DECLINE_LABEL"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DEFAULT_DECLINE_LABEL</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const DEFAULT_DECLINE_LABEL:String = No, thanks</code><p></p></div><a name="constantDetail"></a><a name="DEFAULT_LATER_LABEL"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DEFAULT_LATER_LABEL</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const DEFAULT_LATER_LABEL:String = Remind me later</code><p></p></div><a name="constantDetail"></a><a name="DEFAULT_MESSAGE"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DEFAULT_MESSAGE</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const DEFAULT_MESSAGE:String = If you enjoy using this application, please take a moment to rate it. Thanks for your support!</code><p></p></div><a name="constantDetail"></a><a name="DEFAULT_RATE_LABEL"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DEFAULT_RATE_LABEL</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const DEFAULT_RATE_LABEL:String = Rate</code><p></p></div><a name="constantDetail"></a><a name="DEFAULT_TITLE"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DEFAULT_TITLE</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const DEFAULT_TITLE:String = Rate this application</code><p></p></div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.ApplicationRater</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_ANDROID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_ANDROID</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_ANDROID:String = Android</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_IOS"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_IOS</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_IOS:String = iOS</code><p></p></div><a name="constantDetail"></a><a name="STATE_DECLINED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">STATE_DECLINED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const STATE_DECLINED:String = declined</code><p></p><p></p><p>
+		 Indicates that the user declined to rate the application by clicking on the "decline" button 
+		 </p></div><a name="constantDetail"></a><a name="STATE_LATER"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">STATE_LATER</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const STATE_LATER:String = later</code><p></p><p></p><p>
+		 Indicates that the user clicked on the "remind me later" button and the system will wait until the conditions have been met 
+		 </p></div><a name="constantDetail"></a><a name="STATE_MONITORING"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">STATE_MONITORING</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const STATE_MONITORING:String = monitoring</code><p></p><p></p><p>
+		 Indicates that the extension is monitoring the system for conditions to display the rate dialog
+		 </p></div><a name="constantDetail"></a><a name="STATE_PROMPT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">STATE_PROMPT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const STATE_PROMPT:String = prompt</code><p></p><p></p><p>
+		 Indicates that the extension has prompted the user to rate the application, ie that the rate dialog has been displayed 
+		 </p></div><a name="constantDetail"></a><a name="STATE_RATED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">STATE_RATED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const STATE_RATED:String = rated</code><p></p><p></p><p>
+		 Indicates that the user has clicked on the "rate" button  
+		 </p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 3</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:44 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:44 PM +10:00  -->

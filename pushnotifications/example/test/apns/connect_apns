@@ -1,0 +1,2 @@
+#!/bin/bash
+openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert distriqt\@distriqt.com_APNS_SSLCertificate_ChatCert.pem -key distriqt\@distriqt.com_APNS_SSLCertificate_ChatKey.pem

@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="Adverts,com.distriqt.extension.adverts.Adverts,ADVERTISING,ALIGN_BOTTOM,ALIGN_CENTER,ALIGN_LEFT,ALIGN_NONE,ALIGN_RIGHT,ALIGN_TOP,EXT_CONTEXT_ID,IMPLEMENTATION_DEFAULT,PLATFORM_ADMOB,PLATFORM_DOUBLECLICK,PLATFORM_IAD,VENDOR,VERSION,VERSION_DEFAULT,height,horizontalAlign,isSupported,service,version,verticalAlign,width,x,y,hideAdvert,init,initialisePlatform,isPlatformSupported,refreshAdvert,setTestDetails,showAdvert,toString,uniqueId"><title>com.distriqt.extension.adverts.Adverts</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'Adverts - distriqt // Adverts';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // Adverts Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/adverts/Adverts.html&amp;com/distriqt/extension/adverts/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">Adverts</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Adverts"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.adverts</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  Adverts</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Adverts  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.adverts.base.ExtensionBase</td></tr></table><p></p><p></p><p></p>	
+	              <p>
+	 This class represents the Adverts extension providing the ability to display
+	 adverts in your application.
+	 </p>
+	 
+	              <b>Initialisation</b>
+	 
+	              <p>
+	 The process of showing an advert is relatively straight forward. The first thing you'll need 
+	 to do is initialise the extension and setup the advertising platform you wish to use. 
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     Adverts.init( YOUR_DEV_KEY );
+     Adverts.service.addEventListener( AdvertEvent.RECEIVED_AD, adverts_receivedAdHandler, false, 0, true );
+     Adverts.service.initialisePlatform( AdvertPlatform.PLATFORM_ADMOB, YOUR_ACCOUNT_ID );
+     </pre></div>
+	 
+	 
+	              <b>Showing an advert</b>
+	 
+	              <div class="listing" version="3.0"><pre>
+     var position:AdvertPosition = new AdvertPosition();
+     position.verticalAlign   = AdvertPosition.ALIGN_BOTTOM;
+     position.horizontalAlign = AdvertPosition.ALIGN_CENTER;
+     
+     Adverts.service.showAdvert( position );
+     </pre></div>
+	 
+	 
+	              <b>Hiding an advert</b>
+	 
+	              <p>
+	 Hiding an advert is a simple call. This will remove the advert from being displayed and clear
+	 from system memory. The advert will no longer be refreshed.
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     Adverts.service.hideAdvert();
+     </pre></div>
+	 
+	 
+	              <b>Refreshing/Updating an advert</b>
+	 
+	              <p>
+	 If you wish to manually refresh the advert you can call the refresh function. 
+	 This will make the advert update with a new ad request.
+	 </p>
+	 
+	              <div class="listing" version="3.0"><pre>
+     Adverts.service.refresh();
+     </pre></div>
+	 
+	 
+	              <b>Advertising Platforms</b>
+	 
+	              <p>
+	 Currently the extension supports:
+	 </p>
+	 
+	              <ul>
+	                 <li>Google AdMob: Android, iOS</li>
+	                 <li>Apple iAd: iOS</li>
+	              </ul>
+ 	 	 
+	 
+	 
+	 
+	              <b>iOS</b>
+	 
+	              <p>
+	 Note that Apple may reject your application if you use the 
+	 advertising identifier but not show any adverts. In fact it 
+	 may be rejected even if you include this extension and not 
+	 show any adverts.
+	 </p>
+	 
+	 
+	 
+	 
+	              <b>Android</b>
+	 
+	              <p>
+	 Making ad requests requires the networking permissions INTERNET and ACCESS_NETWORK_STATE, so these must also be declared in the manifest.
+	 Additionally you'll need to add an activity to the manifest as in the section below:
+	 </p>
+	 
+	              <pre>
+	 &lt;manifestAdditions>&lt;![CDATA[
+	 	&lt;manifest android:installLocation="auto">
+	 	&lt;uses-permission android:name="android.permission.INTERNET"/>
+	 		&lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	 		
+	 		&lt;application>
+	 			&lt;activity android:name="com.google.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+	 		&lt;/application>
+	 
+	 	&lt;/manifest>
+	 ]]>&lt;/manifestAdditions>
+	 </pre>
+	 
+	 
+	 
+	 
+	           <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the current device supports the extensions functionality
+		 </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/adverts/Adverts.html">Adverts</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the Extension class.</div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 The version string of the native extension
+		 </div></td><td class="summaryTableOwnerCol">Adverts</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#Adverts()" class="signatureLink">Adverts</a>()</div><div class="summaryTableDescription">
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#hideAdvert()" class="signatureLink">hideAdvert</a>():void</div><div class="summaryTableDescription">
+		 
+		 Hides a previously shown advert, removing it from the view and destroying it's content
+		  
+		 </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#initialisePlatform()" class="signatureLink">initialisePlatform</a>(platform:String, accountId:String):void</div><div class="summaryTableDescription">
+		 
+		 Initialise the required platform with your account ID for the service.</div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isPlatformSupported()" class="signatureLink">isPlatformSupported</a>(platform:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Using this function you can determine if a platform is supported on the 
+		 current device.</div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#refreshAdvert()" class="signatureLink">refreshAdvert</a>():void</div><div class="summaryTableDescription">
+		 
+		 Refreshes a currently displayed advert with new content
+		 
+		 </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setTestDetails()" class="signatureLink">setTestDetails</a>(testDevices:Array):void</div><div class="summaryTableDescription">
+		 
+		 Sets test device ids to allow test adverts to be sent to the 
+		 specified device ids.</div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showAdvert()" class="signatureLink">showAdvert</a>(position:<a href="../../../../com/distriqt/extension/adverts/AdvertPosition.html">AdvertPosition</a>):void</div><div class="summaryTableDescription">
+		 
+		 Shows a banner advert
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#uniqueId()" class="signatureLink">uniqueId</a>(type:String):String</div><div class="summaryTableDescription">
+		 
+		 Retrieves a unique device ID from the underlying platform.</div></td><td class="summaryTableOwnerCol">Adverts</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#ADVERTISING" class="signatureLink">ADVERTISING</a> : String = advertising<div class="summaryTableDescription">[static] 
+		 iOS
+		 
+		 On iOS this is the value of the ASIdentifierManager advertisingIdentifier property.</div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.Adverts<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VENDOR" class="signatureLink">VENDOR</a> : String = vendor<div class="summaryTableDescription">[static] 
+		 Android
+		 
+		 On Android this is the value of the ANDROID_ID.</div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 2<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Adverts</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the current device supports the extensions functionality
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/adverts/Adverts.html">Adverts</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the Extension class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/adverts/Adverts.html">Adverts</a></code><br/></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 The version string of the native extension
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="Adverts()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">Adverts</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function Adverts()</code><p></p><p>
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="hideAdvert()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">hideAdvert</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function hideAdvert():void</code><p></p><p></p><p>
+		 <p>
+		 Hides a previously shown advert, removing it from the view and destroying it's content
+		 </p> 
+		 </p></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p></div><a name="initialisePlatform()"></a><a name="initialisePlatform(String,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">initialisePlatform</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function initialisePlatform(platform:String, accountId:String):void</code><p></p><p></p><p>
+		 <p>
+		 Initialise the required platform with your account ID for the service.
+		 This function performs all the setup and initialisation of the requested
+		 platform and passes any account information required to the service.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">platform</span>:String</code> &mdash; 	The AdvertPlatform value for the required advertising platform
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">accountId</span>:String</code> &mdash; 	Account ID for the specified platform (if required)
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="AdvertPlatform.html" target="">AdvertPlatform</a></div></div><a name="isPlatformSupported()"></a><a name="isPlatformSupported(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isPlatformSupported</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isPlatformSupported(platform:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Using this function you can determine if a platform is supported on the 
+		 current device.
+		 </p>
+		 
+		 <p>
+		 This is useful in situations where you wish to use platforms based on the 
+		 availability. Eg use iAd when available but fallback to admob in other 
+		 cases, such as on Android devices.
+		 </p>
+		 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">platform</span>:String</code> &mdash; 	The platform identifier of the advertising platform of interest
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the specified platform is supported on the current device
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="AdvertPlatform.html" target="">AdvertPlatform</a></div></div><a name="refreshAdvert()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">refreshAdvert</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function refreshAdvert():void</code><p></p><p></p><p>
+		 <p>
+		 Refreshes a currently displayed advert with new content
+		 </p>
+		 </p></div><a name="setTestDetails()"></a><a name="setTestDetails(Array)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setTestDetails</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setTestDetails(testDevices:Array):void</code><p></p><p></p><p>
+		 <p>
+		 Sets test device ids to allow test adverts to be sent to the 
+		 specified device ids. Generally include the id of your test devices
+		 and of the simulator.
+		 </p>
+		 
+		 <p><b>Supported platforms</b>: Admob</p>
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">testDevices</span>:Array</code> &mdash; An array of Ids (strings) for any devices you 
+		 						want to receive test ads, this can include 
+		 						the simulator device id.
+		 
+		 </td></tr></table></p></div><a name="showAdvert()"></a><a name="showAdvert(com.distriqt.extension.adverts.AdvertPosition)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showAdvert</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showAdvert(position:<a href="../../../../com/distriqt/extension/adverts/AdvertPosition.html">AdvertPosition</a>):void</code><p></p><p></p><p>
+		 <p>
+		 Shows a banner advert
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">position</span>:<a href="../../../../com/distriqt/extension/adverts/AdvertPosition.html">AdvertPosition</a></code> &mdash; The position and size of the advert to display
+		 
+		 </td></tr></table></p></div><a name="uniqueId()"></a><a name="uniqueId(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">uniqueId</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function uniqueId(type:String):String</code><p></p><p></p><p>
+		 <p>
+		 Retrieves a unique device ID from the underlying platform.
+		 Generally this is a sanctioned ID however you should consult the 
+		 particular platform documentation regarding the usage of the ID.
+		 </p>
+		 
+		 <p>
+		 The default operation of this function is to retrieve an ID that
+		 you can use in your application to identify a user's device.
+		 </p>
+		 
+		 <b>Android</b>
+		 
+		 <p> 
+		 On Android the function returns the Settings.Secure.ANDROID_ID.
+		 A 64-bit number (as a hex string) that is randomly generated on the 
+		 device's first boot and should remain constant for the lifetime of 
+		 the device. 
+		 </p>
+		 <p>
+		 The value may change if a factory reset is performed on the device.
+		 </p> 
+		 
+		 <b>iOS</b>
+		 
+		 <p>
+		 On iOS there are several ID's currently available. See the types 
+		 for more information of them. Generally the default "vendor" ID
+		 should be sufficient for most developer needs.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">type</span>:String</code> (default = <code>NaN</code>)<code></code> &mdash; The type of id to retrieve. See the available types 
+		 					below. [default: VENDOR] 
+		 					(iOS only, Android always returns the ANDROID_ID)
+		 
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; A string with the requested unique device id
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Adverts.html#ADVERTISING" target="">ADVERTISING</a><br/><a href="Adverts.html#VENDOR" target="">VENDOR</a></div></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="ADVERTISING"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">ADVERTISING</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const ADVERTISING:String = advertising</code><p></p><p></p><p>
+		 <b>iOS</b>
+		 <p>
+		 On iOS this is the value of the ASIdentifierManager advertisingIdentifier property. 
+		 An alphanumeric string unique to each device, used only for serving advertisements.
+		 </p>
+		 <p>
+		 Unlike the identifierForVendor property of the UIDevice, the same value is 
+		 returned to all vendors. This identifier may change&mdash;for example, if the 
+		 user erases the device&mdash;so you should not cache it.
+		 </p>
+		 <p>
+		 The value of this property may be nil if the app is running in the 
+		 background, before the user has unlocked the device the first time 
+		 after the device has been restarted. If the value is nil, wait and 
+		 get the value again later.
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.Adverts</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VENDOR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VENDOR</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VENDOR:String = vendor</code><p></p><p></p><p>
+		 <b>Android</b>
+		 <p>
+		 On Android this is the value of the ANDROID_ID.
+		 </p>
+		 
+		 <b>iOS</b>
+		 <p>
+		 On iOS this is the value of the UIDevice identifierForVendor property.
+		 </p>
+		 <p>
+		 The value of this property is the same for apps that come from the 
+		 same vendor running on the same device. A different value is returned 
+		 for apps on the same device that come from different vendors, and for 
+		 apps on different devices regardless of vendor.
+		 </p>
+		 <p>
+		 The value of this property may be nil if the app is running in the 
+		 background, before the user has unlocked the device the first time 
+		 after the device has been restarted. If the value is nil, wait and 
+		 get the value again later.
+		 </p>
+		 <p>
+		 The value in this property remains the same while the app (or another 
+		 app from the same vendor) is installed on the iOS device. The value 
+		 changes when the user deletes all of that vendor’s apps from the device 
+		 and subsequently reinstalls one or more of them. Therefore, if your app 
+		 stores the value of this property anywhere, you should gracefully handle 
+		 situations where the identifier changes.
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 2</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:41 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:41 PM +10:00  -->

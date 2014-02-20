@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../../override.css" type="text/css"><meta name="keywords" content="BluetoothConnectionEvent,com.distriqt.extension.bluetooth.events.BluetoothConnectionEvent,CONNECTION_CLOSE_ERROR,CONNECTION_CONNECTED,CONNECTION_CONNECTING,CONNECTION_CONNECT_ERROR,CONNECTION_CONNECT_FAILED,CONNECTION_DISCONNECTED,CONNECTION_DISCONNECT_ERROR,CONNECTION_LISTENING,CONNECTION_LISTEN_ERROR,CONNECTION_RECEIVED_BYTES,CONNECTION_REMOTE,CONNECTION_WRITE_ERROR,CONNECTION_WRITE_SUCCESS,DEVICE_BONDED,DEVICE_BONDING,DEVICE_DISCONNECTED,DEVICE_DISCONNECT_REQUESTED,DEVICE_FOUND,ERROR,NOT_SUPPORTED,SCAN_FINISHED,SCAN_MODE_CHANGED,SCAN_STARTED,STATE_CHANGED,data,device,device,message,message,uuid,clone"><title>com.distriqt.extension.bluetooth.events.BluetoothConnectionEvent</title></head><body><script language="javascript" type="text/javascript" src="../../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'BluetoothConnectionEvent - distriqt // Bluetooth';
+				var baseRef = '../../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // Bluetooth Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../../package-summary.html" onclick="loadClassListFrame('../../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../../class-summary.html" onclick="loadClassListFrame('../../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../../all-index-A.html" onclick="loadClassListFrame('../../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../../index.html?com/distriqt/extension/bluetooth/events/BluetoothConnectionEvent.html&amp;com/distriqt/extension/bluetooth/events/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">BluetoothConnectionEvent</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("BluetoothConnectionEvent"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.bluetooth.events</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  BluetoothConnectionEvent</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">BluetoothConnectionEvent  <img src="../../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> flash.events.Event</td></tr></table><p></p><p></p><p></p>	
+	              <p>
+	 This event describes connection events related to the listening 
+	 and connecting functionality of the bluetooth extension.
+	 </p>
+	 
+	              <p>
+	 This event will contain the majority of the information about a 
+	 connection over its lifetime
+	 </p>
+	 
+	              <p>
+	 Generally event event will contain at least the uuid of the 
+	 connection that this event is related to. If a device was 
+	 involved then the <code>device</code> will contain the 
+	 information about the remote device involved in the 
+	 connection.
+	 </p>
+	 
+	           <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#device" class="signatureLink">device</a> : <a href="../../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a><div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#message" class="signatureLink">message</a> : String<div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#uuid" class="signatureLink">uuid</a> : String<div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#BluetoothConnectionEvent()" class="signatureLink">BluetoothConnectionEvent</a>(type:String, uuid:String, device:<a href="../../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a>, message:String, bubbles:Boolean = false, cancelable:Boolean = false)</div><div class="summaryTableDescription">
+		  Constructor
+		 </div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#clone()" class="signatureLink">clone</a>():Event</div><div class="summaryTableDescription">[override] </div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONNECTION_CLOSE_ERROR" class="signatureLink">CONNECTION_CLOSE_ERROR</a> : String = bluetooth:close:error<div class="summaryTableDescription">[static] 
+		 
+		 An error occurred during the connection close functionality
+		  
+		 
+		 Check the message for more information.</div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONNECTION_CONNECTED" class="signatureLink">CONNECTION_CONNECTED</a> : String = bluetooth:connection:connected<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when a connection has been made to a device.</div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONNECTION_CONNECT_ERROR" class="signatureLink">CONNECTION_CONNECT_ERROR</a> : String = bluetooth:connection:connect:error<div class="summaryTableDescription">[static] 
+		 
+		 An error occurred during the connection creation.</div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONNECTION_CONNECT_FAILED" class="signatureLink">CONNECTION_CONNECT_FAILED</a> : String = bluetooth:connection:connect:failed<div class="summaryTableDescription">[static] 
+		 
+		 </div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONNECTION_CONNECTING" class="signatureLink">CONNECTION_CONNECTING</a> : String = bluetooth:connection:connecting<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when a connect operation is commenced.</div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONNECTION_DISCONNECTED" class="signatureLink">CONNECTION_DISCONNECTED</a> : String = bluetooth:connection:disconnected<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when a connection disconnects.</div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONNECTION_DISCONNECT_ERROR" class="signatureLink">CONNECTION_DISCONNECT_ERROR</a> : String = bluetooth:connection:disconnect:error<div class="summaryTableDescription">[static] 
+		 
+		 An error occurred during the disconnect operation
+		 
+		 
+		 Check the message for more information.</div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONNECTION_LISTEN_ERROR" class="signatureLink">CONNECTION_LISTEN_ERROR</a> : String = bluetooth:listen:error<div class="summaryTableDescription">[static] 
+		 
+		 An error occurred during the listener creation.</div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONNECTION_LISTENING" class="signatureLink">CONNECTION_LISTENING</a> : String = bluetooth:connection:listening<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when a listening connection has been created and
+		 is available to receive connections.</div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONNECTION_RECEIVED_BYTES" class="signatureLink">CONNECTION_RECEIVED_BYTES</a> : String = bluetooth:connection:received:bytes<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when data has been received via the connection.</div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONNECTION_REMOTE" class="signatureLink">CONNECTION_REMOTE</a> : String = bluetooth:connection:remote<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when a remote connection has been made to this device.</div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONNECTION_WRITE_ERROR" class="signatureLink">CONNECTION_WRITE_ERROR</a> : String = bluetooth:connection:write:error<div class="summaryTableDescription">[static] 
+		 
+		 An error occurred during the connection write function.</div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONNECTION_WRITE_SUCCESS" class="signatureLink">CONNECTION_WRITE_SUCCESS</a> : String = bluetooth:connection:write:success<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when a write operation has been successful.</div></td><td class="summaryTableOwnerCol">BluetoothConnectionEvent</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="device"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">device</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>public var device:<a href="../../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a></code><p></p></div><a name="propertyDetail"></a><a name="message"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">message</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var message:String</code><p></p></div><a name="propertyDetail"></a><a name="uuid"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">uuid</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var uuid:String</code><p></p></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="BluetoothConnectionEvent()"></a><a name="BluetoothConnectionEvent(String,String,com.distriqt.extension.bluetooth.BluetoothDevice,String,Boolean,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">BluetoothConnectionEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function BluetoothConnectionEvent(type:String, uuid:String, device:<a href="../../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a>, message:String, bubbles:Boolean = false, cancelable:Boolean = false)</code><p></p><p>
+		  Constructor
+		 </p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">type</span>:String</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">uuid</span>:String</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">device</span>:<a href="../../../../../com/distriqt/extension/bluetooth/BluetoothDevice.html">BluetoothDevice</a></code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">message</span>:String</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">bubbles</span>:Boolean</code> (default = <code>false</code>)<code></code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">cancelable</span>:Boolean</code> (default = <code>false</code>)<code></code></td></tr></table></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="clone()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">clone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code>override public function clone():Event</code><p></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Event</code></td></tr></table></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="CONNECTION_CLOSE_ERROR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONNECTION_CLOSE_ERROR</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const CONNECTION_CLOSE_ERROR:String = bluetooth:close:error</code><p></p><p></p><p>
+		 <p>
+		 An error occurred during the connection close functionality
+		 </p> 
+		 <p>
+		 Check the <code>message</code> for more information.
+		 </p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="BluetoothConnectionEvent.html#message" target="">message</a></div></div><a name="constantDetail"></a><a name="CONNECTION_CONNECT_ERROR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONNECTION_CONNECT_ERROR</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONNECTION_CONNECT_ERROR:String = bluetooth:connection:connect:error</code><p></p><p></p><p>
+		 <p>
+		 An error occurred during the connection creation. 
+		 </p>
+		 <p>
+		 Check the <code>message</code> for more information.
+		 </p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="BluetoothConnectionEvent.html#message" target="">message</a></div></div><a name="constantDetail"></a><a name="CONNECTION_CONNECT_FAILED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONNECTION_CONNECT_FAILED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONNECTION_CONNECT_FAILED:String = bluetooth:connection:connect:failed</code><p></p><p></p><p>
+		 
+		 </p></div><a name="constantDetail"></a><a name="CONNECTION_CONNECTED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONNECTION_CONNECTED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONNECTION_CONNECTED:String = bluetooth:connection:connected</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when a connection has been made to a device.
+		 </p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../../com/distriqt/extension/bluetooth/Bluetooth.html#connect()" target="">com.distriqt.extension.bluetooth.Bluetooth.connect()</a></div></div><a name="constantDetail"></a><a name="CONNECTION_CONNECTING"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONNECTION_CONNECTING</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONNECTION_CONNECTING:String = bluetooth:connection:connecting</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when a connect operation is commenced.
+		 </p> 
+		 </p></div><a name="constantDetail"></a><a name="CONNECTION_DISCONNECT_ERROR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONNECTION_DISCONNECT_ERROR</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONNECTION_DISCONNECT_ERROR:String = bluetooth:connection:disconnect:error</code><p></p><p></p><p>
+		 <p>
+		 An error occurred during the disconnect operation
+		 </p>
+		 <p>
+		 Check the <code>message</code> for more information.
+		 </p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="BluetoothConnectionEvent.html#message" target="">message</a></div></div><a name="constantDetail"></a><a name="CONNECTION_DISCONNECTED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONNECTION_DISCONNECTED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONNECTION_DISCONNECTED:String = bluetooth:connection:disconnected</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when a connection disconnects. This may be the result of 
+		 a disconnect call or due to the connection failing. 
+		 eg device turned off, out of range or other connection breaking event
+		 </p> 
+		 </p></div><a name="constantDetail"></a><a name="CONNECTION_LISTEN_ERROR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONNECTION_LISTEN_ERROR</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONNECTION_LISTEN_ERROR:String = bluetooth:listen:error</code><p></p><p></p><p>
+		 <p>
+		 An error occurred during the listener creation. 
+		 </p>
+		 <p>
+		 Check the <code>message</code> for more information.
+		 </p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="BluetoothConnectionEvent.html#message" target="">message</a></div></div><a name="constantDetail"></a><a name="CONNECTION_LISTENING"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONNECTION_LISTENING</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONNECTION_LISTENING:String = bluetooth:connection:listening</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when a listening connection has been created and
+		 is available to receive connections.
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="CONNECTION_RECEIVED_BYTES"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONNECTION_RECEIVED_BYTES</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONNECTION_RECEIVED_BYTES:String = bluetooth:connection:received:bytes</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when data has been received via the connection.
+		 </p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../../com/distriqt/extension/bluetooth/Bluetooth.html#readBytes()" target="">com.distriqt.extension.bluetooth.Bluetooth.readBytes()</a></div></div><a name="constantDetail"></a><a name="CONNECTION_REMOTE"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONNECTION_REMOTE</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONNECTION_REMOTE:String = bluetooth:connection:remote</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when a remote connection has been made to this device. 
+		 This is the "connected" event for a listening device.
+		 </p> 
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../../com/distriqt/extension/bluetooth/Bluetooth.html#listen()" target="">com.distriqt.extension.bluetooth.Bluetooth.listen()</a></div></div><a name="constantDetail"></a><a name="CONNECTION_WRITE_ERROR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONNECTION_WRITE_ERROR</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONNECTION_WRITE_ERROR:String = bluetooth:connection:write:error</code><p></p><p></p><p>
+		 <p>
+		 An error occurred during the connection write function. This may
+		 occur if the uuid was invalid or if the connection has been 
+		 disconnected. 
+		 </p> 
+		 <p>
+		 Check the <code>message</code> for more information.
+		 </p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="BluetoothConnectionEvent.html#message" target="">message</a></div></div><a name="constantDetail"></a><a name="CONNECTION_WRITE_SUCCESS"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONNECTION_WRITE_SUCCESS</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONNECTION_WRITE_SUCCESS:String = bluetooth:connection:write:success</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when a write operation has been successful.
+		 </p>
+		 </p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:45 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:45 PM +10:00  -->

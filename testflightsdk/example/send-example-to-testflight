@@ -1,0 +1,14 @@
+#!/bin/bash
+
+APPID=com.distriqt.test
+APPNAME=TestTestFlightSDK
+
+echo "Sending to TestFlight..."
+
+curl http://testflightapp.com/api/builds.json \
+	-F file=@$APPNAME.ipa \
+    -F api_token='YOUR_API_TOKEN' \
+    -F team_token='YOUR_TEAM_TOKEN' \
+	-F notes="$1" \
+    -F notify=True \
+	-F distribution_lists='A_DISTRIBUTION_LIST_TO_NOTIFIY'

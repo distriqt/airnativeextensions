@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="AndroidRoot,com.distriqt.extension.androidroot.AndroidRoot,EXT_CONTEXT_ID,IMPLEMENTATION_DEFAULT,VERSION,VERSION_DEFAULT,isSupported,isSystembarVisible,service,version,init,isAutoStartEnabled,restart,setAutoStart,showSystembar,shutdown"><title>com.distriqt.extension.androidroot.AndroidRoot</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'AndroidRoot - distriqt // AndroidRoot';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // AndroidRoot Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/androidroot/AndroidRoot.html&amp;com/distriqt/extension/androidroot/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">AndroidRoot</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("AndroidRoot"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.androidroot</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  AndroidRoot</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">AndroidRoot  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.androidroot.base.ExtensionBase</td></tr></table><p></p><p></p><p></p>	
+	              <p>
+	 This class represents the Android Root extension. It provides access to some root only
+	 features on Android. These features are generally not supported by Google and will void
+	 warranty if enabled. Use this extension only if you are sure of what you are doing and 
+	 understand advanced Android processes.
+	 </p>
+	 
+	              <p>
+	 Your device must be unlocked and have root access, with busybox and superuser installed
+	 to use this extension. The functions in this extension should work on all Honeycomb, 
+	 Ice Cream Sandwich and Jelly Bean devices. 
+	 </p>
+	 
+	              <p>
+	 Busybox must be installed and at least once run, a reboot is needed after Busybox has been run.
+	 It's also suggested that you grant the application su privilages and turn off notifications in 
+	 SuperSU so that notifications aren't shown to the user.
+	 </p>
+	 
+	              <p>
+                  <b>How to root your device</b>
+               </p>
+	 
+	              <p>This is an advanced procedure and is not covered in detail here. Some starting points are:</p>
+	              <ul>
+	                 <li>Nexus Root Toolkit: http://www.wugfresh.com/nrt/</li>
+	                 <li>http://forum.xda-developers.com/showthread.php?t=1766475</li>
+	                 <li>How to Root the Google Nexus 7: http://www.youtube.com/watch?v=wI0_ylxyrWA</li>
+	                 <li>How to Unroot the Google Nexus 7: http://www.youtube.com/watch?v=5HW_e99I5iM</li>
+	              </ul>
+	 
+	 
+	 
+	           <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 
+		 Whether the current device supports the extensions functionality.</div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSystembarVisible" class="signatureLink">isSystembarVisible</a> : Boolean<div class="summaryTableDescription">[read-only] 
+		 
+		 Returns whether the system bar has been set to be visible.</div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/androidroot/AndroidRoot.html">AndroidRoot</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the Extension class.</div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 
+		 The version string of the native extension.</div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#AndroidRoot()" class="signatureLink">AndroidRoot</a>()</div><div class="summaryTableDescription">
+		 
+		 Constructor.</div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isAutoStartEnabled()" class="signatureLink">isAutoStartEnabled</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Returns the state of the auto start on boot function.</div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#restart()" class="signatureLink">restart</a>():void</div><div class="summaryTableDescription">
+		 
+		 Restarts the device 
+		 
+		 </div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setAutoStart()" class="signatureLink">setAutoStart</a>(enabled:Boolean):Boolean</div><div class="summaryTableDescription">
+		 
+		 Sets whether the applicaiton should start automatically
+		 when the device boots.</div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#showSystembar()" class="signatureLink">showSystembar</a>(makeVisible:Boolean, sleepTime:Number = 0.5):void</div><div class="summaryTableDescription">
+		 
+		 Shows or hides the System UI Navigation bar by killing any associated system ui processes.</div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#shutdown()" class="signatureLink">shutdown</a>():void</div><div class="summaryTableDescription">
+		 
+		 Turns off the device 
+		 
+		 </div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.AndroidRoot<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 1<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">AndroidRoot</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 <p>
+		 Whether the current device supports the extensions functionality. This will
+		 basically tell you whether the device the application is running on has
+		 been "rooted".
+		 </p>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="isSystembarVisible"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSystembarVisible</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>isSystembarVisible:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 <p>
+		 Returns whether the system bar has been set to be visible.
+		 </p>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isSystembarVisible():Boolean</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/androidroot/AndroidRoot.html">AndroidRoot</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the Extension class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/androidroot/AndroidRoot.html">AndroidRoot</a></code><br/></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 <p>
+		 The version string of the native extension. This will be of the format:
+		 </p>
+		 <pre>
+		 [main version].[base version].[implementation].[native version]
+		 </pre>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="AndroidRoot()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">AndroidRoot</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function AndroidRoot()</code><p></p><p>
+		 <p>
+		 Constructor.
+		 
+		 You should not call this directly, but instead use the singleton access: <b>AndroidRoot.service</b>.
+		 </p>
+		 
+		 <p>
+		 Calling this directly will throw an error of type ERROR_SINGLETON
+		 </p>
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p></div><a name="isAutoStartEnabled()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isAutoStartEnabled</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isAutoStartEnabled():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Returns the state of the auto start on boot function.
+		 </p>
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the application is set to auto start on device boot and false otherwise
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="AndroidRoot.html#setAutoStart" target="">setAutoStart</a></div></div><a name="restart()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">restart</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function restart():void</code><p></p><p></p><p>
+		 <p>
+		 Restarts the device 
+		 </p>
+		 </p></div><a name="setAutoStart()"></a><a name="setAutoStart(Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setAutoStart</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setAutoStart(enabled:Boolean):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Sets whether the applicaiton should start automatically
+		 when the device boots.
+		 </p>
+		 
+		 <p>
+		 This stores a setting in the applications shared preferences
+		 to specify the application to start on boot.
+		 </p>
+		 
+		 <p><b>Support</b>: Android only</p>
+		 
+		 <p>
+		 In order for this to work correctly you must add the following 
+		 to your manifestAdditions node in your application descriptor file:
+		 </p>
+		 
+		 <pre>
+		 &lt;uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+		 &lt;application>
+		     &lt;receiver android:enabled="true" android:name="com.distriqt.extension.androidroot.receivers.AndroidRootStartupReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+		         &lt;intent-filter>
+		             &lt;action android:name="android.intent.action.BOOT_COMPLETED" />
+		             &lt;category android:name="android.intent.category.DEFAULT" />
+		         &lt;/intent-filter>
+		     &lt;/receiver>
+		 &lt;/application>	
+		 </pre>
+		 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">enabled</span>:Boolean</code> &mdash; If true the application will automatically start 
+		 					on following device bootups, otherwise, if false 
+		 					the application won't autostart at boot.
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; True if the setting was changed successfully or false if there was 
+		 </td></tr></table></div><a name="showSystembar()"></a><a name="showSystembar(Boolean,Number)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">showSystembar</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function showSystembar(makeVisible:Boolean, sleepTime:Number = 0.5):void</code><p></p><p></p><p>
+		 <p>
+		 Shows or hides the System UI Navigation bar by killing any associated system ui processes.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">makeVisible</span>:Boolean</code> &mdash; If true the system UI is shown, otherwise it is removed.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">sleepTime</span>:Number</code> (default = <code>0.5</code>)<code></code> &mdash; 	Sets number of seconds between calls to kill the navigation UI. This is required 
+		 						as the system may automatically restart the navigation UI. You'll need 
+		 						to experiment with this value based on your device. Modern devices will 
+		 						require a value ~0.5 but older devices can get away with 1-2 seconds.
+		 </td></tr></table></p></div><a name="shutdown()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">shutdown</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function shutdown():void</code><p></p><p></p><p>
+		 <p>
+		 Turns off the device 
+		 </p>
+		 </p></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.AndroidRoot</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 1</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed Feb 19 2014, 06:42 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed Feb 19 2014, 06:42 PM +10:00  -->
