@@ -36,7 +36,7 @@ package
 	 */
 	public class TestTestFlightSDK extends Sprite
 	{
-		public static const DEV_KEY : String = "your_dev_key";
+		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";
 		
 		public static const TESTFLIGHT_APPTOKEN_ANDROID : String = "android_app_token";
 		public static const TESTFLIGHT_APPTOKEN_IOS 	: String = "ios_app_token";

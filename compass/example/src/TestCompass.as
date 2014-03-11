@@ -37,8 +37,7 @@ package
 	 */
 	public class TestCompass extends Sprite
 	{
-		public static const DEV_KEY : String = "your_dev_key";
-		
+		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";	
 		
 		/**
 		 *  Constructor

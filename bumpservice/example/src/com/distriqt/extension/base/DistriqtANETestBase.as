@@ -33,7 +33,7 @@ package com.distriqt.extension.base
 	public class DistriqtANETestBase extends Sprite
 	{
 		
-		[Embed("./assets/distriqt-logo.png")]
+		[Embed("/assets/distriqt-logo.png")]
 		static public var DistriqtLogo	: Class;
 		
 		

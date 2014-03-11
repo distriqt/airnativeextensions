@@ -37,7 +37,7 @@ package
 	 */
 	public class TestApplication extends Sprite
 	{
-		public static const DEV_KEY : String = "your_developer_key";
+		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";
 		
 		
 		/**

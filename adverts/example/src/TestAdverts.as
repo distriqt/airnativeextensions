@@ -27,6 +27,7 @@ package
 	import flash.events.MouseEvent;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
+	import flash.utils.getTimer;
 	import flash.utils.setInterval;
 	import flash.utils.setTimeout;
 	
@@ -38,7 +39,6 @@ package
 	 */
 	public class TestAdverts extends Sprite
 	{
-		
 		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";
 		 
 		public static const ADMOB_ACCOUNT_ID	: String = "YOUR_ADMOB_ACCOUNT_ID";
@@ -86,7 +86,10 @@ package
 		{
 			try
 			{
+				var time:int = getTimer();
 				Adverts.init( DEV_KEY );
+				message( "Adverts.init() : " + String((getTimer() - time)/1000) + " seconds" ); 
+				
 				
 				message( "Adverts Supported: " + Adverts.isSupported );
 				message( "Adverts Version:   " + Adverts.service.version );

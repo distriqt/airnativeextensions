@@ -15,6 +15,7 @@
  */
 package
 {
+	import com.distriqt.animation.tests.ParticleAnimationTest;
 	import com.distriqt.extension.androidroot.AndroidRoot;
 	
 	import flash.display.Sprite;
@@ -24,10 +25,9 @@ package
 	import flash.events.MouseEvent;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
+	import flash.utils.getTimer;
 	
 	import net.hires.debug.Stats;
-	
-	import com.distriqt.animation.tests.ParticleAnimationTest;
 	
 	[SWF(frameRate="60")]
 	/**	
@@ -45,8 +45,7 @@ package
 	 */
 	public class TestAndroidRoot extends Sprite
 	{
-		
-		public static const DEV_KEY : String = "your_dev_key";
+		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";
 		
 		private var _text		: TextField;
 		
@@ -96,7 +95,7 @@ package
 			try
 			{
 				AndroidRoot.init( DEV_KEY );
-
+				
 				message( "AndroidRoot Supported: " + AndroidRoot.isSupported );
 				message( "AndroidRoot Version: "   + AndroidRoot.service.version );
 				

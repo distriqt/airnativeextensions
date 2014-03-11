@@ -1,4 +1,23 @@
 
+
+=======================================================================
+#ANE Package update v1.39
+
+#Camera 
+	- Corrected getModes function on #iOS
+	- Corrected the modes on Android with certain devices. 
+	- Corrected capture image function on Android having 0 pixel size for preset modes
+
+
+#TestFlightSDK
+	- Updated to the latest version of the SDK’s (iOS: 3.0.0 Android: 1.3) 
+	- Removed the UDID requirement so this extension can now be used in release applications
+
+
+General
+	- Fixed a bug in the initialisation key check which caused a delay
+
+
 =======================================================================
 #ANE Package update v1.38
 

@@ -38,8 +38,7 @@ package
 	 */
 	public class TestBluetooth extends Sprite
 	{
-		public static const DEV_KEY : String = "betatesting";
-		
+		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";
 		
 		/**
 		 * Class constructor 

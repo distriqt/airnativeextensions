@@ -37,7 +37,8 @@ package
 	 */
 	public class TestInAppBilling extends Sprite
 	{
-		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";
+		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";	
+
 		private static const GOOGLE_PLAY_INAPP_BILLING_KEY : String = "YOUR_GOOGLE_PLAY_INAPP_BILLING_KEY";
 		
 		

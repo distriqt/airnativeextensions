@@ -34,7 +34,7 @@ package
 	 */
 	public class TestFacebookUtils extends Sprite
 	{
-		
+		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";
 		
 		/**
 		 * Class constructor 
@@ -83,7 +83,7 @@ package
 		{
 			try
 			{
-				FacebookUtils.init( "your-developer-key" );
+				FacebookUtils.init( DEV_KEY );
 				
 				message( "FacebookUtils Supported: "+ String(FacebookUtils.isSupported) );
 				message( "FacebookUtils Version: " + FacebookUtils.service.version );

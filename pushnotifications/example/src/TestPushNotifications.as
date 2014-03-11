@@ -20,7 +20,7 @@ package
 	 */	
 	public class TestPushNotifications extends Sprite
 	{
-		public static const DEV_KEY 		: String = "your_dev_key";
+		public static const DEV_KEY			: String = "YOUR_DEVELOPER_KEY";
 		public static const GCM_SENDER_ID 	: String = "your_gcm_sender_id";
 		
 		

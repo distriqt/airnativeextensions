@@ -17,26 +17,18 @@
  */
 package
 {
-	import com.bit101.components.PushButton;
 	import com.distriqt.extension.base.DistriqtANETestBase;
 	import com.distriqt.extension.bumpservice.BumpService;
 	import com.distriqt.extension.bumpservice.events.BumpServiceEvent;
 	import com.distriqt.extension.dialog.Dialog;
 	import com.distriqt.extension.dialog.events.DialogEvent;
 	
-	import flash.display.Bitmap;
-	import flash.display.Sprite;
-	import flash.display.StageAlign;
-	import flash.display.StageScaleMode;
-	import flash.events.Event;
 	import flash.events.MouseEvent;
-	import flash.text.TextField;
-	import flash.text.TextFieldAutoSize;
-	import flash.text.TextFormat;
 	
 	public class TestBumpService extends DistriqtANETestBase
 	{ 
-	
+		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";
+
 		static public const NO_MATCH_DLG	: int = 0;
 		static public const MATCH_DLG		: int = 1;		
 		
@@ -71,14 +63,15 @@ package
 			message( "TestBumpService::init()" +"\n");
 			
 			
-			BumpService.init( "your-developer-key" );
-			Dialog.init( "your-developer-key" );
+			BumpService.init( DEV_KEY );
+			Dialog.init( DEV_KEY );
 			
 			Dialog.service.addEventListener( DialogEvent.DIALOG_CLOSED, dialog_closedHandler );
 			
 			try
 			{				
 				message("Creating extension...");
+				message( "BumpService.version: "+BumpService.service.version );
 				
 				BumpService.service.addEventListener( BumpServiceEvent.BUMP_CONNECTED, bump_sessionEventHandler );
 				BumpService.service.addEventListener( BumpServiceEvent.BUMP_DISCONNECTED, bump_sessionEventHandler );

@@ -31,8 +31,7 @@ package
 	 */
 	public class TestCamera extends Sprite
 	{
-		public static const DEV_KEY : String = "your_dev_key";
-		
+		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";		
 		
 		public function TestCamera()
 		{
@@ -76,23 +75,24 @@ package
 			_text.width = stage.stageWidth;
 			_text.height = stage.stageHeight;
 			_text.multiline = true;
-			addChild( _text );
 			
 			_videoData  = new ByteArray();
 			
 			_bitmapData = new BitmapData( 640, 480, false );
 			_bitmap = new Bitmap( _bitmapData );
-			_bitmap.y = 200;
-			_bitmap.scaleX = _bitmap.scaleY = 0.4;
-			addChild( _bitmap );
+			_bitmap.y = 20;
+//			_bitmap.scaleX = _bitmap.scaleY = 0.4;
 			
 			_captureBitmapData = new BitmapData( 640, 480, false );
 			_captureBitmap = new Bitmap( _captureBitmapData );
-			_captureBitmap.y = 500;
-			_captureBitmap.scaleX = _captureBitmap.scaleY = 0.4;
+			_captureBitmap.y = 250;
+			
+//			_captureBitmap.scaleX = _captureBitmap.scaleY = 0.4;
+			
+			
+			addChild( _bitmap );
 			addChild( _captureBitmap );
-			
-			
+			addChild( _text );
 			
 		}
 		
@@ -128,6 +128,8 @@ package
 				{
 					_options = new CameraParameters();
 					_options.enableFrameBuffer = true;
+					_options.frameBufferWidth = 800;
+					_options.frameBufferHeight = 600;
 					_options.cameraMode = new CameraMode( CameraMode.PRESET_MEDIUM );
 					
 					// List the available devices
@@ -185,19 +187,19 @@ package
 		{
 			try
 			{
-				if (Camera.isSupported)
+				message( "=============================== INITIALISE ===================================" );
+				if (Camera.isSupported && !_inited)
 				{
-					message( "=============================== INITIALISE ===================================" );
 					Camera.instance.initialise( _options );
 					var modes:Array = Camera.instance.getModes();
 					for each (var mode:CameraMode in modes)
 					{
 						message( "mode: "+mode.mode+" ["+mode.width+"x"+mode.height+"]" );
 					}
-					message( "===============================\n" );
 					
-					Camera.instance.setMode( new CameraMode( CameraMode.PRESET_PHOTO ));
+					Camera.instance.setMode( new CameraMode( CameraMode.PRESET_LOW ));
 				}
+				message( "===============================\n" );
 				_inited = true;
 			}
 			catch (e:Error)
@@ -285,10 +287,11 @@ package
 		private function camera_videoFrameHandler( event:CameraEvent ):void
 		{
 			var frame:Number = Camera.instance.receivedFrames;
+//			message( "received frame: "+frame );
 			if (frame != _lastFrameProcessed)
 			{
 				Camera.instance.getFrameBuffer( _videoData );
-				
+//				message( Camera.instance.width +"x"+ Camera.instance.height );
 				var rect:Rectangle = new Rectangle( 0, 0, Camera.instance.width, Camera.instance.height );
 				if (_bitmapData.width != Camera.instance.width || _bitmapData.height != Camera.instance.height)
 				{
@@ -358,12 +361,14 @@ package
 		private function activateHandler( event:Event ):void
 		{
 			//	Reinitialise the camera when application is activated again.
+			message( "activate" );
 			initialiseCamera();
 		}
 		
 		private function deactivateHandler( event:Event ):void
 		{
 			// Release the camera when the application is deactivated.
+			message( "deactivate" );
 			release();
 		}
 		
