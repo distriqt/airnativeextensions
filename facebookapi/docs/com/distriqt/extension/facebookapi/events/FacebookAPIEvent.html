@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../../override.css" type="text/css"><meta name="keywords" content="FacebookAPIEvent,com.distriqt.extension.facebookapi.events.FacebookAPIEvent,ACTION_IDS_FOUND,APP_INVOKED,APP_REQUESTS_FOUND,APP_REQUEST_DATA_LOADED,DIALOG_CANCELLED,DIALOG_COMPLETED,DIALOG_ERROR,ERROR,GET_PERMISSIONS_COMPLETED,GET_PERMISSIONS_ERROR,GRAPH_REQUEST_COMPLETED,GRAPH_REQUEST_ERROR,REQUEST_PERMISSIONS_CANCELLED,REQUEST_PERMISSIONS_COMPLETED,REQUEST_PERMISSIONS_ERROR,SESSION_CLOSED,SESSION_CLOSE_ERROR,SESSION_OPENED,SESSION_OPEN_CANCELLED,SESSION_OPEN_DISABLED,SESSION_OPEN_ERROR,actionIds,data,error,message,rawData,requestIds,requests,clone,clone,clone"><title>com.distriqt.extension.facebookapi.events.FacebookAPIEvent</title></head><body><script language="javascript" type="text/javascript" src="../../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'FacebookAPIEvent - distriqt // FacebookAPI';
+				var baseRef = '../../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // FacebookAPI Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../../package-summary.html" onclick="loadClassListFrame('../../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../../class-summary.html" onclick="loadClassListFrame('../../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../../all-index-A.html" onclick="loadClassListFrame('../../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../../index.html?com/distriqt/extension/facebookapi/events/FacebookAPIEvent.html&amp;com/distriqt/extension/facebookapi/events/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">FacebookAPIEvent</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("FacebookAPIEvent"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.facebookapi.events</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  FacebookAPIEvent</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">FacebookAPIEvent  <img src="../../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> flash.events.Event</td></tr></table><p></p><p></p><p></p>
+	              <p>
+	 This event class is used for most notifications from the FacebookAPI ANE.
+	 </p>
+	 
+	              <p>
+	 Note that you can also register callback functions for most ANE calls, however some actions
+	 will not support callbacks and you must rely on listening for these event types.
+	 </p>
+	 
+	              <p>
+	 The event will generally include a <b>data</b> and <b>error</b> property, which you 
+	 can inspect for information about the event. 
+	 </p>
+	 
+	              <p>Due to the different response data returned from Facebook, these properties may not always be parsed
+	 and returned properly objects or strings. In these cases, you can usually inspect the <b>rawData</b> 
+	 string for additional information about the response.
+	 </p>  
+	           <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#data" class="signatureLink">data</a> : Object<div class="summaryTableDescription">
+		 
+		 The response data returned with the event.</div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#error" class="signatureLink">error</a> : String<div class="summaryTableDescription">
+		 The error message attached to the event, if any.</div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#rawData" class="signatureLink">rawData</a> : String<div class="summaryTableDescription">
+		 Raw data string of the response, may be empty for some cases.</div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#FacebookAPIEvent()" class="signatureLink">FacebookAPIEvent</a>(type:String, data:Object = null, error:String = null, rawData:String, bubbles:Boolean = false, cancelable:Boolean = false)</div><div class="summaryTableDescription">
+		 Constructor
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#clone()" class="signatureLink">clone</a>():Event</div><div class="summaryTableDescription">[override] </div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#APP_INVOKED" class="signatureLink">APP_INVOKED</a> : String = facebookapi:app:invoked<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the app was invoked from outside and contains a target url
+		 
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DIALOG_CANCELLED" class="signatureLink">DIALOG_CANCELLED</a> : String = facebookapi:dialog:cancelled<div class="summaryTableDescription">[static] 
+		 Dispatched when the user cancelled a share dialog
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DIALOG_COMPLETED" class="signatureLink">DIALOG_COMPLETED</a> : String = facebookapi:dialog:completed<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when a Facebook dialog has completed.</div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#DIALOG_ERROR" class="signatureLink">DIALOG_ERROR</a> : String = facebookapi:dialog:error<div class="summaryTableDescription">[static] 
+		 Dispatched when an error occurred posting from a dialog
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#GET_PERMISSIONS_COMPLETED" class="signatureLink">GET_PERMISSIONS_COMPLETED</a> : String = facebookapi:permissions:get:completed<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the current permissions for the user's session have been loaded.</div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#GET_PERMISSIONS_ERROR" class="signatureLink">GET_PERMISSIONS_ERROR</a> : String = facebookapi:permissions:get:error<div class="summaryTableDescription">[static] 
+		 Dispatched when there was an error loading the current permissions for the user's session
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#GRAPH_REQUEST_COMPLETED" class="signatureLink">GRAPH_REQUEST_COMPLETED</a> : String = facebookapi:graphrequest:completed<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when a graph API request completed.</div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#GRAPH_REQUEST_ERROR" class="signatureLink">GRAPH_REQUEST_ERROR</a> : String = facebookapi:graphrequest:error<div class="summaryTableDescription">[static] 
+		 Dispatched when there was an error returned from a graph API request
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#REQUEST_PERMISSIONS_CANCELLED" class="signatureLink">REQUEST_PERMISSIONS_CANCELLED</a> : String = facebookapi:permissions:request:cancelled<div class="summaryTableDescription">[static] 
+		 Dispatched when the user cancelled the request for additional permissions
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#REQUEST_PERMISSIONS_COMPLETED" class="signatureLink">REQUEST_PERMISSIONS_COMPLETED</a> : String = facebookapi:permissions:request:completed<div class="summaryTableDescription">[static] 
+		 Dispatched when a request for additional permissions was successful
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#REQUEST_PERMISSIONS_ERROR" class="signatureLink">REQUEST_PERMISSIONS_ERROR</a> : String = facebookapi:permissions:request:error<div class="summaryTableDescription">[static] 
+		 Dispatched when there was an error with the request for additional permissions
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#SESSION_CLOSED" class="signatureLink">SESSION_CLOSED</a> : String = facebookapi:session:closed<div class="summaryTableDescription">[static] 
+		 Dispatched when a Facebook session is logged out and closed.</div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#SESSION_CLOSE_ERROR" class="signatureLink">SESSION_CLOSE_ERROR</a> : String = facebookapi:session:close:error<div class="summaryTableDescription">[static] 
+		 Dispatched when a Facebook session could not be closed.</div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#SESSION_OPEN_CANCELLED" class="signatureLink">SESSION_OPEN_CANCELLED</a> : String = facebookapi:session:open:cancelled<div class="summaryTableDescription">[static] 
+		 Dispatched when the user cancelled the login process.</div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#SESSION_OPEN_DISABLED" class="signatureLink">SESSION_OPEN_DISABLED</a> : String = facebookapi:session:open:disabled<div class="summaryTableDescription">[static] 
+		 Dispatched when a session could not be opened because the user has disabled your application
+		 in the iOS6+ Facebook settings on their device.</div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#SESSION_OPENED" class="signatureLink">SESSION_OPENED</a> : String = facebookapi:session:opened<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when a Facebook session is logged in and opened
+		 
+		 
+		 
+		 The event data field should contain the following properties:
+		 accessToken The user's session access token
+		 userId The logged in user's Facebook ID
+         userName The logged in user's full name from Facebook
+		 firstName The logged in user's first name
+         lastName The logged in user's last name
+         email The logged in user's email, if available
+         expiry The expiry time (ISO8601 formatted string)
+		 
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#SESSION_OPEN_ERROR" class="signatureLink">SESSION_OPEN_ERROR</a> : String = facebookapi:session:open:error<div class="summaryTableDescription">[static] 
+		 Dispatched when a Facebook session was not able to be opened.</div></td><td class="summaryTableOwnerCol">FacebookAPIEvent</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="data"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">data</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>public var data:Object</code><p></p><p></p><p>
+		 <p>
+		 The response data returned with the event. May be null.
+		 </p>
+		 
+		 <p>
+		 See the documentation for specific event types for information about what may be contained
+		 in this object.
+		 </p>
+		 </p></div><a name="propertyDetail"></a><a name="error"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">error</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var error:String</code><p></p><p></p><p>
+		 The error message attached to the event, if any.
+		 </p></div><a name="propertyDetail"></a><a name="rawData"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">rawData</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var rawData:String</code><p></p><p></p><p>
+		 Raw data string of the response, may be empty for some cases.
+		 </p></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="FacebookAPIEvent()"></a><a name="FacebookAPIEvent(String,Object,String,String,Boolean,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">FacebookAPIEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function FacebookAPIEvent(type:String, data:Object = null, error:String = null, rawData:String, bubbles:Boolean = false, cancelable:Boolean = false)</code><p></p><p>
+		 Constructor
+		 </p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">type</span>:String</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">data</span>:Object</code> (default = <code>null</code>)<code></code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">error</span>:String</code> (default = <code>null</code>)<code></code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">rawData</span>:String</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">bubbles</span>:Boolean</code> (default = <code>false</code>)<code></code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">cancelable</span>:Boolean</code> (default = <code>false</code>)<code></code></td></tr></table></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="clone()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">clone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code>override public function clone():Event</code><p></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Event</code></td></tr></table></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="APP_INVOKED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">APP_INVOKED</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const APP_INVOKED:String = facebookapi:app:invoked</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the app was invoked from outside and contains a target url
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="DIALOG_CANCELLED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DIALOG_CANCELLED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const DIALOG_CANCELLED:String = facebookapi:dialog:cancelled</code><p></p><p></p><p>
+		 Dispatched when the user cancelled a share dialog
+		 </p></div><a name="constantDetail"></a><a name="DIALOG_COMPLETED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DIALOG_COMPLETED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const DIALOG_COMPLETED:String = facebookapi:dialog:completed</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when a Facebook dialog has completed.
+		 </p>
+		 
+		 <p>
+		 The event data field may contain the following properties:
+		 <b>postId</b> (String): returned whenever the user posted an item from a share dialog
+		 <b>isOpenGraphStory</b> (Boolean): true if the post was an Open Graph story post
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="DIALOG_ERROR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DIALOG_ERROR</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const DIALOG_ERROR:String = facebookapi:dialog:error</code><p></p><p></p><p>
+		 Dispatched when an error occurred posting from a dialog
+		 </p></div><a name="constantDetail"></a><a name="GET_PERMISSIONS_COMPLETED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">GET_PERMISSIONS_COMPLETED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const GET_PERMISSIONS_COMPLETED:String = facebookapi:permissions:get:completed</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the current permissions for the user's session have been loaded.
+		 </p>
+		 
+		 <p>
+		 The data field will contain a <b>permissions</b> property which is an array of all permissions found
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="GET_PERMISSIONS_ERROR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">GET_PERMISSIONS_ERROR</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const GET_PERMISSIONS_ERROR:String = facebookapi:permissions:get:error</code><p></p><p></p><p>
+		 Dispatched when there was an error loading the current permissions for the user's session
+		 </p></div><a name="constantDetail"></a><a name="GRAPH_REQUEST_COMPLETED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">GRAPH_REQUEST_COMPLETED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const GRAPH_REQUEST_COMPLETED:String = facebookapi:graphrequest:completed</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when a graph API request completed.
+		 </p>
+		 
+		 <p>
+		 The event data field will be an object that was parsed from the JSON response
+		 of the graph API request.
+		 </p>
+		 
+		 <p>
+		 You should check the documentation of the Facebook Graph API to see what data you can 
+		 expect to be returned here.
+		 </p>
+		 </p></div><a name="constantDetail"></a><a name="GRAPH_REQUEST_ERROR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">GRAPH_REQUEST_ERROR</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const GRAPH_REQUEST_ERROR:String = facebookapi:graphrequest:error</code><p></p><p></p><p>
+		 Dispatched when there was an error returned from a graph API request
+		 </p></div><a name="constantDetail"></a><a name="REQUEST_PERMISSIONS_CANCELLED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">REQUEST_PERMISSIONS_CANCELLED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const REQUEST_PERMISSIONS_CANCELLED:String = facebookapi:permissions:request:cancelled</code><p></p><p></p><p>
+		 Dispatched when the user cancelled the request for additional permissions
+		 </p></div><a name="constantDetail"></a><a name="REQUEST_PERMISSIONS_COMPLETED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">REQUEST_PERMISSIONS_COMPLETED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const REQUEST_PERMISSIONS_COMPLETED:String = facebookapi:permissions:request:completed</code><p></p><p></p><p>
+		 Dispatched when a request for additional permissions was successful
+		 </p></div><a name="constantDetail"></a><a name="REQUEST_PERMISSIONS_ERROR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">REQUEST_PERMISSIONS_ERROR</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const REQUEST_PERMISSIONS_ERROR:String = facebookapi:permissions:request:error</code><p></p><p></p><p>
+		 Dispatched when there was an error with the request for additional permissions
+		 </p></div><a name="constantDetail"></a><a name="SESSION_CLOSE_ERROR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">SESSION_CLOSE_ERROR</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const SESSION_CLOSE_ERROR:String = facebookapi:session:close:error</code><p></p><p></p><p>
+		 Dispatched when a Facebook session could not be closed.
+		 </p></div><a name="constantDetail"></a><a name="SESSION_CLOSED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">SESSION_CLOSED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const SESSION_CLOSED:String = facebookapi:session:closed</code><p></p><p></p><p>
+		 Dispatched when a Facebook session is logged out and closed.
+		 </p></div><a name="constantDetail"></a><a name="SESSION_OPEN_CANCELLED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">SESSION_OPEN_CANCELLED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const SESSION_OPEN_CANCELLED:String = facebookapi:session:open:cancelled</code><p></p><p></p><p>
+		 Dispatched when the user cancelled the login process.
+		 </p></div><a name="constantDetail"></a><a name="SESSION_OPEN_DISABLED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">SESSION_OPEN_DISABLED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const SESSION_OPEN_DISABLED:String = facebookapi:session:open:disabled</code><p></p><p></p><p>
+		 Dispatched when a session could not be opened because the user has disabled your application
+		 in the iOS6+ Facebook settings on their device.
+		 </p></div><a name="constantDetail"></a><a name="SESSION_OPEN_ERROR"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">SESSION_OPEN_ERROR</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const SESSION_OPEN_ERROR:String = facebookapi:session:open:error</code><p></p><p></p><p>
+		 Dispatched when a Facebook session was not able to be opened.
+		 </p></div><a name="constantDetail"></a><a name="SESSION_OPENED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">SESSION_OPENED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const SESSION_OPENED:String = facebookapi:session:opened</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when a Facebook session is logged in and opened
+		 </p>
+		 
+		 <p>
+		 The event data field should contain the following properties:
+		 <b>accessToken</b> The user's session access token
+		 <b>userId</b> The logged in user's Facebook ID
+         <b>userName</b> The logged in user's full name from Facebook
+		 <b>firstName</b> The logged in user's first name
+         <b>lastName</b> The logged in user's last name
+         <b>email</b> The logged in user's email, if available
+         <b>expiry</b> The expiry time (ISO8601 formatted string)
+		 </p>
+		 </p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Mon Mar 24 2014, 06:40 PM +11:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Mon Mar 24 2014, 06:40 PM +11:00  -->

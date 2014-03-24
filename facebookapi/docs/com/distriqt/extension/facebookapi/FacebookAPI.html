@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="FacebookAPI,com.distriqt.extension.facebookapi.FacebookAPI,EXT_CONTEXT_ID,IMPLEMENTATION_DEFAULT,VERSION,VERSION_DEFAULT,isSupported,service,version,closeSession,createSession,deleteAppRequests,getAccessToken,getCurrentPermissions,graphRequest,hasPermission,init,initialiseApp,isSessionOpen,loadAppRequestInfo,openGraphStoryWithAPI,openOpenGraphStoryDialog,openRequestsDialog,openShareDialog,prepareParams,processCallback,processResponse,publishInstall,registerCallback,requestPermissions,setPreferredDialogType,verifyDialogType"><title>com.distriqt.extension.facebookapi.FacebookAPI</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'FacebookAPI - distriqt // FacebookAPI';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // FacebookAPI Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/facebookapi/FacebookAPI.html&amp;com/distriqt/extension/facebookapi/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">FacebookAPI</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("FacebookAPI"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.facebookapi</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public final   class  FacebookAPI</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">FacebookAPI  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.facebookapi.base.ExtensionBaseImpl</td></tr></table><p></p><p></p><p></p>	
+	              <p>This class represents the FacebookAPI extension.</p>
+	 
+	              <p>
+	 A comprehensive tutorial document is available here:
+	 <a href="http://docs.google.com/document/d/1iN_dDYAirEZyvrcz-LTzA4Wlfu82CN1-muHLs25mWXo/pub" target="external">http://docs.google.com/document/d/1iN_dDYAirEZyvrcz-LTzA4Wlfu82CN1-muHLs25mWXo/pub</a>
+	              </p> 
+	              <p>
+	 Code examples for most functionality can be found here: 
+	 <a href="http://gist.github.com/search?q=distriqt.extension.examples.facebookapi" target="external">http://gist.github.com/search?q=distriqt.extension.examples.facebookapi</a>
+	              </p>
+	           <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the current device supports the extensions functionality
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/facebookapi/FacebookAPI.html">FacebookAPI</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the FacebookAPI class.</div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 
+		 The version string of the native extension.</div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#FacebookAPI()" class="signatureLink">FacebookAPI</a>()</div><div class="summaryTableDescription">
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#closeSession()" class="signatureLink">closeSession</a>(clearToken:Boolean = true):void</div><div class="summaryTableDescription">
+		 
+		 Closes the current Facebook session and logs the user out.</div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#createSession()" class="signatureLink">createSession</a>(permissions:Array, readOnly:Boolean = true, useIntegratedOSDialogs:Boolean = true):void</div><div class="summaryTableDescription">
+		 
+		 Creates and authorises a new Facebook session for your user.</div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#deleteAppRequests()" class="signatureLink">deleteAppRequests</a>(appRequestIds:Array):void</div><div class="summaryTableDescription">
+		 
+		 Deletes app requests from Facebook
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getAccessToken()" class="signatureLink">getAccessToken</a>():String</div><div class="summaryTableDescription">
+		 
+		 Retrieves the current session access token, if available
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getCurrentPermissions()" class="signatureLink">getCurrentPermissions</a>():void</div><div class="summaryTableDescription">
+		 
+		 Retrieves the current Facebook permissions the user has for your application.</div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#graphRequest()" class="signatureLink">graphRequest</a>(request:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookGraphRequest.html">FacebookGraphRequest</a>, callback:Function = null):Boolean</div><div class="summaryTableDescription">
+		 
+		 Sends a graph API request
+		 
+		 
+		 
+	 	 The Graph API Explorer is a very useful tool for testing functionality, and can be found at
+	 	 https://developers.facebook.com/tools/explorer
+	 	 
+	 	 
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#hasPermission()" class="signatureLink">hasPermission</a>(permission:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Checks if the user has a specific permission with their session.</div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#initialiseApp()" class="signatureLink">initialiseApp</a>(facebookAppId:String, urlSchemeSuffix:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Initialise the Facebook application by providing your Facebook
+		 App ID.</div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isSessionOpen()" class="signatureLink">isSessionOpen</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Checks if a session is currently open.</div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#loadAppRequestInfo()" class="signatureLink">loadAppRequestInfo</a>(appRequestIds:Array):void</div><div class="summaryTableDescription">
+		 
+		 Loads information about an app request with a given ID
+		 
+		 
+		 
+		 Listen for the FacebookAppRequestEvent::APP_REQUEST_DATA_LOADED event to get the results of this call.</div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#openGraphStoryWithAPI()" class="signatureLink">openGraphStoryWithAPI</a>(params:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookOpenGraphStoryParams.html">FacebookOpenGraphStoryParams</a>, callback:Function = null):Boolean</div><div class="summaryTableDescription">
+		 
+		 Post an open graph story through the API without showing any UI dialogs
+		 
+		 
+		 
+		 More information about the open graph is available at https://developers.facebook.com/docs/opengraph
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#openOpenGraphStoryDialog()" class="signatureLink">openOpenGraphStoryDialog</a>(params:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookOpenGraphStoryParams.html">FacebookOpenGraphStoryParams</a>, callback:Function = null):Boolean</div><div class="summaryTableDescription">
+		 
+		 Opens a new Open Graph Story dialog to allow the user to post a story
+		 
+		 
+		 
+	 	 More information about the open graph is available at https://developers.facebook.com/docs/opengraph
+	  	 
+	 	 
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#openRequestsDialog()" class="signatureLink">openRequestsDialog</a>(params:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookAppRequestParams.html">FacebookAppRequestParams</a> = null, callback:Function = null):Boolean</div><div class="summaryTableDescription">
+		 
+		 Opens a new app requests dialog to allow the user to send app request to friends
+		 
+		 
+		 
+		 This dialog is limited to always using the modal web view dialog
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#openShareDialog()" class="signatureLink">openShareDialog</a>(params:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookShareParams.html">FacebookShareParams</a> = null, callback:Function = null, withDialogType:String = null):Boolean</div><div class="summaryTableDescription">
+		 
+		 Opens a new share dialog for a post by the user.</div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#publishInstall()" class="signatureLink">publishInstall</a>(facebookAppId:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Send a publishInstall notification for your application
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#requestPermissions()" class="signatureLink">requestPermissions</a>(permissions:Array, readOnly:Boolean = false):void</div><div class="summaryTableDescription">
+		 
+		 Requests new facebook permissions for the application.</div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#setPreferredDialogType()" class="signatureLink">setPreferredDialogType</a>(dialogType:String):void</div><div class="summaryTableDescription">
+		 
+		 Sets the preferred type of dialogs to be used for sharing etc.</div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr></table></div><a name="protectedMethodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Protected Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProtectedMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#prepareParams()" class="signatureLink">prepareParams</a>(params:Object):Object</div><div class="summaryTableDescription">
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#processCallback()" class="signatureLink">processCallback</a>(data:Object):void</div><div class="summaryTableDescription">
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#processResponse()" class="signatureLink">processResponse</a>(data:String):Object</div><div class="summaryTableDescription">
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#registerCallback()" class="signatureLink">registerCallback</a>(callback:Function):String</div><div class="summaryTableDescription">
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#verifyDialogType()" class="signatureLink">verifyDialogType</a>(dType:String):Boolean</div><div class="summaryTableDescription">
+		 </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.FacebookAPI<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 1<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">FacebookAPI</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the current device supports the extensions functionality
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/facebookapi/FacebookAPI.html">FacebookAPI</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the FacebookAPI class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/facebookapi/FacebookAPI.html">FacebookAPI</a></code><br/><br/><span class="label"> Throws </span><br/><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 <p>
+		 The version string of the native extension. This will be of the format:
+		 </p>
+		 <pre>
+		 [main version].[base version].[implementation].[native version]
+		 </pre>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="FacebookAPI()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">FacebookAPI</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function FacebookAPI()</code><p></p><p>
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="closeSession()"></a><a name="closeSession(Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">closeSession</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function closeSession(clearToken:Boolean = true):void</code><p></p><p></p><p>
+		 <p>
+		 Closes the current Facebook session and logs the user out.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">clearToken</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; 	Boolean		Whether to clear the user's access token. (defaults to TRUE).
+		 
+		 </td></tr></table></p></div><a name="createSession()"></a><a name="createSession(Array,Boolean,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">createSession</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function createSession(permissions:Array, readOnly:Boolean = true, useIntegratedOSDialogs:Boolean = true):void</code><p></p><p></p><p>
+		 <p>
+		 Creates and authorises a new Facebook session for your user. If the user already has an access token, this may not change
+		 the view, but simply return.
+		 </p>
+		 
+		 <p>
+		 If the user is not logged in and has no access token, the login flow will begin.
+		 </p>
+		 
+		 <p>
+		 If the device has the Facebook application installed, the flow will switch to the Facebook app for the login and
+		 permissions dialog. If not, this will fall back to using a browser-based web login page.
+		 </p>
+		 
+		 <p>
+		 The <b>useIntegratedOSDialogs</b> is a flag to request the native OS popup dialogs from iOS
+		 rather than changing to the Facebook app or web view login flow.
+		 
+		 The OS integrated dialogs will <b>NOT</b> work if you request publish permissions here. It's best to request basic access
+		 such as "basic_info" when creating a session, and then request publish permissions later when required by your application.
+		 
+		 This method of permission request is recommended by Facebook.
+		 </p>
+		 
+		 <p>
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">permissions</span>:Array</code> &mdash; 			Array		Array of Facebook permissions to request for the session
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">readOnly</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; 				Boolean 	Whether your app only requires read permissions (defaults to FALSE)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">useIntegratedOSDialogs</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Boolean 	Enable the native Facebook dialog popups instead of app switching etc for iOS6+, if available (defaults to TRUE)
+		 
+		 </td></tr></table></p></div><a name="deleteAppRequests()"></a><a name="deleteAppRequests(Array)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">deleteAppRequests</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function deleteAppRequests(appRequestIds:Array):void</code><p></p><p></p><p>
+		 <p>
+		 Deletes app requests from Facebook
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">appRequestIds</span>:Array</code> &mdash; Array	List of app request IDs to be deleted
+		 </td></tr></table></p></div><a name="getAccessToken()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getAccessToken</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getAccessToken():String</code><p></p><p></p><p>
+		 <p>
+		 Retrieves the current session access token, if available
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; String 	The access token
+		 </td></tr></table></div><a name="getCurrentPermissions()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getCurrentPermissions</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getCurrentPermissions():void</code><p></p><p></p><p>
+		 <p>
+		 Retrieves the current Facebook permissions the user has for your application.
+		 </p>
+		 
+		 <p>
+		 Listen for the FacebookAPIEvent::GET_PERMISSIONS_COMPLETED event to get the results of this call.
+		 </p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/facebookapi/events/FacebookAPIEvent.html#GET_PERMISSIONS_COMPLETED" target="">com.distriqt.extension.facebookapi.events.FacebookAPIEvent.GET_PERMISSIONS_COMPLETED</a><br/><a href="../../../../com/distriqt/extension/facebookapi/events/FacebookAPIEvent.html#GET_PERMISSIONS_ERROR" target="">com.distriqt.extension.facebookapi.events.FacebookAPIEvent.GET_PERMISSIONS_ERROR</a></div></div><a name="graphRequest()"></a><a name="graphRequest(com.distriqt.extension.facebookapi.objects.FacebookGraphRequest,Function)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">graphRequest</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function graphRequest(request:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookGraphRequest.html">FacebookGraphRequest</a>, callback:Function = null):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Sends a graph API request
+		 </p>
+		 
+		 <p>
+	 	 The Graph API Explorer is a very useful tool for testing functionality, and can be found at
+	 	 <a href="#/developers.facebook.com/tools/explorer/" target="">https://developers.facebook.com/tools/explorer</a>
+	 	 </p>
+	 	 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">request</span>:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookGraphRequest.html">FacebookGraphRequest</a></code> &mdash; 		FacebookGraphRequest	The data to be used for the graph request
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; 	Function	A callback method to be called with the result of the request
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookGraphRequest.html" target="">com.distriqt.extension.facebookapi.objects.FacebookGraphRequest</a><br/>https://developers.facebook.com/docs/graph-api<br/>https://developers.facebook.com/tools/explorer/</div></div><a name="hasPermission()"></a><a name="hasPermission(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">hasPermission</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function hasPermission(permission:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Checks if the user has a specific permission with their session.
+		 </p>
+		 
+		 <p>
+		 <b>NOTE: </b> You should call the "getCurrentPermissions()" method and wait for it to complete
+		 before using this method, as the local cache of known permissions may be out of date.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">permission</span>:String</code> &mdash; String 	The facebook permission name to check for
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; Boolean	True or false if the user has this permission
+		 </td></tr></table></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p><br/><span class="label">Throws</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="initialiseApp()"></a><a name="initialiseApp(String,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">initialiseApp</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function initialiseApp(facebookAppId:String, urlSchemeSuffix:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Initialise the Facebook application by providing your Facebook
+		 App ID. 
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">facebookAppId</span>:String</code> &mdash; 	A Facebook application id
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">urlSchemeSuffix</span>:String</code> &mdash; (Optional) 
+		 							The URL Scheme Suffix to be used in 
+		 							scenarios where multiple iOS applications
+		 							use one Facebook App ID. 
+		 							Must contain only lowercase letters.
+		 		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; 
+		 </td></tr></table></div><a name="isSessionOpen()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSessionOpen</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isSessionOpen():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Checks if a session is currently open.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; Boolean		True or false if a session is opened
+		 </td></tr></table></div><a name="loadAppRequestInfo()"></a><a name="loadAppRequestInfo(Array)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">loadAppRequestInfo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function loadAppRequestInfo(appRequestIds:Array):void</code><p></p><p></p><p>
+		 <p>
+		 Loads information about an app request with a given ID
+		 </p>
+		 
+		 <p>
+		 Listen for the FacebookAppRequestEvent::APP_REQUEST_DATA_LOADED event to get the results of this call.
+		 </p>
+		 
+		 <p>
+		 Once you have loaded and processed the requests, you should call the "deleteAppRequests" method to clear them
+		 from Facebook.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">appRequestIds</span>:Array</code> &mdash; Array	List of app request IDs to be loaded
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="FacebookAPI.html#deleteAppRequests" target="">com.distriqt.extension.facebookapi.FacebookAPI.deleteAppRequests</a><br/><a href="../../../../com/distriqt/extension/facebookapi/events/FacebookAPIEvent.html" target="">com.distriqt.extension.facebookapi.events.FacebookAPIEvent</a><br/><a href="../../../../com/distriqt/extension/facebookapi/events/FacebookAppRequestEvent.html#APP_REQUEST_DATA_LOADED" target="">com.distriqt.extension.facebookapi.events.FacebookAppRequestEvent.APP_REQUEST_DATA_LOADED</a></div></div><a name="openGraphStoryWithAPI()"></a><a name="openGraphStoryWithAPI(com.distriqt.extension.facebookapi.objects.FacebookOpenGraphStoryParams,Function)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">openGraphStoryWithAPI</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function openGraphStoryWithAPI(params:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookOpenGraphStoryParams.html">FacebookOpenGraphStoryParams</a>, callback:Function = null):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Post an open graph story through the API without showing any UI dialogs
+		 </p>
+		 
+		 <p>
+		 More information about the open graph is available at <a href="#/developers.facebook.com/docs/opengraph" target="">https://developers.facebook.com/docs/opengraph</a>
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">params</span>:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookOpenGraphStoryParams.html">FacebookOpenGraphStoryParams</a></code> &mdash; 		FacebookOpenGraphStoryParams	The data to be used for the open graph story post
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; 	Function	A callback method to be called with the result of the post
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookOpenGraphStoryParams.html" target="">com.distriqt.extension.facebookapi.objects.FacebookOpenGraphStoryParams</a></div></div><a name="openOpenGraphStoryDialog()"></a><a name="openOpenGraphStoryDialog(com.distriqt.extension.facebookapi.objects.FacebookOpenGraphStoryParams,Function)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">openOpenGraphStoryDialog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function openOpenGraphStoryDialog(params:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookOpenGraphStoryParams.html">FacebookOpenGraphStoryParams</a>, callback:Function = null):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Opens a new Open Graph Story dialog to allow the user to post a story
+		 </p>
+		 
+		 <p>
+	 	 More information about the open graph is available at <a href="#/developers.facebook.com/docs/opengraph" target="">https://developers.facebook.com/docs/opengraph</a>
+	  	 </p>
+	 	 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">params</span>:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookOpenGraphStoryParams.html">FacebookOpenGraphStoryParams</a></code> &mdash; 		FacebookOpenGraphStoryParams	The data to be used for the open graph story post
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; 	Function	A callback method to be called with the result of the dialog
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookOpenGraphStoryParams.html" target="">com.distriqt.extension.facebookapi.objects.FacebookOpenGraphStoryParams</a></div></div><a name="openRequestsDialog()"></a><a name="openRequestsDialog(com.distriqt.extension.facebookapi.objects.FacebookAppRequestParams,Function)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">openRequestsDialog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function openRequestsDialog(params:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookAppRequestParams.html">FacebookAppRequestParams</a> = null, callback:Function = null):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Opens a new app requests dialog to allow the user to send app request to friends
+		 </p>
+		 
+		 <p>
+		 This dialog is limited to always using the modal web view dialog
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">params</span>:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookAppRequestParams.html">FacebookAppRequestParams</a></code> (default = <code>null</code>)<code></code> &mdash; 		FacebookAppRequestParams	The data to be used for the app request
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; 	Function	A callback method to be called with the result of the dialog
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookAppRequestParams.html" target="">com.distriqt.extension.facebookapi.objects.FacebookAppRequestParams</a></div></div><a name="openShareDialog()"></a><a name="openShareDialog(com.distriqt.extension.facebookapi.objects.FacebookShareParams,Function,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">openShareDialog</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function openShareDialog(params:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookShareParams.html">FacebookShareParams</a> = null, callback:Function = null, withDialogType:String = null):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Opens a new share dialog for a post by the user.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">params</span>:<a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookShareParams.html">FacebookShareParams</a></code> (default = <code>null</code>)<code></code> &mdash; 		FacebookShareParams		The data to be used for the share dialog
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; 	Function	A callback method to be called with the result of the share dialog
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">withDialogType</span>:String</code> (default = <code>null</code>)<code></code> &mdash; String	Optional dialog type to be used which will attempt to override the current preferred dialog type
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookShareParams.html" target="">com.distriqt.extension.facebookapi.objects.FacebookShareParams</a><br/><a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookDialogType.html" target="">com.distriqt.extension.facebookapi.objects.FacebookDialogType</a><br/>https://developers.facebook.com/docs/reference/ios/current/class/</div></div><a name="prepareParams()"></a><a name="prepareParams(Object)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">prepareParams</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> protected function prepareParams(params:Object):Object</code><p></p><p></p><p>
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">params</span>:Object</code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Object</code></td></tr></table></div><a name="processCallback()"></a><a name="processCallback(Object)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">processCallback</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> protected function processCallback(data:Object):void</code><p></p><p></p><p>
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">data</span>:Object</code></td></tr></table></p></div><a name="processResponse()"></a><a name="processResponse(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">processResponse</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> protected function processResponse(data:String):Object</code><p></p><p></p><p>
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">data</span>:String</code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Object</code></td></tr></table></div><a name="publishInstall()"></a><a name="publishInstall(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">publishInstall</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function publishInstall(facebookAppId:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Send a publishInstall notification for your application
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">facebookAppId</span>:String</code> &mdash; String	Your Facebook application ID 	
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table></div><a name="registerCallback()"></a><a name="registerCallback(Function)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">registerCallback</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> protected function registerCallback(callback:Function):String</code><p></p><p></p><p>
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">callback</span>:Function</code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code></td></tr></table></div><a name="requestPermissions()"></a><a name="requestPermissions(Array,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">requestPermissions</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function requestPermissions(permissions:Array, readOnly:Boolean = false):void</code><p></p><p></p><p>
+		 <p>
+		 Requests new facebook permissions for the application.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">permissions</span>:Array</code> &mdash; Array 		Array of facebook permissions to request
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">readOnly</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; 	Boolean		Whether the permissions are "read" only. Set to true if you are not requesting any publish permissions.
+		 
+		 </td></tr></table></p></div><a name="setPreferredDialogType()"></a><a name="setPreferredDialogType(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setPreferredDialogType</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setPreferredDialogType(dialogType:String):void</code><p></p><p></p><p>
+		 <p>
+		 Sets the preferred type of dialogs to be used for sharing etc.
+		 </p>
+		 
+		 <p>
+		 Note that the preferred dialog type may not always be available for all actions, and may fall back to
+		 another method.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">dialogType</span>:String</code></td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/facebookapi/objects/FacebookDialogType.html" target="">com.distriqt.extension.facebookapi.objects.FacebookDialogType</a></div></div><a name="verifyDialogType()"></a><a name="verifyDialogType(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">verifyDialogType</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> protected function verifyDialogType(dType:String):Boolean</code><p></p><p></p><p>
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">dType</span>:String</code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.FacebookAPI</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 1</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Mon Mar 24 2014, 06:40 PM +11:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Mon Mar 24 2014, 06:40 PM +11:00  -->

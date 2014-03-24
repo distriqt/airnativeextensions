@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/4.0">
+	<id>com.distriqt.test</id>
+	<filename>TestFacebookAPI</filename>
+	<name>TestFacebookAPI</name>
+	<versionNumber>0.0.1</versionNumber>
+
+	<initialWindow>
+		<content>[This value will be overwritten by Flash Builder in the output app.xml]</content>
+		<autoOrients>false</autoOrients>
+        <fullScreen>false</fullScreen>
+        <visible>true</visible>
+    </initialWindow>
+
+	<icon>
+		<image16x16>icons/icon16x16.png</image16x16>
+		<image29x29>icons/icon29x29.png</image29x29>
+		<image32x32>icons/icon32x32.png</image32x32>
+		<image36x36>icons/icon36x36.png</image36x36>
+		<image48x48>icons/icon48x48.png</image48x48>
+		<image57x57>icons/icon57x57.png</image57x57>
+		<image72x72>icons/icon72x72.png</image72x72>
+		<image114x114>icons/icon114x114.png</image114x114>
+		<image128x128>icons/icon128x128.png</image128x128>
+		<image512x512>icons/icon512x512.png</image512x512>
+	</icon>
+
+	<iPhone>
+        <InfoAdditions><![CDATA[
+			<key>UIDeviceFamily</key>
+			<array>
+				<string>1</string>
+				<string>2</string>
+			</array>
+			<key>CFBundleURLTypes</key>
+		   	<array>
+		    	<dict>
+		     		<key>CFBundleURLSchemes</key>
+		     		<array>
+		      			<string>fbYOUR_FACEBOOK_APP_ID</string>
+		     		</array>
+		    	</dict>
+		   	</array>
+		   	<key>FacebookAppID</key>
+           	<string>YOUR_FACEBOOK_APP_ID</string>
+           	<key>FacebookDisplayName</key>
+           	<string>YOUR_FACEBOOK_APP_DISPLAY_NAME</string>
+		]]></InfoAdditions>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+        <Entitlements>
+            <![CDATA[
+            ]]>
+        </Entitlements>
+    </iPhone>
+    
+	<android>
+        <manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+			    <uses-permission android:name="android.permission.INTERNET"/>
+			    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+			    <application>
+			    	<activity android:name="com.facebook.LoginActivity"/>
+			    	<activity android:name="com.distriqt.extension.facebookapi.FacebookAPILoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+			    	<activity android:name="com.distriqt.extension.facebookapi.FacebookAPIDialogActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"></activity>
+			    	
+			    	<intent-filter>
+      					<action android:name="android.intent.action.MAIN" />
+      					<category android:name="android.intent.category.LAUNCHER" />
+				    </intent-filter>
+				    
+				    <!-- IMPORTANT: Do not remove the backslash and space at the beginning of the following value string. -->
+			    	<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="\ YOUR_FACEBOOK_APP_ID"/>
+			    	<provider android:authorities="com.facebook.app.NativeAppCallContentProviderYOUR_FACEBOOK_APP_ID" android:name="com.facebook.NativeAppCallContentProvider" />
+			    </application>
+			</manifest>
+		]]></manifestAdditions>
+    </android>
+    
+    <extensions>
+        <extensionID>com.distriqt.FacebookAPI</extensionID>
+    
+    </extensions>
+    
+</application>
