@@ -33,7 +33,6 @@ package
 	import flash.text.TextFormat;
 	import flash.utils.clearInterval;
 	import flash.utils.setInterval;
-	import flash.utils.setTimeout;
 	
 	
 	/**	
@@ -47,9 +46,10 @@ package
 		/**
 		 * Class constructor 
 		 */	
-		public function TestDialog()
+		public function TestDialog( devKey:String = DEV_KEY )
 		{
 			super();
+			_devKey = devKey;
 			create();
 			init();
 		}
@@ -58,7 +58,7 @@ package
 		//
 		//	VARIABLES
 		//
-		
+		private var _devKey		: String = "";
 		private var _text		: TextField;
 		
 		
@@ -86,7 +86,7 @@ package
 		{
 			try
 			{
-				Dialog.init( DEV_KEY );
+				Dialog.init( _devKey );
 				
 				message( "Dialog Supported: "+ String(Dialog.isSupported) );
 				message( "Dialog Version: " + Dialog.service.version );
@@ -133,26 +133,39 @@ package
 		
 		private function mouseClickHandler( event:MouseEvent ):void
 		{
+//			showAlertDialog();
+//			showProgressDialog();
+			showDateTimePicker();
+//			showSelectListPopover();
+		}
+		
+		
+		//
+		//	EXAMPLES
+		//
+		
+		private function showAlertDialog():void
+		{
 			//
 			//	EXAMPLE A
 			//		Show an alert dialog
 			//	
 			
-//			var titleString:String = "test";
-//			var messageString:String = "";
-//			var cancelLabel:String = "cancel";
-//			var otherLabels:Array = ["other 1", "other 2"];
-//			
-//			// Add some random otherLabels
-//			var extraButtonCount:int = Math.ceil( Math.random()*5 );
-//			for (var i:int = 0; i < extraButtonCount; i++)
-//			{
-//				otherLabels.push( "button " +String(i+1) ); 
-//			}
-//			
-//			message( "showAlertDialog("+titleString+","+messageString+","+cancelLabel+","+otherLabels.join(",")+")");
-//			Dialog.service.showAlertDialog( 0, titleString+"0", messageString, cancelLabel, otherLabels );
-//			
+			var titleString:String = "test";
+			var messageString:String = "";
+			var cancelLabel:String = "cancel";
+			var otherLabels:Array = ["other 1", "other 2"];
+			
+			// Add some random otherLabels
+			var extraButtonCount:int = Math.ceil( Math.random()*5 );
+			for (var i:int = 0; i < extraButtonCount; i++)
+			{
+				otherLabels.push( "button " +String(i+1) ); 
+			}
+			
+			message( "showAlertDialog("+titleString+","+messageString+","+cancelLabel+","+otherLabels.join(",")+")");
+			Dialog.service.showAlertDialog( 0, titleString+"0", messageString, cancelLabel, otherLabels );
+			
 //			message( "showMultipleChoiceDialog("+titleString+","+messageString+","+otherLabels.join(",")+")");
 //			Dialog.service.showMultipleChoiceDialog( 1, titleString+"1", messageString, otherLabels );
 		
@@ -160,38 +173,42 @@ package
 //			Dialog.service.showMultipleChoiceDialog(0, "How did you like the Coco Loco from Arcadia Breweing?", "",  otherLabels);
 			
 //			setInterval( dismissDialog, 2000 );
-			
-			
+		}
+		
+		private function showProgressDialog():void
+		{
 			//
 			//	EXAMPLE B
 			//		Progress Dialog example
 			//
-//			clearInterval( progressInterval );
-//			Dialog.service.dismissProgressDialog(1);
-//			if (Dialog.service.showProgressDialog( 1, "Loading", "", Dialog.DIALOG_PROGRESS_STYLE_DETERMINATE, true, DialogTheme.THEME_LIGHT ))
-//			{
-//				progress = 0;
-//				progressInterval = setInterval( progressDialogIntervalHandler, 2000 );
-//			}
-//			else
-//			{
-//				message( "Progress Dialog not supported" );
-//			}
+			clearInterval( progressInterval );
+			Dialog.service.dismissProgressDialog(1);
+			if (Dialog.service.showProgressDialog( 1, "Loading", "", Dialog.DIALOG_PROGRESS_STYLE_DETERMINATE, true, DialogTheme.THEME_LIGHT ))
+			{
+				progress = 0;
+				progressInterval = setInterval( progressDialogIntervalHandler, 2000 );
+			}
+			else
+			{
+				message( "Progress Dialog not supported" );
+			}
 			
-			
+		}
+		
+		private function showDateTimePicker():void
+		{
 			//
 			//	EXAMPLE C
 			//		Date / Time picker
 			
-			
-//			var dtOptions:DateTimePickerOptions = new DateTimePickerOptions();
+			var dtOptions:DateTimePickerOptions = new DateTimePickerOptions();
 //			dtOptions.acceptLabel = "DO IT";
 			
-//			dtOptions.year = 2014;
-//			dtOptions.month = 10;
-//			dtOptions.day = 5;
-//			dtOptions.hour = 10;
-//			dtOptions.minute = 0;
+			dtOptions.year = 2014;
+			dtOptions.month = 10;
+			dtOptions.day = 5;
+			dtOptions.hour = 10;
+			dtOptions.minute = 0;
 			
 //			dtOptions.title = "date";
 //			Dialog.service.showDatePicker( 1, dtOptions );
@@ -203,14 +220,16 @@ package
 //				}
 //				, 4000 );
 			
-//			dtOptions.title = "time";
-//			Dialog.service.showTimePicker( 2, dtOptions );
+			dtOptions.title = "Select Start Time";
+			Dialog.service.showTimePicker( 2, dtOptions );
 //			setTimeout( function():void {
 //					Dialog.service.setDateTimePickerValue( 1, 2030, 2, 10 );
 //				}
 //				, 3000 );
-			
-			
+		}
+		
+		private function showSelectListPopover():void
+		{
 			//
 			//	EXAMPLE D
 			//		Select List Popover
