@@ -33,17 +33,20 @@ package
 	{
 		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";		
 		
-		public function TestCamera()
+		public function TestCamera(devKey:String=DEV_KEY)
 		{
 			super();
+			_devKey = devKey;
 			create();
-			init( DEV_KEY );
+			init();
 			test();
 		}
 		
 		////////////////////////////////////////////////////////
 		//	VARIABLES
 		//
+		
+		private var _devKey		: String;
 		
 		private var _text		: TextField;
 		
@@ -96,11 +99,11 @@ package
 			
 		}
 		
-		public function init(dev_key:String):void
+		public function init():void
 		{
 			try
 			{
-				Camera.init( dev_key );
+				Camera.init( _devKey );
 				
 			}
 			catch (e:Error)
@@ -290,27 +293,29 @@ package
 //			message( "received frame: "+frame );
 			if (frame != _lastFrameProcessed)
 			{
-				Camera.instance.getFrameBuffer( _videoData );
-//				message( Camera.instance.width +"x"+ Camera.instance.height );
-				var rect:Rectangle = new Rectangle( 0, 0, Camera.instance.width, Camera.instance.height );
-				if (_bitmapData.width != Camera.instance.width || _bitmapData.height != Camera.instance.height)
+				if (-1 != Camera.instance.getFrameBuffer( _videoData ))
 				{
-					_bitmapData = new BitmapData( Camera.instance.width, Camera.instance.height, false );
-					_bitmap.bitmapData.dispose();
-					_bitmap.bitmapData = _bitmapData;
+//					message( Camera.instance.width +"x"+ Camera.instance.height );
+					var rect:Rectangle = new Rectangle( 0, 0, Camera.instance.width, Camera.instance.height );
+					if (_bitmapData.width != Camera.instance.width || _bitmapData.height != Camera.instance.height)
+					{
+						_bitmapData = new BitmapData( Camera.instance.width, Camera.instance.height, false );
+						_bitmap.bitmapData.dispose();
+						_bitmap.bitmapData = _bitmapData;
+					}
+					
+					try
+					{
+						_bitmapData.setPixels( rect, _videoData );
+					}
+					catch (e:Error)
+					{
+						message( "ERROR::setPixels: " + e.message );
+					}
+					
+					_videoData.clear();
+					_lastFrameProcessed = frame;
 				}
-				
-				try
-				{
-					_bitmapData.setPixels( rect, _videoData );
-				}
-				catch (e:Error)
-				{
-					message( "ERROR::setPixels: " + e.message );
-				}
-				
-				_videoData.clear();
-				_lastFrameProcessed = frame;
 			}
 			
 		}
