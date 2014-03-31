@@ -8,6 +8,15 @@
 #Dialog
 	- Added dispose functionality
 
+#Application
+	- Corrected #iOS variable name conflict
+
+#Adverts 
+	- Corrected #iOS variable name conflict
+
+#Camera 
+	- Improved frame buffer handling on #iOS
+
 
 
 =======================================================================

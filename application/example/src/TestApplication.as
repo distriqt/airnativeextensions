@@ -107,7 +107,7 @@ package
 			}
 			catch (e:Error)
 			{
-				
+				message( "ERROR::"+e.message );
 			}
 		}
 		
