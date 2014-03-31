@@ -3,6 +3,7 @@ package
 	import com.distriqt.extension.pushnotifications.PushNotifications;
 	import com.distriqt.extension.pushnotifications.events.PushNotificationEvent;
 	
+	import flash.desktop.NativeApplication;
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
@@ -21,15 +22,17 @@ package
 	public class TestPushNotifications extends Sprite
 	{
 		public static const DEV_KEY			: String = "YOUR_DEVELOPER_KEY";
-		public static const GCM_SENDER_ID 	: String = "your_gcm_sender_id";
+		public static const GCM_SENDER_ID 	: String = "YOUR_GCM_SENDER_ID";
 		
 		
 		/**
 		 * Class constructor 
 		 */		
-		public function TestPushNotifications()
+		public function TestPushNotifications( devKey:String = DEV_KEY, gcmSenderId:String = GCM_SENDER_ID )
 		{
 			super();
+			_devKey = devKey;
+			_gcmSenderId = gcmSenderId;
 			create();
 			init();	
 		}
@@ -39,6 +42,8 @@ package
 		//	VARIABLES
 		//
 		
+		private var _devKey			: String;
+		private var _gcmSenderId	: String;
 		private var _idField		: TextField;
 		private var _messageField	: TextField;
 		
@@ -69,6 +74,8 @@ package
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.addEventListener( Event.RESIZE, stage_resizeHandler, false, 0, true );
 			stage.addEventListener( MouseEvent.CLICK, mouseClickHandler, false, 0, true );
+			
+			NativeApplication.nativeApplication.addEventListener( Event.ACTIVATE, activateHandler );
 		}
 		
 		private function message( str:String ):void
@@ -106,7 +113,7 @@ package
 		{
 			try
 			{
-				PushNotifications.init( DEV_KEY );
+				PushNotifications.init( _devKey );
 
 				message( "PN Supported: "+ String(PushNotifications.isSupported) );
 				message( "PN Version: " + PushNotifications.service.version );
@@ -116,7 +123,7 @@ package
 				PushNotifications.service.addEventListener( PushNotificationEvent.NOTIFICATION, 	pn_notificationHandler );
 				PushNotifications.service.addEventListener( PushNotificationEvent.ERROR,			pn_errorHandler );
 				
-				PushNotifications.service.register( GCM_SENDER_ID );
+				PushNotifications.service.register( _gcmSenderId );
 			}
 			catch (e:Error)
 			{
@@ -133,7 +140,7 @@ package
 				//	Just switch registration state on press
 				if (PushNotifications.service.getDeviceToken() == "")
 				{
-					PushNotifications.service.register( GCM_SENDER_ID );
+					PushNotifications.service.register( _gcmSenderId );
 				}
 				else
 				{
@@ -186,7 +193,10 @@ package
 		
 		
 		
-		
+		private function activateHandler( event:Event ):void
+		{
+			message( "ACTIVATE" );
+		}
 		
 		
 		
