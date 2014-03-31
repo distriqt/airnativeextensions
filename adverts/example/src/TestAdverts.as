@@ -40,16 +40,18 @@ package
 	public class TestAdverts extends Sprite
 	{
 		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";
-		 
+		
+
 		public static const ADMOB_ACCOUNT_ID	: String = "YOUR_ADMOB_ACCOUNT_ID";
 		public static const IAD_ACCOUNT_ID		: String = "";
 		
 		/**
 		 * Class constructor 
 		 */	
-		public function TestAdverts()
+		public function TestAdverts( devKey:String=DEV_KEY )
 		{
 			super();
+			_devKey = devKey;
 			create();
 			init();
 		}
@@ -59,6 +61,7 @@ package
 		//	VARIABLES
 		//
 		
+		private var _devKey			: String;
 		private var _text			: TextField;
 		
 		
@@ -87,7 +90,7 @@ package
 			try
 			{
 				var time:int = getTimer();
-				Adverts.init( DEV_KEY );
+				Adverts.init( _devKey );
 				message( "Adverts.init() : " + String((getTimer() - time)/1000) + " seconds" ); 
 				
 				
