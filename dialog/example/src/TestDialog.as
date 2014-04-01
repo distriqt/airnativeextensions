@@ -133,6 +133,7 @@ package
 		
 		private function mouseClickHandler( event:MouseEvent ):void
 		{
+//			showMultipleChoiceDialog();
 //			showAlertDialog();
 //			showProgressDialog();
 			showDateTimePicker();
@@ -166,14 +167,31 @@ package
 			message( "showAlertDialog("+titleString+","+messageString+","+cancelLabel+","+otherLabels.join(",")+")");
 			Dialog.service.showAlertDialog( 0, titleString+"0", messageString, cancelLabel, otherLabels );
 			
-//			message( "showMultipleChoiceDialog("+titleString+","+messageString+","+otherLabels.join(",")+")");
-//			Dialog.service.showMultipleChoiceDialog( 1, titleString+"1", messageString, otherLabels );
 		
 //			var otherLabels:Array = ["1 Star", "2 Stars", "3 Stars", "4 Stars"];
 //			Dialog.service.showMultipleChoiceDialog(0, "How did you like the Coco Loco from Arcadia Breweing?", "",  otherLabels);
 			
 //			setInterval( dismissDialog, 2000 );
 		}
+		
+		
+		private function showMultipleChoiceDialog():void
+		{
+			//
+			//	EXAMPLE 
+			//		Show a multiple choice dialog
+			//	
+			
+			var titleString:String = "Dialog Title";
+			var messageString:String = "This is the message text";
+			var cancelLabel:String = "cancel";
+			var otherLabels:Array = ["other 1", "other 2"];
+			
+			message( "showMultipleChoiceDialog("+titleString+","+messageString+","+otherLabels.join(",")+")");
+			Dialog.service.showMultipleChoiceDialog( 1, titleString+"1", messageString, otherLabels );
+			
+		}
+		
 		
 		private function showProgressDialog():void
 		{
@@ -210,8 +228,8 @@ package
 			dtOptions.hour = 10;
 			dtOptions.minute = 0;
 			
-//			dtOptions.title = "date";
-//			Dialog.service.showDatePicker( 1, dtOptions );
+			dtOptions.title = "Select Date";
+			Dialog.service.showDatePicker( 1, dtOptions );
 //			setTimeout( function():void {
 //					Dialog.service.setDateTimePickerValue( 1, 2030, 2, 10 );
 //				}, 2000 );
@@ -220,8 +238,8 @@ package
 //				}
 //				, 4000 );
 			
-			dtOptions.title = "Select Start Time";
-			Dialog.service.showTimePicker( 2, dtOptions );
+//			dtOptions.title = "Select Time";
+//			Dialog.service.showTimePicker( 2, dtOptions );
 //			setTimeout( function():void {
 //					Dialog.service.setDateTimePickerValue( 1, 2030, 2, 10 );
 //				}
