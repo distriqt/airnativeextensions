@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="Dialog,com.distriqt.extension.dialog.Dialog,DIALOG_PROGRESS_STYLE_ANNULAR,DIALOG_PROGRESS_STYLE_DETERMINATE,DIALOG_PROGRESS_STYLE_HORIZONTAL,DIALOG_PROGRESS_STYLE_SPINNER,EXT_CONTEXT_ID,IMPLEMENTATION_DEFAULT,LENGTH_LONG,LENGTH_SHORT,THEME_DARK,THEME_DEVICE_DEFAULT_DARK,THEME_DEVICE_DEFAULT_LIGHT,THEME_LIGHT,THEME_TRADITIONAL,VERSION,VERSION_DEFAULT,isSupported,service,version,dismissDatePicker,dismissDateTimePicker,dismissDialog,dismissPopover,dismissProgressDialog,dismissTimePicker,dispose,getDatePickerValue,getDateTimePickerValue,getTimePickerValue,init,setDateTimePickerValue,setTimePickerValue,showAlertDialog,showDatePicker,showDateTimePicker,showLoginAlertDialog,showMultipleChoiceDialog,showProgressDialog,showSelectPopover,showTextInputAlertDialog,showTimePicker,toast,updateProgressDialog"><title>com.distriqt.extension.dialog.Dialog</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="Dialog,com.distriqt.extension.dialog.Dialog,DIALOG_PROGRESS_STYLE_ANNULAR,DIALOG_PROGRESS_STYLE_DETERMINATE,DIALOG_PROGRESS_STYLE_HORIZONTAL,DIALOG_PROGRESS_STYLE_SPINNER,EXT_CONTEXT_ID,IMPLEMENTATION_DEFAULT,LENGTH_LONG,LENGTH_SHORT,THEME_DARK,THEME_DEVICE_DEFAULT_DARK,THEME_DEVICE_DEFAULT_LIGHT,THEME_LIGHT,THEME_TRADITIONAL,VERSION,VERSION_DEFAULT,isSupported,service,version,dismissAllDialogs,dismissDatePicker,dismissDateTimePicker,dismissDialog,dismissPopover,dismissProgressDialog,dismissTimePicker,dispose,getDatePickerValue,getDateTimePickerValue,getTimePickerValue,init,setDateTimePickerValue,setTimePickerValue,showAlertDialog,showDatePicker,showDateTimePicker,showLoginAlertDialog,showMultipleChoiceDialog,showProgressDialog,showSelectPopover,showTextInputAlertDialog,showTimePicker,toast,updateProgressDialog"><title>com.distriqt.extension.dialog.Dialog</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
 				asdocTitle = 'Dialog - distriqt // Dialog';
 				var baseRef = '../../../../';
 				window.onload = configPage;
@@ -25,7 +25,20 @@
 		 Constructor
 		 
 		 You should not call this directly, but instead use the singleton access
-		 </div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dismissDatePicker()" class="signatureLink">dismissDatePicker</a>(id:int):Boolean</div><div class="summaryTableDescription">
+		 </div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dismissAllDialogs()" class="signatureLink">dismissAllDialogs</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Dismisses all alert dialogs, that is, dialogs that were created using the following methods:
+		 
+		 
+		 
+		 	showAlertDialog
+		 	showLoginAlertDialog
+		 	showTextInputAlertDialog
+		 	showMultipleChoiceDialog
+		 
+		 
+		 
+		 The dialogs are cancelled and any reference to them is removed.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dismissDatePicker()" class="signatureLink">dismissDatePicker</a>(id:int):Boolean</div><div class="summaryTableDescription">
 		 
 		 Dismisses the date dialog specified by the id.</div></td><td class="summaryTableOwnerCol">Dialog</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dismissDateTimePicker()" class="signatureLink">dismissDateTimePicker</a>(id:int):Boolean</div><div class="summaryTableDescription">
 		 
@@ -128,7 +141,26 @@
 		 Constructor
 		 
 		 You should not call this directly, but instead use the singleton access
-		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="dismissDatePicker()"></a><a name="dismissDatePicker(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dismissDatePicker</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function dismissDatePicker(id:int):Boolean</code><p></p><p></p><p>
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="dismissAllDialogs()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dismissAllDialogs</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function dismissAllDialogs():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Dismisses all alert dialogs, that is, dialogs that were created using the following methods:
+		 </p>
+		 
+		 <ul>
+		 	<li><code>showAlertDialog</code></li>
+		 	<li><code>showLoginAlertDialog</code></li>
+		 	<li><code>showTextInputAlertDialog</code></li>
+		 	<li><code>showMultipleChoiceDialog</code></li>
+		 </ul>
+		 
+		 <p>
+		 The dialogs are cancelled and any reference to them is removed. 
+		 This may fire dialog cancel events.
+		 </p>
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true on success
+		 
+		 </td></tr></table></div><a name="dismissDatePicker()"></a><a name="dismissDatePicker(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dismissDatePicker</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function dismissDatePicker(id:int):Boolean</code><p></p><p></p><p>
 		 <p>
 		 Dismisses the date dialog specified by the id.
 		 </p>
@@ -532,4 +564,4 @@
 		 Used to display a toast message for a short interval
 		 </p>
 		 
-		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="Dialog.html#toast()" target="">toast()</a></div></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 2</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Tue Apr 1 2014, 07:16 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Tue Apr 1 2014, 07:16 PM +10:00  -->
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="Dialog.html#toast()" target="">toast()</a></div></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 2</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Thu Apr 10 2014, 10:45 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Thu Apr 10 2014, 10:45 PM +10:00  -->

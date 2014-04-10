@@ -33,6 +33,7 @@ package
 	import flash.text.TextFormat;
 	import flash.utils.clearInterval;
 	import flash.utils.setInterval;
+	import flash.utils.setTimeout;
 	
 	
 	/**	
@@ -133,11 +134,14 @@ package
 		
 		private function mouseClickHandler( event:MouseEvent ):void
 		{
-//			showMultipleChoiceDialog();
-//			showAlertDialog();
+			showAlertDialog();
+			showMultipleChoiceDialog();
 //			showProgressDialog();
-			showDateTimePicker();
+//			showDateTimePicker();
 //			showSelectListPopover();
+
+			
+			setTimeout( dismissAllDialogs, 2000 );
 		}
 		
 		
@@ -293,6 +297,12 @@ package
 		private function dismissDialog():void
 		{
 			Dialog.service.dismissDialog( 2 );
+		}
+		
+		
+		private function dismissAllDialogs():void
+		{
+			Dialog.service.dismissAllDialogs();
 		}
 		
 		
