@@ -37,7 +37,6 @@ package
 	
 	
 	/**	
-	 * 
 	 * @author	Michael Archbold
 	 */
 	public class TestDialog extends Sprite
@@ -134,14 +133,15 @@ package
 		
 		private function mouseClickHandler( event:MouseEvent ):void
 		{
-			showAlertDialog();
-			showMultipleChoiceDialog();
+//			showAlertDialog();
+//			showMultipleChoiceDialog();
 //			showProgressDialog();
-//			showDateTimePicker();
+			showDateTimePicker();
 //			showSelectListPopover();
-
 			
-			setTimeout( dismissAllDialogs, 2000 );
+//			showTextInputAlertDialog();
+			
+//			setTimeout( dismissAllDialogs, 2000 );
 		}
 		
 		
@@ -205,7 +205,7 @@ package
 			//
 			clearInterval( progressInterval );
 			Dialog.service.dismissProgressDialog(1);
-			if (Dialog.service.showProgressDialog( 1, "Loading", "", Dialog.DIALOG_PROGRESS_STYLE_DETERMINATE, true, DialogTheme.THEME_LIGHT ))
+			if (Dialog.service.showProgressDialog( 1, "Loading\ntest test test test test test test", "Second\n Message", Dialog.DIALOG_PROGRESS_STYLE_DETERMINATE, true, DialogTheme.THEME_LIGHT ))
 			{
 				progress = 0;
 				progressInterval = setInterval( progressDialogIntervalHandler, 2000 );
@@ -214,8 +214,8 @@ package
 			{
 				message( "Progress Dialog not supported" );
 			}
-			
 		}
+		
 		
 		private function showDateTimePicker():void
 		{
@@ -234,9 +234,9 @@ package
 			
 			dtOptions.title = "Select Date";
 			Dialog.service.showDatePicker( 1, dtOptions );
-//			setTimeout( function():void {
-//					Dialog.service.setDateTimePickerValue( 1, 2030, 2, 10 );
-//				}, 2000 );
+			setTimeout( function():void {
+					Dialog.service.setDateTimePickerValue( 1, 2016, 2, 10, true );
+				}, 2000 );
 //			setTimeout( function():void {
 //					Dialog.service.dismissDatePicker( 1 );
 //				}
@@ -274,6 +274,13 @@ package
 			graphics.endFill();
 			
 		}
+		
+		
+		private function showTextInputAlertDialog():void
+		{
+			Dialog.service.showTextInputAlertDialog( 1, "Add server", "Please add server url.", false, "Cancel", ["OK"] );
+		}
+		
 		
 		
 		//

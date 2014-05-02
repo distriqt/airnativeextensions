@@ -1,4 +1,14 @@
 =======================================================================
+#ANE Package update v1.42
+
+#Dialog
+ - Added message to iOS progress dialog (Issue #68)
+ - Corrected operation of setDateTimePickerValue for date/time pickers (Possible solution to #30)
+
+
+
+
+=======================================================================
 #ANE Package update v1.40
 
 #ApplicationRater
