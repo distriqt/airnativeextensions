@@ -22,6 +22,30 @@
 	 on both platforms without changes.
 	 </p>
 	 
+	              <b>Events</b>
+	 
+	              <p>
+	 When the application is running the application will receive 
+	 region and ranging events directly. Region exit events can take
+	 up to a minute, however an entry event should be quick (~1 second).
+	 </p>
+	 
+	              <p>
+	 The application will also receive region and ranging events when 
+	 in the background as long as:
+	 </p>
+	              <ul>
+	 	               <li>The application has been run at least once since device restart</li>
+	 	               <li>The user did not kill the application directly (by quitting the process, not just dismissing it)</li>
+	              </ul>
+	 
+	              <p>
+	 If the device has been put to sleep the entry events may take a
+	 little longer but they will still be received. The ranging events
+	 will also not neccessarily be as consistent as when the application
+	 is running in the foreground. 
+	 </p>
+	 
 	 
 	              <b>Android</b>
 	 
@@ -252,4 +276,4 @@
 	 
 	 
 	 
-	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Tue May 6 2014, 06:18 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Tue May 6 2014, 06:18 PM +10:00  -->
+	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed May 7 2014, 09:32 AM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed May 7 2014, 09:32 AM +10:00  -->
