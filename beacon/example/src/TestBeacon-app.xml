@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/13.0">
+	<id>com.distriqt.test</id>
+	<filename>TestBeacon</filename>
+	<name>TestBeacon</name>
+	<versionNumber>0.0.1</versionNumber>
+
+	<initialWindow>
+		<content>[This value will be overwritten by Flash Builder in the output app.xml]</content>
+		<autoOrients>false</autoOrients>
+        <fullScreen>false</fullScreen>
+        <visible>true</visible>
+    </initialWindow>
+	
+	<icon>
+		<image16x16>icons/icon16x16.png</image16x16>
+		<image29x29>icons/icon29x29.png</image29x29>
+		<image32x32>icons/icon32x32.png</image32x32>
+		<image36x36>icons/icon36x36.png</image36x36>
+		<image48x48>icons/icon48x48.png</image48x48>
+		<image57x57>icons/icon57x57.png</image57x57>
+		<image72x72>icons/icon72x72.png</image72x72>
+		<image114x114>icons/icon114x114.png</image114x114>
+		<image128x128>icons/icon128x128.png</image128x128>
+		<image512x512>icons/icon512x512.png</image512x512>
+	</icon>
+
+	
+	<iPhone>
+        <InfoAdditions><![CDATA[
+			<key>UIDeviceFamily</key>
+			<array>
+				<string>1</string>
+			</array>
+		]]></InfoAdditions>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+        <Entitlements>
+            <![CDATA[
+            ]]>
+        </Entitlements>
+    </iPhone>
+    
+	
+	<android>
+        <manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+				<uses-sdk android:minSdkVersion="18" android:targetSdkVersion="18" />
+				
+				<uses-permission android:name="android.permission.INTERNET"/>
+				<uses-permission android:name="android.permission.BLUETOOTH"/>
+				<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+			
+				<application>
+					<service android:enabled="true" android:exported="true" android:isolatedProcess="false" android:label="iBeacon" android:name="com.distriqt.extension.beacon.services.BeaconService"></service>
+					<service android:enabled="true" android:name="com.distriqt.extension.beacon.services.BeaconIntentProcessor">
+						<meta-data android:name="background" android:value="true" />
+						<intent-filter android:priority="1" >
+							<action android:name="air.com.distriqt.test.DID_RANGING" />
+							<action android:name="air.com.distriqt.test.DID_MONITORING" />
+						</intent-filter>
+					</service>
+				</application>
+			
+			</manifest>
+		]]></manifestAdditions>
+    </android>
+    
+	
+    <extensions>
+        <extensionID>com.distriqt.Beacon</extensionID>
+    </extensions>
+    
+</application>
