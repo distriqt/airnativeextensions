@@ -39,14 +39,14 @@ package
 	{
 		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";	
 
-		private static const GOOGLE_PLAY_INAPP_BILLING_KEY : String = "YOUR_GOOGLE_PLAY_INAPP_BILLING_KEY";
+		public static const GOOGLE_PLAY_INAPP_BILLING_KEY : String = "YOUR_GOOGLE_PLAY_INAPP_BILLING_KEY";
 		
 		
 		//
 		//	Android test product ids
-		private static const TEST_PRODUCT_ID	: String = "com.distriqt.test.background1";
+//		private static const TEST_PRODUCT_ID	: String = "com.distriqt.test.background1";
 				
-//		private static const TEST_PRODUCT_ID	: String = "android.test.purchased";
+		private static const TEST_PRODUCT_ID	: String = "android.test.purchased";
 //		private static const TEST_PRODUCT_ID	: String = "android.test.canceled";
 //		private static const TEST_PRODUCT_ID	: String = "android.test.refunded";
 //		private static const TEST_PRODUCT_ID	: String = "android.test.item_unavailable";
@@ -55,11 +55,15 @@ package
 		/**
 		 * Class constructor 
 		 */	
-		public function TestInAppBilling()
+		public function TestInAppBilling( devKey:String=DEV_KEY, googleKey:String=GOOGLE_PLAY_INAPP_BILLING_KEY )
 		{
 			super();
+		
+			_devKey = devKey;
+			_googleKey = googleKey;
+			
 			create();
-			init( DEV_KEY );
+			init( _devKey );
 			message( "click screen to start test" );
 		}
 		
@@ -67,6 +71,9 @@ package
 		//
 		//	VARIABLES
 		//
+		
+		private var _devKey		: String;
+		private var _googleKey	: String;
 		
 		private var _text		: TextField;
 		
@@ -180,7 +187,7 @@ package
 				
 //				InAppBilling.service.setServiceType( InAppBillingServiceTypes.APPLE_INAPP_PURCHASE );
 				
-				InAppBilling.service.setup( GOOGLE_PLAY_INAPP_BILLING_KEY );
+				InAppBilling.service.setup( _googleKey );
 				
 			}
 			catch (e:Error)
@@ -265,6 +272,8 @@ package
 		private function products_failedHandler( event:InAppBillingEvent ):void
 		{
 			message( "InAppBilling products FAILED:: " +event.data );
+			
+			stage.addEventListener( MouseEvent.CLICK, startPurchase, false, 0, true );
 		}
 		
 		
