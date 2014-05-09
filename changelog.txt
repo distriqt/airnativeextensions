@@ -6,6 +6,12 @@
  - Corrected operation of setDateTimePickerValue for date/time pickers (Possible solution to #30)
 
 
+#InAppBilling
+ - #Android Fixed frozen issue with makePurchase call when item already owned (Issue #66)
+ - #Android Fixed bug where subscriptions wouldn't correctly be purchased (Issue #80)
+ - #Android Added checks to force verification of android.test transactions
+
+
 
 
 =======================================================================

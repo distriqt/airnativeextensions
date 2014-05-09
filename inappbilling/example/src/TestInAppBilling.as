@@ -45,8 +45,9 @@ package
 		//
 		//	Android test product ids
 //		private static const TEST_PRODUCT_ID	: String = "com.distriqt.test.background1";
+		private static const TEST_PRODUCT_ID	: String = "com.distriqt.test.subscription1";
 				
-		private static const TEST_PRODUCT_ID	: String = "android.test.purchased";
+//		private static const TEST_PRODUCT_ID	: String = "android.test.purchased";
 //		private static const TEST_PRODUCT_ID	: String = "android.test.canceled";
 //		private static const TEST_PRODUCT_ID	: String = "android.test.refunded";
 //		private static const TEST_PRODUCT_ID	: String = "android.test.item_unavailable";
@@ -97,6 +98,7 @@ package
 
 			stage.addEventListener( Event.RESIZE, stage_resizeHandler, false, 0, true );
 			stage.addEventListener( MouseEvent.CLICK, mouseClickHandler, false, 0, true );
+			stage.addEventListener( MouseEvent.CLICK, respondHandler, false, 0, true );
 		}
 		
 		private function message( str:String ):void
@@ -111,7 +113,10 @@ package
 			_text.height = stage.stageHeight - 100;
 		}
 		
-		
+		private function respondHandler( event:MouseEvent ):void
+		{
+			message( "click" );
+		}
 		private function mouseClickHandler( event:MouseEvent ):void
 		{
 			if (stage)
@@ -154,6 +159,9 @@ package
 			try
 			{
 				InAppBilling.init( dev_key );
+				
+				message( "InAppBilling.isSupported:     " + InAppBilling.isSupported );
+				message( "InAppBilling.service.version: " + InAppBilling.service.version );
 			}
 			catch (e:Error)
 			{
@@ -295,7 +303,12 @@ package
 		{
 			message( "InAppBilling purchase failed [" + event.errorCode + "] :: "+ event.message );
 
-			finish();	
+//			if (event.message == "response:item:already:owned")
+//			{
+//				InAppBilling.service.consumePurchase( new Purchase(TEST_PRODUCT_ID) );
+//			}
+			
+//			finish();	
 		}
 		
 		
@@ -306,7 +319,7 @@ package
 			
 			//
 			//	Attempt to consume the purchase
-			message( "consuming purchase "+Purchase(event.data[0]).productId );
+//			message( "consuming purchase "+Purchase(event.data[0]).productId );
 //			InAppBilling.service.consumePurchase( Purchase(event.data[0]) );
 		}
 		
