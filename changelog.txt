@@ -1,6 +1,11 @@
 =======================================================================
 #ANE Package update v1.42
 
+#PDFReader
+ - #iOS Corrected status bar overlap problem on iOS 7+ 
+ - #iOS Added the functionality to enable/disable the toolbar controls
+  
+
 #Dialog
  - Added message to iOS progress dialog (Issue #68)
  - Corrected operation of setDateTimePickerValue for date/time pickers (Possible solution to #30)

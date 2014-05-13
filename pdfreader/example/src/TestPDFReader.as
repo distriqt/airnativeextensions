@@ -40,9 +40,10 @@ package
 		/**
 		 * Class constructor 
 		 */	
-		public function TestPDFReader()
+		public function TestPDFReader(devKey:String=DEV_KEY)
 		{
 			super();
+			_devKey = devKey;
 			create();
 			init();
 		}
@@ -51,7 +52,7 @@ package
 		//
 		//	VARIABLES
 		//
-		
+		private var _devKey		: String;
 		private var _text		: TextField;
 		
 		
@@ -78,7 +79,7 @@ package
 		{
 			try
 			{
-				PDFReader.init( DEV_KEY );
+				PDFReader.init( _devKey );
 				
 				message( "PDFReader Supported: " + PDFReader.isSupported );
 				message( "PDFReader Version:   " + PDFReader.service.version );
@@ -129,8 +130,9 @@ package
 			//
 			// Show a PDF
 			
-			var path:String = File.applicationDirectory.nativePath + File.separator + "Reader.pdf";
+			var path:String = File.applicationDirectory.nativePath + File.separator + "TestDocument.pdf";
 			
+			PDFReader.service.setToolbarOptions( false, false, false );
 			PDFReader.service.setEmailContent( "Test Subject", "Some simple content" );
 			PDFReader.service.showPDF( path );
 		}
