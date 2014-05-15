@@ -1,4 +1,12 @@
 =======================================================================
+#ANE Package update
+
+#PDFReader
+ - #iOS Corrected status bar fullscreen problem on iOS 7+ 
+
+
+
+=======================================================================
 #ANE Package update v1.42
 
 #DeviceMotion
@@ -21,6 +29,9 @@
  - #Android Added checks to force verification of android.test transactions
 
 
+====
+
+MOVED TO VERSION CONTROL
 
 
 =======================================================================
