@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="DeviceMotion,com.distriqt.extension.devicemotion.DeviceMotion,ALGORITHM_FUSION,ALGORITHM_NATIVE,EXT_CONTEXT_ID,FORMAT_EULER,FORMAT_QUATERNION,FORMAT_ROTATIONMATRIX,IMPLEMENTATION_DEFAULT,SENSOR_DELAY_FASTEST,SENSOR_DELAY_GAME,SENSOR_DELAY_NORMAL,SENSOR_DELAY_UI,VERSION,VERSION_DEFAULT,algorithm,format,isRegistered,isSupported,rate,service,version,dispose,init,isAlgorithmSupported,register,unregister"><title>com.distriqt.extension.devicemotion.DeviceMotion</title><script src="../../../../AC_OETags.js" type="text/javascript"></script></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'DeviceMotion - distriqt // DeviceMotion';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // DeviceMotion Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/devicemotion/DeviceMotion.html&amp;com/distriqt/extension/devicemotion/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">DeviceMotion</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("DeviceMotion"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,true,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.devicemotion</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public final   class  DeviceMotion</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">DeviceMotion  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.devicemotion.base.ExtensionBaseImpl</td></tr></table><p></p><p></p><p></p>	
+	              <p>This class represents the device motion extension.</p>
+	 
+	              <p>
+	 Device motion is an extension that you can use for getting updates about 
+	 the position or more preceisely the orientation of the device in 3D space. 
+	 </p>
+	 
+	              <p>
+	 The extension calculates and reports angles by use of various sensor 
+	 fusion algorithms which combine the available sensors into orientation 
+	 and rotational information. The quality of this information depends 
+	 mainly on the hardware contained in the current device. Generally we
+	 require 3 sensors for these calculations: an accelerometer, a magnetometer
+	 and a gyroscope. 
+	 </p>
+	 
+	              <p>
+	 The extension works by registering for notifications of device motion. 
+	 When you register for updates you specify a series of options about
+	 the updates which the extension use to determine the algorithm that 
+	 is used to calculate the device orientation, and also the information
+	 format that is returned.
+	 </p>
+	 
+	              <b>Format</b>
+	 
+	              <p>
+	 We highly suggest you use the quaternion format to position the device.
+	 This format is the most stable and easiest to use. It is widely supported
+	 by 3D engines including Away3D which is used in the example code.
+	 </p>
+	 
+	              <p>
+	 Euler angles are the traditional roll, pitch and yaw angles.
+	 However these angles are susceptible to what is known as Gimbal lock, and 
+	 should be avoided wherever possible. This becomes more evident in device 
+	 motion where the gimbal lock conditions can be reached quite easily
+	 as part of everyday usage. For more information : 
+	 <a href="http://en.wikipedia.org/wiki/Gimbal_lock" target="">http://en.wikipedia.org/wiki/Gimbal_lock</a>
+	              </p>
+	 
+	              <b>Algorithms</b>
+	 
+	              <p>
+	 Currently the suggested algorithm is the native algorithm. It is the most 
+	 stable and reliable algorithm and uses the standard methods advised by the 
+	 native platform to retrieve device orientation.
+	 </p>
+	 
+	              <p>
+	 See the DeviceMotionOptions class for more information on the algorithms
+	 and formats.
+	 </p>
+	 
+	 
+	              <b>Notes</b>
+	 
+	              <p>
+	 We highly suggest that you check for deactivation events in your application
+	 and make sure that you unregister the device motion updates. This is to 
+	 reduce strain on the device and increase battery life. Something like the 
+	 following:
+	 </p>
+	 
+	              <div class="listing"><pre>
+     addEventListener( Event.DEACTIVATE, deactivateHandler, false, 0, true );
+     
+     ...
+     
+     private function deactivateHandler( event:Event ):void
+     {
+         try
+         {
+             if (DeviceMotion.isSupported && DeviceMotion.service.isRegistered)
+                 DeviceMotion.service.unregister();
+         }
+         catch (e:Error)
+         {
+         }
+     }
+     </pre></div>
+	 
+	 
+	 
+	           <p></p><p><a href="#includeExamplesSummary">View the examples</a></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isRegistered" class="signatureLink">isRegistered</a> : Boolean<div class="summaryTableDescription">[read-only] 
+		 
+		 Whether the extension has been registered to listen to the sensor output
+		 
+		 </div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the current device supports the extensions functionality
+		 </div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/devicemotion/DeviceMotion.html">DeviceMotion</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the DeviceMotion class.</div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 
+		 The version string of the native extension.</div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#DeviceMotion()" class="signatureLink">DeviceMotion</a>()</div><div class="summaryTableDescription">
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dispose()" class="signatureLink">dispose</a>():void</div><div class="summaryTableDescription">
+		 
+		 Disposes the extension and releases any allocated resources.</div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isAlgorithmSupported()" class="signatureLink">isAlgorithmSupported</a>(algorithm:String, format:String):Boolean</div><div class="summaryTableDescription">
+		 
+		 Tests to see if the requested algorithm and format is supported on 
+		 the current platform.</div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#register()" class="signatureLink">register</a>(options:<a href="../../../../com/distriqt/extension/devicemotion/DeviceMotionOptions.html">DeviceMotionOptions</a> = null):Boolean</div><div class="summaryTableDescription">
+		 
+		 Register with the device motion service to start retrieving the 
+		 information from the sensor.</div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#unregister()" class="signatureLink">unregister</a>():void</div><div class="summaryTableDescription">
+		 
+		 Unregister the device motion listening
+		 
+		 
+		 
+		 Be sure to unregister a sensor's listener when you are done using 
+		 the sensor or when the sensor activity pauses.</div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.DeviceMotion<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 1<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">DeviceMotion</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="isRegistered"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isRegistered</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>isRegistered:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 <p>
+		 Whether the extension has been registered to listen to the sensor output
+		 </p>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isRegistered():Boolean</code><br/></div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the current device supports the extensions functionality
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/devicemotion/DeviceMotion.html">DeviceMotion</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the DeviceMotion class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/devicemotion/DeviceMotion.html">DeviceMotion</a></code><br/><br/><span class="label"> Throws </span><br/><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 <p>
+		 The version string of the native extension. This will be of the format:
+		 </p>
+		 <pre>
+		 [main version].[base version].[implementation].[native version]
+		 </pre>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="DeviceMotion()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DeviceMotion</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function DeviceMotion()</code><p></p><p>
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="dispose()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dispose</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function dispose():void</code><p></p><p></p><p>
+		 <p>
+		 Disposes the extension and releases any allocated resources. Once this function 
+		 has been called, a call to <code>init</code> is neccesary again before any of the 
+		 extensions functionality will work.
+		 </p>
+		 </p></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p><br/><span class="label">Throws</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="isAlgorithmSupported()"></a><a name="isAlgorithmSupported(String,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isAlgorithmSupported</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isAlgorithmSupported(algorithm:String, format:String):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Tests to see if the requested algorithm and format is supported on 
+		 the current platform.
+		 </p>
+		 <p>
+		 Not every platform currently supports every algorithm and format 
+		 combination so this is just a simple test to allow you to degrade 
+		 to a supported solution on the current platform.
+		 </p>
+		 
+		 <p>
+		 The parameters for this function are the constants defined in 
+		 the <code>DeviceMotionOptions</code> class.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">algorithm</span>:String</code> &mdash; The algorithm to check 
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">format</span>:String</code> &mdash; The return data format to supply
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; 
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="DeviceMotionOptions.html#ALGORITHM_NATIVE" target="">DeviceMotionOptions.ALGORITHM_NATIVE</a><br/><a href="DeviceMotionOptions.html#ALGORITHM_FUSION" target="">DeviceMotionOptions.ALGORITHM_FUSION</a><br/><a href="DeviceMotionOptions.html#FORMAT_EULER" target="">DeviceMotionOptions.FORMAT_EULER</a><br/><a href="DeviceMotionOptions.html#FORMAT_QUATERNION" target="">DeviceMotionOptions.FORMAT_QUATERNION</a><br/><a href="DeviceMotionOptions.html#FORMAT_ROTATIONMATRIX" target="">DeviceMotionOptions.FORMAT_ROTATIONMATRIX</a></div></div><a name="register()"></a><a name="register(com.distriqt.extension.devicemotion.DeviceMotionOptions)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">register</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function register(options:<a href="../../../../com/distriqt/extension/devicemotion/DeviceMotionOptions.html">DeviceMotionOptions</a> = null):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Register with the device motion service to start retrieving the 
+		 information from the sensor.
+		 </p>
+		 
+		 <p>
+		 You can specify the rate at which the sensors are updated on both
+		 Android and iOS by setting the rate in the options parameter. 
+		 The rates are predefined values.  
+		 </p>
+		 
+		 <p>
+		 If the options are null, the default values are used.
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">options</span>:<a href="../../../../com/distriqt/extension/devicemotion/DeviceMotionOptions.html">DeviceMotionOptions</a></code> (default = <code>null</code>)<code></code> &mdash; 	An instance of the device motion options allowing
+		 						control over the returned data and algorithms used 
+		 						in processing the sensors. 	
+		 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="DeviceMotion.html#unregister" target="">unregister</a></div></div><a name="unregister()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">unregister</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function unregister():void</code><p></p><p></p><p>
+		 <p>
+		 Unregister the device motion listening
+		 </p>
+		 
+		 <p>
+		 Be sure to unregister a sensor's listener when you are done using 
+		 the sensor or when the sensor activity pauses. If a sensor listener
+		 is registered and its activity is paused, the sensor will continue 
+		 to acquire data and use battery resources unless you unregister 
+		 the sensor.
+		 </p>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="DeviceMotion.html#register" target="">register</a></div></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.DeviceMotion</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 1</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><a name="includeExamplesSummary"></a><div class="detailSectionHeader">Examples</div><div class="detailBody">
+	 <p>
+	 The following demonstrates initialising and registering for device motion
+	 updates, it uses the Away3D Quaternion class.
+	 </p>
+	 
+	 <div class="listing"><pre>
+     import com.distriqt.extension.devicemotion.DeviceMotion;
+     import com.distriqt.extension.devicemotion.DeviceMotionOptions;
+     import com.distriqt.extension.devicemotion.SensorRate;
+     import com.distriqt.extension.devicemotion.events.DeviceMotionEvent;
+     
+     import away3d.core.math.Quaternion;
+     
+     try
+     {
+         DeviceMotion.init( DEV_KEY );
+         DeviceMotion.service.addEventListener( DeviceMotionEvent.UPDATE_QUATERNION, deviceMotion_updateHandler );
+     
+         var options:DeviceMotionOptions = new DeviceMotionOptions();
+         options.rate        = SensorRate.SENSOR_DELAY_NORMAL;
+         options.algorithm   = DeviceMotionOptions.ALGORITHM_NATIVE;
+         options.format      = DeviceMotionOptions.FORMAT_QUATERNION;
+         
+         DeviceMotion.service.register( options );
+     }
+     catch (e:Error) {}
+     
+     ...
+     
+     private function deviceMotion_updateHandler( event:DeviceMotionEvent ):void
+     {
+         var q:Quaternion = new Quaternion( event.values[1], event.values[2], event.values[3], event.values[0] );
+         // Use this quaternion to transform your space, camera or object as required
+     }
+     </pre></div>
+	 
+	 
+	 
+	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Thu May 15 2014, 11:25 AM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Thu May 15 2014, 11:25 AM +10:00  -->

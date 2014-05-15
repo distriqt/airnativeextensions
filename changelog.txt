@@ -1,6 +1,10 @@
 =======================================================================
 #ANE Package update v1.42
 
+#DeviceMotion
+ - Release version v1.0
+
+
 #PDFReader
  - #iOS Corrected status bar overlap problem on iOS 7+ 
  - #iOS Added the functionality to enable/disable the toolbar controls
