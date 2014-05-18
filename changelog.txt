@@ -1,8 +1,12 @@
 =======================================================================
 #ANE Package update
 
+#InAppBilling
+ - Implemented clone function in InAppBillingEvent (Issue #92)
+
 #PDFReader
  - #iOS Corrected status bar fullscreen problem on iOS 7+ 
+
 
 
 
