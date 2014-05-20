@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="Scanner,com.distriqt.extension.scanner.Scanner,CODE128,CODE39,CODE93,COMPOSITE,DATABAR,DATABAR_EXP,EAN13,EAN2,EAN5,EAN8,EXT_CONTEXT_ID,I25,IMPLEMENTATION_DEFAULT,ISBN10,ISBN13,NONE,PARTIAL,PDF417,QRCODE,UPCA,UPCE,VERSION,VERSION_DEFAULT,algorithm,cancelLabel,colour,heading,isSupported,message,refocusInterval,service,singleResult,symbologies,textColour,version,version,x_density,y_density,dispose,getScannerInfo,init,isScanning,startScan,stopScan"><title>com.distriqt.extension.scanner.Scanner</title><script src="../../../../AC_OETags.js" type="text/javascript"></script></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'Scanner - distriqt // Scanner';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">distriqt // Scanner Native Extension Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/distriqt/extension/scanner/Scanner.html&amp;com/distriqt/extension/scanner/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">Scanner</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Scanner"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,true,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.scanner</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public final   class  Scanner</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Scanner  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.scanner.base.ExtensionBaseImpl</td></tr></table><p></p><p></p><p></p>	
+	              <p>This class represents the scanner extension.</p>
+	 
+	              <p>
+	 The scanner creates an interface using the camera to scan for codes such
+	 as QR Codes, bar codes and other such encoded information. It supports many 
+	 popular symbologies (types of bar codes) including EAN-13/UPC-A, UPC-E, 
+	 EAN-8, Code 128, Code 39, Interleaved 2 of 5 and QR Code. However the particular
+	 support will be determined by the underlying algorithm in use.
+	 </p>
+	 
+	              <p>
+	 The extension currently supports the following algorithms for code detection:
+	 </p>
+	              <ul>
+	 		              <li>ZBar: http://zbar.sourceforge.net/</li>
+	              </ul>
+	 
+	              <p>
+	 There are two main modes of operation, continuous and single result. Continuous mode
+	 is the default mode. In this mode the scanner will continually scan for symbols and
+	 return events whenever a symbol is found. The single result mode will close the scanner 
+	 as soon as one symbol is found and returned. Single result mode is enabled by setting the 
+	 <code>singleResult</code> option to be <code>true</code> as below:
+	 </p>
+	 
+	              <div class="listing"><pre>
+     var options:ScannerOptions = new ScannerOptions();
+     options.singleResult = true;
+     
+     Scanner.service.startScan( options );
+     </pre></div>
+	 
+	              <p>
+	 The scanner interface contains two optional areas, with text labels and buttons. The 
+	 text in these areas are controlled by strings in the options class passed to the 
+	 <code>startScan</code> function.
+	 </p>
+	              <ul>
+	 		              <li>
+                     <b>Top area</b>: Contains a heading text label, and a larger message text label:
+	 			<ul>
+	 				                  <li>
+                           <code>ScannerOptions.heading</code>
+                        </li>
+	 				                  <li>
+                           <code>ScannerOptions.message</code>
+                        </li>
+	 			                </ul>
+	 		              </li>
+	 		              <li>
+                     <b>Bottom area</b>: A cancel button, when pressed will close the scanner interface:
+	 			<ul>
+	 				                  <li>
+                           <code>ScannerOptions.cancelLabel</code>
+                        </li>
+	 			                </ul>
+	 		              </li>
+	              </ul>
+	 
+	 
+	 
+	              <b>Android</b>
+	 
+	              <p>
+	 An Android application will require the following manifest additions to the 
+	 application descriptor. 
+	 </p>
+	 
+	              <div class="listing"><pre>
+&lt;android&gt;
+    &lt;manifestAdditions&gt;&lt;![CDATA[
+        &lt;manifest android:installLocation="auto"&gt;
+            &lt;uses-permission android:name="android.permission.INTERNET"/&gt;
+            &lt;uses-permission android:name="android.permission.CAMERA"/&gt;
+            &lt;uses-feature android:name="android.hardware.camera" /&gt;
+            
+            &lt;application&gt;
+                &lt;activity android:screenOrientation="portrait" android:name="com.distriqt.extension.scanner.zbar.ZBarScannerActivity" /&gt;
+            &lt;/application&gt;
+            
+        &lt;/manifest&gt;
+    ]]&gt;&lt;/manifestAdditions&gt;
+&lt;/android&gt;
+     </pre></div>
+	 
+	 
+	           <p></p><p><a href="#includeExamplesSummary">View the examples</a></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#isSupported" class="signatureLink">isSupported</a> : Boolean<div class="summaryTableDescription">[static] [read-only] 
+		 Whether the current device supports the extensions functionality
+		 </div></td><td class="summaryTableOwnerCol">Scanner</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#service" class="signatureLink">service</a> : <a href="../../../../com/distriqt/extension/scanner/Scanner.html">Scanner</a><div class="summaryTableDescription">[static] [read-only] 
+		 The singleton instance of the Scanner class.</div></td><td class="summaryTableOwnerCol">Scanner</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#version" class="signatureLink">version</a> : String<div class="summaryTableDescription">[override] [read-only] 
+		 
+		 The version string of the native extension.</div></td><td class="summaryTableOwnerCol">Scanner</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#Scanner()" class="signatureLink">Scanner</a>()</div><div class="summaryTableDescription">
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </div></td><td class="summaryTableOwnerCol">Scanner</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#dispose()" class="signatureLink">dispose</a>():void</div><div class="summaryTableDescription">
+		 
+		 Disposes the extension and releases any allocated resources.</div></td><td class="summaryTableOwnerCol">Scanner</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getScannerInfo()" class="signatureLink">getScannerInfo</a>():<a href="../../../../com/distriqt/extension/scanner/ScannerInfo.html">ScannerInfo</a></div><div class="summaryTableDescription">
+		 
+		 
+		 Retrieves information about the scanning algorithm currently being
+		 used in the native code.</div></td><td class="summaryTableOwnerCol">Scanner</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">Scanner</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isScanning()" class="signatureLink">isScanning</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Determines if the scanner is currently in operation and displayed to the user.</div></td><td class="summaryTableOwnerCol">Scanner</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#startScan()" class="signatureLink">startScan</a>(options:<a href="../../../../com/distriqt/extension/scanner/ScannerOptions.html">ScannerOptions</a>):Boolean</div><div class="summaryTableDescription">
+		 
+		 Starts the scanning interface with options specified in the ScannerOptions parameter.</div></td><td class="summaryTableOwnerCol">Scanner</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#stopScan()" class="signatureLink">stopScan</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 Stops the current scan process (if running).</div></td><td class="summaryTableOwnerCol">Scanner</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.Scanner<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Scanner</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Scanner</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 1<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Scanner</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Scanner</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="isSupported"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>isSupported:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Whether the current device supports the extensions functionality
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():Boolean</code><br/></div><a name="propertyDetail"></a><a name="service"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">service</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>service:<a href="../../../../com/distriqt/extension/scanner/Scanner.html">Scanner</a></code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The singleton instance of the Scanner class.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get service():<a href="../../../../com/distriqt/extension/scanner/Scanner.html">Scanner</a></code><br/><br/><span class="label"> Throws </span><br/><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="propertyDetail"></a><a name="version"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">version</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>version:String</code>&nbsp;&nbsp;[read-only] [override] <p></p><p></p><p>
+		 <p>
+		 The version string of the native extension. This will be of the format:
+		 </p>
+		 <pre>
+		 [main version].[base version].[implementation].[native version]
+		 </pre>
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get version():String</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="Scanner()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">Scanner</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function Scanner()</code><p></p><p>
+		 Constructor
+		 
+		 You should not call this directly, but instead use the singleton access
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="dispose()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">dispose</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function dispose():void</code><p></p><p></p><p>
+		 <p>
+		 Disposes the extension and releases any allocated resources. Once this function 
+		 has been called, a call to <code>init</code> is neccesary again before any of the 
+		 extensions functionality will work.
+		 </p>
+		 </p></div><a name="getScannerInfo()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getScannerInfo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getScannerInfo():<a href="../../../../com/distriqt/extension/scanner/ScannerInfo.html">ScannerInfo</a></code><p></p><p></p><p>
+		 
+		 <p>
+		 Retrieves information about the scanning algorithm currently being
+		 used in the native code.
+		 </p>
+		 
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../../com/distriqt/extension/scanner/ScannerInfo.html">ScannerInfo</a></code> &mdash; A scanner information object with details about the algorithm
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="ScannerInfo.html" target="">ScannerInfo</a></div></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
+		 Initialises the extension class for use with the provided developer key.
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p><br/><span class="label">Throws</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Error </code> &mdash; If there was a problem creating or accessing the extension, or if the developer key is invalid
+		 </td></tr></table></div><a name="isScanning()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isScanning</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isScanning():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Determines if the scanner is currently in operation and displayed to the user.
+		 </p>
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the scanner is in operation and false otherwise
+		 
+		 </td></tr></table></div><a name="startScan()"></a><a name="startScan(com.distriqt.extension.scanner.ScannerOptions)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">startScan</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function startScan(options:<a href="../../../../com/distriqt/extension/scanner/ScannerOptions.html">ScannerOptions</a>):Boolean</code><p></p><p></p><p>
+		 <p>
+		 Starts the scanning interface with options specified in the <code>ScannerOptions</code> parameter.
+		 </p>
+		 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">options</span>:<a href="../../../../com/distriqt/extension/scanner/ScannerOptions.html">ScannerOptions</a></code> &mdash; The options to start the scanner with
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the scanner was started successfully and false otherwise
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="ScannerOptions.html" target="">ScannerOptions</a></div></div><a name="stopScan()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">stopScan</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function stopScan():Boolean</code><p></p><p></p><p>
+		 <p>
+		 Stops the current scan process (if running).
+		 </p>
+		 
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the scanner was running and stopped successfully and false if it wasn't running.
+		 
+		 </td></tr></table></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.Scanner</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 1</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><a name="includeExamplesSummary"></a><div class="detailSectionHeader">Examples</div><div class="detailBody">
+	 <p>
+	 The following example shows the basic usage of the extension, creating a scanning 
+	 interface and listening for detected QR codes. It limits the scan to the first 
+	 found code and will close after a code is found.
+	 </p>
+	 
+	 <div class="listing"><pre>
+     Scanner.init( DEV_KEY );
+     
+     if (Scanner.isSupported)
+     {
+         Scanner.service.addEventListener( ScannerEvent.CODE_FOUND, scanner_codeFoundHandler, false, 0, true );
+     
+         var options:ScannerOptions = new ScannerOptions();
+         options.symbologies = [ Symbology.QRCODE ];
+         options.singleResult = true;
+     
+         Scanner.service.startScan( options );
+     }                
+     
+     ...
+     
+     private function scanner_codeFoundHandler( event:ScannerEvent ):void
+     {
+         trace( "code found: " + event.data );
+     }
+     
+     </pre></div>
+	 
+	 
+	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Tue May 20 2014, 02:47 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Tue May 20 2014, 02:47 PM +10:00  -->
