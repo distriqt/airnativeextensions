@@ -4,11 +4,13 @@
 #Beacon
  - #iOS Automatically start ranging immediately rather than waiting for region entry
 
+
 #Scanner 
  - Scanner extension release v1
 
 
 #InAppBilling
+ - #Android Added a check for an invalid sku, which was causing a crash in getProducts
  - Implemented clone function in InAppBillingEvent (Issue #92)
 
 
