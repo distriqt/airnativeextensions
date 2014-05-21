@@ -1,8 +1,16 @@
 =======================================================================
 #ANE Package update
 
+#Beacon
+ - #iOS Automatically start ranging immediately rather than waiting for region entry
+
+#Scanner 
+ - Scanner extension release v1
+
+
 #InAppBilling
  - Implemented clone function in InAppBillingEvent (Issue #92)
+
 
 #PDFReader
  - #iOS Corrected status bar fullscreen problem on iOS 7+ 

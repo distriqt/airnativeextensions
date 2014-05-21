@@ -58,7 +58,8 @@ package
 		
 		private var _text		: TextField;
 		
-		public static const UUID : String = "D57092AC-DFAA-446C-8EF3-C81AA22815B5";
+		public static const UUID_1	: String = "D57092AC-DFAA-446C-8EF3-C81AA22815B5";
+		public static const UUID_2	: String = "D57092AC-DFAA-446C-8EF3-C81AA22815B6";
 		
 		
 		//
@@ -100,7 +101,6 @@ package
 				Beacon.service.addEventListener( BeaconEvent.REGION_EXIT, beacon_regionExitHandler, false, 0, true );
 				Beacon.service.addEventListener( BeaconEvent.BEACON_UPDATE, beacon_beaconUpdateHandler, false, 0, true );
 				
-				Beacon.service.startMonitoringRegionWithUUID( UUID, "testing" );
 				
 			}
 			catch (e:Error)
@@ -138,12 +138,18 @@ package
 			//
 			//	When the screen is clicked just toggle the monitoring state
 			//	
+			toggleRegionMonitoring( UUID_1 );
+			toggleRegionMonitoring( UUID_2 );
 			
-			if (Beacon.service.isMonitoringRegionWithUUID( UUID ))
-				Beacon.service.stopMonitoringRegionWithUUID( UUID, "testing" );
+		}
+		
+		
+		private function toggleRegionMonitoring( uuid:String, identifier:String = "" ):void
+		{
+			if (Beacon.service.isMonitoringRegionWithUUID( uuid ))
+				Beacon.service.stopMonitoringRegionWithUUID( uuid, identifier );
 			else
-				Beacon.service.startMonitoringRegionWithUUID( UUID, "testing" );
-			
+				Beacon.service.startMonitoringRegionWithUUID( uuid, identifier );
 		}
 		
 		
@@ -155,7 +161,7 @@ package
 		
 		private function beacon_monitoringStartHandler( event:BeaconEvent ):void
 		{
-			message( "beacon_monitoringStartHandler" );
+			message( "beacon_monitoringStartHandler(): " + event.region.identifier + "::" + event.region.uuid );
 		}
 		
 		
