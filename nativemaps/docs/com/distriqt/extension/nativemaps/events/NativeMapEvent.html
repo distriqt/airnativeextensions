@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../../override.css" type="text/css"><meta name="keywords" content="NativeMapEvent,com.distriqt.extension.nativemaps.events.NativeMapEvent,ERROR,FAILED,MAP_CREATED,MAP_MOVE_COMPLETE,MAP_TOUCHED,MAP_TOUCHED_LONG,MAP_ZOOM_CHANGED,MARKER_DRAG_END,MARKER_DRAG_START,MARKER_INFO_WINDOW_TOUCHED,MARKER_TOUCHED,READY,USER_LOCATION_ERROR,USER_LOCATION_UPDATE,bitmapData,data,markerId,message,position,clone"><title>com.distriqt.extension.nativemaps.events.NativeMapEvent</title></head><body><script language="javascript" type="text/javascript" src="../../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../../override.css" type="text/css"><meta name="keywords" content="NativeMapEvent,com.distriqt.extension.nativemaps.events.NativeMapEvent,ERROR,FAILED,MAP_CREATED,MAP_LOAD_COMPLETE,MAP_LOAD_FAILED,MAP_LOAD_START,MAP_MOVE_COMPLETE,MAP_RENDER_COMPLETE,MAP_RENDER_START,MAP_TOUCHED,MAP_TOUCHED_LONG,MAP_ZOOM_CHANGED,MARKER_DRAG_END,MARKER_DRAG_START,MARKER_INFO_WINDOW_TOUCHED,MARKER_TOUCHED,READY,USER_LOCATION_ERROR,USER_LOCATION_UPDATE,bitmapData,data,markerId,message,position,clone"><title>com.distriqt.extension.nativemaps.events.NativeMapEvent</title></head><body><script language="javascript" type="text/javascript" src="../../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
 				asdocTitle = 'NativeMapEvent - distriqt // NativeMaps';
 				var baseRef = '../../../../../';
 				window.onload = configPage;
@@ -24,9 +24,34 @@
 		  
 		 </div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#clone()" class="signatureLink">clone</a>():Event</div><div class="summaryTableDescription">[override] </div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_CREATED" class="signatureLink">MAP_CREATED</a> : String = nativemaps:map:created<div class="summaryTableDescription">[static] 
 		 
-		 Dispatched when the map is created.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_MOVE_COMPLETE" class="signatureLink">MAP_MOVE_COMPLETE</a> : String = nativemaps:map:move:complete<div class="summaryTableDescription">[static] 
+		 Dispatched when the map is created.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_LOAD_COMPLETE" class="signatureLink">MAP_LOAD_COMPLETE</a> : String = nativemaps:map:load:complete<div class="summaryTableDescription">[static] 
 		 
-		 Dispatched when the map has completed moving or panning.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_TOUCHED" class="signatureLink">MAP_TOUCHED</a> : String = nativemaps:map:touched<div class="summaryTableDescription">[static] 
+		 Dispatched when the map begins loading
+		 
+		 
+		 Note that loading/render events will be dispatched often when the map is being moved/panned/zoomed.
+		 
+		 
+		 This event is not always reliable, in that it may not be dispatched when map tiles
+		 were cached previously, and is only supported on iOS.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_LOAD_FAILED" class="signatureLink">MAP_LOAD_FAILED</a> : String = nativemaps:map:load:failed<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the map fails to load properly.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_LOAD_START" class="signatureLink">MAP_LOAD_START</a> : String = nativemaps:map:load:start<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the map begins loading
+		 
+		 
+		 Note that loading/render events will be dispatched often when the map is being moved/panned/zoomed.
+		  
+		 Use MAP_RENDER_START instead for reliability, MAP_LOAD_START is not available on Android
+		 
+		 Available on iOS only, not supported on Android
+		 </div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_MOVE_COMPLETE" class="signatureLink">MAP_MOVE_COMPLETE</a> : String = nativemaps:map:move:complete<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the map has completed moving or panning.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_RENDER_COMPLETE" class="signatureLink">MAP_RENDER_COMPLETE</a> : String = nativemaps:map:render:complete<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the map finishes rendering.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_RENDER_START" class="signatureLink">MAP_RENDER_START</a> : String = nativemaps:map:render:start<div class="summaryTableDescription">[static] 
+		 
+		 Dispatched when the map begins rendering.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_TOUCHED" class="signatureLink">MAP_TOUCHED</a> : String = nativemaps:map:touched<div class="summaryTableDescription">[static] 
 		 
 		 Dispatched when the map is pressed, but not on a marker.</div></td><td class="summaryTableOwnerCol">NativeMapEvent</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MAP_TOUCHED_LONG" class="signatureLink">MAP_TOUCHED_LONG</a> : String = nativemaps:map:touched:long<div class="summaryTableDescription">[static] 
 		 
@@ -90,6 +115,37 @@
 		 <p>
 		 Dispatched when the map is created.
 		 </p>
+		 </p></div><a name="constantDetail"></a><a name="MAP_LOAD_COMPLETE"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MAP_LOAD_COMPLETE</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MAP_LOAD_COMPLETE:String = nativemaps:map:load:complete</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the map begins loading
+		 </p>
+		 
+		 <p>Note that loading/render events will be dispatched often when the map is being moved/panned/zoomed.</p>
+		 
+		 <p>
+		 This event is not always reliable, in that it may not be dispatched when map tiles
+		 were cached previously, and is only supported on iOS. It's usually better to listen for the MAP_RENDER_COMPLETE event.
+		 </p>
+		 
+		 <p><b>Available on iOS only, not supported on Android</b></p>
+		 </p></div><a name="constantDetail"></a><a name="MAP_LOAD_FAILED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MAP_LOAD_FAILED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MAP_LOAD_FAILED:String = nativemaps:map:load:failed</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the map fails to load properly.
+		 </p>
+		 
+		 <p>Note that loading/render events will be dispatched often when the map is being moved/panned/zoomed.</p>
+		  
+		 <p><b>Available on iOS only, not supported on Android</b></p>
+		 </p></div><a name="constantDetail"></a><a name="MAP_LOAD_START"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MAP_LOAD_START</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MAP_LOAD_START:String = nativemaps:map:load:start</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the map begins loading
+		 </p>
+		 
+		 <p>Note that loading/render events will be dispatched often when the map is being moved/panned/zoomed.</p>
+		  
+		 <p>Use MAP_RENDER_START instead for reliability, MAP_LOAD_START is not available on Android</p>
+		 
+		 <p><b>Available on iOS only, not supported on Android</b></p>
 		 </p></div><a name="constantDetail"></a><a name="MAP_MOVE_COMPLETE"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MAP_MOVE_COMPLETE</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MAP_MOVE_COMPLETE:String = nativemaps:map:move:complete</code><p></p><p></p><p>
 		 <p>
 		 Dispatched when the map has completed moving or panning.
@@ -98,6 +154,38 @@
 		 <p>
 		 The #position parameter will contain the new centre LatLng location of the map.
 		 </p>
+		 </p></div><a name="constantDetail"></a><a name="MAP_RENDER_COMPLETE"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MAP_RENDER_COMPLETE</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MAP_RENDER_COMPLETE:String = nativemaps:map:render:complete</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the map finishes rendering.
+		 </p>
+		 
+		 <p>Note that loading/render events will be dispatched often when the map is being moved/panned/zoomed.</p>
+		 
+		 <p>
+		 This should generally be used instead of the MAP_LOAD_COMPLETE as it will be more reliable.
+		 </p>
+		 
+		 <p>
+		 <b>Note: </b> On iOS this is only supported in iOS7 and above. MAP_LOAD_COMPLETE will fire for iOS6 or lower.
+		 </p>
+		  
+		 <p><b>Available on iOS 7+ and Android</b></p>
+		 </p></div><a name="constantDetail"></a><a name="MAP_RENDER_START"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MAP_RENDER_START</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MAP_RENDER_START:String = nativemaps:map:render:start</code><p></p><p></p><p>
+		 <p>
+		 Dispatched when the map begins rendering.
+		 </p>
+		 
+		 <p>Note that loading/render events will be dispatched often when the map is being moved/panned/zoomed.</p>
+		 
+		 <p>
+		 This should generally be used instead of the MAP_LOAD_START as it will be more reliable.
+		 </p>
+		 
+		 <p>
+		 <b>Note: </b> On iOS this is only supported in iOS7 and above. MAP_LOAD_COMPLETE will fire for iOS6 or lower.
+		 </p>
+		   
+		 <p><b>Available on iOS 7+ and Android</b></p>
 		 </p></div><a name="constantDetail"></a><a name="MAP_TOUCHED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MAP_TOUCHED</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MAP_TOUCHED:String = nativemaps:map:touched</code><p></p><p></p><p>
 		 <p>
 		 Dispatched when the map is pressed, but not on a marker. This occurs on touch UP, not DOWN.
@@ -181,4 +269,4 @@
 		 </p>
 		 
 		 <p><b>Available on iOS only, not supported on Android</b></p>
-		 </p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Tue Mar 11 2014, 02:35 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Tue Mar 11 2014, 02:35 PM +10:00  -->
+		 </p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Thu May 22 2014, 08:29 AM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Thu May 22 2014, 08:29 AM +10:00  -->

@@ -52,6 +52,8 @@ package
 		[Embed(source="./assets/custom-marker.png")]
 		public var CustomMarker	: Class;
 		
+		private var _devKey : String = "";
+		
 		protected var _created :Boolean = false;
 		protected var _count:int = 0;
 		protected var _buttons:Array;
@@ -64,10 +66,11 @@ package
 		public var mapTypes:Array = [ MapType.MAP_TYPE_NORMAL, MapType.MAP_TYPE_SATELLITE, MapType.MAP_TYPE_TERRAIN, MapType.MAP_TYPE_HYBRID ];
 		
 		
-		public function TestNativeMaps()
+		public function TestNativeMaps( devKey:String=DEV_KEY )
 		{
-			
 			super();
+			
+			_devKey = devKey;
 			_buttons = [];
 			
 			stage.align = StageAlign.TOP_LEFT;
@@ -484,41 +487,46 @@ package
 			{
 				if (b != _buttons[0])
 					b.alpha = 0.6;
-				
+				 
 				addChild( b );
 				b.addEventListener( MouseEvent.CLICK, mouseClickHandler, false, 0, true );
 			}
 			
 			layout();
 			
-			try
+			if (!_initialised)
 			{
-				NativeMaps.init( DEV_KEY );
+				try
+				{
+					NativeMaps.init( _devKey );
+					
+					trace( "NativeMaps Supported: "+ String(NativeMaps.isSupported) );
+					trace( "NativeMaps Version: " + NativeMaps.service.version );
+					
+					NativeMaps.service.addEventListener( NativeMapEvent.MAP_CREATED, map_createdHandler );
+					NativeMaps.service.addEventListener( NativeMapEvent.MAP_MOVE_COMPLETE, map_moveCompleteHandler );
+					NativeMaps.service.addEventListener( NativeMapEvent.MAP_TOUCHED, map_touchedHandler );
+					NativeMaps.service.addEventListener( NativeMapEvent.MARKER_DRAG_START, map_markerDragStartHandler );
+					NativeMaps.service.addEventListener( NativeMapEvent.MARKER_DRAG_END, map_markerDragEndHandler );
+					NativeMaps.service.addEventListener( NativeMapEvent.MARKER_TOUCHED, map_markerTouchedHandler );
+					NativeMaps.service.addEventListener( NativeMapEvent.MARKER_INFO_WINDOW_TOUCHED, map_infoWindowTouchedHandler );
+					NativeMaps.service.addEventListener( NativeMapEvent.USER_LOCATION_ERROR, map_userLocationErrorHandler );
+					NativeMaps.service.addEventListener( NativeMapEvent.USER_LOCATION_UPDATE, map_userLocationUpdateHandler );
+					NativeMaps.service.addEventListener( NativeMapBitmapEvent.READY, map_bitmapReadyHandler );
+					NativeMaps.service.addEventListener( NativeMapBitmapEvent.FAILED, map_bitmapFailedHandler );
 				
-				trace( "NativeMaps Supported: "+ String(NativeMaps.isSupported) );
-				trace( "NativeMaps Version: " + NativeMaps.service.version );
-				
-				NativeMaps.service.addEventListener( NativeMapEvent.MAP_CREATED, map_createdHandler );
-				NativeMaps.service.addEventListener( NativeMapEvent.MAP_MOVE_COMPLETE, map_moveCompleteHandler );
-				NativeMaps.service.addEventListener( NativeMapEvent.MAP_TOUCHED, map_touchedHandler );
-				NativeMaps.service.addEventListener( NativeMapEvent.MARKER_DRAG_START, map_markerDragStartHandler );
-				NativeMaps.service.addEventListener( NativeMapEvent.MARKER_DRAG_END, map_markerDragEndHandler );
-				NativeMaps.service.addEventListener( NativeMapEvent.MARKER_TOUCHED, map_markerTouchedHandler );
-				NativeMaps.service.addEventListener( NativeMapEvent.MARKER_INFO_WINDOW_TOUCHED, map_infoWindowTouchedHandler );
-				NativeMaps.service.addEventListener( NativeMapEvent.USER_LOCATION_ERROR, map_userLocationErrorHandler );
-				NativeMaps.service.addEventListener( NativeMapEvent.USER_LOCATION_UPDATE, map_userLocationUpdateHandler );
-				NativeMaps.service.addEventListener( NativeMapBitmapEvent.READY, map_bitmapReadyHandler );
-				NativeMaps.service.addEventListener( NativeMapBitmapEvent.FAILED, map_bitmapFailedHandler );
+					_initialised = true;
+				}
+				catch (e:Error)
+				{
+					trace( e.message );
+				}
 			}
-			catch (e:Error)
-			{
-				
-			}	
 		}
-		
+		private var _initialised : Boolean = false;
 		protected function onStageResize(event:Event):void
 		{
-			createUI();
+			createUI(); 
 		}		
 		
 		protected function layout():void

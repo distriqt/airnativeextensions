@@ -1,6 +1,15 @@
 =======================================================================
 #ANE Package update
 
+#NativeMaps
+ - Added proper capability for map marker icons to be displayed on retina screens
+ - Fixed a bug with the animate property of the setCentre() method on iOS
+ - Added new events for map loading and rendering states
+ - Added option to hide and show places of interest on iOS
+ - Added option to hide and show buildings on iOS and Android
+ - Example: https://gist.github.com/koriner/0b891d630b42dc2e54da
+
+
 #Beacon
  - #iOS Automatically start ranging immediately rather than waiting for region entry
 
