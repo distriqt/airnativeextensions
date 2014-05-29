@@ -90,13 +90,12 @@ package
 			_captureBitmap = new Bitmap( _captureBitmapData );
 			_captureBitmap.y = 250;
 			
-//			_captureBitmap.scaleX = _captureBitmap.scaleY = 0.4;
+			_captureBitmap.scaleX = _captureBitmap.scaleY = 0.4;
 			
 			
 			addChild( _bitmap );
 			addChild( _captureBitmap );
 			addChild( _text );
-			
 		}
 		
 		public function init():void
@@ -127,13 +126,16 @@ package
 				message( "isWhiteBalanceSupported: " + Camera.instance.isWhiteBalanceSupported( CameraParameters.WHITE_BALANCE_MODE_AUTO ) );
 				
 				
+				
 				if (Camera.isSupported)
 				{
+				
 					_options = new CameraParameters();
 					_options.enableFrameBuffer = true;
 					_options.frameBufferWidth = 800;
 					_options.frameBufferHeight = 600;
-					_options.cameraMode = new CameraMode( CameraMode.PRESET_MEDIUM );
+					_options.cameraMode = new CameraMode( CameraMode.PRESET_HIGH );
+
 					
 					// List the available devices
 					message( "=============================== DEVICES ===================================" );
@@ -147,6 +149,7 @@ package
 						}
 					}
 					message( "===============================\n" );
+					
 					
 					// List the available camera modes
 					message( "=============================== GET MODES ===================================" );
@@ -162,8 +165,11 @@ package
 //						_options.cameraMode = modes[0];
 //					}
 					
+					
+					
 					Camera.instance.addEventListener( CameraEvent.VIDEO_FRAME, camera_videoFrameHandler, false, 0, true );
 					Camera.instance.addEventListener( CameraDataEvent.CAPTURED_IMAGE, camera_capturedImageHandler, false, 0, true );
+					Camera.instance.addEventListener( CameraEvent.CAPTURE_ERROR, camera_captureErrorHandler, false, 0, true ); 
 					Camera.instance.addEventListener( CameraEvent.IMAGE_SAVE_COMPLETE, camera_imageSaveCompleteHandler, false, 0, true );
 					Camera.instance.addEventListener( CameraEvent.IMAGE_SAVE_ERROR, camera_imageSaveErrorHandler, false, 0, true );
 				}
@@ -194,13 +200,16 @@ package
 				if (Camera.isSupported && !_inited)
 				{
 					Camera.instance.initialise( _options );
-					var modes:Array = Camera.instance.getModes();
-					for each (var mode:CameraMode in modes)
-					{
-						message( "mode: "+mode.mode+" ["+mode.width+"x"+mode.height+"]" );
-					}
+//					Camera.instance.setFlashMode( CameraParameters.FLASH_MODE_ON );
 					
-					Camera.instance.setMode( new CameraMode( CameraMode.PRESET_LOW ));
+					
+//					var modes:Array = Camera.instance.getModes();
+//					for each (var mode:CameraMode in modes)
+//					{
+//						message( "mode: "+mode.mode+" ["+mode.width+"x"+mode.height+"]" );
+//					}
+//					
+//					Camera.instance.setMode( new CameraMode( CameraMode.PRESET_PHOTO ));
 				}
 				message( "===============================\n" );
 				_inited = true;
@@ -268,14 +277,11 @@ package
 			message( "click" );
 			_time = getTimer();
 			
-//			var switchMode:Boolean = (Math.random() > 0.5);
-//			
-//			if (switchMode) Camera.instance.setPresetMode( CameraParameters.PRESET_640x480 );
-//			else			Camera.instance.setPresetMode( CameraParameters.PRESET_PHOTO );
-			
-//			Camera.instance.setPresetMode( CameraParameters.PRESET_PHOTO );
-			Camera.instance.captureImage( true /* Change to true to save to camera roll */  );
-			
+			Camera.instance.removeEventListener( CameraEvent.VIDEO_FRAME, camera_videoFrameHandler );
+			Camera.instance.setMode( new CameraMode( CameraMode.PRESET_PHOTO ));
+
+			var success:Boolean = Camera.instance.captureImage( true /* Change to true to save to camera roll */  );
+			message( "captureImage() = " + success );
 		}
 		
 		
@@ -327,6 +333,9 @@ package
 		
 		private function camera_capturedImageHandler( event:CameraDataEvent ):void
 		{
+			Camera.instance.setMode( new CameraMode( CameraMode.PRESET_HIGH ));
+			Camera.instance.addEventListener( CameraEvent.VIDEO_FRAME, camera_videoFrameHandler, false, 0, true );
+
 			message( "capture complete: " + String(Math.floor(getTimer() - _time) / 1000) );
 			
 			if (_captureBitmapData.width != event.data.width || _captureBitmapData.height != event.data.height)
@@ -344,6 +353,15 @@ package
 			{
 				trace( e.message );
 			}
+		}
+		
+		
+		private function camera_captureErrorHandler( event:CameraEvent ):void
+		{
+			Camera.instance.setMode( new CameraMode( CameraMode.PRESET_HIGH ));
+			Camera.instance.addEventListener( CameraEvent.VIDEO_FRAME, camera_videoFrameHandler, false, 0, true );
+
+			message( "image capture error: " + event.data );
 		}
 		
 		

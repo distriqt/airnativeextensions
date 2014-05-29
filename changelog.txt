@@ -1,5 +1,15 @@
+
+
+#Camera
+ - #iOS: Implemented a waiting for adjustments function that waits for focus etc before capturing an image (Issues: #69 and #111) 
+
+#Scanner
+ - #iOS: Fixed width of UI on iPad devices 
+
+
 =======================================================================
 #ANE Package update
+
 
 #NativeMaps
  - Added proper capability for map marker icons to be displayed on retina screens
