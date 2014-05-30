@@ -19,7 +19,9 @@ package
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.utils.ByteArray;
+	import flash.utils.clearInterval;
 	import flash.utils.getTimer;
+	import flash.utils.setInterval;
 	
 	/**
 	 * This is the main implementation class of the TestCamera application
@@ -134,7 +136,7 @@ package
 					_options.enableFrameBuffer = true;
 					_options.frameBufferWidth = 800;
 					_options.frameBufferHeight = 600;
-					_options.cameraMode = new CameraMode( CameraMode.PRESET_HIGH );
+					_options.cameraMode = new CameraMode( CameraMode.PRESET_LOW );
 
 					
 					// List the available devices
@@ -201,7 +203,6 @@ package
 				{
 					Camera.instance.initialise( _options );
 //					Camera.instance.setFlashMode( CameraParameters.FLASH_MODE_ON );
-					
 					
 //					var modes:Array = Camera.instance.getModes();
 //					for each (var mode:CameraMode in modes)
@@ -271,18 +272,24 @@ package
 		//
 		
 		private var _time : Number;
+		private var _tick : uint;
 		
 		private function clickHandler( event:MouseEvent ):void
 		{
 			message( "click" );
 			_time = getTimer();
 			
-			Camera.instance.removeEventListener( CameraEvent.VIDEO_FRAME, camera_videoFrameHandler );
-			Camera.instance.setMode( new CameraMode( CameraMode.PRESET_PHOTO ));
+			Camera.instance.setFocusMode( CameraParameters.FOCUS_MODE_AUTO );
+			
+//			Camera.instance.removeEventListener( CameraEvent.VIDEO_FRAME, camera_videoFrameHandler );
+//			Camera.instance.setMode( new CameraMode( CameraMode.PRESET_PHOTO ));
 
 			var success:Boolean = Camera.instance.captureImage( true /* Change to true to save to camera roll */  );
 			message( "captureImage() = " + success );
+			_tick = setInterval( function():void { message( "tick" ); }, 200 );
 		}
+		
+		
 		
 		
 		//
@@ -333,6 +340,8 @@ package
 		
 		private function camera_capturedImageHandler( event:CameraDataEvent ):void
 		{
+			clearInterval( _tick );
+			
 			Camera.instance.setMode( new CameraMode( CameraMode.PRESET_HIGH ));
 			Camera.instance.addEventListener( CameraEvent.VIDEO_FRAME, camera_videoFrameHandler, false, 0, true );
 

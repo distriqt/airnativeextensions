@@ -1,6 +1,9 @@
 
 
-#Camera
+#Camera Updates
+ - #Android: Added better loading of large images to bitmap data avoiding ‘out of memory’ errors (Issue #81)
+ - #Android: Corrected auto focus implementation (Issue #113)
+ - #iOS: Added a ‘prepareToCapture’ flag to CameraParameters to allow camera to start adjustments for a captureImage call (Issue #111)
  - #iOS: Implemented a waiting for adjustments function that waits for focus etc before capturing an image (Issues: #69 and #111) 
 
 #Scanner
