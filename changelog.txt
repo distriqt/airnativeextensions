@@ -1,4 +1,14 @@
 
+#Camera
+ - Added reporting of orientation of captured bitmap data object on CAPTURED_IMAGE event
+ - Added a class to define possible orientation values
+
+#CameraRollExtended
+ - Added a class to define possible orientation values (Issue #130)
+ - Changed orientation values to be the EXIF orientation values
+
+
+
 #Scanner
  - #Android: Added stop scan event when back button is pressed (Issue #123)
 
