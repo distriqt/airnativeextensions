@@ -1,4 +1,7 @@
 
+#Scanner
+ - #Android: Added stop scan event when back button is pressed (Issue #123)
+
 
 #Camera Updates
  - #Android: Added better loading of large images to bitmap data avoiding ‘out of memory’ errors (Issue #81)

@@ -174,7 +174,7 @@ package
 			
 			message( "scan started = " + success );
 			
-			_timeout = setTimeout( stopScan, 10000 );
+//			_timeout = setTimeout( stopScan, 10000 );
 		}
 		
 		
