@@ -4,6 +4,7 @@
  - Added a class to define possible orientation values
 
 #CameraRollExtended
+ - Added the option to automatically close the dialog when the maximum count is reached (Issue #126)
  - Added a class to define possible orientation values (Issue #130)
  - Changed orientation values to be the EXIF orientation values
 

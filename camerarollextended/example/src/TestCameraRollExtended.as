@@ -45,9 +45,10 @@ package
 		/**
 		 * Class constructor 
 		 */	
-		public function TestCameraRollExtended()
+		public function TestCameraRollExtended( devKey:String = DEV_KEY )
 		{
 			super();
+			_devKey = devKey;
 			create();
 			init();
 		}
@@ -56,6 +57,8 @@ package
 		//
 		//	VARIABLES
 		//
+		
+		private var _devKey 	: String;
 		
 		private var _text		: TextField;
 		
@@ -85,7 +88,7 @@ package
 		{
 			try
 			{
-				CameraRollExtended.init( DEV_KEY );
+				CameraRollExtended.init( _devKey );
 				
 				message( "CameraRollExtended Supported: " + CameraRollExtended.isSupported );
 				message( "CameraRollExtended Version:   " + CameraRollExtended.service.version );
@@ -94,8 +97,6 @@ package
 				CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.CANCEL, cameraRoll_cancelHandler, false, 0, true );
 				CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.SELECT, cameraRoll_selectHandler, false, 0, true );
 				CameraRollExtended.service.addEventListener( CameraRollExtendedEvent.LOADED, cameraRoll_loadedHandler, false, 0, true );
-				
-				
 				
 			}
 			catch (e:Error)
@@ -134,7 +135,8 @@ package
 			//	
 			
 			var options:CameraRollExtendedBrowseOptions = new CameraRollExtendedBrowseOptions();
-			options.maximumCount = 3;
+			options.maximumCount = 1;
+//			options.autoCloseOnCountReached = true;
 			options.type = Asset.IMAGE;
 			options.autoLoadBitmapData = true;
 			options.autoLoadType = AssetRepresentation.THUMBNAIL;
