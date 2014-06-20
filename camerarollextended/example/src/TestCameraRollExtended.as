@@ -203,7 +203,10 @@ package
 		private function cameraRoll_assetLoadedHandler( event:CameraRollExtendedEvent ):void
 		{
 			message( "camera roll asset loaded" );
+			
 			var asset:Asset = event.assets[0];
+
+			message( "asset orientation: " + asset.orientation );
 			
 			addChild( new Bitmap( asset.bitmapData ));
 		}
