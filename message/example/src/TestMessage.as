@@ -19,6 +19,8 @@ package
 	import com.distriqt.extension.message.Message;
 	import com.distriqt.extension.message.MessageAttachment;
 	import com.distriqt.extension.message.events.MessageEvent;
+	import com.distriqt.extension.message.events.MessageSMSEvent;
+	import com.distriqt.extension.message.objects.SMS;
 	
 	import flash.display.BitmapData;
 	import flash.display.Sprite;
@@ -49,21 +51,26 @@ package
 		/**
 		 * Class constructor 
 		 */	
-		public function TestMessage()
+		public function TestMessage( devKey:String = DEV_KEY )
 		{
 			super();
+			_devKey = devKey;
 			create();
+			
 			
 			try
 			{
-				Message.init( DEV_KEY );
+				Message.init( _devKey );
 				
-				message( "Message Supported: "+ String(Message.isSupported) );
-				message( "Message Version: " + Message.service.version );
-				message( "Message Mail Supported: "+ String(Message.isMailSupported) );
+				message( "Message Supported:      " + Message.isSupported );
+				message( "Message Version:        " + Message.service.version );
+				message( "Message Mail Supported: " + Message.isMailSupported );
 				
 				Message.service.addEventListener( MessageEvent.MESSAGE_MAIL_ATTACHMENT_ERROR, 	message_errorHandler, 	false, 0, true );
 				Message.service.addEventListener( MessageEvent.MESSAGE_MAIL_COMPOSE, 			message_composeHandler, false, 0, true );
+				
+				Message.service.addEventListener( MessageSMSEvent.MESSAGE_SMS_SENT, 			message_smsSentHandler, false, 0, true );
+				
 			}
 			catch (e:Error)
 			{
@@ -76,7 +83,7 @@ package
 		//
 		//	VARIABLES
 		//
-		
+		private var _devKey		: String;
 		private var _text		: TextField;
 		
 		
@@ -151,39 +158,51 @@ package
 		}
 		
 		
-		
-		
 		private function mouseClickHandler( event:MouseEvent ):void
 		{
 			
-			if (Message.isMailSupported)
+//			if (Message.isMailSupported)
+//			{
+//				message( " === SENDING EMAIL === " );
+//				//
+//				// Create attachments
+//				
+//				var textfileNativePath:String  = createAttachmentTextFile( "text.txt" );
+//				var imagefileNativePath:String = createAttachmentImageFile( "image.jpg" );
+//
+//				var email:String = "ma@distriqt.com";
+//				
+//				Message.service.sendMailWithOptions( 
+//					"test", 
+//					"test body", 
+//					email, 
+//					"",
+//					"",
+//					[
+//						new MessageAttachment( textfileNativePath,  "text/plain" ),
+//						new MessageAttachment( imagefileNativePath, "image/jpeg" )
+//					],
+//					false
+//				);
+//			}
+			
+			if (Message.isSMSSupported)
 			{
-				//
-				// Create attachments
+				message( " === SENDING SMS === " );
 				
-				var textfileNativePath:String  = createAttachmentTextFile( "text.txt" );
-				var imagefileNativePath:String = createAttachmentImageFile( "image.jpg" );
-
-				var email:String = "ma@distriqt.com";
+				var sms:SMS = new SMS();
+				sms.address = "0417711791";
+				sms.message = "Testing Message ANE";
 				
-				Message.service.sendMailWithOptions( 
-					"test", 
-					"test body", 
-					String(email), 
-					"",
-					"",
-					[
-						new MessageAttachment( textfileNativePath,  "text/plain" ),
-						new MessageAttachment( imagefileNativePath, "image/jpeg" )
-					],
-					false
-				);
+				Message.service.sendSMS( sms );
 			}
 			
 		}
 		
 		
-		
+		//
+		//	EXTENSION EVENT HANDLERS
+		//
 		
 		private function message_errorHandler( event:MessageEvent ):void 
 		{
@@ -195,6 +214,10 @@ package
 			message( event.type +"::"+ event.details );
 		}
 		
+		private function message_smsSentHandler( event:MessageSMSEvent ):void
+		{
+			message( event.type +"::"+ event.details );
+		}
 		
 	}
 }
