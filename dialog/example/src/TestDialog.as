@@ -136,10 +136,10 @@ package
 //			showAlertDialog();
 //			showMultipleChoiceDialog();
 //			showProgressDialog();
-			showDateTimePicker();
+//			showDateTimePicker();
 //			showSelectListPopover();
 			
-//			showTextInputAlertDialog();
+			showTextInputAlertDialog();
 			
 //			setTimeout( dismissAllDialogs, 2000 );
 		}
@@ -169,8 +169,8 @@ package
 			}
 			
 			message( "showAlertDialog("+titleString+","+messageString+","+cancelLabel+","+otherLabels.join(",")+")");
-			Dialog.service.showAlertDialog( 0, titleString+"0", messageString, cancelLabel, otherLabels );
-			
+//			Dialog.service.showAlertDialog( 0, titleString+"0", messageString, cancelLabel, otherLabels );
+			Dialog.service.showAlertDialog( 0, titleString, messageString, cancelLabel, ["OK!"] );
 		
 //			var otherLabels:Array = ["1 Star", "2 Stars", "3 Stars", "4 Stars"];
 //			Dialog.service.showMultipleChoiceDialog(0, "How did you like the Coco Loco from Arcadia Breweing?", "",  otherLabels);
@@ -278,7 +278,7 @@ package
 		
 		private function showTextInputAlertDialog():void
 		{
-			Dialog.service.showTextInputAlertDialog( 1, "Add server", "Please add server url.", false, "Cancel", ["OK"] );
+			Dialog.service.showTextInputAlertDialog( 999, "Add server", "Please add server url.", false, "Cancel", ["OK"] );
 		}
 		
 		
