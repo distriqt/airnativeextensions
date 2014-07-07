@@ -43,9 +43,10 @@ package
 		/**
 		 * Class constructor 
 		 */	
-		public function TestApplication()
+		public function TestApplication( devKey:String = DEV_KEY )
 		{
 			super();
+			_devKey = devKey;
 			create();
 			init();
 		}
@@ -54,11 +55,12 @@ package
 		//
 		//	VARIABLES
 		//
-		
-		private var _text		: TextField;
-		
+
+		private var _devKey				: String;
+		private var _text				: TextField;
 		private var _autoStartEnabled 	: Boolean = false;
 		private var _displayMode		: String = ApplicationDisplayModes.NORMAL;
+		
 		
 		//
 		//	INITIALISATION
@@ -88,7 +90,7 @@ package
 		{
 			try
 			{
-				Application.init( DEV_KEY );
+				Application.init( _devKey );
 				
 				message( "Application Supported: "+ String(Application.isSupported) );
 				message( "Application Version: " + Application.service.version );
