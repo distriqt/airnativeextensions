@@ -203,7 +203,7 @@ package
 				var options:DeviceMotionOptions = new DeviceMotionOptions();
 				options.rate 		= SensorRate.SENSOR_DELAY_NORMAL;
 				options.algorithm 	= DeviceMotionOptions.ALGORITHM_NATIVE;
-				options.format 		= DeviceMotionOptions.FORMAT_QUATERNION;
+				options.format 		= DeviceMotionOptions.FORMAT_EULER;
 				
 				
 				message( "Algorithm supported: " + DeviceMotion.service.isAlgorithmSupported( options.algorithm, options.format ) );

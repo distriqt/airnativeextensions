@@ -3,6 +3,9 @@
 #ApplicationRater
 
 
+#DeviceMotion
+ - Brought iOS and Android Euler axis directions into alignment
+
 
 #Message
  - #Android: Added some additional checks on the send email parameters and documented supported html tags
