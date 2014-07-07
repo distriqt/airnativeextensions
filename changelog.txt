@@ -1,6 +1,9 @@
 
 
 #ApplicationRater
+ - #Android Added option to specify store (Amazon or Google)
+ - #iOS Removed depreciated NSData initWithBase64Encoding usage (Issue #159) 
+
 
 
 #DeviceMotion
