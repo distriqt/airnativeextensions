@@ -12,9 +12,8 @@
 				-->
 			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.distriqt.extension.mediaplayer</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public final   class  MediaPlayer</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">MediaPlayer  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> com.distriqt.extension.mediaplayer.base.ExtensionBaseImpl</td></tr></table><p></p><p></p><p></p>	
 	              <p>
-	 This class represents the mediaplayer extension.
-	 </p>
-	 
+	 This class represents the mediaplayer extension. This extension requires <b>AIR 4.0 +</b> 
+	              </p>
 	 
 	 
 	              <b>Initialising the extension</b>
@@ -123,6 +122,27 @@
 	 </p>
 	 
 	 
+	              <b>Android</b>
+	 
+	              <p>
+	 On Android some small manifest additions are required as below:
+	 </p>
+	 
+	              <div class="listing"><pre>
+&lt;android&gt;
+    &lt;manifestAdditions&gt;&lt;![CDATA[
+        &lt;manifest android:installLocation="auto" &gt;
+            &lt;uses-sdk android:minSdkVersion="14" android:targetSdkVersion="14" /&gt;
+            &lt;uses-permission android:name="android.permission.INTERNET"/&gt;
+                   
+            &lt;application android:hardwareAccelerated="true"&gt;
+            &lt;/application&gt;
+        &lt;/manifest&gt;
+    ]]&gt;&lt;/manifestAdditions&gt;
+&lt;/android&gt;
+     </pre></div>
+	 
+	 
 	 
 	              <b>Examples</b>
 	 
@@ -169,6 +189,7 @@
 		 Makes the media player occupy the entire screen area.</div></td><td class="summaryTableOwnerCol">MediaPlayer</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#stop()" class="signatureLink">stop</a>():Boolean</div><div class="summaryTableDescription">
 		 
 		 Stops the playback in the current media player.</div></td><td class="summaryTableOwnerCol">MediaPlayer</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONTROLS_EMBEDDED" class="signatureLink">CONTROLS_EMBEDDED</a> : String = controls:embedded<div class="summaryTableDescription">[static] 
+		 
 		 Controls for an embedded view are displayed.</div></td><td class="summaryTableOwnerCol">MediaPlayer</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONTROLS_FULLSCREEN" class="signatureLink">CONTROLS_FULLSCREEN</a> : String = controls:fullscreen<div class="summaryTableDescription">[static] 
 		 Controls for fullscreen playback are displayed.</div></td><td class="summaryTableOwnerCol">MediaPlayer</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CONTROLS_NONE" class="signatureLink">CONTROLS_NONE</a> : String = controls:none<div class="summaryTableDescription">[static] 
 		 No controls are displayed.</div></td><td class="summaryTableOwnerCol">MediaPlayer</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.MediaPlayer<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">MediaPlayer</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">MediaPlayer</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 1<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">MediaPlayer</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">MediaPlayer</td></tr></table></div><script language="javascript" type="text/javascript"><!--
@@ -290,7 +311,9 @@
 		 Stops the playback in the current media player.
 		 </p> 
 		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="CONTROLS_EMBEDDED"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONTROLS_EMBEDDED</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const CONTROLS_EMBEDDED:String = controls:embedded</code><p></p><p></p><p>
+		 <p>
 		 Controls for an embedded view are displayed. The controls include a start/pause button, a scrubber bar, and a button for toggling between fullscreen and embedded display modes.
+		 </p>
 		 </p></div><a name="constantDetail"></a><a name="CONTROLS_FULLSCREEN"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONTROLS_FULLSCREEN</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONTROLS_FULLSCREEN:String = controls:fullscreen</code><p></p><p></p><p>
 		 Controls for fullscreen playback are displayed. The controls include a start/pause button, a scrubber bar, forward and reverse seeking buttons, a button for toggling between fullscreen and embedded display modes, a button for toggling the aspect fill mode, and a Done button. Tapping the done button pauses the video and exits fullscreen mode.
 		 </p></div><a name="constantDetail"></a><a name="CONTROLS_NONE"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONTROLS_NONE</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CONTROLS_NONE:String = controls:none</code><p></p><p></p><p>
@@ -406,13 +429,9 @@
      {
          MediaPlayer.service.resize( 0, 0, stage.stageWidth, stage.stageHeight );
      }
-     
-     
-     
-     
      </pre></div>
 	 
 	 
 	 
 	 
-	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Fri Apr 4 2014, 04:50 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Fri Apr 4 2014, 04:50 PM +10:00  -->
+	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Mon Jul 7 2014, 10:48 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Mon Jul 7 2014, 10:48 PM +10:00  -->

@@ -20,13 +20,13 @@ package
 	import com.distriqt.extension.mediaplayer.events.MediaPlayerEvent;
 	import com.distriqt.extension.mediaplayer.events.MediaProgressEvent;
 	
-	import flash.desktop.NativeApplication;
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.filesystem.File;
+	import flash.geom.Rectangle;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	
@@ -59,6 +59,8 @@ package
 		
 		private var _text		: TextField;
 		
+		private var _view		: Rectangle = new Rectangle( 50, 50, 640, 360 );
+		
 		
 		//
 		//	INITIALISATION
@@ -85,7 +87,7 @@ package
 			//
 			//	This is just drawing a background to demo the autoscale option
 			graphics.beginFill( 0xFF0000 );
-			graphics.drawRect( 50, 50, 320, 180 );
+			graphics.drawRect( _view.x, _view.y, _view.width, _view.height );
 			graphics.endFill();
 		}
 		
@@ -106,6 +108,13 @@ package
 				MediaPlayer.service.addEventListener( MediaPlayerEvent.COMPLETE, 	mediaPlayer_completeHandler, false, 0, true );
 				MediaPlayer.service.addEventListener( MediaProgressEvent.PROGRESS,	mediaPlayer_progressHandler, false, 0, true );
 				MediaPlayer.service.addEventListener( MediaErrorEvent.ERROR, 		mediaPlayer_errorHandler, false, 0, true );
+
+				MediaPlayer.service.addEventListener( MediaPlayerEvent.PAUSED,				mediaPlayer_generalHandler, false, 0, true );
+				MediaPlayer.service.addEventListener( MediaPlayerEvent.PLAYING,				mediaPlayer_generalHandler, false, 0, true );
+				MediaPlayer.service.addEventListener( MediaPlayerEvent.SEEKING,				mediaPlayer_generalHandler, false, 0, true );
+				MediaPlayer.service.addEventListener( MediaPlayerEvent.STOPPED,				mediaPlayer_generalHandler, false, 0, true );
+				MediaPlayer.service.addEventListener( MediaPlayerEvent.FULLSCREEN_ENTER,	mediaPlayer_generalHandler, false, 0, true );
+				MediaPlayer.service.addEventListener( MediaPlayerEvent.FULLSCREEN_EXIT,		mediaPlayer_generalHandler, false, 0, true );
 				
 			}
 			catch (e:Error)
@@ -126,19 +135,23 @@ package
 			
 			//
 			//	RESIZE TEST
-//			MediaPlayer.service.resize( 30*Math.random(), 30*Math.random(), stage.stageWidth * Math.random(), stage.stageHeight * Math.random() );
+			MediaPlayer.service.resize( 30*Math.random(), 30*Math.random(), stage.stageWidth * Math.random(), stage.stageHeight * Math.random() );
 
 			
 			//
 			//	LOAD TEST
 //			var path:String = "assets/5.mp4";
 //			MediaPlayer.service.load( path );
-			
+
+//			MediaPlayer.service.setFullscreen( true );
 			
 			//
 			//	CREATE PLAYER
-			var path:String = File.applicationDirectory.nativePath + File.separator + "assets/big_buck_bunny.mp4";
-			MediaPlayer.service.createPlayer( path, 50, 50, 320, 180, false, MediaPlayer.CONTROLS_NONE ); 
+			
+			var path:String = File.applicationDirectory.nativePath + File.separator + "video" + File.separator + "big_buck_bunny.mp4";
+
+//			var path:String = "http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";
+			MediaPlayer.service.createPlayer( path, _view.x, _view.y, _view.width, _view.height, false, MediaPlayer.CONTROLS_FULLSCREEN ); 
 			
 		}
 		
@@ -189,8 +202,8 @@ package
 		
 		private function deactivateHandler( event:Event ):void
 		{
-			MediaPlayer.service.removeEventListener( MediaPlayerEvent.READY, mediaPlayer_readyHandler );
-			MediaPlayer.service.pause();
+//			MediaPlayer.service.removeEventListener( MediaPlayerEvent.READY, mediaPlayer_readyHandler );
+//			MediaPlayer.service.pause();
 		}
 		
 		
@@ -215,7 +228,7 @@ package
 			//
 			//	Play again?
 //			var path:String = File.applicationDirectory.nativePath + File.separator + "assets/big_buck_bunny.mp4";
-//			MediaPlayer.service.createPlayer( path, 50, 50, 320, 180, false, MediaPlayer.CONTROLS_NONE ); 
+//			MediaPlayer.service.createPlayer( path, _view.x, _view.y, _view.width, _view.height, false, MediaPlayer.CONTROLS_NONE ); 
 		}
 
 		
@@ -228,6 +241,11 @@ package
 		{
 			message( "error: "+ event.code + "::"+event.description );
 //			MediaPlayer.service.removePlayer();
+		}
+		
+		private function mediaPlayer_generalHandler( event:MediaPlayerEvent ):void
+		{
+			message( "event: " + event.type + " :: " + event.details );
 		}
 	}
 }

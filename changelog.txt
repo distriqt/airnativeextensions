@@ -1,14 +1,21 @@
 
-All
+
+#Dialog
+ - #Android Corrected resource conflict with duplicate xml resources
+ - #iOS Removed depreciated NSData initWithBase64Encoding usage (Issue #159) 
+
+#MediaPlayer
+ - #Android Corrected resource conflict with duplicate xml resources
  - #iOS Removed depreciated NSData initWithBase64Encoding usage (Issue #159) 
 
 
+All
+ - #iOS Removed depreciated NSData initWithBase64Encoding usage (Issue #159) 
 
 
 #ApplicationRater
  - #Android Added option to specify store (Amazon or Google)
  - #iOS Removed depreciated NSData initWithBase64Encoding usage (Issue #159) 
-
 
 
 #DeviceMotion

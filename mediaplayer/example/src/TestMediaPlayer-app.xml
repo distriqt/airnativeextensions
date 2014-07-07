@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/4.0">
+<application xmlns="http://ns.adobe.com/air/application/14.0">
 	<id>com.distriqt.test</id>
 	<filename>TestMediaPlayer</filename>
 	<name>TestMediaPlayer</name>
@@ -9,9 +9,8 @@
 		<content>[This value will be overwritten by Flash Builder in the output app.xml]</content>
 		<visible>true</visible>
 		<fullScreen>false</fullScreen>
-	    <autoOrients>false</autoOrients>
-	    <aspectRatio>portrait</aspectRatio>
-	    <renderMode>gpu</renderMode>
+	    <autoOrients>true</autoOrients>
+	    <!-- <aspectRatio>portrait</aspectRatio> -->
     </initialWindow>
 
 	<icon>
@@ -45,16 +44,18 @@
             ]]>
         </Entitlements>
     </iPhone>
-    <!--         <requestedDisplayResolution>high</requestedDisplayResolution>
-     -->
     
 	<android>
-        <manifestAdditions><![CDATA[
-			<manifest android:installLocation="auto">
-			    <uses-permission android:name="android.permission.INTERNET"/>
+		<manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto" >
+				<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="14" />
+				<uses-permission android:name="android.permission.INTERNET"/>
+				
+				<application android:hardwareAccelerated="true">
+				</application>
 			</manifest>
 		]]></manifestAdditions>
-    </android>
+	</android>
     
     <extensions>
         <extensionID>com.distriqt.MediaPlayer</extensionID>
