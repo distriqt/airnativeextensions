@@ -30,24 +30,22 @@
 
 	<android>
 	    <colorDepth>16bit</colorDepth>
-	    <manifestAdditions><![CDATA[
-            <manifest android:installLocation="auto" >
-                <uses-permission android:name="android.permission.INTERNET"/>
-			    <uses-permission android:name="android.permission.VIBRATE"/>
-                <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-                    
-	            <application> 
-	                <receiver android:name="com.distriqt.extension.notifications.NotificationsReceiver">
+		<manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto" >
+				<uses-permission android:name="android.permission.INTERNET"/>
+				                
+				<application> 
+					<receiver android:name="com.distriqt.extension.notifications.NotificationsReceiver">
 						<intent-filter>
 							<action android:name="air.com.distriqt.test.NOTIFICATION" />
 							<action android:name="air.com.distriqt.test.DELAYED_NOTIFICATION" />
 						</intent-filter>
 					</receiver>
-	            </application>
-	            
-            </manifest>
-            
-        ]]></manifestAdditions>
+				</application>
+				         
+			</manifest>
+			        
+		]]></manifestAdditions>
     </android>
     
 

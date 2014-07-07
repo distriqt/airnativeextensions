@@ -47,20 +47,26 @@ package
 		/**
 		 *  Constructor
 		 */
-		public function TestNotifications()
+		public function TestNotifications( devKey:String = DEV_KEY )
 		{
 			super();
+			_devKey = devKey;
 			create();
 			
 			try
 			{
-				Notifications.init( DEV_KEY );
+				Notifications.init( _devKey );
 				message( "Press to send a notification" );
 				message( String(Notifications.isSupported) );
 				message( Notifications.service.version );
 				
 				Notifications.service.addEventListener( NotificationEvent.NOTIFICATION_DISPLAYED, notifications_notificationDisplayedHandler, false, 0, true );
 				Notifications.service.addEventListener( NotificationEvent.NOTIFICATION_SELECTED,  notifications_notificationSelectedHandler,  false, 0, true );
+				Notifications.service.addEventListener( NotificationEvent.NOTIFICATION, notifications_notificationHandler, false, 0, true );
+				
+				//
+				// This will trigger the start up notification if the application was started from a delayed notification
+				Notifications.service.register();
 			}
 			catch (e:Error)
 			{
@@ -73,6 +79,7 @@ package
 		//	VARIABLES
 		//
 
+		private var _devKey		: String;
 		private var _text		: TextField;
 		private var _count		: int = 0;
 		
@@ -92,10 +99,10 @@ package
 			notification.body		= "Hello World!";
 //			notification.iconType	= NotificationIconType.DOCUMENT;
 			notification.count		= 0;
-			notification.vibrate	= false;
+			notification.vibrate	= true;
 			notification.playSound  = true;
 			notification.soundName  = "fx05.caf";
-			notification.delay		= 1;
+			notification.delay		= 10;
 			
 			// use Notifications.service.cancelAll() to cancel repeat notifications like the following:
 //			notification.repeatInterval = NotificationRepeatInterval.REPEAT_MINUTE;
@@ -120,6 +127,9 @@ package
 			{
 				message( "ERROR:"+e.message );
 			}
+			
+			
+			NativeApplication.nativeApplication.exit();
 			
 		}
 		
@@ -197,6 +207,13 @@ package
 			{
 			}
 		}
+		
+		
+		private function notifications_notificationHandler( event:NotificationEvent ):void
+		{
+			message( event.type + "::["+event.id+"]::"+event.data );
+		}
+		
 		
 		private function closeButton_clickHandler( event:MouseEvent ):void
 		{
