@@ -18,7 +18,9 @@ package
 	import com.distriqt.extension.calendar.Calendar;
 	import com.distriqt.extension.calendar.Recurrence;
 	import com.distriqt.extension.calendar.events.CalendarStatusEvent;
-	import com.distriqt.extension.calendar.objects.*;
+	import com.distriqt.extension.calendar.objects.CalendarObject;
+	import com.distriqt.extension.calendar.objects.EventAlarmObject;
+	import com.distriqt.extension.calendar.objects.EventObject;
 	
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
@@ -41,9 +43,10 @@ package
 		/**
 		 * Class constructor 
 		 */	
-		public function TestCalendar()
+		public function TestCalendar(devKey:String=DEV_KEY)
 		{
 			super();
+			_devKey = devKey;
 			create();
 			init();
 		}
@@ -52,6 +55,8 @@ package
 		//
 		//	VARIABLES
 		//
+		
+		private var _devKey		: String;
 		
 		private var _text		: TextField;
 		
@@ -80,7 +85,7 @@ package
 		{
 			try
 			{
-				Calendar.init( DEV_KEY );
+				Calendar.init( _devKey );
 				
 				Calendar.service.addEventListener( CalendarStatusEvent.ACCESS_GRANTED, calendar_accessGrantedHandler, false, 0, true );
 				Calendar.service.addEventListener( CalendarStatusEvent.ACCESS_DENIED,  calendar_accessDeniedHandler, false, 0, true );
@@ -150,8 +155,8 @@ package
 			//
 			//	ADD EVENT
 			message( "ADDING: "+e.startDateString + " :: " + e.title );
-//			Calendar.service.addEventWithUI( e );
-			Calendar.service.addEvent( e );
+			Calendar.service.addEventWithUI( e );
+//			Calendar.service.addEvent( e );
 			
 			
 			//
