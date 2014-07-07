@@ -24,6 +24,7 @@ All
 
 #Message
  - #Android: Added some additional checks on the send email parameters and documented supported html tags
+ - #iOS Removed depreciated NSData initWithBase64Encoding usage (Issue #159) 
 
 
 
