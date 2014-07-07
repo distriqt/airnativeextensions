@@ -1,4 +1,16 @@
 
+
+#ApplicationRater
+
+
+
+#Message
+ - #Android: Added some additional checks on the send email parameters and documented supported html tags
+
+
+
+
+
 #Camera
  - Added reporting of orientation of captured bitmap data object on CAPTURED_IMAGE event
  - Added a class to define possible orientation values
