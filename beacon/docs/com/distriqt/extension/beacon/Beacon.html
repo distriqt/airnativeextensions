@@ -194,10 +194,20 @@
 		 When the application is in the foreground, a region change detection can take ~ 1 second. 
 		 </p>
 		 
+		 <b>Multiple regions</b>
+		 
+		 <p>
+		 If you wish to monitor multiple regions simulataneously you must make sure that
+		 the <code>identifier</code> parameter is unique for each region as well as the 
+		 <code>uuid</code>! If you do not you will only receive updates for the last 
+		 region you started monitoring. The iOS SDK uses the identifier to determine 
+		 if the region is unique, and replaces any existing region monitoring if it 
+		 is the same.
+		 </p>
 		 
 		 
 		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">uuid</span>:String</code> &mdash; 		The UUID string for the region to start monitoring
-		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">identifier</span>:String</code> &mdash; An optional identifier string to associate with this region
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">identifier</span>:String</code> &mdash; An identifier string to associate with this region
 		 
 		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if monitoring was successfully started 
 		 
@@ -208,7 +218,7 @@
 		 
 		 
 		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">uuid</span>:String</code> &mdash; 		The UUID string for the region to stop monitoring
-		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">identifier</span>:String</code> &mdash; An optional identifier string to associate with this region
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">identifier</span>:String</code> &mdash; An identifier string to associate with this region
 		 
 		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if the region monitoring was stopped successfully
 		 
@@ -276,4 +286,4 @@
 	 
 	 
 	 
-	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Wed May 21 2014, 11:29 AM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Wed May 21 2014, 11:29 AM +10:00  -->
+	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Mon Jul 7 2014, 03:50 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Mon Jul 7 2014, 03:50 PM +10:00  -->

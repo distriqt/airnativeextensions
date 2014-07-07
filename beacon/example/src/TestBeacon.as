@@ -138,8 +138,8 @@ package
 			//
 			//	When the screen is clicked just toggle the monitoring state
 			//	
-			toggleRegionMonitoring( UUID_1 );
-			toggleRegionMonitoring( UUID_2 );
+			toggleRegionMonitoring( UUID_1, "region_1_identifier" );
+			toggleRegionMonitoring( UUID_2, "region_2_identifier" );
 			
 		}
 		
