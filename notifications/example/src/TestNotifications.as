@@ -83,6 +83,7 @@ package
 		private var _text		: TextField;
 		private var _count		: int = 0;
 		
+		private var _notificationId	: int;
 
 		////////////////////////////////////////////////////////
 		//	FUNCTIONALITY
@@ -91,9 +92,12 @@ package
 		
 		private function sendNotification():void
 		{
+			_notificationId = int(Math.random()*100);
+			
+			
 			var notification:Notification = new Notification();
 			
-			notification.id 		= int(Math.random()*100);
+			notification.id 		= _notificationId;
 			notification.tickerText = "Hello "+notification.id;
 			notification.title 		= "My Notification "+notification.id;
 			notification.body		= "Hello World!";
@@ -102,7 +106,7 @@ package
 			notification.vibrate	= true;
 			notification.playSound  = true;
 			notification.soundName  = "fx05.caf";
-			notification.delay		= 10;
+			notification.delay		= 60;
 			
 			// use Notifications.service.cancelAll() to cancel repeat notifications like the following:
 //			notification.repeatInterval = NotificationRepeatInterval.REPEAT_MINUTE;
@@ -121,7 +125,7 @@ package
 				
 				_count ++;
 				Notifications.service.setBadgeNumber( _count );
-				message( "sendNotification():sent:"+notification.id );
+				message( "sendNotification(): sent:"+notification.id );
 			}
 			catch (e:Error)
 			{
@@ -129,8 +133,24 @@ package
 			}
 			
 			
-			NativeApplication.nativeApplication.exit();
+//			NativeApplication.nativeApplication.exit();
 			
+		}
+		
+
+		private function cancelLastNotification():void
+		{
+			message( "cancelNotification(): cancel:"+_notificationId );
+			Notifications.service.cancel( _notificationId );
+			
+			
+		}
+		
+		
+		private function cancelAllNotifications():void
+		{
+			message( "cancelNotification(): cancelAll()" );
+			Notifications.service.cancelAll();
 		}
 		
 		
@@ -181,9 +201,30 @@ package
 		}
 		
 		
+		private var _state : int = 0;
 		private function mouseClickHandler( event:MouseEvent ):void
 		{
-			sendNotification();
+			switch (_state)
+			{
+				case 0:
+					sendNotification();
+					break;
+				
+				case 1: 
+					cancelLastNotification();
+					break;
+				
+				case 2:
+					sendNotification();
+					sendNotification();
+					break;
+				
+				case 3: 
+					cancelAllNotifications();
+					break;
+			}
+			_state ++;
+			if (_state >= 4) _state = 0;
 		}
 		
 		
