@@ -166,7 +166,7 @@ package
 			options.x_density = 1;
 			options.y_density = 1;
 			
-			options.symbologies = [ Symbology.QRCODE ];
+			options.symbologies = [ Symbology.QRCODE, Symbology.EAN13 ];
 			
 			options.refocusInterval = 0;
 			
@@ -224,7 +224,7 @@ package
 		
 		private function scanner_codeFoundHandler( event:ScannerEvent ):void
 		{
-			message( "code found: " + event.data );
+			message( "code found: " + event.data + "["+event.orientation+"] :: (" + event.bounds.toString() + ")"  );
 		}
 
 		
