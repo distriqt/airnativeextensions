@@ -151,9 +151,11 @@
 		 </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#uniqueId()" class="signatureLink">uniqueId</a>(type:String):String</div><div class="summaryTableDescription">
 		 
 		 Retrieves a unique device ID from the underlying platform.</div></td><td class="summaryTableOwnerCol">Adverts</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#ADVERTISING" class="signatureLink">ADVERTISING</a> : String = advertising<div class="summaryTableDescription">[static] 
-		 iOS
+		 Android
 		 
-		 On iOS this is the value of the ASIdentifierManager advertisingIdentifier property.</div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.Adverts<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VENDOR" class="signatureLink">VENDOR</a> : String = vendor<div class="summaryTableDescription">[static] 
+		 
+		 The ADVERTISING options returns the 
+		 Google Play Advertising ID.</div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EXT_CONTEXT_ID" class="signatureLink">EXT_CONTEXT_ID</a> : String = com.distriqt.Adverts<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#IMPLEMENTATION_DEFAULT" class="signatureLink">IMPLEMENTATION_DEFAULT</a> : String<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VENDOR" class="signatureLink">VENDOR</a> : String = vendor<div class="summaryTableDescription">[static] 
 		 Android
 		 
 		 On Android this is the value of the ANDROID_ID.</div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION" class="signatureLink">VERSION</a> : String = 2<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Adverts</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#VERSION_DEFAULT" class="signatureLink">VERSION_DEFAULT</a> : String = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">Adverts</td></tr></table></div><script language="javascript" type="text/javascript"><!--
@@ -243,15 +245,33 @@
 		 you can use in your application to identify a user's device.
 		 </p>
 		 
+		 <p>
+		 <b>Note</b> You must call initialise before attempting to 
+		 call this function.
+		 </p>
+		 
+		 
 		 <b>Android</b>
 		 
 		 <p> 
-		 On Android the function returns the Settings.Secure.ANDROID_ID.
+		 On Android there are now multiple ID's available.
+		 </p>
+		 <p>
+		 The ADVERTISING options now returns the 
+		 <a href="http://developer.android.com/google/play-services/id.html" target="">Google Play Advertising ID</a>.
+		 The advertising ID is a user-specific, unique, resettable ID for 
+		 advertising, provided by Google Play services. It gives users 
+		 better controls and provides developers with a simple, standard 
+		 system to continue to monetize your apps. It is an anonymous 
+		 identifier for advertising purposes and enables users to reset 
+		 their identifier or opt out of interest-based ads within Google
+		 Play apps.
+		 </p>
+		 <p>
+		 The VENDOR option returns the Settings.Secure.ANDROID_ID.
 		 A 64-bit number (as a hex string) that is randomly generated on the 
 		 device's first boot and should remain constant for the lifetime of 
 		 the device. 
-		 </p>
-		 <p>
 		 The value may change if a factory reset is performed on the device.
 		 </p> 
 		 
@@ -265,12 +285,30 @@
 		 
 		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">type</span>:String</code> (default = <code>NaN</code>)<code></code> &mdash; The type of id to retrieve. See the available types 
 		 					below. [default: VENDOR] 
-		 					(iOS only, Android always returns the ANDROID_ID)
 		 
 		 
-		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; A string with the requested unique device id
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; A string with the requested unique device id 
+		 			or "" if <code>initialisePlatform</code> hasn't 
+		 			been called successfully.
 		 
 		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="Adverts.html#ADVERTISING" target="">ADVERTISING</a><br/><a href="Adverts.html#VENDOR" target="">VENDOR</a></div></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="ADVERTISING"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">ADVERTISING</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const ADVERTISING:String = advertising</code><p></p><p></p><p>
+		 <b>Android</b>
+		 
+		 <p>
+		 The ADVERTISING options returns the 
+		 <a href="http://developer.android.com/google/play-services/id.html" target="">Google Play Advertising ID</a>.
+		 </p>
+		 <p>
+		 The advertising ID is a user-specific, unique, resettable ID for 
+		 advertising, provided by Google Play services. It gives users 
+		 better controls and provides developers with a simple, standard 
+		 system to continue to monetize your apps. It is an anonymous 
+		 identifier for advertising purposes and enables users to reset 
+		 their identifier or opt out of interest-based ads within Google
+		 Play apps.
+		 </p>
+		 
+		 
 		 <b>iOS</b>
 		 <p>
 		 On iOS this is the value of the ASIdentifierManager advertisingIdentifier property. 
@@ -317,4 +355,4 @@
 		 stores the value of this property anywhere, you should gracefully handle 
 		 situations where the identifier changes.
 		 </p>
-		 </p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 2</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Mon Jul 14 2014, 10:04 AM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Mon Jul 14 2014, 10:04 AM +10:00  -->
+		 </p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 2</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Tue Sep 16 2014, 01:52 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Tue Sep 16 2014, 01:52 PM +10:00  -->

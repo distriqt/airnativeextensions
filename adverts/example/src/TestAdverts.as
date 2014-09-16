@@ -42,18 +42,19 @@ package
 		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";
 		
 
-		public static const ADMOB_ACCOUNT_ID	: String = "YOUR_ADMOB_ACCOUNT_ID";
+		public static const ADMOB_AD_UNIT_ID	: String = "YOUR_ADMOB_ACCOUNT_ID";
 		public static const IAD_ACCOUNT_ID		: String = "";
 		
 		/**
 		 * Class constructor 
 		 */	
-		public function TestAdverts( devKey:String=DEV_KEY )
+		public function TestAdverts( devKey:String=DEV_KEY, adUnitId:String=ADMOB_AD_UNIT_ID )
 		{
 			super();
 			_devKey = devKey;
+			_adUnitId = adUnitId;
 			create();
-			init();
+			setTimeout( init, 2000 );
 		}
 		
 		
@@ -62,6 +63,7 @@ package
 		//
 		
 		private var _devKey			: String;
+		private var _adUnitId		: String;
 		private var _text			: TextField;
 		
 		
@@ -107,23 +109,16 @@ package
 					Adverts.service.addEventListener( AdvertEvent.USER_EVENT_LEAVE,			adverts_userLeaveHandler, false, 0, true );
 					Adverts.service.addEventListener( AdvertEvent.USER_EVENT_SHOW_AD, 		adverts_userShowAdHandler, false, 0, true );
 					
-					if (Adverts.service.isPlatformSupported( AdvertPlatform.PLATFORM_IAD ))
-//						if (Adverts.service.isPlatformSupported( AdvertPlatform.PLATFORM_ADMOB ))
+//					if (Adverts.service.isPlatformSupported( AdvertPlatform.PLATFORM_IAD ))
+					if (Adverts.service.isPlatformSupported( AdvertPlatform.PLATFORM_ADMOB ))
 					{
-						Adverts.service.initialisePlatform( AdvertPlatform.PLATFORM_IAD, IAD_ACCOUNT_ID );
-	//					Adverts.service.initialisePlatform( AdvertPlatform.PLATFORM_ADMOB, ADMOB_ACCOUNT_ID );
+//						Adverts.service.initialisePlatform( AdvertPlatform.PLATFORM_IAD, IAD_ACCOUNT_ID );
+						Adverts.service.initialisePlatform( AdvertPlatform.PLATFORM_ADMOB, _adUnitId );
 						
-						
-						var size:AdvertPosition = new AdvertPosition();
-						size.verticalAlign = AdvertPosition.ALIGN_BOTTOM;
-						size.horizontalAlign = AdvertPosition.ALIGN_RIGHT;
-	
-						message("Adverts.showAdvert(" + size.toString() + ")");
-						Adverts.service.showAdvert( size );
 					}
 					else
 					{
-						message( "iAd not supported" );
+						message( "Platform not supported" );
 					}
 				}
 				else
@@ -180,7 +175,7 @@ package
 			message( "adverts_errorHandler:: " + event.details.message );
 			//
 			//	If you wish you can force a reload attempt here by setting a delayed call to refreshAdvert
-			setTimeout( refresh, 10000 );
+			setTimeout( refresh, 10000 );	
 		}
 		
 		private function adverts_userDismissedHandler( event:AdvertEvent ):void
@@ -198,18 +193,47 @@ package
 			message( "adverts_userShowAdHandler" );
 		}
 		
+		private var _stage:int = 0;
 		
 		private function stage_clickHandler( event:MouseEvent ):void
 		{
-			try
+			if (Adverts.isSupported)
 			{
-				Adverts.service.hideAdvert();
-				setTimeout( refresh, 4000 );
+				try
+				{
+					switch(_stage)
+					{
+						case 0:
+						{
+							var size:AdvertPosition = new AdvertPosition();
+//							size.verticalAlign = AdvertPosition.ALIGN_BOTTOM;
+//							size.horizontalAlign = AdvertPosition.ALIGN_RIGHT;
+							
+							message("Adverts.showAdvert(" + size.toString() + ")");
+							Adverts.service.showAdvert( size );
+							break;
+						}
+							
+						case 1:
+						{
+							Adverts.service.refreshAdvert();
+//							setTimeout( refresh, 4000 );
+							break;
+						}
+							
+						case 2:
+						{
+							Adverts.service.hideAdvert();
+							break;
+						}
+					}
+				}
+				catch (e:Error)
+				{
+					message( "ERROR::"+e.message );
+				}
 			}
-			catch (e:Error)
-			{
-				message( "ERROR::"+e.message );
-			}
+			_stage ++; if (_stage > 2) _stage = 0;
 		}
 	}
 }
