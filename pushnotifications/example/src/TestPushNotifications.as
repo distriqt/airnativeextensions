@@ -81,7 +81,7 @@ package
 		private function message( str:String ):void
 		{
 			trace( str );
-			_messageField.appendText(str+"\n");
+			_messageField.appendText( str + "\n" );
 		}
 		
 		
@@ -118,10 +118,13 @@ package
 				message( "PN Supported: "+ String(PushNotifications.isSupported) );
 				message( "PN Version: " + PushNotifications.service.version );
 
-				PushNotifications.service.addEventListener( PushNotificationEvent.REGISTER_SUCCESS, pn_registerSuccessHandler );
-				PushNotifications.service.addEventListener( PushNotificationEvent.UNREGISTERED, 	pn_unregisterSuccessHandler );
-				PushNotifications.service.addEventListener( PushNotificationEvent.NOTIFICATION, 	pn_notificationHandler );
-				PushNotifications.service.addEventListener( PushNotificationEvent.ERROR,			pn_errorHandler );
+				PushNotifications.service.addEventListener( PushNotificationEvent.REGISTER_SUCCESS, 		pn_registerSuccessHandler );
+				PushNotifications.service.addEventListener( PushNotificationEvent.UNREGISTERED, 			pn_unregisterSuccessHandler );
+				PushNotifications.service.addEventListener( PushNotificationEvent.NOTIFICATION, 			pn_notificationHandler );
+				PushNotifications.service.addEventListener( PushNotificationEvent.BACKGROUND_NOTIFICATION, 	pn_backgroundNotificationHandler );
+				PushNotifications.service.addEventListener( PushNotificationEvent.FOREGROUND_NOTIFICATION, 	pn_foregroundNotificationHandler );
+				
+				PushNotifications.service.addEventListener( PushNotificationEvent.ERROR,					pn_errorHandler );
 				
 				PushNotifications.service.register( _gcmSenderId );
 			}
@@ -184,6 +187,16 @@ package
 			{
 				message( "ERROR::"+e.message );
 			}
+		}
+		
+		private function pn_foregroundNotificationHandler( event:PushNotificationEvent ):void
+		{
+			message( "FOREGROUND" );
+		}
+		
+		private function pn_backgroundNotificationHandler( event:PushNotificationEvent ):void
+		{
+			message( "BACKGROUND" );
 		}
 		
 		private function pn_errorHandler( event:PushNotificationEvent ):void
