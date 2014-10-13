@@ -74,6 +74,7 @@ package
 			var tf:TextFormat = new TextFormat();
 			tf.size = 24;
 			_text = new TextField();
+			_text.y = 40;
 			_text.defaultTextFormat = tf;
 			addChild( _text );
 
@@ -133,14 +134,15 @@ package
 		
 		private function mouseClickHandler( event:MouseEvent ):void
 		{
+//			stage.removeEventListener( MouseEvent.CLICK, mouseClickHandler );
+			
+			
 //			showAlertDialog();
 //			showMultipleChoiceDialog();
 //			showProgressDialog();
-//			showDateTimePicker();
+			showDateTimePicker();
 //			showSelectListPopover();
-			
-			showTextInputAlertDialog();
-			
+//			showTextInputAlertDialog();
 //			setTimeout( dismissAllDialogs, 2000 );
 		}
 		
@@ -231,19 +233,24 @@ package
 			dtOptions.day = 5;
 			dtOptions.hour = 10;
 			dtOptions.minute = 0;
+			dtOptions.cancelOnTouchOutside = true;
 			
-			dtOptions.title = "Select Date";
-			Dialog.service.showDatePicker( 1, dtOptions );
-			setTimeout( function():void {
-					Dialog.service.setDateTimePickerValue( 1, 2016, 2, 10, true );
-				}, 2000 );
+			
+//			Dialog.service.showDateTimePicker( 1, dtOptions );
+			
+//			dtOptions.title = "Select Date";
+//			Dialog.service.showDatePicker( 1, dtOptions );
+//			setTimeout( function():void {
+//					Dialog.service.setDateTimePickerValue( 1, 2016, 2, 10, true );
+//				}, 2000 );
+			
 //			setTimeout( function():void {
 //					Dialog.service.dismissDatePicker( 1 );
 //				}
 //				, 4000 );
 			
-//			dtOptions.title = "Select Time";
-//			Dialog.service.showTimePicker( 2, dtOptions );
+			dtOptions.title = "Select Time";
+			Dialog.service.showTimePicker( 2, dtOptions );
 //			setTimeout( function():void {
 //					Dialog.service.setDateTimePickerValue( 1, 2030, 2, 10 );
 //				}
