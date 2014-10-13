@@ -1,15 +1,7 @@
-         __       __               __ 
-    ____/ /_ ____/ /______ _ ___  / /_
-   / __  / / ___/ __/ ___/ / __ `/ __/
-  / /_/ / (__  ) / / /  / / /_/ / / 
-  \__,_/_/____/_/ /_/  /_/\__, /_/ 
-                            / / 
-                            \/ 
-  http://distriqt.com
+
 
 
 This extension was built by distriqt // 
-
 
 # Dialog
 
@@ -41,10 +33,17 @@ Dialog.service.showAlert( "Alert using distriqt Dialog ANE" );
 
 ## License
 
+You can purchase a license for using this extension:
+
+http://distriqt.com/product/dialog
+
+distriqt retains all copyright.
+
+
 ### Changelog
 
 2014.10.13
-- #iOS Update for iOS 8
+#iOS Update for iOS 8
 - #iOS Fixed compilation error 'ld: 21 duplicate symbols for architecture armv7' (resolves #119)
 - #iOS Updated toast and progress dialog to latest versions
 - #iOS Added cancelOnTouchOutside functionality to iPhone devices (resolves #88 & #208)
