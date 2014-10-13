@@ -42,9 +42,9 @@ distriqt retains all copyright.
 
 ### Changelog
 
-2014.10.13
-#iOS Update for iOS 8
-- #iOS Fixed compilation error 'ld: 21 duplicate symbols for architecture armv7' (resolves #119)
-- #iOS Updated toast and progress dialog to latest versions
-- #iOS Added cancelOnTouchOutside functionality to iPhone devices (resolves #88 & #208)
+###### 2014.10.13
+iOS Update for iOS 8
+- iOS: Fixed compilation error 'ld: 21 duplicate symbols for architecture armv7' (resolves #119)
+- iOS: Updated toast and progress dialog to latest versions
+- iOS: Added cancelOnTouchOutside functionality to iPhone devices (resolves #88 & #208)
 
