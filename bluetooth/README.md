@@ -14,6 +14,12 @@ This extension provides functionality to communicate using the Bluetooth interfa
 - Transmit any data you require as a ByteArray
 - Sample project code and ASDocs reference
 
+### Support
+
+This extension is supported on the following platforms: 
+
+- Android
+
 
 ## Documentation
 
