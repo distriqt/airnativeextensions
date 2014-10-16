@@ -43,9 +43,10 @@ package
 		/**
 		 * Class constructor 
 		 */	
-		public function TestBluetooth()
+		public function TestBluetooth( devKey:String = DEV_KEY )
 		{
 			super();
+			_devKey = devKey;
 			create();
 			init();
 		}
@@ -54,6 +55,8 @@ package
 		//
 		//	VARIABLES
 		//
+		
+		private var _devKey		: String;
 		
 		private var _text		: TextField;
 		
@@ -92,7 +95,7 @@ package
 		{
 			try
 			{
-				Bluetooth.init( DEV_KEY );
+				Bluetooth.init( _devKey );
 				
 				message( "Bluetooth Supported: " + Bluetooth.isSupported );
 				message( "Bluetooth Version:   " + Bluetooth.service.version );
