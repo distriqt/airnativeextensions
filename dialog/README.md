@@ -20,7 +20,7 @@ Features
 - Sample project code and ASDocs reference
 
 
-# Documentation
+## Documentation
 
 Online version of the latest ASDocs:
 
@@ -41,6 +41,11 @@ distriqt retains all copyright.
 
 
 ### Changelog
+
+###### 2014.10.18
+iOS Update for iOS 8
+- iOS: Corrected progress dialog rotation (resolves #225)
+
 
 ###### 2014.10.13
 iOS Update for iOS 8
