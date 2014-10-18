@@ -56,7 +56,6 @@ package
 			try
 			{
 				Notifications.init( _devKey );
-				message( "Press to send a notification" );
 				message( String(Notifications.isSupported) );
 				message( Notifications.service.version );
 				
@@ -66,7 +65,12 @@ package
 				
 				//
 				// This will trigger the start up notification if the application was started from a delayed notification
+				message( "Registering for notifications" );
 				Notifications.service.register();
+			
+			
+				message( "Press to send a notification" );
+				
 			}
 			catch (e:Error)
 			{
@@ -106,7 +110,7 @@ package
 			notification.vibrate	= true;
 			notification.playSound  = true;
 			notification.soundName  = "fx05.caf";
-			notification.delay		= 60;
+			notification.delay		= 5;
 			
 			// use Notifications.service.cancelAll() to cancel repeat notifications like the following:
 //			notification.repeatInterval = NotificationRepeatInterval.REPEAT_MINUTE;
@@ -123,8 +127,8 @@ package
 			{
 				Notifications.service.notify( notification.id, notification );
 				
-				_count ++;
-				Notifications.service.setBadgeNumber( _count );
+//				_count ++;
+//				Notifications.service.setBadgeNumber( _count );
 				message( "sendNotification(): sent:"+notification.id );
 			}
 			catch (e:Error)
@@ -171,6 +175,7 @@ package
 			_text.defaultTextFormat = tf;
 			_text.width = 480;
 			_text.height = 800;
+			_text.y = 40;
 			_text.selectable = false;
 			addChild( _text );
 			
@@ -186,7 +191,7 @@ package
 		private function message( m:String ):void
 		{
 			trace( m );
-			_text.appendText( m + "\n" );
+			_text.text = m + "\n" + _text.text;
 		}
 		
 		

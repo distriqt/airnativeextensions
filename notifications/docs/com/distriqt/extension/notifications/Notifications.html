@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="Notifications,com.distriqt.extension.notifications.Notifications,APPLICATION,CALENDAR,DOCUMENT,ERROR,EXT_CONTEXT_ID,FLAG,IMPLEMENTATION_DEFAULT,MAIL,PREFERENCES,REPEAT_DAY,REPEAT_HOUR,REPEAT_MINUTE,REPEAT_MONTH,REPEAT_NONE,REPEAT_QUARTER,REPEAT_SECOND,REPEAT_WEEKDAY,REPEAT_YEAR,STAR,VERSION,VERSION_DEFAULT,alertAction,body,count,data,delay,flags,iconType,id,isSupported,playSound,repeatInterval,service,soundName,tickerText,title,version,vibrate,cancel,cancelAll,init,notify,register,setBadgeNumber,unregister"><title>com.distriqt.extension.notifications.Notifications</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="Notifications,com.distriqt.extension.notifications.Notifications,APPLICATION,CALENDAR,DOCUMENT,ERROR,EXT_CONTEXT_ID,FLAG,IMPLEMENTATION_DEFAULT,MAIL,PREFERENCES,REPEAT_DAY,REPEAT_HOUR,REPEAT_MINUTE,REPEAT_MONTH,REPEAT_NONE,REPEAT_QUARTER,REPEAT_SECOND,REPEAT_WEEKDAY,REPEAT_YEAR,STAR,VERSION,VERSION_DEFAULT,alertAction,body,count,data,delay,flags,iconType,id,isSupported,playSound,repeatInterval,service,soundName,tickerText,title,version,vibrate,cancel,cancelAll,init,isRegisteredForNotifications,notify,register,setBadgeNumber,unregister"><title>com.distriqt.extension.notifications.Notifications</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
 				asdocTitle = 'Notifications - distriqt // Notifications';
 				var baseRef = '../../../../';
 				window.onload = configPage;
@@ -112,7 +112,9 @@
 		 Cancel a previously shown notification.</div></td><td class="summaryTableOwnerCol">Notifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#cancelAll()" class="signatureLink">cancelAll</a>():void</div><div class="summaryTableDescription">
 		 
 		 Cancel all previously shown notifications.</div></td><td class="summaryTableOwnerCol">Notifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#init()" class="signatureLink">init</a>(developerKey:String):void</div><div class="summaryTableDescription">[static] 
-		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">Notifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#notify()" class="signatureLink">notify</a>(id:int, notification:<a href="../../../../com/distriqt/extension/notifications/Notification.html">Notification</a>):void</div><div class="summaryTableDescription">
+		 Initialises the extension class for use with the provided developer key.</div></td><td class="summaryTableOwnerCol">Notifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isRegisteredForNotifications()" class="signatureLink">isRegisteredForNotifications</a>():Boolean</div><div class="summaryTableDescription">
+		 
+		 This function is applicable to iOS version 8.0 or higher.</div></td><td class="summaryTableOwnerCol">Notifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#notify()" class="signatureLink">notify</a>(id:int, notification:<a href="../../../../com/distriqt/extension/notifications/Notification.html">Notification</a>):void</div><div class="summaryTableDescription">
 		 
 		 Post a notification to be shown in the status bar.</div></td><td class="summaryTableOwnerCol">Notifications</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#register()" class="signatureLink">register</a>():void</div><div class="summaryTableDescription">
 		 
@@ -133,7 +135,9 @@
 		  Constructor
 		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="cancel()"></a><a name="cancel(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">cancel</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function cancel(id:int):void</code><p></p><p></p><p>
 		 <p>
-		 Cancel a previously shown notification. If it's transient, the view will be hidden. If it's persistent, it will be removed from the status bar.
+		 Cancel a previously shown notification. If it's transient, the view will be hidden. 
+		 If it's persistent, it will be removed from the status bar. If it has been scheduled
+		 to be displayed at a delayed interval, it will be removed.
 		 </p>
 		 
 		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">id</span>:int</code> &mdash; The id of the notification
@@ -141,15 +145,25 @@
 		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="Notifications.html#cancelAll" target="">cancelAll</a></div></div><a name="cancelAll()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">cancelAll</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function cancelAll():void</code><p></p><p></p><p>
 		 <p>
 		 Cancel all previously shown notifications. 
-		 </p>
-		 
-		 <p>
-		 <b>Note</b>: Currently this is not implemented on Android.
+		 This also cancels all delayed or scheduled notifications.
 		 </p>
 		 
 		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="Notifications.html#cancel" target="">cancel</a></div></div><a name="init()"></a><a name="init(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function init(developerKey:String):void</code><p></p><p></p><p>
 		 Initialises the extension class for use with the provided developer key.
-		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p></div><a name="notify()"></a><a name="notify(int,com.distriqt.extension.notifications.Notification)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">notify</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function notify(id:int, notification:<a href="../../../../com/distriqt/extension/notifications/Notification.html">Notification</a>):void</code><p></p><p></p><p>
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">developerKey</span>:String</code></td></tr></table></p></div><a name="isRegisteredForNotifications()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isRegisteredForNotifications</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function isRegisteredForNotifications():Boolean</code><p></p><p></p><p>
+		 <p>
+		 This function is applicable to iOS version 8.0 or higher. This 
+		 returns true only if the user has allowed your application to 
+		 display local notifications.
+		 </p>
+		 
+		 <p>
+		 All other platforms will return true.
+		 </p>
+		 
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; true if you are permitted to display notifications and false otherwise.
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso">register()</div></div><a name="notify()"></a><a name="notify(int,com.distriqt.extension.notifications.Notification)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">notify</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function notify(id:int, notification:<a href="../../../../com/distriqt/extension/notifications/Notification.html">Notification</a>):void</code><p></p><p></p><p>
 		 <p>
 		 Post a notification to be shown in the status bar. 
 		 </p>
@@ -172,7 +186,15 @@
 		 prior to calling this function.
 		 </p>
 		 
-		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="../../../../com/distriqt/extension/notifications/events/NotificationEvent.html" target="">com.distriqt.extension.notifications.events.NotificationEvent</a></div></div><a name="setBadgeNumber()"></a><a name="setBadgeNumber(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setBadgeNumber</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setBadgeNumber(number:int):void</code><p></p><p></p><p>
+		 <p>
+		 From iOS 8, calling this function also performs the necessary 
+		 registration for notifications permission, which may display a
+		 popup dialog requesting permission from the user to 
+		 display notifications.
+		 </p>
+		 
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso">isRegisteredForNotifications()<br/><a href="../../../../com/distriqt/extension/notifications/events/NotificationEvent.html" target="">com.distriqt.extension.notifications.events.NotificationEvent</a></div></div><a name="setBadgeNumber()"></a><a name="setBadgeNumber(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">setBadgeNumber</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function setBadgeNumber(number:int):void</code><p></p><p></p><p>
 		 Sets the badge number for the application icon
 		 
 		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">number</span>:int</code> &mdash; Badge number to set
@@ -180,4 +202,4 @@
 		 <p>
 		 Unregisters to receive notifications. 
 		 </p>
-		 </p></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.Notifications</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 1</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Tue Jul 22 2014, 09:37 AM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Tue Jul 22 2014, 09:37 AM +10:00  -->
+		 </p></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="EXT_CONTEXT_ID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EXT_CONTEXT_ID</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const EXT_CONTEXT_ID:String = com.distriqt.Notifications</code><p></p></div><a name="constantDetail"></a><a name="IMPLEMENTATION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">IMPLEMENTATION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const IMPLEMENTATION_DEFAULT:String</code><p></p></div><a name="constantDetail"></a><a name="VERSION"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION:String = 1</code><p></p></div><a name="constantDetail"></a><a name="VERSION_DEFAULT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">VERSION_DEFAULT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const VERSION_DEFAULT:String = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer>Copyright <a href="http://distriqt.com" target="_top">distriqt</a> 2012</footer><br/>Sat Oct 18 2014, 01:18 PM +10:00  </center></div></body></html><!--Copyright distriqt 2012<br/>Sat Oct 18 2014, 01:18 PM +10:00  -->
