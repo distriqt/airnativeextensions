@@ -54,7 +54,7 @@ package
 			_devKey = devKey;
 			_adUnitId = adUnitId;
 			create();
-			setTimeout( init, 2000 );
+			init();
 		}
 		
 		
@@ -109,16 +109,19 @@ package
 					Adverts.service.addEventListener( AdvertEvent.USER_EVENT_LEAVE,			adverts_userLeaveHandler, false, 0, true );
 					Adverts.service.addEventListener( AdvertEvent.USER_EVENT_SHOW_AD, 		adverts_userShowAdHandler, false, 0, true );
 					
-//					if (Adverts.service.isPlatformSupported( AdvertPlatform.PLATFORM_IAD ))
 					if (Adverts.service.isPlatformSupported( AdvertPlatform.PLATFORM_ADMOB ))
 					{
-//						Adverts.service.initialisePlatform( AdvertPlatform.PLATFORM_IAD, IAD_ACCOUNT_ID );
+						message( "Initialising ADMOB" );
 						Adverts.service.initialisePlatform( AdvertPlatform.PLATFORM_ADMOB, _adUnitId );
-						
+					}
+					else if (Adverts.service.isPlatformSupported( AdvertPlatform.PLATFORM_IAD ))
+					{
+						message( "Initialising iAD" );
+						Adverts.service.initialisePlatform( AdvertPlatform.PLATFORM_IAD, IAD_ACCOUNT_ID );
 					}
 					else
 					{
-						message( "Platform not supported" );
+						message( "No platform not supported" );
 					}
 				}
 				else
