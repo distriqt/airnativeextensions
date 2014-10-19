@@ -21,6 +21,8 @@ package
 	import com.distriqt.extension.scanner.Symbology;
 	import com.distriqt.extension.scanner.events.ScannerEvent;
 	
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
@@ -40,6 +42,10 @@ package
 	public class TestScanner extends Sprite
 	{
 		public static const DEV_KEY : String = "YOUR_DEVELOPER_KEY";		
+		
+		
+		[Embed(source="assets/distriqt-scanner-overlay-2.png")]
+		public var OverlayImage :Class;
 		
 		/**
 		 * Class constructor 
@@ -61,6 +67,7 @@ package
 		
 		private var _text		: TextField;
 		
+		private var _overlay	: Bitmap;
 		
 		//
 		//	INITIALISATION
@@ -76,12 +83,14 @@ package
 			_text = new TextField();
 			_text.defaultTextFormat = tf;
 			addChild( _text );
-
-			stage.addEventListener( Event.RESIZE, stage_resizeHandler, false, 0, true );
-			stage.addEventListener( MouseEvent.CLICK, mouseClickHandler, false, 0, true );
 			
-			addEventListener( Event.ACTIVATE, activateHandler, false, 0, true );
-			addEventListener( Event.DEACTIVATE, deactivateHandler, false, 0, true );
+			_overlay = new OverlayImage();
+			
+			stage.addEventListener( Event.RESIZE, 		stage_resizeHandler, false, 0, true );
+			stage.addEventListener( MouseEvent.CLICK, 	mouseClickHandler,	 false, 0, true );
+			
+			addEventListener( Event.ACTIVATE, 	activateHandler, 	false, 0, true );
+			addEventListener( Event.DEACTIVATE, deactivateHandler, 	false, 0, true );
 		}
 		
 		
@@ -156,9 +165,12 @@ package
 			
 			var options:ScannerOptions = new ScannerOptions();
 			options.singleResult = false;
-			options.heading = "Scan a barcode";
-//			options.message = "A big message";
+//			options.heading = "Scan a barcode";
+//			options.message = "A big message has to be good really really good";
 //			options.cancelLabel = "FINISH";
+			
+			options.overlay = _overlay.bitmapData;
+			options.overlayAutoScale = false;
 			
 			options.colour = 0x4863A0;
 			options.textColour = 0xFFFFFF;
@@ -169,6 +181,9 @@ package
 			options.symbologies = [ Symbology.QRCODE, Symbology.EAN13 ];
 			
 			options.refocusInterval = 0;
+			
+			options.camera    = ScannerOptions.CAMERA_REAR;
+			options.torchMode = ScannerOptions.TORCH_AUTO;
 			
 			var success:Boolean = Scanner.service.startScan( options );
 			
