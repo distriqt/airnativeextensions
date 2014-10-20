@@ -117,6 +117,8 @@ package
 		private function message( str:String ):void
 		{
 			trace( str );
+
+			if (_text.numLines > 100) _text.text = "";
 			_text.text = str+"\n" + _text.text;
 		}
 		
