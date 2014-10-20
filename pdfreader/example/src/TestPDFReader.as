@@ -132,7 +132,7 @@ package
 			
 			var path:String = File.applicationDirectory.nativePath + File.separator + "TestDocument.pdf";
 			
-			PDFReader.service.setToolbarOptions( false, false, false );
+			PDFReader.service.setToolbarOptions( true, true, true );
 			PDFReader.service.setEmailContent( "Test Subject", "Some simple content" );
 			PDFReader.service.showPDF( path );
 		}
