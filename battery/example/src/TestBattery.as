@@ -40,9 +40,10 @@ package
 		/**
 		 * Class constructor 
 		 */	
-		public function TestBattery()
+		public function TestBattery( devKey:String = DEV_KEY )
 		{
 			super();
+			_devKey = devKey;
 			create();
 			init();
 		}
@@ -52,6 +53,7 @@ package
 		//	VARIABLES
 		//
 		
+		private var _devKey		: String;
 		private var _text		: TextField;
 		
 		
@@ -80,7 +82,7 @@ package
 		{
 			try
 			{
-				Battery.init( DEV_KEY );
+				Battery.init( _devKey );
 				
 				message( "Battery Supported: "+ String(Battery.isSupported) );
 				message( "Battery Version: " + Battery.service.version );
