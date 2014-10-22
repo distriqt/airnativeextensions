@@ -20,6 +20,7 @@ package
 	import com.distriqt.extension.application.Device;
 	import com.distriqt.extension.application.IOSStatusBarStyles;
 	import com.distriqt.extension.application.events.ApplicationEvent;
+	import com.distriqt.extension.application.events.ApplicationStateEvent;
 	
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
@@ -100,11 +101,12 @@ package
 				//
 				//	SET APPLICATION TO AUTOSTART
 				//
-				Application.service.addEventListener( ApplicationEvent.UI_NAVIGATION_CHANGED, application_uiNavigationChangedHandler, false, 0, true );
+				Application.service.addEventListener( ApplicationStateEvent.DEACTIVATE, application_deactivateHandler );
+				Application.service.addEventListener( ApplicationEvent.UI_NAVIGATION_CHANGED, application_uiNavigationChangedHandler );
 //				Application.service.setAutoStart( _autoStartEnabled );
 				
-//				Application.service.setStatusBarHidden( false );
-//				Application.service.setStatusBarStyle( IOSStatusBarStyles.IOS_STATUS_BAR_LIGHT );
+				Application.service.setStatusBarHidden( true );
+				Application.service.setStatusBarStyle( IOSStatusBarStyles.IOS_STATUS_BAR_LIGHT );
 				
 			}
 			catch (e:Error)
@@ -190,18 +192,36 @@ package
 		
 		
 		
-		//
-		//	NOTIFICATION HANDLERS
-		//
-		
 		private function activateHandler( event:Event ):void
 		{
-			trace( "activateHandler() ");
+			message( "AIR activate" );
 		}
+		
 		
 		private function deactivateHandler( event:Event ):void
 		{
-			trace( "deactivateHandler() ");
+			message( "AIR deactivate" );
+		}
+		
+		
+		//
+		//	EXTENSION HANDLERS
+		//
+		
+		private function application_deactivateHandler( event:ApplicationStateEvent ):void
+		{
+			message( "ANE deactivate: " + event.code );
+			
+			switch (event.code)
+			{
+				case ApplicationStateEvent.CODE_HOME:
+					// home button was pressed
+					break;
+				
+				case ApplicationStateEvent.CODE_LOCK:
+					// lock button was pressed
+					break;
+			}
 		}
 		
 		
