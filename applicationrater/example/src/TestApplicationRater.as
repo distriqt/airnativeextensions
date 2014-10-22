@@ -40,9 +40,10 @@ package
 		/**
 		 * Class constructor 
 		 */	
-		public function TestApplicationRater()
+		public function TestApplicationRater( devKey:String = DEV_KEY )
 		{
 			super();
+			_devKey = devKey;
 			create();
 			init();
 		}
@@ -51,6 +52,8 @@ package
 		//
 		//	VARIABLES
 		//
+		
+		private var _devKey		: String;
 		
 		private var _text		: TextField;
 		
@@ -82,7 +85,7 @@ package
 		{
 			try
 			{
-				ApplicationRater.init( DEV_KEY );
+				ApplicationRater.init( _devKey );
 				
 				message( "ApplicationRater Supported: "+ String(ApplicationRater.isSupported) );
 				message( "ApplicationRater Version: " + ApplicationRater.service.version );
