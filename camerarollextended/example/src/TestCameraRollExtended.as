@@ -135,13 +135,19 @@ package
 			//	
 			
 			var options:CameraRollExtendedBrowseOptions = new CameraRollExtendedBrowseOptions();
+//			options.maximumCount = 1;
+////			options.autoCloseOnCountReached = true;
+//			options.type = Asset.IMAGE;
+//			options.autoLoadBitmapData = true;
+//			options.autoLoadType = AssetRepresentation.THUMBNAIL;
+			
 			options.maximumCount = 1;
-//			options.autoCloseOnCountReached = true;
 			options.type = Asset.IMAGE;
+			options.autoCloseOnCountReached = true;
 			options.autoLoadBitmapData = true;
 			options.autoLoadType = AssetRepresentation.THUMBNAIL;
 			
-			CameraRollExtended.service.browseForAsset( options );
+			CameraRollExtended.service.browseForImage( options );
 			
 		}
 		
