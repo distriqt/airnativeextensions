@@ -15,6 +15,7 @@ package
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
@@ -125,7 +126,7 @@ package
 				
 				message( "isFocusSupported:        " + Camera.instance.isFocusSupported( CameraParameters.FOCUS_MODE_AUTO ) );
 				message( "isExposureSupported:     " + Camera.instance.isExposureSupported( CameraParameters.EXPOSURE_MODE_LOCKED ) );
-				message( "isWhiteBalanceSupported: " + Camera.instance.isWhiteBalanceSupported( CameraParameters.WHITE_BALANCE_MODE_AUTO ) );
+				message( "isWhiteBalanceSupported: " + Camera.instance.isWhiteBalanceSupported( CameraParameters.WHITE_BALANCE_MODE_CONTINUOUS ) );
 				
 				
 				
@@ -137,7 +138,8 @@ package
 					_options.frameBufferWidth = 800;
 					_options.frameBufferHeight = 600;
 					_options.cameraMode = new CameraMode( CameraMode.PRESET_LOW );
-
+					_options.prepareForCapture = false;
+					
 					
 					// List the available devices
 					message( "=============================== DEVICES ===================================" );
@@ -168,8 +170,7 @@ package
 //					}
 					
 					
-					
-					Camera.instance.addEventListener( CameraEvent.VIDEO_FRAME, camera_videoFrameHandler, false, 0, true );
+//					Camera.instance.addEventListener( CameraEvent.VIDEO_FRAME, camera_videoFrameHandler, false, 0, true );
 					Camera.instance.addEventListener( CameraDataEvent.CAPTURED_IMAGE, camera_capturedImageHandler, false, 0, true );
 					Camera.instance.addEventListener( CameraEvent.CAPTURE_ERROR, camera_captureErrorHandler, false, 0, true ); 
 					Camera.instance.addEventListener( CameraEvent.IMAGE_SAVE_COMPLETE, camera_imageSaveCompleteHandler, false, 0, true );
@@ -210,7 +211,7 @@ package
 //						message( "mode: "+mode.mode+" ["+mode.width+"x"+mode.height+"]" );
 //					}
 //					
-//					Camera.instance.setMode( new CameraMode( CameraMode.PRESET_PHOTO ));
+					Camera.instance.setMode( new CameraMode( CameraMode.PRESET_PHOTO ));
 				}
 				message( "===============================\n" );
 				_inited = true;
@@ -278,15 +279,26 @@ package
 		{
 			message( "click" );
 			_time = getTimer();
-			
-			Camera.instance.setFocusMode( CameraParameters.FOCUS_MODE_AUTO );
-			
+
 //			Camera.instance.removeEventListener( CameraEvent.VIDEO_FRAME, camera_videoFrameHandler );
 //			Camera.instance.setMode( new CameraMode( CameraMode.PRESET_PHOTO ));
 
-			var success:Boolean = Camera.instance.captureImage( true /* Change to true to save to camera roll */  );
+			
+//			Camera.instance.setFocusMode( CameraParameters.FOCUS_MODE_AUTO );
+//			Camera.instance.setWhiteBalanceMode( CameraParameters.WHITE_BALANCE_MODE_CONTINUOUS );
+//			Camera.instance.setExposureMode( CameraParameters.EXPOSURE_MODE_CONTINUOUS );
+//			Camera.instance.setFocusMode( CameraParameters.FOCUS_MODE_LOCKED );
+//			Camera.instance.setExposureMode( CameraParameters.EXPOSURE_MODE_LOCKED );
+			
+
+			var point:Point = new Point(0,0);
+			Camera.instance.setFocusPointOfInterest(point);
+			Camera.instance.setExposurePointOfInterest(point);
+			
+			
+			var success:Boolean = Camera.instance.captureImage( false, "jpeg", true );
 			message( "captureImage() = " + success );
-			_tick = setInterval( function():void { message( "tick" ); }, 200 );
+//			_tick = setInterval( function():void { message( "tick" ); }, 200 );
 		}
 		
 		
@@ -342,8 +354,8 @@ package
 		{
 			clearInterval( _tick );
 			
-			Camera.instance.setMode( new CameraMode( CameraMode.PRESET_HIGH ));
-			Camera.instance.addEventListener( CameraEvent.VIDEO_FRAME, camera_videoFrameHandler, false, 0, true );
+//			Camera.instance.setMode( new CameraMode( CameraMode.PRESET_HIGH ));
+//			Camera.instance.addEventListener( CameraEvent.VIDEO_FRAME, camera_videoFrameHandler, false, 0, true );
 
 			message( "capture complete: " + String(Math.floor(getTimer() - _time) / 1000) );
 			
