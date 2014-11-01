@@ -5,6 +5,8 @@ This extension was built by distriqt //
 
 # Push Notifications
 
+![](https://github.com/distriqt/airnativeextensions/raw/master/pushnotifications/images/pushnotifications_header.png)
+
 This extension enables the use of Push Notifications on your device using Apple Push Notification Service (APNS) on iOS and the Google Cloud Messaging (GCM) service on Android. The simple extension API will have you quickly up and running with remote notifications.
 
 Features
