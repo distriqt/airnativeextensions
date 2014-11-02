@@ -137,11 +137,11 @@ package
 			e.startDate.minutes = e.startDate.minutes + 6;
 			e.endDate.hours = e.endDate.hours+1;
 //			e.allDay = true;
-			e.calendarId = calendarId;
+//			e.calendarId = calendarId;
 			
-//			var a:EventAlarmObject = new EventAlarmObject();
-//			a.offset = -300;
-//			e.alarms.push( a );
+			var a:EventAlarmObject = new EventAlarmObject();
+			a.offset = -1;
+			e.alarms.push( a );
 
 //			var r:Recurrence = new Recurrence();
 //			r.endCount = 5;
