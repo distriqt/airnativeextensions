@@ -26,6 +26,7 @@ package
 	import flash.events.MouseEvent;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
+	import flash.utils.setTimeout;
 	
 	
 	/**	
@@ -89,8 +90,10 @@ package
 			{
 				Beacon.init( _devKey );
 				
-				message( "Beacon Supported: "+ String(Beacon.isSupported) );
-				message( "Beacon Version: " + Beacon.service.version );
+				message( "Beacon Supported:  " + Beacon.isSupported );
+				message( "Beacon Version:    " + Beacon.service.version );
+				
+				setTimeout( checkBluetoothState, 500 );
 				
 				//
 				//	Add test inits here
@@ -101,6 +104,8 @@ package
 				Beacon.service.addEventListener( BeaconEvent.REGION_EXIT, beacon_regionExitHandler, false, 0, true );
 				Beacon.service.addEventListener( BeaconEvent.BEACON_UPDATE, beacon_beaconUpdateHandler, false, 0, true );
 				
+				Beacon.service.addEventListener( BeaconEvent.BLUETOOTH_STATE_ENABLED, beacon_bluetoothStateChangedHandler, false, 0, true );
+				Beacon.service.addEventListener( BeaconEvent.BLUETOOTH_STATE_DISABLED, beacon_bluetoothStateChangedHandler, false, 0, true );
 				
 			}
 			catch (e:Error)
@@ -123,6 +128,12 @@ package
 		}
 		
 		
+		private function checkBluetoothState():void
+		{
+			message( "Bluetooth enabled: " + Beacon.service.isBluetoothEnabled() );
+		}
+		
+		
 		//
 		//	EVENT HANDLERS
 		//
@@ -137,11 +148,13 @@ package
 		
 		private function mouseClickHandler( event:MouseEvent ):void
 		{
+			checkBluetoothState();
+			
 			//
 			//	When the screen is clicked just toggle the monitoring state
 			//	
 			toggleRegionMonitoring( UUID_1, "region_1_identifier" );
-			toggleRegionMonitoring( UUID_2, "region_2_identifier" );
+//			toggleRegionMonitoring( UUID_2, "region_2_identifier" );
 			
 		}
 		
@@ -149,9 +162,19 @@ package
 		private function toggleRegionMonitoring( uuid:String, identifier:String = "" ):void
 		{
 			if (Beacon.service.isMonitoringRegionWithUUID( uuid ))
-				Beacon.service.stopMonitoringRegionWithUUID( uuid, identifier );
+			{
+				var stopped:Boolean = Beacon.service.stopMonitoringRegionWithUUID( uuid, identifier );
+				message( "Bluetooth monitoring stopped: "+stopped );
+			}
+			else if (Beacon.service.isBluetoothEnabled())
+			{
+				var started:Boolean = Beacon.service.startMonitoringRegionWithUUID( uuid, identifier );
+				message( "Bluetooth monitoring started: "+started );
+			}
 			else
-				Beacon.service.startMonitoringRegionWithUUID( uuid, identifier );
+			{
+				message( "Bluetooth not enabled" );
+			}
 		}
 		
 		
@@ -188,6 +211,11 @@ package
 			}
 		}
 		
+		
+		private function beacon_bluetoothStateChangedHandler( event:BeaconEvent ):void
+		{
+			message( "beacon_bluetoothStateChangedHandler( "+event.type +" )" );
+		}
 		
 	}
 }

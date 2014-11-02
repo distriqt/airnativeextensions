@@ -22,7 +22,7 @@ Online version of the latest ASDocs:
 http://docs.airnativeextensions.com/beacon/docs/
 
 ```actionscript
-Dialog.service.showAlert( "Alert using distriqt Dialog ANE" );
+Beacon.service.startMonitoringRegionWithUUID( "D57092AC-DFAA-446C-8EF3-C81AA22815B5", "region_identifier" );
 ```
 
 
@@ -33,12 +33,4 @@ You can purchase a license for using this extension:
 http://distriqt.com/product/beacon
 
 distriqt retains all copyright.
-
-
-### Changelog
-
-###### 2014.10.20
-iOS Update for iOS 8 + Performance increase
-- iOS: Checked and updated for iOS 8
-- Android+iOS: Improved update event parsing performance (resolves #241)
 
