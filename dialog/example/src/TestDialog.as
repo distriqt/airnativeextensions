@@ -233,10 +233,10 @@ package
 			dtOptions.day = 5;
 			dtOptions.hour = 10;
 			dtOptions.minute = 0;
-			dtOptions.cancelOnTouchOutside = true;
+			dtOptions.cancelOnTouchOutside = false;
 			
 			
-//			Dialog.service.showDateTimePicker( 1, dtOptions );
+			Dialog.service.showDateTimePicker( 1, dtOptions );
 			
 //			dtOptions.title = "Select Date";
 //			Dialog.service.showDatePicker( 1, dtOptions );
@@ -249,8 +249,8 @@ package
 //				}
 //				, 4000 );
 			
-			dtOptions.title = "Select Time";
-			Dialog.service.showTimePicker( 2, dtOptions );
+//			dtOptions.title = "Select Time";
+//			Dialog.service.showTimePicker( 2, dtOptions );
 //			setTimeout( function():void {
 //					Dialog.service.setDateTimePickerValue( 1, 2030, 2, 10 );
 //				}
