@@ -136,7 +136,6 @@ package
 		{
 //			stage.removeEventListener( MouseEvent.CLICK, mouseClickHandler );
 			
-			
 //			showAlertDialog();
 //			showMultipleChoiceDialog();
 //			showProgressDialog();

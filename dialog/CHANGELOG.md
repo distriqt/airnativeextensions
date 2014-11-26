@@ -1,5 +1,10 @@
 
 
+###### 2014.11.26
+
+Changed version check for iOS 8.0 orientations #256
+
+
 ###### 2014.11.21
 
 Added CHANGELOG
